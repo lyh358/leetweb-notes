@@ -17,6 +17,12 @@
       "name": "智慧蜂箱",
       "parent": "ms4yguen6i2y",
       "created": 1785261301763
+    },
+    {
+      "id": "ms4yilv86295",
+      "name": "昇腾部署",
+      "parent": "ms4yguen6i2y",
+      "created": 1785261355316
     }
   ],
   "notes": [

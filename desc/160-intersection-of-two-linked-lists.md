@@ -1,25 +1,36 @@
-# LeetCode 160 - 相交链表（Intersection of Two Linked Lists）
+### 参考代码：哈希表法
 
-> **标签**：链表、双指针、哈希表  
-> **难度**：简单  
-> **核心考点**：双指针找交点、链表长度差
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        unordered_set<ListNode*> uset;
+        ListNode *cur = headA;
 
----
+        // 遍历链表 A，把所有节点存入哈希表
+        while (cur != nullptr) {
+            uset.insert(cur);
+            cur = cur->next;
+        }
 
-## 一、题目描述
+        // 遍历链表 B，找第一个在哈希表中的节点
+        cur = headB;
+        while (cur != nullptr) {
+            if (uset.count(cur)) {   // 为什么用 count 不用 find？
+                return cur;
+            }
+            cur = cur->next;
+        }
 
-给你两个单链表的头节点 `headA` 和 `headB`，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 `null`。
-
-**注意**：
-- 函数返回结果后，链表必须**保持其原始结构**
-- 可以假定整个链表结构中没有循环
-
-**示例**：
+        return nullptr;
+    }
+};
 ```
-输入: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
-输出: 相交节点值为 8 的节点
-解释: 链表 A 的前两个节点是 4→1，链表 B 的前三个节点是 5→6→1，
-     从 8 开始两个链表共享后面的 8→4→5
-```
-
----

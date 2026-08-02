@@ -1,4 +1,3 @@
-
 # 穿针引线法：
 
 ==先创建假头节点==`ListNode *dummy = new ListNode(-1);`

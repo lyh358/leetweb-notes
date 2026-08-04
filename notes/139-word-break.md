@@ -375,8 +375,8 @@ unordered_set<string> dict(
 
 把数组转换成哈希表。
 
-
-## C++ STL 范围构造（Range Constructor）
+````md
+# C++ STL 范围构造（Range Constructor）
 
 ## 基本写法
 

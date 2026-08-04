@@ -77,7 +77,7 @@ public:
     }
 };
 ```
-另一种普通方法
+另一种普通方法记录d
 ```
 class Solution {
 public:

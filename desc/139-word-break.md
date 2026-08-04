@@ -15,7 +15,7 @@
 输入: s = "applepenapple", wordDict = ["apple", "pen"]
 输出: true
 解释: 返回 true 因为 "applepenapple" 可以由 "apple" "pen" "apple" 拼接成。
-_
+
 注意，你可以重复使用字典中的单词。_
 
 **示例 3：**

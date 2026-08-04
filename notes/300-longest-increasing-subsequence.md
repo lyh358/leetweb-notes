@@ -77,7 +77,7 @@ public:
     }
 };
 ```
-另一种普通方法记录dp[i]的最大值
+**另一种普通方法记录dp[i]的最大值**
 ```
 class Solution {
 public:

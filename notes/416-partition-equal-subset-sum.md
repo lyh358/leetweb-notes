@@ -88,7 +88,6 @@ for (int j = target; j >= num; j--)
 
 ## C++ 代码
 
-```cpp
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {

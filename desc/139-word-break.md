@@ -18,7 +18,7 @@
 
 注意，你可以重复使用字典中的单词。
 
-示例 3：
+**示例 3：**
 输入: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
 输出: false
  

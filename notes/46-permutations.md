@@ -1,164 +1,281 @@
-# 核心方法：DFS+回溯
+# 🌲 回溯算法入门笔记 —— 以力扣 46. 全排列为例（C++）
 
-## 主要思路：把数组切成两半
-
-```plain
-output = [已确定的部分 | 待排列的部分]
-          ↑first           ↑first到len-1
-```
-
-- `first`：分界线，左边是已经填好的位置
-- `first`到`len-1`：还没填，需要枚举所有可能
-
-# part1:DFS回溯函数
-
-## (1) DFS回溯函数有四个形参：
-
-- #### 二维动态数组res：用来储存最终的组合结果
-
-- #### 一维动态数组output：用于组合每一个数字排列
-
-- #### first：用于切割output中的已排列部份和未排列部分first到len-1
-
-- #### len：输入的待排列数组的长度
-
-```c++
-void DFS_Traceback(vector<vector<int>>& res, vector<int>& output,int first,int len)
-{
-    
-}
-```
+> 作者：Kimi Chat  
+> 日期：2026-08-06  
+> 适用：算法初学者、准备面试的同学
 
 ---
 
-## (2) 递归结束条件：first与len重合，即所有数都已经被排列过
+## 📌 一、题目：LeetCode 46. 全排列
 
-- #### 此时将当前的output存入res中并返回到上一层
+**题目链接**：[46. 全排列](https://leetcode.cn/problems/permutations/)
 
-```c++
-void DFS_Traceback(vector<vector<int>>& res, vector<int>& output,int first,int len)
-{
-    if(first==len)
-    {
-        res.push_back(output);
+**题目描述**：给定一个不含重复数字的数组 `nums`，返回其所有可能的全排列。你可以按任意顺序返回答案。
+
+**示例**：
+
+```
+输入: nums = [1, 2, 3]
+输出:
+[
+  [1,2,3], [1,3,2],
+  [2,1,3], [2,3,1],
+  [3,1,2], [3,2,1]
+]
+```
+
+**约束**：
+- `1 <= nums.length <= 6`
+- `-10 <= nums[i] <= 10`
+- `nums` 中所有整数**互不相同**
+
+---
+
+## 🧠 二、什么是回溯算法？
+
+回溯（Backtracking）本质上是一种**深度优先搜索（DFS）+ 剪枝**的策略。
+
+> **核心思想**：在问题的解空间树中，从根节点出发，深度优先地搜索解。当发现当前路径不可能得到解时，就**回退**到上一步，尝试其他分支。
+
+用一句话概括就是：
+
+> **"走不通就掉头，选错了就撤销"**
+
+### 回溯算法解决的三类经典问题
+
+| 问题类型 | 代表题目 | 核心特征 |
+|---------|---------|---------|
+| **组合** | LeetCode 77. 组合 | 无序选取，不讲究顺序 |
+| **排列** | LeetCode 46. 全排列 | 有序选取，顺序不同算不同解 |
+| **子集** | LeetCode 78. 子集 | 所有可能的子集/子序列 |
+
+---
+
+## 📝 三、回溯算法的通用模板（C++）
+
+```cpp
+void backtracking(参数) {
+    // 1. 终止条件：找到满足条件的一个解
+    if (满足终止条件) {
+        收集结果;
         return;
     }
-}
-```
 
----
-
-## (3) DFS主流程
-
-- ### 循环递归+回溯
-
----
-
-### 以nums=[1，2，3]为例：first最开始为0
-
-### for(int i = first;i<len;i++)：
-
-- ### 第一层循环，就是把[1,X,X]全排列一遍
-
-  - #### 每一层中先进行一次output[i]和output[first]的交换，探索新组合==（swap）==
-
-  - #### 每一层内部的==递归==就是保持头不变，交换后面的数==（通过传入first+1实现）==
-
-  - #### ==回溯==：再进行一次output[i]和output[first]的交换，恢复到原状态，以便于进行下一轮循环
-
-- ### 第二层循环，就是把[2,X,X]全排列一遍
-
-- ### 第三层循环，就是把[3,X,X]全排列一遍
-
-----
-
-### 循环结束：所有组合都已存入res中
-
-```c++
-void DFS_Traceback(vector<vector<int>>& res, vector<int>& output,int first,int len)
-{
-    //递归结束条件
-    if(first==len)
-    {
-        res.push_back(output);
-        return;
-    }
-    //DFS主流程
-    for(int i = first;i<len;i++)
-    {
-        swap(output[i],output[first]);
-        DFS_Traceback(res, output, first+1, len);
+    // 2. 遍历所有可选元素
+    for (选择 : 本层集合中元素) {
+        处理节点;          // 做出选择
+        backtracking(路径); // 递归进入下一层
+        回溯，撤销处理结果;  // 撤销选择，恢复现场
     }
 }
 ```
 
----
+**关键口诀**：**"选、探、撤"**
 
-
-
-# part2：主函数
-
-- ### 初始化res数组
-
-- ### 调用DFS回溯函数
-
-  - #### 传入res
-
-  - #### 传入题目中给的数组nums作为output
-
-  - #### 传入first=0
-
-  - #### 传入len=nums.size()
-
-- ### 返回res结果
-
-```c++
- vector<vector<int>> permute(vector<int>& nums) 
- {
-     	//初始化res数组
-        vector<vector<int> > res;
-     	//调用DFS回溯函数
-        backtrack(res, nums, 0, (int)nums.size());
-     	//返回res结果
-        return res;
-  }
-```
+1. **选** —— 选择当前节点
+2. **探** —— 递归深入探索
+3. **撤** —— 撤销选择，恢复现场
 
 ---
 
+## 💻 四、全排列的两种实现方式
 
+### 方法一：used 标记数组法（最直观，推荐入门）
 
-# 完整代码
+**思路**：用一个 `used[]` 数组标记每个数字是否已被选入当前排列。每次从头遍历 `nums`，跳过已使用的数字。
 
-```c++
+```cpp
 class Solution {
 public:
-    //part1:DFS函数
-    void backtrack(vector<vector<int>>& res, vector<int>& output, int first, int len){
-        // 所有数都填完了
-        if (first == len) 
-        {
-            res.push_back(output);
+    vector<vector<int>> result; // 存储所有排列
+    vector<int> path;           // 当前正在构造的排列
+    vector<bool> used;          // 标记数组
+
+    void backtracking(vector<int>& nums) {
+        // 终止条件：当前排列长度等于原数组长度
+        if (path.size() == nums.size()) {
+            result.push_back(path); // 找到一个完整排列，加入结果
             return;
         }
-        for (int i = first; i < len; ++i) 
-        {
-            // 动态维护数组
-            swap(output[i], output[first]);
-            // 继续递归填下一个数
-            backtrack(res, output, first + 1, len);
-            // 撤销操作
-            swap(output[i], output[first]);
+
+        // 遍历所有可选数字（每次从头开始）
+        for (int i = 0; i < nums.size(); i++) {
+            if (used[i]) continue;  // 已使用，跳过
+
+            // 做出选择
+            used[i] = true;
+            path.push_back(nums[i]);
+
+            // 递归进入下一层
+            backtracking(nums);
+
+            // 撤销选择（回溯）
+            path.pop_back();
+            used[i] = false;
         }
     }
-    
-    //part2:主函数
-    vector<vector<int>> permute(vector<int>& nums) 
-    {
-        vector<vector<int> > res;
-        backtrack(res, nums, 0, (int)nums.size());
-        return res;
+
+    vector<vector<int>> permute(vector<int>& nums) {
+        result.clear();
+        path.clear();
+        used.assign(nums.size(), false);
+        backtracking(nums);
+        return result;
     }
 };
 ```
 
+> **为什么排列问题要从 0 开始遍历？**
+> 
+> 因为排列是**顺序相关**的。元素 1 在 `[1,2]` 中已使用过了，但是在 `[2,1]` 中还要再使用一次 1。所以每次都要从头搜索，用 `used[]` 来确保**同一个排列中不重复使用**。
+
+---
+
+### 方法二：交换法（原地回溯，空间更优）
+
+**思路**：将数组分为「已固定前缀」和「待交换后缀」。通过交换把不同元素放到当前位置，递归处理下一个位置，最后交换回来恢复原状。
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> result;
+
+    void backtrack(vector<int>& nums, int start) {
+        // 所有位置都固定好了，得到一个完整排列
+        if (start == nums.size()) {
+            result.push_back(nums);
+            return;
+        }
+
+        // 将 nums[start] 与后面每个元素交换，尝试所有可能
+        for (int i = start; i < nums.size(); i++) {
+            swap(nums[start], nums[i]);  // 做出选择
+            backtrack(nums, start + 1);  // 递归处理下一个位置
+            swap(nums[start], nums[i]);  // 撤销选择（恢复现场）
+        }
+    }
+
+    vector<vector<int>> permute(vector<int>& nums) {
+        backtrack(nums, 0);
+        return result;
+    }
+};
+```
+
+### 两种方法对比
+
+| 对比维度 | used 标记数组法 | 交换法 |
+|---------|---------------|--------|
+| 额外空间 | O(n) 的 used 数组 | O(1) 额外空间 |
+| 理解难度 | ⭐ 直观，易理解 | ⭐⭐ 稍抽象，需理解"前缀固定"思想 |
+| 适用场景 | 通用，含重复元素时好扩展 | 元素不重复时简洁高效 |
+| 代码行数 | 较多 | 较少 |
+
+---
+
+## 🌳 五、递归树可视化（以 [1,2,3] 为例）
+
+```
+                    []
+                   / | \
+                 1   2   3      ← 第1层：选第一个数
+                /|   |\   |\
+              2  3  1  3  1  2   ← 第2层：选第二个数（跳过已选）
+              |  |  |  |  |  |
+              3  2  3  1  2  1   ← 第3层：只剩一个数
+              ↓  ↓  ↓  ↓  ↓  ↓
+            [1,2,3] [1,3,2] [2,1,3] [2,3,1] [3,1,2] [3,2,1]
+```
+
+### 回溯过程演示（以 `[1,2,3]` 为例）
+
+1. 选 1 → 选 2 → 选 3 → 得到 `[1,2,3]` ✅
+2. **回溯**：撤销选 3，但 2 后面无其他选择 → 回溯到选 2，撤销选 2
+3. 选 1 → 选 3 → 选 2 → 得到 `[1,3,2]` ✅
+4. **回溯**：撤销选 3 → 选 2 → …… 以此类推
+
+---
+
+## ⚠️ 六、常见易错点
+
+| 坑点 | 说明 | 正确做法 |
+|-----|------|---------|
+| **忘记回溯** | 递归后没有撤销选择 | 必须在递归调用后 `pop_back()` 或 `swap` 回来 |
+| **加入引用而非拷贝** | `result.push_back(path)` 如果 path 后续被修改，结果全变 | 确保加入时 path 是完整状态（回溯前加入） |
+| **used 数组未恢复** | 只恢复了 path，没恢复 used 标记 | `used[i] = false` 不能忘 |
+| **终止条件写错** | 写成 `i == nums.size()` 而非 `path.size() == nums.size()` | 判断的是「当前排列长度」而非「遍历下标」 |
+| **交换法忘记 swap 回来** | 交换后没有恢复原数组 | 递归后必须再 swap 一次 |
+
+---
+
+## 📊 七、复杂度分析
+
+- **时间复杂度**：`O(n × n!)`
+  - 共有 `n!` 个排列
+  - 每个排列需要 `O(n)` 时间复制到结果中
+
+- **空间复杂度**：`O(n)`
+  - 递归栈深度为 `n`
+  - 加上 `path` 和 `used` 数组
+
+---
+
+## 🚀 八、举一反三：回溯题单推荐
+
+| 题目 | 难度 | 类型 | 关键点 |
+|-----|------|------|--------|
+| **46. 全排列** | 中等 | 排列 | used 标记 / 交换法 |
+| **47. 全排列 II** | 中等 | 排列（含重复） | 先排序 + 去重剪枝（`i > 0 && nums[i] == nums[i-1] && !used[i-1]`） |
+| **77. 组合** | 中等 | 组合 | start 参数控制起始位置，避免重复组合 |
+| **78. 子集** | 中等 | 子集 | 每个节点都是解，无需终止条件过滤 |
+| **39. 组合总和** | 中等 | 组合（可重复选） | start 不变，允许同一元素重复使用 |
+| **40. 组合总和 II** | 中等 | 组合（含重复） | 先排序 + 同层去重 |
+| **51. N 皇后** | 困难 | 经典回溯 | 对角线冲突检查（主对角线 `row - col` 恒定，副对角线 `row + col` 恒定） |
+| **17. 电话号码的字母组合** | 中等 | 组合 | 数字到字母的映射表 |
+
+---
+
+## 💡 九、学习建议
+
+1. **先画递归树**
+   - 拿到回溯题，先在纸上画出决策树
+   - 明确「选什么」「怎么回退」「终止条件是什么」
+
+2. **记住模板**
+   - "选-探-撤" 三步走
+   - 终止条件写在最前面
+
+3. **从简单开始**
+   - 推荐刷题顺序：**46 → 77 → 78 → 39 → 47 → 51**
+   - 逐步加深，不要一上来就碰 N 皇后
+
+4. **多写多调**
+   - 回溯的 bug 往往藏在「忘记撤销」里
+   - 调试时重点检查回溯逻辑是否对称
+
+5. **对比学习**
+   - 排列 vs 组合 vs 子集，对比着学效果更好
+   - 理解为什么排列用 `used[]`，组合用 `start`
+
+---
+
+## 🎯 一句话总结
+
+> **回溯 = DFS + 状态恢复**
+> 
+> 全排列用 `used[]` 标记已选元素，每次从头遍历；找到解后记得**撤销所有操作**，让系统回到选择前的状态，才能继续探索其他分支。
+
+---
+
+## 📚 附录：快速对比表
+
+| 特征 | 排列（Permutation） | 组合（Combination） |
+|-----|-------------------|-------------------|
+| 顺序是否重要 | ✅ 重要，`[1,2] != [2,1]` | ❌ 不重要，`[1,2] == [2,1]` |
+| 遍历起始位置 | 每次从 0 开始 | 从 `start` 开始，避免重复 |
+| 去重方式 | `used[]` 标记 | `start` 参数控制 |
+| 经典题目 | 46, 47 | 77, 39, 40 |
+
+---
+
+> 祝你刷题顺利，offer 拿到手软！🎉

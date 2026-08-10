@@ -14,13 +14,13 @@
     },
     {
       "id": "ms4yhgjnz7dq",
-      "name": "智慧蜂箱",
+      "name": "02-ESP32智慧蜂箱",
       "parent": "ms4yguen6i2y",
       "created": 1785261301763
     },
     {
       "id": "ms4yilv86295",
-      "name": "昇腾部署",
+      "name": "01-昇腾锂电池寿命预测",
       "parent": "ms4yguen6i2y",
       "created": 1785261355316
     },
@@ -113,6 +113,83 @@
       "parent": null,
       "kind": "md",
       "created": 1785865442553
+    },
+    {
+      "id": "msnjbd1u1tc1",
+      "name": "README",
+      "parent": "ms4yguen6i2y",
+      "kind": "md",
+      "created": 1786384680402
+    },
+    {
+      "id": "msnjbekc22d9",
+      "name": "跨项目技术八股索引",
+      "parent": "ms4yguen6i2y",
+      "kind": "md",
+      "created": 1786384682364
+    },
+    {
+      "id": "msnjbg048na6",
+      "name": "真实性边界与简历口径",
+      "parent": "ms4yguen6i2y",
+      "kind": "md",
+      "created": 1786384684228
+    },
+    {
+      "id": "msnjbxedj7vt",
+      "name": "面试官最可能问的100个问题及答案",
+      "parent": "ms4yilv86295",
+      "kind": "md",
+      "created": 1786384706773
+    },
+    {
+      "id": "msnjbyzcu39u",
+      "name": "面试问答与追问链",
+      "parent": "ms4yilv86295",
+      "kind": "md",
+      "created": 1786384708824
+    },
+    {
+      "id": "msnjc0dkxwv1",
+      "name": "完整八股知识库",
+      "parent": "ms4yilv86295",
+      "kind": "md",
+      "created": 1786384710632
+    },
+    {
+      "id": "msnjc24l9xhb",
+      "name": "项目全景与技术深挖",
+      "parent": "ms4yilv86295",
+      "kind": "md",
+      "created": 1786384712901
+    },
+    {
+      "id": "msnjcmcm0trb",
+      "name": "面试官最可能问的100个问题及答案",
+      "parent": "ms4yhgjnz7dq",
+      "kind": "md",
+      "created": 1786384739110
+    },
+    {
+      "id": "msnjcnuc7n8o",
+      "name": "面试问答与追问链",
+      "parent": "ms4yhgjnz7dq",
+      "kind": "md",
+      "created": 1786384741044
+    },
+    {
+      "id": "msnjcpaluve5",
+      "name": "完整八股知识库",
+      "parent": "ms4yhgjnz7dq",
+      "kind": "md",
+      "created": 1786384742925
+    },
+    {
+      "id": "msnjcqoggbo4",
+      "name": "项目全景与技术深挖",
+      "parent": "ms4yhgjnz7dq",
+      "kind": "md",
+      "created": 1786384744720
     }
   ]
 }

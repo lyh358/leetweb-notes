@@ -1,5 +1,5 @@
 这道题有一个非常简洁的标准解法：
-b
+不去找0，只用右指针找fei
 ```cpp
 class Solution {
 public:

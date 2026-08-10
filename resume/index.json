@@ -18,12 +18,13 @@
     "name": "秋招简历v0.3",
     "kind": "pdf",
     "created": 1785865393644,
-    "current": true
+    "current": false
   },
   {
     "id": "msmm4e05fypr",
     "name": "秋招简历完整版v1",
     "kind": "pdf",
-    "created": 1786328927717
+    "created": 1786328927717,
+    "current": true
   }
 ]

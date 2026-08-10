@@ -1,5 +1,5 @@
 这道题有一个非常简洁的标准解法：
-不去找0，只用右指针找非0，zuozhenz
+不去找0，只用右指针找非0，左指针记录chogpai
 ```cpp
 class Solution {
 public:

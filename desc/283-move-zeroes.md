@@ -1,5 +1,5 @@
 这道题有一个非常简洁的标准解法：
-不去找0，只用右指针找非
+不去找0，只用右指针找非0，zuozhenz
 ```cpp
 class Solution {
 public:

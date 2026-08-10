@@ -76,7 +76,7 @@ public:
         int longest = 0;
 
         // 2. 遍历集合中的每个元素
-        for (int num : uset) {          //！！！！这里要遍历去重的set
+        for (int num : uset) {          //！！！！这里要遍历去重的uset
             // 3. 判断 num 是否是连续序列的开头
             // 只有当 num-1 不存在时，num 才是某个序列的起点
             if (!uset.count(num - 1)) {

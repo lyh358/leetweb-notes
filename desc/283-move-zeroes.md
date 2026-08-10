@@ -1,5 +1,5 @@
 这道题有一个非常简洁的标准解法：
-
+b
 ```cpp
 class Solution {
 public:

@@ -17,6 +17,7 @@ public:
             sort(key.begin(),key.end());
             map[key].push_back(str);
         }
+
         for(auto [key,value]:map)
         {
             ans.push_back(map[key]);

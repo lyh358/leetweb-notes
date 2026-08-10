@@ -16,4 +16,4 @@ public:
 };
 ```
 踩坑记录：
-1.right
+1.right=1

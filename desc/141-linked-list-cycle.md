@@ -50,7 +50,7 @@ public:
 ### 防止空指针解引用（Null Pointer Dereference）
 第一处 `if(head==nullptr || head->next==nullptr)`
 
-保护初始化：你的代码中` fast` 初始化为` head->next`。如果 head 本身是空指针，直接访问 head->next 就会导致程序崩溃。
+保护初始化：你的代码中` fast` 初始化为` head->next`。如果 head 本身是空指针，直接访问` head->next `就会导致程序崩溃。
 提前返回：如果链表为空（0个节点）或只有一个节点，显然不可能形成环，直接返回 false 是最高效的做法。
 第二处` if(fast==nullptr || fast->next==nullptr)`
 

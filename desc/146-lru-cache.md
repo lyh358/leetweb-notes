@@ -53,7 +53,7 @@ public:
 
 替换方法：
 
-ls.push_front({key, value});
+`ls.push_front({key, value});`
 // 或者
 ls.push_front(std::make_pair(key, value));
 应用代码

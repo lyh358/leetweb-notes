@@ -15,7 +15,7 @@ public:
 
         int left=0,right=v.size()-1;
 
-        while(left<=right)//奇数数组，
+        while(left<=right)//奇数数组，可以相交
         {
             if(v[left]!=v[right])
             {

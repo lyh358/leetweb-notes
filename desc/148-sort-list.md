@@ -1,4 +1,4 @@
-# 面试解法：递归并排序
+# 面试解法：归并排序
 ```
 /**
  * Definition for singly-linked list.

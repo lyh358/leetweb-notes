@@ -1,4 +1,4 @@
-先存数组，再用普通的
+先存数组，再用普通的huiwen
 
 ```
 class Solution {

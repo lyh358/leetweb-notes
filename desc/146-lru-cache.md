@@ -54,11 +54,11 @@ public:
 替换方法：
 
 `ls.push_front({key, value});`
-// 或者
+或者
 `ls.push_front(std::make_pair(key, value));`
 
-简单说明：
-
+**简单说明：**
 push_front 会先构造好 pair 对象，然后再将其拷贝或移动到链表头部，写法更直观，也是大家最常用的方式。
 emplace_front 则是直接在链表头部原地构造对象，省去了拷贝/移动的开销，性能上会有微小优势。
 在 LeetCode 中，两者的性能差异通常可以忽略不计，使用 push_front 完全没问题！
+

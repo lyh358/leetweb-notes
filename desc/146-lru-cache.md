@@ -55,7 +55,7 @@ public:
 
 `ls.push_front({key, value});`
 // 或者
-ls.push_front(std::make_pair(key, value));
+`ls.push_front(std::make_pair(key, value));`
 应用代码
 简单说明：
 

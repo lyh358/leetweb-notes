@@ -66,7 +66,7 @@ emplace_front 则是直接在链表头部原地构造对象，省去了拷贝/�
 原理解释：
 
 **完美转发：**`emplace_front` 是一个可变参数模板函数，它会将你传入的参数（`key` 和 `valu`e）直接转发给链表元素类型（即 `std::pair<int, int>`）的构造函数。
-`Pair` 的构造函数：`std::pair` 本身提供了一个接受两个参数的构造函数 `pair(const T1& x, const T2& y)`。因此，直接传入 `key` 和 value，它就能在链表头部直接构造出这个 `pair`。
+`Pair` 的构造函数：`std::pair` 本身提供了一个接受两个参数的构造函数 `pair(const T1& x, const T2& y)`。因此，直接传入 `key` 和 `value`，它就能在链表头部直接构造出这个 `pair`。
 **如果加了大括号：**
 如果你写成 `ls.emplace_front({key, value});`，实际上是传入了一个初始化列表。虽然编译器也能处理，但这违背了` emplace` 系列函数“避免构造临时对象”的初衷，多了一层不必要的转换。
 

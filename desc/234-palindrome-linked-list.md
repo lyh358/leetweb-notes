@@ -15,7 +15,7 @@ public:
 
         int left=0,right=v.size()-1;
 
-        while(left<=right)//jishu
+        while(left<=right)//奇数数组，
         {
             if(v[left]!=v[right])
             {

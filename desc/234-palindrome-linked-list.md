@@ -15,7 +15,7 @@ public:
 
         int left=0,right=v.size()-1;
 
-        while(left<=right)
+        while(left<=right)//jishu
         {
             if(v[left]!=v[right])
             {

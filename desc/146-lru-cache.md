@@ -49,7 +49,7 @@ public:
  */
 ```
 ### `ls.emplace_front(key,value)`;可以把`emplace`换成更常用的方法吗?
-可以的，你可以使用更常见的 push_front 方法。
+可以的，你可以使用更常见的` push_front `方法。
 
 替换方法：
 

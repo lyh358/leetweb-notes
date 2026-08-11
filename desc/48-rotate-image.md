@@ -41,5 +41,15 @@ void rotate270(vector<vector<int>>& matrix) {
 # 180°
 ### 上下翻转 + 左右翻转（顺序无关）
 ```
-
+void rotate180(vector<vector<int>>& matrix) {
+    int n = matrix.size();
+    // 1. 上下翻转
+    for(int i = 0; i < n / 2; i++) {
+        swap(matrix[i], matrix[n - 1 - i]);
+    }
+    // 2. 左右翻转（每行反转）
+    for(int i = 0; i < n; i++) {
+        reverse(matrix[i].begin(), matrix[i].end());
+    }
+}
 ```

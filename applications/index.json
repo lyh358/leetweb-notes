@@ -1,5 +1,16 @@
 [
   {
+    "id": "msos29nozme2",
+    "company": "vivo",
+    "role": "C/C++软件开发",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "",
+    "created": 1786459838820,
+    "updated": 1786459838820
+  },
+  {
     "id": "msos1d5uqbt9",
     "company": "华为海思图灵业务部",
     "role": "嵌入式软件开发",

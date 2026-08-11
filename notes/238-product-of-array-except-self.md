@@ -13,7 +13,7 @@
 对于任意位置 `i`，`answer[i]` 可以拆成两部分：
 
 $$
-answer[i] = \underbrace{nums[0] \times nums[1] \times \cdots \times nums[i-1]}_{\text{左侧所有元素的乘积}} \times \underbrace{nums[i+1] \times \cdots \times nums[n-1]}_{\text{右侧所有元素的乘积}}
+`answer[i] = \underbrace{nums[0] \times nums[1] \times \cdots \times nums[i-1]}_{\text{左侧所有元素的乘积}} \times \underbrace{nums[i+1] \times \cdots \times nums[n-1]}_{\text{右侧所有元素的乘积}}`
 $$
 
 如果能同时知道每个位置的**左侧累积积**和**右侧累积积**，就能直接相乘得到答案。

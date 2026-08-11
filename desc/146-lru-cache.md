@@ -72,4 +72,4 @@ Pair 的构造函数：std::pair 本身提供了一个接受两个参数的构�
 
 **总结：**
 `push_front({key, value})`：需要先构造一个 `pair` 临时对象，再放入链表。
-`emplace_front(key, value)`：直接把参数交给 pair 的构造函数，在链表节点内存中原地构造，效率更高且语法更简洁。
+`emplace_front(key, value)`：直接把参数交给 `pair` 的构造函数，在链表节点内存中原地构造，效率更高且语法更简洁。

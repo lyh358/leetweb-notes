@@ -1,5 +1,5 @@
 ### 参考代码：哈希表法
-
+用哈希集合存放
 ```cpp
 /**
  * Definition for singly-linked list.

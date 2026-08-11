@@ -48,11 +48,11 @@ public:
  * obj->put(key,value);
  */
 ```
-### `ls.emplace_front(key,value)`;可以把`emplace`换成更常用的方法吗?
+## `ls.emplace_front(key,value)`;可以把`emplace`换成更常用的方法吗?
+
 可以的，你可以使用更常见的` push_front `方法。
 
-替换方法：
-
+**替换方法：**
 `ls.push_front({key, value});`
 或者
 `ls.push_front(std::make_pair(key, value));`
@@ -62,9 +62,10 @@ push_front 会先构造好 pair 对象，然后再将其拷贝或移动到链表
 emplace_front 则是直接在链表头部原地构造对象，省去了拷贝/移动的开销，性能上会有微小优势。
 在 LeetCode 中，两者的性能差异通常可以忽略不计，使用 push_front 完全没问题！
 
-### `ls.emplace_front(key,value);`为什么这里面不用加大括号?
-原理解释：
 
+## `ls.emplace_front(key,value);`为什么这里面不用加大括号?
+
+**原理解释：**
 **完美转发：**`emplace_front` 是一个可变参数模板函数，它会将你传入的参数（`key` 和 `value`）直接转发给链表元素类型（即 `std::pair<int, int>`）的构造函数。
 `Pair` 的构造函数：`std::pair` 本身提供了一个接受两个参数的构造函数 `pair(const T1& x, const T2& y)`。因此，直接传入 `key` 和 `value`，它就能在链表头部直接构造出这个 `pair`。
 **如果加了大括号：**

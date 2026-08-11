@@ -1,4 +1,4 @@
-先存数组，za
+先存数组，再用普通的
 
 ```
 class Solution {

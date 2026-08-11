@@ -56,7 +56,7 @@ public:
 `ls.push_front({key, value});`
 // 或者
 `ls.push_front(std::make_pair(key, value));`
-应用代码
+
 简单说明：
 
 push_front 会先构造好 pair 对象，然后再将其拷贝或移动到链表头部，写法更直观，也是大家最常用的方式。

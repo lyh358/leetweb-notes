@@ -1,5 +1,16 @@
 [
   {
+    "id": "msqaol0ta9jl",
+    "company": "小米",
+    "role": "算法部署工程师、嵌入式软件开发工程师",
+    "location": "武汉",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://xiaomi.jobs.f.mioffice.cn/campus/position/application?spread=J7NS6YR",
+    "created": 1786551579245,
+    "updated": 1786551579245
+  },
+  {
     "id": "msq91j82epmc",
     "company": "OPPO",
     "role": "机器学习算法工程师（端侧AI方向）|多媒体开发工程师（C++）",

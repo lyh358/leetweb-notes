@@ -30,7 +30,7 @@ leetcode = leet + code
 > 能不能把一个字符串切成若干段，每一段都存在于字典中？
 
 ---
-dp[
+dp[i]
 ```
 class Solution {
 public:

@@ -31,7 +31,8 @@ leetcode = leet + code
 
 ---
 dp[i]是前i个字母是否可以被拆分
-di'tui'g's
+递推公式：
+dp[i]==true  当且仅当  
 ```
 class Solution {
 public:

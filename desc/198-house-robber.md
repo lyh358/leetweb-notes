@@ -22,4 +22,20 @@
 - **不偷**：最大金额 = 上一间为止的最大金额
 
 ---
+```
 
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int lastOne = 0;
+        int lastTwo = 0;
+
+        for(auto num:nums)
+        {
+            int curMax = max(lastOne,lastTwo+num);
+            lastTwo = lastOne;
+            lastOne = curMax;
+        }
+        return lastOne;
+    }
+};

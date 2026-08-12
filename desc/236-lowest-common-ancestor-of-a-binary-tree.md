@@ -30,7 +30,7 @@ public:
         TreeNode* right = lowestCommonAncestor(root->right,p,q);
 
         if(left && right) return root;  //情况3
-        else if(left) return left; 
+        else if(left) return left;  
         else if(right) return right;
         else 
         {

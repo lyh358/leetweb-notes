@@ -40,7 +40,7 @@
 ```
 
 ---
-采用右左中的后序遍历方法，先找到最右边的，把left挂null，然后把right挂prev(null)，
+采用右左中的后序遍历方法，先找到最右边的，把left挂null，然后把right挂prev(null)，表示他是zhyg
 
 ```
 class Solution {

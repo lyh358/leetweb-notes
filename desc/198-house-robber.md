@@ -22,6 +22,7 @@
 - **不偷**：最大金额 = 上一间为止的最大金额
 
 ---
+
 ```
 class Solution {
 public:
@@ -38,3 +39,4 @@ public:
         return lastOne;
     }
 };
+```

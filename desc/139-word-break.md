@@ -30,9 +30,11 @@ leetcode = leet + code
 > 能不能把一个字符串切成若干段，每一段都存在于字典中？
 
 ---
+## 核心思路
 dp[i]是前i个字母是否可以被拆分
-递推公式：
-dp[i]==true  当且仅当  
+**递推公式：**
+`dp[i]==true  当且仅当  dp[j]==true && 子串[i-j]在dict里`
+其中i
 ```
 class Solution {
 public:

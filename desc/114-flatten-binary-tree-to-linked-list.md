@@ -40,6 +40,7 @@
 ```
 
 ---
+
 ```
 class Solution {
 public:

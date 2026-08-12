@@ -34,7 +34,7 @@ class Solution {
 public:
     int climbStairs(int n) {
         vector<int> dp(n+1,0);
-        //根据通项公式，动态规划只能推导输出dp[
+        //根据通项公式，动态规划只能推导输出dp[2
         if(n==0 || n==1) return 1;
         //通项公式第一个推导值前面必须有两个初始值：(0、1)、2
         dp[0]=1;

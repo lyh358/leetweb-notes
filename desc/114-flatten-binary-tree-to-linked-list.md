@@ -40,7 +40,7 @@
 ```
 
 ---
-采用youzui
+采用youzuozhong
 
 ```
 class Solution {

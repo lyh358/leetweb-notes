@@ -32,7 +32,7 @@ public:
         if(left && right) return root;  //情况3
         else if(left) return left;  //情况2
         else if(right) return right;  //情况2
-        else 
+        else //情况2
         {
             return nullptr;
         }   

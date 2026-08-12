@@ -1,4 +1,8 @@
 
+两个节点 p,q 分为两种情况：
+
+p 和 q 在相同子树中
+p 和 q 在不同子树中
 ```
 class Solution {
 public:

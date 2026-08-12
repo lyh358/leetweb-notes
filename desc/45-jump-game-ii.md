@@ -32,8 +32,8 @@ public:
     }
 };
 ```
-**注释版
-**```
+**注释版**
+```
 class Solution {
 public:
     int jump(vector<int>& nums) {

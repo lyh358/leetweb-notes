@@ -35,7 +35,7 @@ public:
     int climbStairs(int n) {
         vector<int> dp(n+1,0);
         if(n==0 || n==1) return 1;
-
+        
         dp[0]=1;
         dp[1]=1;
         
@@ -47,30 +47,7 @@ public:
     }
 };
 
-class Solution {
-public:
-    int climbStairs(int n) {
-        //动态规划
-        //d[n]是n个台阶所拥有的方法数
-        vector<int> d(n+1,0);   //防止0个台阶和n个台阶同时出现
-        
-        //边界条件防越界
-        if(n==1) return 1;
-        if(n==2) return 2;
-        
-        //赋dp初始值
-        d[0]=0;
-        d[1]=1;
-        d[2]=2;
 
-        //总结通项公式：d[n]=d[n-1]+d[n-2]
-        for(int i=3;i<=n;i++)
-        {
-            d[i]=d[i-1]+d[i-2];
-        }
-        return d[n];
-    }
-};
 ```
 
 

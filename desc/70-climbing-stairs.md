@@ -33,7 +33,7 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        //从0到n个台阶所需的
+        //从0到n个台阶
         vector<int> dp(n+1,0);
         //根据通项公式，动态规划只能推导输出dp[2]及以后的值，前面的需要人工处理
         if(n==0 || n==1) return 1;

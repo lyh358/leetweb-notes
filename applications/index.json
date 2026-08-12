@@ -4,11 +4,11 @@
     "company": "小米",
     "role": "算法部署工程师、嵌入式软件开发工程师",
     "location": "武汉",
-    "applied": false,
+    "applied": true,
     "stage": "笔试",
     "website": "https://xiaomi.jobs.f.mioffice.cn/campus/position/application?spread=J7NS6YR",
     "created": 1786551579245,
-    "updated": 1786551582738
+    "updated": 1786551584208
   },
   {
     "id": "msq91j82epmc",

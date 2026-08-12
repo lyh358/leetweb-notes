@@ -1,4 +1,4 @@
-### 哈希
+### 哈希+贪心
 ```
 class Solution {
 public:

@@ -24,7 +24,6 @@ public:
                             pR,
                             inRootPos+1,
                             iR);
-
         return root;
     }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) 

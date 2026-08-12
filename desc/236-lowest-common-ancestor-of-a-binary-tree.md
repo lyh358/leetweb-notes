@@ -1,3 +1,4 @@
+
 ```
 class Solution {
 public:
@@ -18,4 +19,4 @@ public:
 ```
 ## 从root往下搜索p和q：一共三种情况
 - 空树：返回本身（null）
-- 先找到了q或者q
+- 先找到了p或者q，那么当前是

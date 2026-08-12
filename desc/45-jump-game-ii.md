@@ -32,7 +32,7 @@ public:
     }
 };
 ```
-注释ban
+注释版
 ```
 class Solution {
 public:

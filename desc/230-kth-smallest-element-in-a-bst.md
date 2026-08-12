@@ -12,6 +12,7 @@
 | 核心思路 | 中序遍历 + 计数器 |
 
 ---
+**核心思想：中序遍历+计数**
 ```
 class Solution {
 public:
@@ -41,3 +42,4 @@ public:
         return ans;
     }
 };
+```

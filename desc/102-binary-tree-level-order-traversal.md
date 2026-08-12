@@ -33,6 +33,36 @@
 ---
 
 # 核心方法：二叉树的数据结构、BFS
+```
+class Solution {
+public:
+    //二叉树的层序遍历：BFS
+    vector<vector<int>> ans;
 
+    vector<vector<int>> levelOrder(TreeNode* root) {
+       if(!root) return ans;
+       
+        queue<TreeNode*> qu;
+        qu.push(root);
+
+        while(!qu.empty())
+        {
+            int levelsize = qu.size();
+            vector<int> levelTemp;
+            for(int i=0;i<levelsize;i++)
+            {
+                TreeNode* tempNode = qu.front();
+                qu.pop();
+                levelTemp.push_back(tempNode->val);
+
+                if(tempNode->left) qu.push(tempNode->left);
+                if(tempNode->right) qu.push(tempNode->right);
+            }
+            ans.push_back(levelTemp);
+        }
+        return ans;
+    }
+};
+```
 ---
 

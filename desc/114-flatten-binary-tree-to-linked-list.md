@@ -40,7 +40,7 @@
 ```
 
 ---
-采用右左中的后序遍历方法，先找到最右边的，把left挂null，然后把right挂prev(null)，表示他是最后一个节点。然后把它自己
+采用右左中的后序遍历方法，先找到最右边的，把left挂null，然后把right挂prev(null)，表示他是最后一个节点。然后更新prev为
 
 ```
 class Solution {

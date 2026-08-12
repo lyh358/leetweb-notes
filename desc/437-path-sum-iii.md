@@ -37,5 +37,40 @@
 
 ---
 ```
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     long long val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(long long x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(long long x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    //内层DFS：得到以root为起点的路径和
+    long long countPath(TreeNode* root, long long targetSum)
+    {
+        if(!root) return 0;
 
+        long long count = 0;
+
+        if(root->val == targetSum) count++;
+
+        count += countPath(root->left, targetSum - root->val);
+        count += countPath(root->right, targetSum - root->val);
+
+        return count;
+    }
+
+
+
+    //外层DFS，遍历所有的节点，统计以他们为起点的路径之和
+    long long pathSum(TreeNode* root, long long targetSum) {
+        if(!root) return 0;
+        return countPath(root,targetSum) + pathSum(root->left,targetSum) + pathSum(root->right,targetSum);
+    }
+};
 ```

@@ -29,16 +29,17 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
+        int curMax = 0;
         int lastOne = 0;
         int lastTwo = 0;
 
         for(auto num:nums)
         {
-            int curMax = max(lastOne,lastTwo+num);
+            curMax = max(lastOne,lastTwo+num);
             lastTwo = lastOne;
             lastOne = curMax;
         }
-        return lastOne;
+        return curMax;
     }
 };
 ```

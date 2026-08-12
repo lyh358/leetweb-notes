@@ -36,7 +36,7 @@
 ```
 
 ---
-官网上有bug，需要把sy
+官网上有bug，需要把所有int改成龙lo
 ```
 /**
  * Definition for a binary tree node.

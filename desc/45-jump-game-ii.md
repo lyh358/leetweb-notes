@@ -10,7 +10,27 @@
 > ```
 ---
 ```
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        int jumptimes = 0;
+        int start = 0;
+        int end = 1;
 
+        while(end<nums.size())
+        {
+            int maxRange = 0;
+            for(int i=start;i<end;i++)
+            {
+                maxRange = max(maxRange, i+nums[i]);
+            }
+            start = end;
+            end = maxRange+1;
+            jumptimes++;
+        }
+        return jumptimes;
+    }
+};
 ```
 ```
 class Solution {

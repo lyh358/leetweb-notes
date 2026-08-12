@@ -34,7 +34,7 @@ leetcode = leet + code
 dp[i]是前i个字母是否可以被拆分
 **递推公式：**
 `dp[i]==true  当且仅当  dp[j]==true && 子串[i-j]在dict里`
-其
+其中
 ```
 class Solution {
 public:

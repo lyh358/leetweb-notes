@@ -39,7 +39,7 @@
 ![](https://pic.leetcode.cn/1658888882-OXiONL-image.png)
 
 ---
-
+### 遍历网格，遇到没访问过的 '1' 就计数 +1，然后 DFS 把连着的所有 '1' 全部标记。 每个新起点就是一个新岛屿，DFS 负责把同一座岛"涂掉"防止重复数。
 ```
 class Solution {
 public:

@@ -6,7 +6,8 @@ public:
         vector<vector<int>> graph(numCourses);   // graph[i] 表示学完i后能解锁哪些课
         vector<int> inDegree(numCourses, 0);      // 每门课还需要先修几门
         
-        for (auto& pre : prerequisites) {
+        for (auto& pre : prerequisites) 
+{
             int course = pre[0];    // 要学的课
             int need = pre[1];      // 先修课
             graph[need].push_back(course);  // 学完need，可以解锁course

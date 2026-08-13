@@ -39,7 +39,7 @@ fast: 0→3→4→4→2→4→2...
 slow 走了 a + b
 fast 走了 a + b + n(b + c)（多绕了 n 圈）
 因为 fast 速度是 slow 的 2 倍：
-plain
+```plain
 2(a + b) = a + b + n(b + c)
 => a + b = n(b + c)
 => a = n(b + c) - b = (n-1)(b+c) + c

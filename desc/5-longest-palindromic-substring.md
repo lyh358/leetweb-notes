@@ -32,5 +32,48 @@
 
 ---
 ```
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size();
+        //边界处理：当只有一个字母或者空，返回自己
+        if(n<2) return s;
 
+        //二维标记bool数组：dp[i][j]标记从i到j的串是不是回文
+        vector<vector<bool>> dp(n,vector<bool>(n,false));
+
+        //初始化:初始回文子串位置、最长回文子串长度：最后通过他俩返回具体的子串内容
+        int start = 0;
+        int maxlen = 0; //最长回文子串的长度（至少为1，单个字符）
+
+        //反向ji遍历所有子串
+        for(int j = 0; j < n; j++)
+        {
+            for(int i = 0; i <= j; i++)
+            {   
+                //当左右外侧字母相同，才有可能是回文串
+                if(s[i]==s[j])
+                {
+                    //判断内部是不是回文串:1.串只有2/3个字符，只要最外层回文肯定就是回文串；2.内层是回文串dp[i+1][j-1]=1;
+                    //必须先判断1.防止2，越界
+                    if(j - i <= 2 || dp[i+1][j-1])
+                    {
+                        //将当前子串标记为回文
+                        dp[i][j]=true;
+                        //计算当前回文串长度
+                        int len = j-i+1;
+                        //维护最长子串长度和起始位置
+                        if(len >= maxlen)
+                        {
+                            maxlen = len;
+                            start = i;
+                        }
+                    }
+                }
+            }
+        }
+        //根据起点和长度截取最长回文子串输出
+        return s.substr(start, maxlen); //从start位置开始向后截取maxlen个字符（包括start处字符）
+    }
+};
 ```

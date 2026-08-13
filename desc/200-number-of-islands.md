@@ -40,5 +40,44 @@
 
 ---
 ```
-
+class Solution {
+public:
+    int dir[4][2]={{0,1},{1,0},{0,-1},{-1,0}};
+    int count=0;
+    void dfs(vector<vector<char>>& grid,vector<vector<int>>& visited,int x,int y)
+    {
+        for(int i=0;i<4;i++)
+        {
+            int nextx=x+dir[i][0];
+            int nexty=y+dir[i][1];
+            if(nextx<0 || nextx>=grid.size() || nexty<0 || nexty>=grid[0].size())
+            {
+                continue;
+            } 
+            if(grid[nextx][nexty]=='1' && visited[nextx][nexty]==0)
+            {
+                visited[nextx][nexty]=1;
+                dfs(grid,visited,nextx,nexty);
+            }     
+        }
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        int m=grid.size();
+        int n=grid[0].size();
+        vector<vector<int>> visited(m,vector<int>(n,0));
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(grid[i][j]=='1' && visited[i][j]==0)
+                {
+                    visited[i][j]=1;
+                    count++;
+                    dfs(grid,visited,i,j);
+                }
+            }
+        }
+        return count;
+    }
+};
 ```

@@ -60,7 +60,7 @@ public:
             if(s[i]=='(') sk.push(')');
             else if(s[i]=='[') sk.push(']');
             else if(s[i]=='{') sk.push('}');
-            //遇到右括号：两种不正常的情况
+            //遇到右括号：两种不正常的情况，
             else if(sk.empty() || s[i]!=sk.top()) return false;
             else sk.pop();
         }

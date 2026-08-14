@@ -35,5 +35,30 @@ minStack.getMin();   --> 返回 -2.
 
 ---
 ```
-
+class MinStack {
+public:
+    stack<int> MainSK;
+    stack<int> MinSK;
+    MinStack() {
+        MinSK.push(INT_MAX);
+    }
+    
+    void push(int value) {
+        MainSK.push(value);
+        MinSK.push(min(value, MinSK.top()));
+    }
+    
+    void pop() {
+        MainSK.pop();
+        MinSK.pop();
+    }
+    
+    int top() {
+        return MainSK.top();
+    }
+    
+    int getMin() {
+        return MinSK.top();
+    }
+};
 ```

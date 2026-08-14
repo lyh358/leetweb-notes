@@ -33,5 +33,26 @@
 
 ---
 ```
-
+class Solution {
+public:
+    void backtracing(vector<vector<int>>& ans,int first,vector<int>& nums)
+    {
+        if(first==nums.size())
+        {
+            ans.push_back(nums);
+            return;
+        }
+        for(int i=first;i<nums.size();i++)
+        {
+            swap(nums[first],nums[i]);
+            backtracing(ans,first+1,nums);
+            swap(nums[first],nums[i]);
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        backtracing(ans,0,nums);
+        return ans;
+    }
+};
 ```

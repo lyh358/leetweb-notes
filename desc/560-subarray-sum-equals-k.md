@@ -1,4 +1,4 @@
-哈希表+qianzh
+## 哈希表+前缀和
 ```
 class Solution {
 public:

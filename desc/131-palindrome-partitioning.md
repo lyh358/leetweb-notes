@@ -63,5 +63,5 @@ cannot bind non-const lvalue reference of type 'std::string&' to an rvalue of ty
 **为什么加 const**
 const string& s	原始字符串是输入，整个回溯过程只读不改；加 const 防误改
 const string& sub	调用时传了 "" 临时量，必须加 const 才能绑定；而且 sub 在当前层也是只读（修改是通过 temp = sub + s[i] 生成新变量，不是改 sub 本身）
-一句话
+**一句话**
 const 既保护数据不被意外修改，又让临时对象（如 ""）能绑定到引用上。 去掉 const，临时量传不进来，编译直接报错。

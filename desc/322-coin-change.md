@@ -6,7 +6,31 @@
 
 ---
 ```
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        //dp[i]金额为i时的最小硬币数，因为求最小所以初始化一个最大值
+        vector<int> dp(amount+1,1e6);
+        //初始化：0元需要0个硬币凑
+        dp[0]=0;
 
+        //双重循环：外层遍历金额，从1到amount
+        for(int i=1;i<=amount;i++)
+        {   
+            //内层循环：遍历每一个面值的硬币
+            for(int j=0;j<coins.size();j++)
+            {
+                //dp[里面不能是负数]
+                if(coins[j]<=i)
+                {
+                    dp[i]=min(dp[i],dp[i-coins[j]]+1);
+                }
+            }
+        }
+        //硬币数不能超过全使用最小面额硬币的数量
+        return dp[amount]>amount?-1:dp[amount];
+    }
+};
 ```
 ## 一、最终通过的代码
 

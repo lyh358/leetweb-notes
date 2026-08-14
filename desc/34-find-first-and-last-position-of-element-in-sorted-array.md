@@ -1,4 +1,4 @@
-
+### 两次二分：第一次找左边界，找到 target 不返回，继续往左缩（right = mid-1）；第二次找右边界，找到 target 不返回，继续往右扩（left = mid+1）。分别记录最左和最右出现的位置。
 ```
 class Solution {
 public:

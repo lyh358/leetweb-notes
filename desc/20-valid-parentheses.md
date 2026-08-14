@@ -62,7 +62,7 @@ public:
             else if(s[i]=='{') sk.push('}');
             //遇到右括号：两种不正常的情况1、没有左括号；2、左右不匹配
             else if(sk.empty() || s[i]!=sk.top()) return false;
-            //
+            //遇到正常右括号，左右匹配
             else sk.pop();
         }
         return sk.empty()?true:false;

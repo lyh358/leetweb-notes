@@ -47,5 +47,22 @@
 
 ---
 ```
+class Solution {
+public:
+    bool isValid(string s) {
+        if(s.size()%2!=0)return false;
 
+        stack<char> sk;
+
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]=='(') sk.push(')');
+            else if(s[i]=='[') sk.push(']');
+            else if(s[i]=='{') sk.push('}');
+            else if(sk.empty() || s[i]!=sk.top()) return false;
+            else sk.pop();
+        }
+        return sk.empty()?true:false;
+    }
+};
 ```

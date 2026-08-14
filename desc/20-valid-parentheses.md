@@ -56,7 +56,7 @@ public:
 
         for(int i=0;i<s.size();i++)
         {
-            //
+            //遇到左括号
             if(s[i]=='(') sk.push(')');
             else if(s[i]=='[') sk.push(']');
             else if(s[i]=='{') sk.push('}');

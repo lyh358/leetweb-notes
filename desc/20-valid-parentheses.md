@@ -65,7 +65,7 @@ public:
             //遇到正常右括号，左右匹配
             else sk.pop();
         }
-        //左右是否数量对应
+        //左右是否yiy对应
         return sk.empty()?true:false;
     }
 };

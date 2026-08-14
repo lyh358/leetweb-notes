@@ -55,7 +55,8 @@ public:
 如果你写成：
 `void backtracing(int i, string& s, string& sub)  // 去掉 const`
 编译会报错：
-`cannot bind non-const lvalue reference of type 'std::string&' to an rvalue of type 'std::string'
+`
+cannot bind non-const lvalue reference of type 'std::string&' to an rvalue of type 'std::string'
 （不能将非 const 左值引用绑定到右值）
 ```
 两个参数都要加 const 的原因

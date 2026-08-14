@@ -1,4 +1,4 @@
-### 
+### 把二维矩阵当成一维有序数组做二分查找，mid 通过 mid/n 得行号、mid%n 得列号映射回二维坐标，找到返回 true，找不到返回 false。
 
 ```
 class Solution {

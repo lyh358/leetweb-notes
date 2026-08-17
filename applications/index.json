@@ -1,14 +1,25 @@
 [
   {
+    "id": "msxay0cr5sk9",
+    "company": "兆易创新",
+    "role": "车载嵌入式|边缘AI",
+    "location": "上海、合肥、成都",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://app.mokahr.com/campus-recruitment/gigadevice/92215#/candidateHome/applications",
+    "created": 1786975282251,
+    "updated": 1786975282251
+  },
+  {
     "id": "msxadco4lway",
     "company": "新易盛通信",
     "role": "嵌入式软开",
     "location": "深圳、成都、重庆",
-    "applied": false,
+    "applied": true,
     "stage": "简历筛选",
     "website": "https://eoptolink.zhiye.com/personal/deliveryRecord",
     "created": 1786974318436,
-    "updated": 1786974320315
+    "updated": 1786974321486
   },
   {
     "id": "msqaol0ta9jl",

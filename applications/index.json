@@ -1,5 +1,16 @@
 [
   {
+    "id": "msxadco4lway",
+    "company": "新易盛通信",
+    "role": "嵌入式软开",
+    "location": "深圳、成都、重庆",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://eoptolink.zhiye.com/personal/deliveryRecord",
+    "created": 1786974318436,
+    "updated": 1786974318436
+  },
+  {
     "id": "msqaol0ta9jl",
     "company": "小米",
     "role": "算法部署工程师、嵌入式软件开发工程师",

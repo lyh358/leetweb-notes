@@ -1,14 +1,25 @@
 [
   {
+    "id": "msxbyrkplu24",
+    "company": "北方华创（国企）",
+    "role": "软件开发工程师",
+    "location": "北京",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://career.naura.com/personal/deliveryRecord",
+    "created": 1786976997145,
+    "updated": 1786976997145
+  },
+  {
     "id": "msxay0cr5sk9",
     "company": "兆易创新",
     "role": "车载嵌入式|边缘AI",
     "location": "上海、合肥、成都",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://app.mokahr.com/campus-recruitment/gigadevice/92215#/candidateHome/applications",
     "created": 1786975282251,
-    "updated": 1786975282251
+    "updated": 1786975284816
   },
   {
     "id": "msxadco4lway",

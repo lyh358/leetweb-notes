@@ -1,5 +1,27 @@
 [
   {
+    "id": "msxeuz4fz6uu",
+    "company": "tplink联洲",
+    "role": "",
+    "location": "",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://join.tplinkglobal.com/personal/delivery_records",
+    "created": 1786981859151,
+    "updated": 1786981859151
+  },
+  {
+    "id": "msxdr1le69ga",
+    "company": "中兴",
+    "role": "软件开发工程师",
+    "location": "深圳",
+    "applied": true,
+    "stage": "简历筛选",
+    "website": "https://app.mokahr.com/campus-recruitment/zte/46903#/candidateHome/applications",
+    "created": 1786979996114,
+    "updated": 1786979998873
+  },
+  {
     "id": "msxclvk0eazk",
     "company": "速腾聚创（提前批）",
     "role": "智能驾驶嵌入式",

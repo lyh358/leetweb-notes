@@ -4,11 +4,11 @@
     "company": "深圳传音",
     "role": "高性能计算",
     "location": "深圳",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://transsion.zhiye.com/personal/deliveryRecord",
     "created": 1787074615489,
-    "updated": 1787074615489
+    "updated": 1787074618628
   },
   {
     "id": "msyx7ir0x8fv",

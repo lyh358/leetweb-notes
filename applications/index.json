@@ -4,11 +4,11 @@
     "company": "荣耀",
     "role": "嵌入式软件开发",
     "location": "南京、北京",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://career.honor.com/SU60eea919bef57c1023f6fe78/pb/account.html#/myDeliver",
     "created": 1787073143724,
-    "updated": 1787073143724
+    "updated": 1787073146263
   },
   {
     "id": "msyw5gz4noe8",

@@ -1,5 +1,16 @@
 [
   {
+    "id": "msyy32ddtcfp",
+    "company": "深圳传音",
+    "role": "高性能计算",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://transsion.zhiye.com/personal/deliveryRecord",
+    "created": 1787074615489,
+    "updated": 1787074615489
+  },
+  {
     "id": "msyx7ir0x8fv",
     "company": "荣耀",
     "role": "嵌入式软件开发",

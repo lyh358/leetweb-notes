@@ -11,7 +11,7 @@
     "name": "秋招简历最终版v2",
     "kind": "pdf",
     "created": 1786383345288,
-    "current": true
+    "current": false
   },
   {
     "id": "msniiy7v6z7z",
@@ -24,6 +24,7 @@
     "id": "mt099h5teel2",
     "name": "秋招简历最终版v2.3",
     "kind": "pdf",
-    "created": 1787153856545
+    "created": 1787153856545,
+    "current": true
   }
 ]

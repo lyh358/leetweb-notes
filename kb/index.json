@@ -314,6 +314,83 @@
       "parent": "mt09air4zzde",
       "kind": "pdf",
       "created": 1787155274797
+    },
+    {
+      "id": "mt1sg0nxgndh",
+      "name": "一、MCU补充八股",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246540637
+    },
+    {
+      "id": "mt1sg3oqqv0g",
+      "name": "二、低功耗",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246544554
+    },
+    {
+      "id": "mt1sg54oap5j",
+      "name": "三、OTA",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246546424
+    },
+    {
+      "id": "mt1sg6qpvhi8",
+      "name": "四、嵌入式AI部署",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246548513
+    },
+    {
+      "id": "mt1sg8rfg2lo",
+      "name": "五、网络",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246551131
+    },
+    {
+      "id": "mt1sgagulofs",
+      "name": "六、系统",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246553342
+    },
+    {
+      "id": "mt1sgc4fo3r1",
+      "name": "七、数据序列化",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246555487
+    },
+    {
+      "id": "mt1sgdkc7m4d",
+      "name": "八、设计模式",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246557356
+    },
+    {
+      "id": "mt1sgf4p37rs",
+      "name": "九、场景题",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246559385
+    },
+    {
+      "id": "mt1sggq2ah44",
+      "name": "十、嵌入式平台工具",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246561450
+    },
+    {
+      "id": "mt1sgi8m1eml",
+      "name": "十一、数据结构",
+      "parent": "mt1sdneekeiq",
+      "kind": "md",
+      "created": 1787246563414
     }
   ]
 }

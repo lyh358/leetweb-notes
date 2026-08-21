@@ -16,7 +16,7 @@
 - `NodeProto` 表示=={yellow}**算子**==。
 - `TensorProto` 表示=={yellow}**权重**或**常量**==。
 
-1. ONNX 计算图通常是**有向无环图**，节点表示 `Conv`、`Add`、`Relu` 等标准算子，边表示 Tensor 数据流。
+1. ONNX 计算图通常是**有向无环图**，**节点表示** `Conv`、`Add`、`Relu` 等标准算子，边表示 Tensor 数据流。
 2. `opset` 表示算子规范版本。同一个 `Resize`、`Slice` 等算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
 3. 推理引擎加载 ONNX 后，会完成模型解析、合法性检查、形状推导、常量折叠、算子融合和内存规划。
 4. 运行时会把每个节点映射到具体 kernel，或者把一段子图交给 CPU、GPU、NPU 等 Execution Provider 执行；不支持的节点可能回退到 CPU

@@ -73,7 +73,7 @@ onnx.save(model, "model_inferred.onnx")
 
 ---
 
-# 02 量化后精度衰减如何处理？
+## 02 量化后精度衰减如何处理？
 
 **考察场景**
 

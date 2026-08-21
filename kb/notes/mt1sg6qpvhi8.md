@@ -8,7 +8,7 @@
 
 **底层实现原理**
 
-1. ONNX 的=={green}本质是一套**开放的模型中间表示规范**==，=={green}底层通常使用 Protobuf 序列化模型结构、计算图和权重==
+1. ONNX 的=={green}本质是一套**开放的模型中间表示规范**==，=={green}底层通常使用 **Protobuf 序列化模型结构**、计算图和权重==
 2. 一个 ONNX 模型主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` 组成：
 
 - `NodeProto` 表示算子。

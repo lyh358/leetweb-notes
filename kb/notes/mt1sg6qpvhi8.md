@@ -13,7 +13,7 @@
 
 - `ModelProto`=={yellow} 保存整个==**=={yellow}模型==**=={yellow}及==**=={yellow}版本信息==。**
 - `GraphProto` =={yellow}表示==**=={yellow}节点之间的数据依赖==**=={yellow}（==**=={yellow}图结构==**=={yellow}）==。
-- `NodeProto` 表示**算子**。
+- `NodeProto` =={yellow}表示==**=={yellow}算子==**。
 - `TensorProto` 表示**权重**或**常量**。
 
 1. **=={pink}ONNX 计算图==**=={yellow}通常是==**=={yellow}有向无环图==**=={yellow}，==**=={yellow}节点==**=={yellow}表示===={yellow} ==`Conv`=={yellow}、==`Add`=={yellow}、==`Relu`=={yellow}{yellow} 等==**=={yellow}标准算子==**=={yellow}，==**=={yellow}边==**=={yellow}表示==**=={yellow}{yellow} Tensor 数据流==**=={yellow}。==

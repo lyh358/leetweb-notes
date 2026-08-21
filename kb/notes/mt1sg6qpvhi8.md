@@ -12,6 +12,7 @@
 2. 一个** ONNX 模型**主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **组成**：
 
 - `ModelProto` 保存整个模型及版本信息
+- `GraphProto` 表示节点之间的数据依赖。
 - `NodeProto` 表示算子。
 - `TensorProto` 表示权重或常量。
 - 

@@ -219,7 +219,7 @@ per-channel 量化权重 = 卷积/全连接层的输出Tensor每个输出通道�
 
 1. **优化前**必须=={yellow}先做 profiling（性能分析）==，测量哪里花时间、哪里耗内存、哪里是瓶颈，从而针对性优化。，不能只看模型 FLOPs。
 2. **模型层面**优先=={yellow}减少计算量和访存量==，包括降低输入分辨率、减小通道数、减少检测候选框、采用轻量化 backbone 和蒸馏模型。
-3. **精度层面**可以使用=={yellow}{yellow} FP16、BF16、INT8 或混合精度==，但=={green}前提==是目标 CPU、GPU 或 NPU =={green}对该精度有高效硬件指令支持==。
+3. **精度层面**可以使用=={yellow}FP16、BF16、INT8 或混合精度==，但=={green}前提==是目标 CPU、GPU 或 NPU =={green}对该精度有高效硬件指令支持==。
 4. **图层面**应执行=={yellow}常量折叠==、=={yellow}无效节点删除==、=={yellow}Conv‑BN 融合==、=={yellow}算子融合==和=={yellow}静态 shape 固化==。融合能够减少 kernel 启动和中间 Tensor 的内存读写
 5. **算子兼容层面** 必须=={yellow}检查算子是否全部落到加速器==。如果一个算子不被 NPU 支持，可能造成：`NPU → CPU → NPU` 这种跨设备拷贝有时比计算本身更慢。ONNX Runtime 也是根据后端能力进行子图划分和回退
 6. **内存层面** 要=={pink}减少==反复=={yellow}申请释放==、=={yellow}数据格式转换== 和 =={yellow}CPU/GPU 拷贝==，尽量复用 Tensor、使用内存池或零拷贝接口。

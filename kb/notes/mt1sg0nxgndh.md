@@ -432,8 +432,8 @@ ISA = Instruction Set Architecture，指令集架构。它是硬件和软件之�
 
 - 延申知识点
 ISA、微架构、SoC 三者的区别
-- 
-- ARM Cortex‑M 和 RISC‑V MCU 在中断响应上的差异
+
+ISA 是软件看到的"指令语法"（如 ADD、MOV 怎么写）；微架构 是硬件怎么实现这些指令（流水线几级、缓存多大、乱序还是顺序）；SoC 是把 CPU 核 + 外设（GPIO、USB、DDR 控制器）封装成一颗芯片。- ARM Cortex‑M 和 RISC‑V MCU 在中断响应上的差异
 
 ## 18 交叉编译介绍一下，常见的交叉编译器
 

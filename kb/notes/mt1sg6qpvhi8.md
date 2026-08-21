@@ -286,8 +286,7 @@ FLOPs 只算乘加次数，没算内存带宽瓶颈（频繁搬数据比计算�
 
 **如何判断模型是否发生 CPU fallback**
 
-**
-**
+Profiling 看算子耗时分布：若某些算子（如 Gather、TopK、LayerNorm）在 NPU 上耗时极短但 CPU 侧出现高占用，或总 latency 远大于 NPU kernel 累加时间，即发生 fallback；昇腾可用 msprof 查看 Task Schedule 中 CPU 任务占比。
 
 ---
 

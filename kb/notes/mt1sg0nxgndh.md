@@ -66,7 +66,7 @@ PSC（Prescaler，预分频器）
 ARR（Auto-Reload Register，自动重装载寄存器）
 决定 PWM 周期的寄存器。计数器从 0 计数到 ARR，然后溢出复位，完成一个周期。
 DIER（DMA/Interrupt Enable Register，DMA/中断使能寄存器）
-CEN（Counter Enable，计数器使能位）
+**CEN（Counter Enable，计数器使能位）**
 TIM 控制寄存器 CR1 的第 0 位，定时器的总开关。
 
 - **延伸知识点**

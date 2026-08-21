@@ -14,7 +14,7 @@
 - `ModelProto` 保存整个模型及版本信息
 - `NodeProto` 表示算子。
 - `TensorProto` 表示权重或常量。
-- `GraphProto` 表示节点之间的数据依赖。
+- 
 - 
 
 1. ONNX 计算图通常是有向无环图，节点表示 `Conv`、`Add`、`Relu` 等标准算子，边表示 Tensor 数据流。

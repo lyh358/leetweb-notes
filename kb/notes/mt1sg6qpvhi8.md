@@ -11,7 +11,7 @@
 1. ONNX 的 **=={pink}本质==**_ _是一套**=={yellow}开放的模型中间表示规范==**，**=={pink}底层==** 通常使用 **=={green}Protobuf 序列化定义==  =={yellow}模型结构==**=={yellow}、==**=={yellow}计算图==**=={yellow}和==**=={yellow}权重==**
 2. 一个**=={yellow}{pink} ONNX 模型==**主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **=={pink}4部分===={pink}组成==**：
 
-- `ModelProto` 保存整个**模型**及**版本信息**
+- `ModelProto`=={yellow} 保存整个==**=={yellow}模型==**=={yellow}及==**=={yellow}版本信息==。**
 - `GraphProto` 表示**节点之间的数据依赖**（**图结构**）。
 - `NodeProto` 表示**算子**。
 - `TensorProto` 表示**权重**或**常量**。

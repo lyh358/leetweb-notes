@@ -14,7 +14,7 @@
 - `ModelProto`=={yellow} 保存整个==**=={yellow}模型==**=={yellow}及==**=={yellow}版本信息==。**
 - `GraphProto` =={yellow}表示==**=={yellow}节点之间的数据依赖==**=={yellow}（==**=={yellow}图结构==**=={yellow}）==。
 - `NodeProto` =={yellow}表示==**=={yellow}算子==**。
-- `TensorProto` 表示**权重**或**常量**。
+- `TensorProto` =={yellow}表示==**=={yellow}权重==**=={yellow}或==**=={yellow}常量==**。
 
 1. **=={pink}ONNX 计算图==**=={yellow}通常是==**=={yellow}有向无环图==**=={yellow}，==**=={yellow}节点==**=={yellow}表示===={yellow} ==`Conv`=={yellow}、==`Add`=={yellow}、==`Relu`=={yellow}{yellow} 等==**=={yellow}标准算子==**=={yellow}，==**=={yellow}边==**=={yellow}表示==**=={yellow}{yellow} Tensor 数据流==**=={yellow}。==
 2. `opset` 表示**=={pink}算子规范版本==**。=={green}同一个== `Resize`、`Slice` 等=={green}算子在不同 opset ==下，=={green}输入形式和语义可能不同=={yellow}，=={yellow}部署端必须支持模型使用的 opset==

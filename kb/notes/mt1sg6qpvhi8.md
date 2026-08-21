@@ -282,7 +282,7 @@ pidstat -r -w -p $(pidof inference_app) 1
 
 **为什么模型 FLOPs 很低但推理仍然很慢**
 
-FLOPs =={green}只算乘加次数（运算量）==，没算=={pink}内存带宽瓶颈==（频繁搬数据比计算还慢）、算子启动开销（小算子多，调度耗时 > 计算耗时）、数据布局转换（NCHW↔NHWC）、CPU fallback（某些算子无 NPU 实现，回退到 CPU 串行执行）。
+FLOPs =={green}只算乘加次数（运算量）==，没算=={pink}内存带宽瓶颈==（频繁搬数据比计算还慢）、=={pink}算子启动开销==（小算子多，调度耗时 > 计算耗时）、数据布局转换（NCHW↔NHWC）、CPU fallback（某些算子无 NPU 实现，回退到 CPU 串行执行）。
 
 **如何判断模型是否发生 CPU fallback**
 

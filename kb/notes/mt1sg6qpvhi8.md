@@ -45,7 +45,7 @@ CPU Kernel / GPU Kernel / NPU Kernel
 PyTorch 模型 → torch.onnx.export() → model.onnx
                                           ↓
                               ┌─────────────────────┐
-                              │   ONNX 规范（DAG）   │
+                              │   ONNX 规范（DAG）  │
                               └─────────────────────┘
                                           ↓
                     ┌─────────────────────────────────────────┐

@@ -284,7 +284,7 @@ pidstat -r -w -p $(pidof inference_app) 1
 
 FLOPs 只算乘加次数，没算内存带宽瓶颈（频繁搬数据比计算还慢）、算子启动开销（小算子多，调度耗时 > 计算耗时）、数据布局转换（NCHW↔NHWC）、CPU fallback（某些算子无 NPU 实现，回退到 CPU 串行执行）。
 
-如何判断模型是否发生 CPU fallback
+**如何判断模型是否发生 CPU fallback**
 
 ---
 

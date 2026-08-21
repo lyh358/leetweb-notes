@@ -214,7 +214,7 @@ Flash 擦除后所有字节为 0xFF，若某地址不是 0xFF，视为「已使�
 2. **DOWNLOADING**：把新固件下载到未使用的 B 分区 Flash。下载结束切换到`DOWNLOADED`。
 3. **DOWNLOADED**：固件已经完整写入 B 分区，执行校验流程：CRC 完整性校验 → SHA 哈希 → 数字签名校验。校验成功进入`VERIFY_OK`；校验失败直接丢弃固件，回到 IDLE。
 4. **VERIFY_OK**：校验全部合法。修改 OTA 元数据，标记状态为`PENDING_TEST`，设备重启。
-5. PENDING_TEST
+5. **PENDING_TEST**
 ：上电后 Bootloader 读取元数据，尝试启动 B 分区的新固件：
 
 - ✅ 分支：新固件启动成功，业务应用运行正常，应用层主动写元数据标记`CONFIRMED`，A/B 分区角色交换，回到 IDLE，升级完成。

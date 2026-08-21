@@ -223,7 +223,7 @@ per-channel 量化权重 = 卷积/全连接层的输出Tensor每个输出通道�
 4. **图层面**应执行=={yellow}常量折叠==、=={yellow}无效节点删除==、=={yellow}Conv‑BN 融合==、=={yellow}算子融合==和=={yellow}静态 shape 固化==。融合能够减少 kernel 启动和中间 Tensor 的内存读写
 5. **算子兼容层面 **必须=={yellow}检查算子是否全部落到加速器==。如果一个算子不被 NPU 支持，可能造成：
 
-```undefined
+`
 NPU → CPU → NPU
 ```
 

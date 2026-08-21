@@ -292,7 +292,7 @@ Profiling 看算子耗时分布：
 
 - 本质：该算子没有 NPU 实现，框架把它扔回 CPU。但为了不破坏图结构，可能先在 NPU 上做个空操作（memcpy 或 noop），然后数据搬回 CPU 算，算完再搬回 NPU。
 
-即发生 fallback；
+=={yellow}即发生 fallback==；
 
 昇腾可用 msprof 查看 Task Schedule 中 CPU 任务占比。
 

@@ -17,7 +17,7 @@
 - `TensorProto` 表示**=={pink}权重==**=={pink}或==**=={pink}常量==**。
 
 1. **=={yellow}ONNX 计算图==**=={yellow}通常是==**=={yellow}有向无环图==**=={yellow}，==**=={yellow}节点==****=={yellow}表示==**`Conv`**=={yellow}、==**`Add`**=={yellow}、==**`Relu`=={yellow}等==**=={yellow}标准算子==**=={yellow}，==**=={yellow}边==**=={yellow}表示==**=={yellow}Tensor 数据流==**=={yellow}。==
-2. `opset` 表示**算子规范版本**。同一个算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
+2. `opset`=={pink} 表示==**=={pink}算子规范版本==**=={pink}。==同一个算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
 3. **推理引擎加载 ONNX 后**，会完成**模型解析、合法性检查**、**形状推导、常量折叠、算子融合和内存规划**。
 4. **运行时**会把每个**节点映射到具体 kernel**，=={yellow}或者把一段**子图交给 CPU、GPU、NPU 等**Execution Provider**执行**；不支持的节点可能回退到 CPU
 5. **ONNX 只定义 “算子语义是什么”**，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**。

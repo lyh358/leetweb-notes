@@ -86,7 +86,7 @@ TIM 控制寄存器 CR1 的第 0 位，定时器的总开关。
 
 - **底层实现原理**
 
-1. STM32 内核大多基于=={pink} ARM Cortex‑M 架构==，属于面向微控制器的 =={pink}RISC 体系==，特点是指令精简、执行效率高。
+1. STM32 内核大多基于=={yellow}{pink} ARM Cortex‑M 架构==，属于面向微控制器的 =={pink}RISC 体系==，特点是指令精简、执行效率高。
 2. =={pink}Cortex‑M 采用==**=={pink}哈佛结构==**思想，=={pink}指令==和=={pink}数据访问==通路=={pink}分离==，所以取指和访存效率更高。
 3. 内核通过**=={pink}总线矩阵==**=={yellow}连接== Flash、SRAM 和各类=={yellow}外设==，=={green}程序执行时本质==上就是 =={pink}CPU 不断取指、访存、控制外设寄存器==。
 4. ARM 架构里定义了=={yellow}寄存器组==、异常 / 中断机制、堆栈模型、权限级别，STM32 则在这个基础上集成了 GPIO、USART、TIM、ADC 等片上外设。
@@ -104,20 +104,35 @@ TIM 控制寄存器 CR1 的第 0 位，定时器的总开关。
 
 - **底层实现原理**
 
-1. =={yellow}MCU 上的用户态 / 内核态本质==是利用 CPU 提供的**=={pink}特权级==**=={pink}机制==，比如 Cortex‑M 的=={pink} Thread mode + Handler mode==、=={pink}Privileged + Unprivileged==。
+1. =={yellow}MCU 上的用户态 / 内核态本质==是利用 CPU 提供的**=={pink}特权级==**=={pink}机制==，比如 Cortex‑M 的=={yellow}{pink} Thread mode + Handler mode==、=={pink}Privileged + Unprivileged==。
 2. 普通任务运行在用户态，只能访问被允许的代码区、数据区和外设；涉及中断控制、任务切换、时钟配置这类敏感操作时，必须通过=={pink} ==**=={pink}SVC 系统调用==**=={pink}进入内核态==。
-3. 内核再配合**=={pink}MPU==**=={pink} 做内存保护==，给不同任务划分独立的代码段、数据段、栈空间，=={green}非法访问时触发 MemManage/HardFault。==
+3. 内核再配合**=={pink}MPU==**=={yellow}{pink} 做内存保护==，给不同任务划分独立的代码段、数据段、栈空间，=={green}非法访问时触发 MemManage/HardFault。==
 4. 这样可以防止应用任务误改内核、越界踩内存、随意访问关键外设，从而把 “功能错误” 尽量限制在任务自身。
 5. 操作系统安全性本质靠三层：**=={pink}特权隔离 + 内存隔离 + 异常兜底==**，再配合栈溢出检测、参数检查、看门狗，提升系统可控性。
-| 概念                  | 一句话                              |
-| :------------------ | :------------------------------- |
-| **Thread mode**     | 正常执行用户代码/RTOS任务的状态               |
-| **Handler mode**    | 进入中断/异常服务程序时的状态，固定 Privileged    |
-| **Privileged**      | 最高权限，可访问所有寄存器和内存                 |
-| **Unprivileged**    | 受限权限，不能访问 NVIC/MPU 等核心外设，某些内存被禁止 |
-| **MPU**             | 硬件内存保护单元，给不同区域设置读/写/执行权限         |
-| **MemManage Fault** | 违反 MPU 规则（如越权写只读区）时触发的异常         |
-| **HardFault**       | 最高优先级异常，所有其他异常无法处理或配置错误时的兜底      |
+
+概念
+一句话
+
+**Thread mode**
+正常执行用户代码/RTOS任务的状态，Privileged
+
+**Handler mode**
+进入中断/异常服务程序时的状态，固定 Privileged
+
+**Privileged**
+最高权限，可访问所有寄存器和内存
+
+**Unprivileged**
+受限权限，不能访问 NVIC/MPU 等核心外设，某些内存被禁止
+
+**MPU**
+硬件内存保护单元，给不同区域设置读/写/执行权限
+
+**MemManage Fault**
+违反 MPU 规则（如越权写只读区）时触发的异常
+
+**HardFault**
+最高优先级异常，所有其他异常无法处理或配置错误时的兜底
 
 ---
 

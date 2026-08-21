@@ -9,18 +9,18 @@
 **底层实现原理**
 
 1. ONNX 的 **=={pink}本质==**_ _是一套**=={yellow}开放的模型中间表示规范==**，**=={pink}底层==** 通常使用 **=={green}Protobuf 序列化定义==  =={yellow}模型结构==**=={yellow}、==**=={yellow}计算图==**=={yellow}和==**=={yellow}权重==**
-2. 一个**=={pink} ONNX 模型==**主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **=={pink}4部分===={pink}组成==**：
+2. 一个**=={yellow}{pink} ONNX 模型==**主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **=={pink}4部分===={pink}组成==**：
 
 - `ModelProto` 保存整个=={yellow}**模型**及**版本信息**==
 - `GraphProto` 表示=={yellow}**节点之间的数据依赖**（**图结构**）==。
 - `NodeProto` 表示=={yellow}**算子**==。
 - `TensorProto` 表示=={yellow}**权重**或**常量**==。
 
-1. **=={pink}ONNX 计算图==**=={yellow}通常是==**=={yellow}有向无环图==**=={yellow}，==**=={yellow}节点==**=={yellow}表示===={yellow} ==`Conv`=={yellow}、==`Add`=={yellow}、==`Relu`=={yellow} 等==**=={yellow}标准算子==**=={yellow}，==**=={yellow}边==**=={yellow}表示==**=={yellow} Tensor 数据流==**=={yellow}。==
-2. `opset` 表示**=={pink}算子规范版本==**。=={green}同一个== `Resize`、`Slice` 等=={green}算子在不同 opset ==下，=={green}输入形式和语义可能不同==，=={yellow}部署端必须支持模型使用的 opset==
+1. **=={pink}ONNX 计算图==**=={yellow}通常是==**=={yellow}有向无环图==**=={yellow}，==**=={yellow}节点==**=={yellow}表示===={yellow} ==`Conv`=={yellow}、==`Add`=={yellow}、==`Relu`=={yellow}{yellow} 等==**=={yellow}标准算子==**=={yellow}，==**=={yellow}边==**=={yellow}表示==**=={yellow}{yellow} Tensor 数据流==**=={yellow}。==
+2. `opset` 表示**=={pink}算子规范版本==**。=={green}同一个== `Resize`、`Slice` 等=={green}算子在不同 opset ==下，=={green}输入形式和语义可能不同=={yellow}，=={yellow}部署端必须支持模型使用的 opset==
 3. **=={pink}推理引擎加载 ONNX 后==**，会完成**=={green}模型解析、合法性检查==、=={yellow}形状推导、常量折叠、算子融合和内存规划==**。
-4. **=={pink}运行时==**会=={yellow}把每个**节点映射到具体 kernel**==，=={yellow}或者把一段==**=={yellow}子图交给 CPU、GPU、NPU 等==**=={yellow} Execution Provider ==**=={yellow}执行==**；不支持的节点可能回退到 CPU
-5. =={pink}**ONNX 只定义 “算子语义是什么”**==，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，=={yellow}**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**==。
+4. **=={pink}运行时==**会=={yellow}把每个**节点映射到具体 kernel**=={yellow}，=={yellow}或者把一段==**=={yellow}子图交给 CPU、GPU、NPU 等==**=={yellow} Execution Provider ==**=={yellow}执行==**；不支持的节点可能回退到 CPU
+5. =={pink}**ONNX 只定义 “算子语义是什么”**=={yellow}，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，=={yellow}**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**==。
 
 **示意图说明**
 
@@ -41,7 +41,8 @@ ONNX ModelProto
         ↓
 CPU Kernel / GPU Kernel / NPU Kernel
 ```
-```
+
+```swift
 PyTorch 模型 → torch.onnx.export() → model.onnx
                                           ↓
                               ┌─────────────────────┐
@@ -61,11 +62,9 @@ PyTorch 模型 → torch.onnx.export() → model.onnx
                     └─────────────────────────────────────────┘
                                           ↓
                               ┌─────────────────────┐
-                              │ 硬件执行（NPU/GPU/CPU │
+                              │ 硬件执行（NPU/GPU/CPU）
                               └─────────────────────┘
 ```
-**
-**
 
 **代码说明**
 

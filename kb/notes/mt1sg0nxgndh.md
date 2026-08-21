@@ -348,7 +348,7 @@ GPIOA->ODR &= ~(1 << 5);
 
 - **底层实现原理**
 
-1. =={pink}STM32 的时钟源一般有 ==**=={pink}HSI、HSE、LSI、LSE==**，=={green}高速时钟给系统和外设==，低速时钟常给 RTC、看门狗。
+1. =={pink}STM32 的时钟源一般有 ==**=={pink}HSI、HSE、LSI、LSE==**，=={green}高速时钟给系统和外设==，=={green}低速时钟常给 RTC、看门狗==。
 2. 系统时钟 `SYSCLK` 可以选择直接来自 HSI/HSE，也可以先经过 **PLL 倍频** 后再作为主时钟。
 3. `SYSCLK` 再往下分成 **AHB、APB1、APB2** 等总线时钟，分别供内核、内存、不同外设使用。
 4. 不同外设再从总线时钟继续分频或单独选时钟源，比如 TIM、USART、ADC、RTC。

@@ -29,7 +29,7 @@
 
 1. STM32 上电或复位后，=={pink}内核==先从=={pink}固定启动地址取出中断===={pink}向量表==中的=={pink}前两个值==。
 2. 第=={pink} 1 ==个值加载到 =={pink}MSP==，作为主堆栈指针；第 =={pink}2== 个值加载到 =={pink}PC==，跳到=={pink} ==`Reset_Handler`=={pink} ==执行。
-3. `Reset_Handler` 里会完成运行时初始化，比如把 Flash 中的 `.data` 拷贝到 RAM、把 `.bss` 清零。
+3. `Reset_Handler` 里会完成=={green}运行时初始化==，比如把 Flash 中的 `.data` 拷贝到 RAM、把 `.bss` 清零。
 4. 然后执行 `SystemInit()`，完成时钟、FPU、向量表偏移等底层初始化。
 5. 最后进入 `main()`，此时 C 运行环境才算真正准备完成，用户程序开始执行。
 

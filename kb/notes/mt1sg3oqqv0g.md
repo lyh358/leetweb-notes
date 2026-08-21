@@ -14,7 +14,7 @@
 
 ## 02 RTOS 系统如何做 Tickless 低功耗？
 
-**- Tickless**
+- ** Tickless**
 - **考察场景**
 考察你是否理解 RTOS 为什么周期 Tick 会影响低功耗，以及 Tickless 如何减少无意义唤醒。
 - **底层实现原理**

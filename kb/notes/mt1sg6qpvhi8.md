@@ -12,7 +12,7 @@
 2. 一个 **=={yellow}ONNX 模型==**=={yellow}主要由 ==`ModelProto`=={yellow}、==`GraphProto`=={yellow}、==`NodeProto`=={yellow}、==`TensorProto`=={yellow} ==**=={yellow}4部分===={yellow}组成==**：
 
 - `ModelProto`保存整个**=={pink}模型==**=={pink}及==**=={pink}版本信息==。**
-- `GraphProto` 表示**节点之间的数据依赖**（**图结构**）。
+- `GraphProto` 表示**=={pink}节点之间的数据依赖==**=={pink}（==**=={pink}图结构==**=={pink}）==。
 - `NodeProto` 表示**算子**。
 - `TensorProto` 表示**权重**或**常量**。
 

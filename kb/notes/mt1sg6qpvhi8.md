@@ -51,8 +51,8 @@ PyTorch 模型 → torch.onnx.export() → model.onnx
                     ┌─────────────────────────────────────────┐
                     │           ONNX 后端/运行时选择         │
                     │  ┌─────────┐ ┌─────────┐ ┌─────────┐   │
-                    │  │ONNX RT │ │TensorRT ││ OpenVINO│ │
-                    │  │(CPU/GPU)│ │(NVIDIA) │ │(Intel)  │ │
+                    │  │ONNX RT │ │TensorRT ││ OpenVINO│  │
+                    │  │(CPU/GPU)││(NVIDIA) │ │(Intel) │ │
                     │  └─────────┘ └─────────┘ └─────────┘  │
                     │  ┌─────────┐ ┌─────────┐ ┌─────────┐  │
                     │  │ **CANN**│ │  NCNN   │ │  MNN    │  │

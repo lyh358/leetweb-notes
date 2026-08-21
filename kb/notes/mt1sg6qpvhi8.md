@@ -166,7 +166,7 @@ per-channel 量化权重 = 卷积/全连接层的输出Tensor每个输出通道�
 | PTQ | Post-Training Quantization | 模型训练完后，用校准数据统计范围，直接转 INT8 | 简单、快、大多数场景够用 |
 | QAT | Quantization-Aware Training | 训练时模拟 INT8 的 round/clip 误差，权重主动学习适应 | PTQ 精度掉太多，有训练资源 |
 
-代价：需要重新训练（或微调）模型，耗时耗卡。但精度通常比 PTQ 高 。****
+代价：需要重新训练（或微调）模型，耗时耗卡。但精度通常比 PTQ 高 。
 
 **示意图说明**
 

@@ -37,6 +37,12 @@
 - STM32 的 Boot 模式和启动地址是怎么选择的
 
 >根据boot0和boot1的0/1组合决定
+表格
+BOOT1	BOOT0	启动模式	物理地址	别名映射到
+X	0	主 Flash（Main Flash）	0x0800 0000	0x0000 0000
+0	1	系统存储器（System Memory）	0x1FFF 0000	0x0000 0000
+1	1	内置 SRAM	0x2000 0000	0x0000 0000
+BOOT0 是主开关：为 0 时固定从 Flash 启动；为 1 时由 BOOT1 区分 System Memory 还是 SRAM
 - 中断向量表为什么前两个元素是 MSP 和 Reset_Handler
 
 ---

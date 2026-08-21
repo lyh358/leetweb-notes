@@ -128,7 +128,7 @@ INT8 数值 q
   - scale 和 zero_point 怎么来的？ 从校准数据统计
   - 参数含义怎么算scale浮点值 → 整数的"缩放比例"`(max - min) / 255`（对称）或 更复杂的算法zero_point浮点 0 对应的整数值通常对称量化时为 0，非对称时偏移
 
-第三步：优先使用 `per‑channel`量化权重
+第三步：优先使用per‑channel`量化权重
 per-channel 量化权重 = 卷积/全连接层的每个输出通道单独计算自己的 scale 和 zero-point，而不是整个权重张量共用一套（per-tensor）。
 
 第四步：敏感层保留 FP16/FP32（混合精度）

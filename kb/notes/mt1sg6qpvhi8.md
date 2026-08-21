@@ -9,7 +9,7 @@
 **底层实现原理**
 
 1. ONNX 的 **=={pink}本质==**_ _是一套**=={yellow}开放的模型中间表示规范==**，**=={pink}底层==** 通常使用 **=={green}Protobuf 序列化定义==  =={yellow}模型结构==**=={yellow}、==**=={yellow}计算图==**=={yellow}和==**=={yellow}权重==**
-2. 一个 ONNX 模型主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` 组成：
+2. 一个 ONNX 模型主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **组成**：
 
 - `NodeProto` 表示算子。
 - `TensorProto` 表示权重或常量。
@@ -1596,4 +1596,3 @@ Zero Copy：
 
 - 如何设计摄像头到 NPU 的异步双缓冲流水线
 - 为什么端侧模型必须验证热稳定后的 P99 延迟
-**粗体**

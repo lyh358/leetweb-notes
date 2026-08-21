@@ -14,7 +14,7 @@
 
 ## 02 RTOS 系统如何做 Tickless 低功耗？
 
-- **Tickless**
+- **=={pink}Tickless==**
 
 取消1ms周期的sysTick中断，算出下一个任务还要多久才就绪，设个定时器，CPU 睡过去，到点再醒。****- **Tick**
 

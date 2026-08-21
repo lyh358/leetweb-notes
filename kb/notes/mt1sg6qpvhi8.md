@@ -8,7 +8,7 @@
 
 **底层实现原理**
 
-1. ONNX 的 **本质**是一套**开放的模型中间表示规范****，****底层**通常使用 **Protobuf 序列化定义的 模型结构**、**计算图**和**权重**
+1. ONNX 的 **=={yellow}本质==**=={yellow}是一套==**=={yellow}开放的模型中间表示规范==****，****底层**通常使用 **Protobuf 序列化定义的 模型结构**、**计算图**和**权重**
 2. 一个 **ONNX 模型**主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **4部分组成**：
 
 - `ModelProto`保存整个**模型**及**版本信息。**
@@ -20,7 +20,7 @@
 2. `opset` 表示**算子规范版本**。同一个算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
 3. **推理引擎加载 ONNX 后**，会完成**模型解析、合法性检查**、**形状推导、常量折叠、算子融合和内存规划**。
 4. **运行时**会把每个**节点映射到具体 kernel**，=={yellow}或者把一段**子图交给 CPU、GPU、NPU 等**Execution Provider**执行**；不支持的节点可能回退到 CPU
-5. **ONNX 只定义 “算子语义是什么”**，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，{yellow}**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**==。
+5. **ONNX 只定义 “算子语义是什么”**，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**。
 
 **示意图说明**
 

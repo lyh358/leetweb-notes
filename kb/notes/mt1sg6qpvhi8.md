@@ -22,7 +22,7 @@
 4. **运行时**会把每个**节点映射到具体 kernel**，或者把一段**子图交给 CPU、GPU、NPU 等执行**；不支持的节点可能回退到 CPU。
 5. **ONNX 只定义 “算子语义是什么”**，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**。
 
-**示意图说明**
+**=={pink}示意图说明==**
 
 ```yaml
 PyTorch 模型

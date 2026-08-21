@@ -225,7 +225,6 @@ per-channel 量化权重 = 卷积/全连接层的输出Tensor每个输出通道�
 
 `
 NPU → CPU → NPU
-```
 
 这种跨设备拷贝有时比计算本身更慢。ONNX Runtime 也是根据后端能力进行子图划分和回退
 

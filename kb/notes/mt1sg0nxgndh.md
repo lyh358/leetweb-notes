@@ -37,7 +37,6 @@
 - STM32 的 Boot 模式和启动地址是怎么选择的
 
 >根据boot0和boot1的0/1组合决定
-
 - 中断向量表为什么前两个元素是 MSP 和 Reset_Handler
 
 ---

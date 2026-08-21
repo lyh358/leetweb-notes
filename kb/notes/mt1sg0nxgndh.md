@@ -546,7 +546,7 @@ STM32 的 Flash 划分主要关系到 程序存放、BootLoader/App 分区、参
 - STM32 不同系列 Flash 的 page 和 sector 有什么区别
 - BootLoader 跳转 App 时为什么要重设 MSP 和向量表
 
-BootLoader 和 App 是两套独立的程序，各自有独立的栈和向量表；跳转前重设 MSP 是让 App 用自己的栈，重设 x 是让中断发生时 CPU 去 App 的 ISR，而不是 BootLoader 的。
+BootLoader 和 App 是两套独立的程序，各自有独立的栈和向量表；跳转前重设 MSP 是让 App 用自己的栈，重设 向量表 是让中断发生时 CPU 去 App 的 ISR，而不是 BootLoader 的。
 ---
 
 ## 24 STM32 系统死机 / 跑飞的常见原因及排查方法

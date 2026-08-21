@@ -104,7 +104,7 @@ TIM 控制寄存器 CR1 的第 0 位，定时器的总开关。
 
 - **底层实现原理**
 
-1. =={yellow}MCU 上的用户态 / 内核态本质==是利用 CPU 提供的**=={pink}特权级==**=={pink}机制==，比如 Cortex‑M 的 Thread mode + Handler mode、Privileged + Unprivileged。
+1. =={yellow}MCU 上的用户态 / 内核态本质==是利用 CPU 提供的**=={pink}特权级==**=={pink}机制==，比如 Cortex‑M 的=={pink} Thread mode + Handler mode==、Privileged + Unprivileged。
 2. 普通任务运行在用户态，只能访问被允许的代码区、数据区和外设；涉及中断控制、任务切换、时钟配置这类敏感操作时，必须通过 **SVC 系统调用**进入内核态。
 3. 内核再配合 **MPU** 做内存保护，给不同任务划分独立的代码段、数据段、栈空间，非法访问时触发 MemManage/HardFault。
 4. 这样可以防止应用任务误改内核、越界踩内存、随意访问关键外设，从而把 “功能错误” 尽量限制在任务自身。

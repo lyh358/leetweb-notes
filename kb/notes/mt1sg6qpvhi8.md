@@ -11,13 +11,13 @@
 1. ONNX 的 **=={pink}本质==**_ _是一套**=={yellow}开放的模型中间表示规范==**，**=={pink}底层==** 通常使用 **=={green}Protobuf 序列化定义==  =={yellow}模型结构==**=={yellow}、==**=={yellow}计算图==**=={yellow}和==**=={yellow}权重==**
 2. 一个**=={yellow}{pink} ONNX 模型==**主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **=={pink}4部分===={pink}组成==**：
 
-- `ModelProto`=={yellow} 保存整个==**=={yellow}模型==**=={yellow}及==**=={yellow}版本信息==。**
+- `ModelProto`=={yellow}{yellow} 保存整个==**=={yellow}模型==**=={yellow}及==**=={yellow}版本信息==。**
 - `GraphProto` =={yellow}表示==**=={yellow}节点之间的数据依赖==**=={yellow}（==**=={yellow}图结构==**=={yellow}）==。
 - `NodeProto` =={yellow}表示==**=={yellow}算子==**。
 - `TensorProto` =={yellow}表示==**=={yellow}权重==**=={yellow}或==**=={yellow}常量==**。
 
 1. **=={pink}ONNX 计算图==**通常是**=={yellow}有向无环图==**，**=={yellow}节点==**表示`Conv`、`Add`、`Relu`等**=={yellow}标准算子==**，**=={yellow}边==**表示**=={yellow}Tensor 数据流==**=={yellow}。==
-2. `opset` 表示=={pink}**算子规范版本**==。=={green}同一个算子==在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
+2. `opset` 表示=={pink}**算子规范版本**=={yellow}。}同一个算子==在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
 3. **=={pink}推理引擎加载 ONNX 后==**，会完成**=={green}模型解析、合法性检查==、=={yellow}形状推导、常量折叠、算子融合和内存规划==**。
 4. **=={pink}运行时==**会=={yellow}把每个**节点映射到具体 kernel**=={yellow}，=={yellow}或者把一段==**=={yellow}子图交给 CPU、GPU、NPU 等==**=={yellow} Execution Provider ==**=={yellow}执行==**；不支持的节点可能回退到 CPU
 5. =={pink}**ONNX 只定义 “算子语义是什么”**=={yellow}，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，=={yellow}**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**==。

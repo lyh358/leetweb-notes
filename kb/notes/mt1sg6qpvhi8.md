@@ -1,6 +1,6 @@
 # 四、嵌入式AI部署
 
-## 01 ONNX 底层如何实现？
+## =={pink}01 ONNX 底层如何实现？==
 
 **考察场景**
 
@@ -10,15 +10,17 @@
 
 1. ONNX 的本质是一套开放的模型中间表示规范，底层通常使用 Protobuf 序列化模型结构、计算图和权重
 2. 一个 ONNX 模型主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` 组成：
-  - `NodeProto` 表示算子。
-  - `TensorProto` 表示权重或常量。
-  - `GraphProto` 表示节点之间的数据依赖。
-  - `ModelProto` 保存整个模型及版本信息
-3. ONNX 计算图通常是有向无环图，节点表示 `Conv`、`Add`、`Relu` 等标准算子，边表示 Tensor 数据流。
-4. `opset` 表示算子规范版本。同一个 `Resize`、`Slice` 等算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
-5. 推理引擎加载 ONNX 后，会完成模型解析、合法性检查、形状推导、常量折叠、算子融合和内存规划。
-6. 运行时会把每个节点映射到具体 kernel，或者把一段子图交给 CPU、GPU、NPU 等 Execution Provider 执行；不支持的节点可能回退到 CPU
-7. ONNX 只定义 “算子语义是什么”，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，具体实现由 TensorRT、ONNX Runtime、NCNN、MNN 等后端决定。
+
+- `NodeProto` 表示算子。
+- `TensorProto` 表示权重或常量。
+- `GraphProto` 表示节点之间的数据依赖。
+- `ModelProto` 保存整个模型及版本信息
+
+1. ONNX 计算图通常是有向无环图，节点表示 `Conv`、`Add`、`Relu` 等标准算子，边表示 Tensor 数据流。
+2. `opset` 表示算子规范版本。同一个 `Resize`、`Slice` 等算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
+3. 推理引擎加载 ONNX 后，会完成模型解析、合法性检查、形状推导、常量折叠、算子融合和内存规划。
+4. 运行时会把每个节点映射到具体 kernel，或者把一段子图交给 CPU、GPU、NPU 等 Execution Provider 执行；不支持的节点可能回退到 CPU
+5. ONNX 只定义 “算子语义是什么”，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，具体实现由 TensorRT、ONNX Runtime、NCNN、MNN 等后端决定。
 
 **示意图说明**
 
@@ -464,12 +466,13 @@ PyTorch 和 ONNX Runtime 都提供了用于验证导出模型输出的工具或�
 2. 执行常量折叠，把只依赖常量的计算提前完成，例如固定的 `Shape`、`Gather`、`Mul` 和权重变换。
 3. 删除无效节点，包括 `Identity`、无用 `Cast`、训练期 `Dropout` 和重复的 `Reshape`。
 4. 执行算子融合，例如：
-  - Conv + BN
-  - Conv + Add
-  - Conv + Activation
-  - MatMul + Add
-  - Attention
-  - LayerNorm
+
+- Conv + BN
+- Conv + Add
+- Conv + Activation
+- MatMul + Add
+- Attention
+- LayerNorm
 
 ONNX Runtime 将图优化分为基础优化、扩展优化和布局优化
 
@@ -648,18 +651,20 @@ z = Conv(x, W', b')
 **底层实现原理**
 
 1. 三种框架面向的主要硬件不同：
-  - TensorRT 主要针对 NVIDIA GPU。
-  - NCNN 重点面向移动和嵌入式 ARM CPU、Vulkan GPU。
-  - MNN 支持 ARM、x86、OpenCL、Vulkan、Metal、CUDA 等多个后端
-2. 算子 kernel 实现不同。相同 Conv 可能分别使用 cuDNN、Tensor Core、ARM NEON、Winograd、im2col + GEMM 或手写汇编。
-3. 数据布局不同。NCNN 常使用适合向量化的 packed layout，MNN 可能使用 NC4HW4 等内部格式，TensorRT 则根据 tactic 和 GPU 特性选择内部格式。
-4. 算子融合能力不同。同一计算图在一个框架中可能融合为单个 kernel，在另一个框架中仍然需要执行多个算子。TensorRT 的构建器会根据支持模式自动执行 layer fusion
-5. 低精度支持不同。即使都启用 FP16 或 INT8，不同硬件对低精度指令、数据 packing 和累加精度的支持也不同。
-6. 动态 shape 会影响 kernel 选择和内存规划。固定输入尺寸通常能使用更激进的优化，而宽泛的动态范围可能限制融合和 tactic 选择。
-7. 不支持算子会造成 fallback 或额外转换。例如部分节点在 GPU 上执行，部分节点回到 CPU，会产生设备同步和内存拷贝。
-8. 线程池、内存分配器、workspace、CPU 亲和性、GPU 队列和异步执行策略不同，也会造成明显性能差异。
-9. 转换工具质量也会影响结果。转换后可能出现额外的 `Transpose`、`Reshape`、`Cast` 或拆分算子，导致计算量没有变化但访存显著增加。
-10. Benchmark 方法必须一致，包括输入尺寸、batch、精度、预热次数、线程数、功耗模式和是否包含前后处理，否则比较结果没有意义。
+
+- TensorRT 主要针对 NVIDIA GPU。
+- NCNN 重点面向移动和嵌入式 ARM CPU、Vulkan GPU。
+- MNN 支持 ARM、x86、OpenCL、Vulkan、Metal、CUDA 等多个后端
+
+1. 算子 kernel 实现不同。相同 Conv 可能分别使用 cuDNN、Tensor Core、ARM NEON、Winograd、im2col + GEMM 或手写汇编。
+2. 数据布局不同。NCNN 常使用适合向量化的 packed layout，MNN 可能使用 NC4HW4 等内部格式，TensorRT 则根据 tactic 和 GPU 特性选择内部格式。
+3. 算子融合能力不同。同一计算图在一个框架中可能融合为单个 kernel，在另一个框架中仍然需要执行多个算子。TensorRT 的构建器会根据支持模式自动执行 layer fusion
+4. 低精度支持不同。即使都启用 FP16 或 INT8，不同硬件对低精度指令、数据 packing 和累加精度的支持也不同。
+5. 动态 shape 会影响 kernel 选择和内存规划。固定输入尺寸通常能使用更激进的优化，而宽泛的动态范围可能限制融合和 tactic 选择。
+6. 不支持算子会造成 fallback 或额外转换。例如部分节点在 GPU 上执行，部分节点回到 CPU，会产生设备同步和内存拷贝。
+7. 线程池、内存分配器、workspace、CPU 亲和性、GPU 队列和异步执行策略不同，也会造成明显性能差异。
+8. 转换工具质量也会影响结果。转换后可能出现额外的 `Transpose`、`Reshape`、`Cast` 或拆分算子，导致计算量没有变化但访存显著增加。
+9. Benchmark 方法必须一致，包括输入尺寸、batch、精度、预热次数、线程数、功耗模式和是否包含前后处理，否则比较结果没有意义。
 
 **示意图说明**
 

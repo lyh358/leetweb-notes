@@ -229,15 +229,6 @@ per-channel 量化权重 = 卷积/全连接层的输出Tensor每个输出通道�
 **示意图说明**
 
 ```markdown
-摄像头输入
-    ↓
-颜色转换 / Resize / Normalize
-    ↓
-模型推理
-    ↓
-Decode / NMS / 跟踪
-    ↓
-显示或业务处理
 
 优化顺序：
 先测量各阶段耗时

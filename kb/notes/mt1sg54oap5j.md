@@ -129,7 +129,7 @@ Flash 擦除后所有字节为 0xFF，若某地址不是 0xFF，视为「已使�
 
 1. **=={yellow}分区规划==**=={yellow}：Flash 划分 ==`App A`=={yellow}（运行区）、==`App B`=={yellow}（备份升级区）、==`Bootloader`=={yellow}、==`OTA元数据分区`=={yellow}、参数区。A/B 两个 App 分区大小完全一致。==
 2. **=={yellow}元数据保存状态==**=={yellow}：元数据分区记录：当前有效启动分区、升级状态、校验信息、是否需要回滚。==应用层 OTA 把新固件下载到非运行的分区（比如当前跑 A，则写到 B 分区）。
-3. Bootloader 启动逻辑
+3. **Bootloader 启动逻辑**
 
 - 上电读取 OTA Metadata，判断应该启动 A 还是 B 分区。
 - 加载待启动 App 镜像，做完整性校验。

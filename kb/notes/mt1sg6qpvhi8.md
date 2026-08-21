@@ -8,21 +8,19 @@
 
 **底层实现原理**
 
-1. =={yellow}ONNX 的 ==**=={yellow}本质==**=={yellow}是一套**===={yellow}开放的模型中间表示规范==**=={yellow}，==**=={yellow}底层===={yellow}** 通常使用 ==**=={yellow}Protobuf 序列化定义===={yellow}  ===={yellow}模型结构==**=={yellow}、==**=={yellow}计算图==**=={yellow}和==**=={yellow}权重==**
-2. =={yellow}一个**===={yellow}{pink} ONNX 模型===={yellow}**主要由 ==`ModelProto`=={yellow}、==`GraphProto`=={yellow}、==`NodeProto`=={yellow}、==`TensorProto`=={yellow} ==**=={yellow}4部分===={yellow}组成==**=={yellow}：==
+1. ONNX 的 **本质**是一套**开放的模型中间表示规范**，**底层** 通常使用 **Protobuf 序列化定义  模型结构**、**计算图**和**权重**
+2. 一个**{pink} ONNX 模型**主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` **4部分组成**：
 
-=={yellow}
-==- `ModelProto`=={yellow}{yellow} 保存整个==**=={yellow}模型==**=={yellow}及==**=={yellow}版本信息===={yellow}。==**
-- `GraphProto`=={yellow} ===={yellow}表示==**=={yellow}节点之间的数据依赖==**=={yellow}（==**=={yellow}图结构==**=={yellow}）===={yellow}。==
-- `NodeProto`=={yellow} ===={yellow}表示==**=={yellow}算子==**=={yellow}。==
-- `TensorProto`=={yellow} ===={yellow}表示==**=={yellow}权重==**=={yellow}或==**=={yellow}常量==**=={yellow}。==
+- `ModelProto`{yellow} 保存整个**模型**及**版本信息。**
+- `GraphProto` 表示**节点之间的数据依赖**（**图结构**）。
+- `NodeProto` 表示**算子**。
+- `TensorProto` 表示**权重**或**常量**。
 
-=={yellow}
-==1. **=={yellow}ONNX 计算图==**=={yellow}通常是==**=={yellow}有向无环图==**=={yellow}，==**=={yellow}节点==**=={yellow}表示==`Conv`=={yellow}、==`Add`=={yellow}、==`Relu`=={yellow}等==**=={yellow}标准算子==**=={yellow}，==**=={yellow}边==**=={yellow}表示==**=={yellow}Tensor 数据流==**=={yellow}。==
-2. `opset`=={yellow} 表示==**=={yellow}算子规范版本==**=={yellow}。===={yellow}同一个算子===={yellow}在===={yellow}不同 opset ===={yellow}下，===={yellow}输入形式和语义可能不同===={yellow}，===={yellow}部署端必须支持模型使用的 opset==
-3. **=={yellow}推理引擎加载 ONNX 后==**=={yellow}，会完成===={yellow}**模型解析、合法性检查**===={yellow}、===={yellow}**形状推导、常量折叠、算子融合和内存规划**===={yellow}。==
-4. **=={yellow}运行时==**=={yellow}会=={yellow}把每个==**=={yellow}节点映射到具体 kernel==**=={yellow}，=={yellow}或者把一段==**=={yellow}子图交给 CPU、GPU、NPU 等==**=={yellow}=={yellow} Execution Provider ====**=={yellow}执行==**=={yellow}；不支持的节点可能回退到 CPU==
-5. =={yellow}=={pink}==**=={yellow}ONNX 只定义 “算子语义是什么”==**=={yellow}，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，===={yellow}{yellow}==**=={yellow}具体实现==**=={yellow}由 ==**=={yellow}CANN==**=={yellow}、TensorRT、==**=={yellow}ONNX Runtime==**=={yellow}、NCNN、MNN ==**=={yellow}等后端决定==**=={yellow}==。==
+1. **ONNX 计算图**通常是**有向无环图**，**节点**表示`Conv`、`Add`、`Relu`等**标准算子**，**边**表示**Tensor 数据流**。
+2. `opset` 表示**算子规范版本**。同一个算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
+3. **推理引擎加载 ONNX 后**，会完成**模型解析、合法性检查**、**形状推导、常量折叠、算子融合和内存规划**。
+4. **运行时**会=={yellow}把每个**节点映射到具体 kernel**，=={yellow}或者把一段**子图交给 CPU、GPU、NPU 等**=={yellow} Execution Provider ==**执行**；不支持的节点可能回退到 CPU
+5. =={pink}**ONNX 只定义 “算子语义是什么”**，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，{yellow}**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**==。
 
 **示意图说明**
 

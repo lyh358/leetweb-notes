@@ -107,7 +107,7 @@ onnx.save(model, "model_inferred.onnx")
 
 **INT8 量化后模型精度下降（掉点）的排查和修复方法（6 步排查法）**
 
-=={pink}量化精度下降的本质==是=={yellow}浮点数被映射到有限范围==，=={yellow}产生===={yellow}截断、舍入和饱和误差==：
+=={pink}量化精度下降的本质==是=={yellow}浮点数被映射到有限zs范围==，=={yellow}产生===={yellow}截断、舍入和饱和误差==：
 
 ```css
 浮点值 x

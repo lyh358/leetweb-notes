@@ -114,7 +114,7 @@ TIM 控制寄存器 CR1 的第 0 位，定时器的总开关。
 一句话
 
 **Thread mode**
-正常执行用户代码/RTOS任务的状态，Privileged/
+正常执行用户代码/RTOS任务的状态，Privileged/UnPrivileged
 
 **Handler mode**
 进入中断/异常服务程序时的状态，固定 Privileged

@@ -290,8 +290,7 @@ Profiling 看算子耗时分布：
 
 若=={yellow}某些算子在 NPU 上耗时极短但 CPU 侧出现高占用==
 
-=={yellow}
-==
+=={yellow}本质：该算子没有 NPU 实现，框架把它扔回 CPU。但为了不破坏图结构，可能先在 NPU 上做个空操作（memcpy 或 noop），然后数据搬回 CPU 算，算完再搬回 NPU。==
 
 =={yellow}或总 latency 远大于 NPU kernel 累加时间==，
 

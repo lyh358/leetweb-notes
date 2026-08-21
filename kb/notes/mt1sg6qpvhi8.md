@@ -1,5 +1,4 @@
-# 四、嵌入式AI部署
-# 01 ONNX 底层如何实现？
+# 四、嵌入式AI部署01 ONNX 底层如何实现？
 
 **考察场景**
 
@@ -9,10 +8,10 @@
 
 1. ONNX 的本质是一套开放的模型中间表示规范，底层通常使用 Protobuf 序列化模型结构、计算图和权重
 2. 一个 ONNX 模型主要由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` 组成：
-   - `NodeProto` 表示算子。
-   - `TensorProto` 表示权重或常量。
-   - `GraphProto` 表示节点之间的数据依赖。
-   - `ModelProto` 保存整个模型及版本信息
+  - `NodeProto` 表示算子。
+  - `TensorProto` 表示权重或常量。
+  - `GraphProto` 表示节点之间的数据依赖。
+  - `ModelProto` 保存整个模型及版本信息
 3. ONNX 计算图通常是有向无环图，节点表示 `Conv`、`Add`、`Relu` 等标准算子，边表示 Tensor 数据流。
 4. `opset` 表示算子规范版本。同一个 `Resize`、`Slice` 等算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset
 5. 推理引擎加载 ONNX 后，会完成模型解析、合法性检查、形状推导、常量折叠、算子融合和内存规划。
@@ -21,7 +20,7 @@
 
 **示意图说明**
 
-```
+```yaml
 PyTorch 模型
     ↓ 导出
 ONNX ModelProto
@@ -41,7 +40,7 @@ CPU Kernel / GPU Kernel / NPU Kernel
 
 **代码说明**
 
-```
+```python
 import onnx
 
 # 1. 加载 Protobuf 格式的 ONNX 模型
@@ -70,7 +69,7 @@ onnx.save(model, "model_inferred.onnx")
 
 > ONNX 形状推导并不保证处理所有动态表达式，复杂动态 `Reshape`、控制流和自定义算子可能无法完整推导。(ONNX)
 
-------
+---
 
 # 02 量化后精度衰减如何处理？
 
@@ -82,7 +81,7 @@ onnx.save(model, "model_inferred.onnx")
 
 1. 量化精度下降的本质是浮点数被映射到有限整数范围，产生截断、舍入和饱和误差：
 
-```
+```css
 浮点值 x
     ↓ 除以 scale
     ↓ 取整并加 zero_point
@@ -99,7 +98,7 @@ INT8 数值 q
 
 **示意图说明**
 
-```
+```markdown
 量化后精度下降
     ↓
 前处理和后处理是否一致？
@@ -122,7 +121,7 @@ INT8 数值 q
 
 > 排查时不要只比较单个输出值，应同时比较任务指标：
 
-```
+```css
 1  分类：Top‑1 / Top‑5
 2  检测：mAP / Recall / 小目标 AP
 3  分割：mIoU / Dice
@@ -134,7 +133,7 @@ INT8 数值 q
 - 对称量化和非对称量化有什么区别
 - PTQ 和 QAT 应该如何选择
 
-------
+---
 
 # 03 如何优化模型在嵌入式设备上的推理速度？
 
@@ -150,19 +149,19 @@ INT8 数值 q
 4. 图层面应执行常量折叠、无效节点删除、Conv‑BN 融合、算子融合和静态 shape 固化。融合能够减少 kernel 启动和中间 Tensor 的内存读写
 5. 必须检查算子是否全部落到加速器。如果一个算子不被 NPU 支持，可能造成：
 
-```
+```undefined
 NPU → CPU → NPU
 ```
 
 这种跨设备拷贝有时比计算本身更慢。ONNX Runtime 也是根据后端能力进行子图划分和回退
 
-6. 内存层面要减少反复申请释放、数据格式转换和 CPU/GPU 拷贝，尽量复用 Tensor、使用内存池或零拷贝接口。
-7. CPU 推理需要合理设置线程数、大小核亲和性和数据布局。线程越多不一定越快，过多线程可能造成 Cache 抖动和调度开销。
-8. 嵌入式设备还要关注温度和频率。短时间 benchmark 很快，但持续运行后可能因为 CPU/GPU 降频导致实际帧率下降。
+1. 内存层面要减少反复申请释放、数据格式转换和 CPU/GPU 拷贝，尽量复用 Tensor、使用内存池或零拷贝接口。
+2. CPU 推理需要合理设置线程数、大小核亲和性和数据布局。线程越多不一定越快，过多线程可能造成 Cache 抖动和调度开销。
+3. 嵌入式设备还要关注温度和频率。短时间 benchmark 很快，但持续运行后可能因为 CPU/GPU 降频导致实际帧率下降。
 
 **示意图说明**
 
-```
+```markdown
 摄像头输入
     ↓
 颜色转换 / Resize / Normalize
@@ -191,7 +190,7 @@ Decode / NMS / 跟踪
 
 **Linux 侧常用排查方式：**
 
-```
+```bash
 # 查看 CPU 热点函数
 perf stat ./inference_app
 perf record -g ./inference_app
@@ -213,7 +212,7 @@ pidstat -r -w -p $(pidof inference_app) 1
 
 工程上应分别记录：
 
-```
+```undefined
 1	模型加载时间
 2	首次推理时间
 3	预热后平均延迟
@@ -229,7 +228,7 @@ pidstat -r -w -p $(pidof inference_app) 1
 
 如何判断模型是否发生 CPU fallback
 
-------
+---
 
 # 04 为什么部署需要做模型压缩？
 
@@ -249,7 +248,7 @@ pidstat -r -w -p $(pidof inference_app) 1
 
 **示意图说明**
 
-```
+```markdown
 原始模型
 ├─ 权重大
 ├─ 计算量大
@@ -272,7 +271,7 @@ RAM 占用下降
 
 **需要特别区分：**
 
-```
+```undefined
 ZIP 压缩：
 只减少模型存储和传输大小，运行前仍要解压
 
@@ -292,7 +291,7 @@ FP16/INT8 量化：
 
 为什么参数量减少不一定代表推理延迟降低
 
-------
+---
 
 # 05 为什么深度学习模型部署需要转换成 ONNX? ONNX 在部署链路中起什么作用？
 
@@ -306,7 +305,7 @@ FP16/INT8 量化：
 2. ONNX 把模型转换成标准计算图、标准算子、权重和 Tensor 描述，使模型不再强依赖原训练框架
 3. ONNX 在部署链路中主要承担中间表示作用：
 
-```
+```markdown
 PyTorch → ONNX → TensorRT
                → ONNX Runtime
                → OpenVINO
@@ -320,7 +319,7 @@ PyTorch → ONNX → TensorRT
 
 **示意图说明**
 
-```
+```markdown
 训练阶段
     PyTorch Model
         ↓
@@ -335,7 +334,7 @@ CUDA GPU  ARM/Vulkan    NPU
 
 **ONNX 解决的是：**
 
-```
+```undefined
 1	训练框架与部署框架解耦
 2	算子和数据类型标准化
 3	模型结构可视化和检查
@@ -344,7 +343,7 @@ CUDA GPU  ARM/Vulkan    NPU
 
 **ONNX 不直接解决的是：**
 
-```
+```undefined
 1	目标硬件 kernel 性能
 2	不支持算子的实现
 3	具体内存调度
@@ -358,7 +357,7 @@ ONNX 与 TensorRT Engine 有什么区别
 
 哪些场景可以绕过 ONNX 直接部署
 
-------
+---
 
 # 06 PyTorch 模型转换 ONNX 时常见失败原因有哪些？如何解决？
 
@@ -369,36 +368,21 @@ ONNX 与 TensorRT Engine 有什么区别
 **底层实现原理**
 
 1. **存在不支持的 PyTorch 算子。**
-
-   导出器找不到对应 ONNX 算子时会失败，可以替换为标准算子、分解算子或注册自定义转换。PyTorch 提供了扩展 ONNX 导出器算子支持的机制
-
+导出器找不到对应 ONNX 算子时会失败，可以替换为标准算子、分解算子或注册自定义转换。PyTorch 提供了扩展 ONNX 导出器算子支持的机制
 2. **forward 中包含普通 Python 控制流。**
-
-   依赖 Tensor 值的 `if`、`for`、`while` 可能被固定成示例输入路径，或者无法导出，需要重写为 Tensor 运算或可导出的控制流形式
-
+依赖 Tensor 值的 `if`、`for`、`while` 可能被固定成示例输入路径，或者无法导出，需要重写为 Tensor 运算或可导出的控制流形式
 3. **动态 shape 描述不完整。**
-
-   只用固定尺寸样例导出时，batch、宽高或序列长度可能被固化，部署其他尺寸时失败。
-
+只用固定尺寸样例导出时，batch、宽高或序列长度可能被固化，部署其他尺寸时失败。
 4. **把 Tensor 转换成 Python 数值。**
-
-   `tensor.item()`、`int(tensor.shape[0])` 或使用 NumPy 参与 forward，可能切断计算图或把运行时值固化成常量。
-
+`tensor.item()`、`int(tensor.shape[0])` 或使用 NumPy 参与 forward，可能切断计算图或把运行时值固化成常量。
 5. **opset 与部署后端不匹配。**
-
-   opset 太新，部署端可能不支持；opset 太旧，又可能无法表达新算子，应以目标运行时支持范围为准
-
+opset 太新，部署端可能不支持；opset 太旧，又可能无法表达新算子，应以目标运行时支持范围为准
 6. **模型没有切换到推理状态。**
-
-   Dropout、BatchNorm 等在训练模式和推理模式下行为不同，导出前通常需要执行 `model.eval()`。
-
+Dropout、BatchNorm 等在训练模式和推理模式下行为不同，导出前通常需要执行 `model.eval()`。
 7. **输入类型或结构不稳定。**
-
-   字典、嵌套列表、可选输入、自定义对象和不一致 dtype 可能导致导出失败，应尽量整理成明确的 Tensor 输入输出。
-
+字典、嵌套列表、可选输入、自定义对象和不一致 dtype 可能导致导出失败，应尽量整理成明确的 Tensor 输入输出。
 8. **自定义算子或后处理无法转换。**
-
-   NMS、ROI、Deformable Conv 等算子需要确认目标后端支持情况，必要时将后处理移到 C++ 侧，或者实现后端插件。
+NMS、ROI、Deformable Conv 等算子需要确认目标后端支持情况，必要时将后处理移到 C++ 侧，或者实现后端插件。
 
 > 目前 PyTorch 官方文档将基于 `torch.export` 的 ONNX 导出器作为较新的导出路径，使用时仍需结合当前 PyTorch 版本确认接口。
 
@@ -423,7 +407,7 @@ PyTorch 和 ONNX Runtime 都提供了用于验证导出模型输出的工具或�
 
 ## 示意图说明
 
-```
+```bash
 1 PyTorch 输出 != ONNX 输出
 2     ↓
 3 检查 eval / no_grad
@@ -445,7 +429,7 @@ PyTorch 和 ONNX Runtime 都提供了用于验证导出模型输出的工具或�
 
 ## 常见现象：
 
-```
+```css
 1 误差从第一层开始：
 2 优先检查输入、权重和数据布局
 3
@@ -464,7 +448,7 @@ PyTorch 和 ONNX Runtime 都提供了用于验证导出模型输出的工具或�
 - 如何导出 ONNX 中间节点作为模型输出
 - 浮点误差的 `atol` 和 `rtol` 应如何设置
 
-------
+---
 
 # 08 ONNX 模型转换后有哪些常见优化手段？
 
@@ -478,12 +462,12 @@ PyTorch 和 ONNX Runtime 都提供了用于验证导出模型输出的工具或�
 2. 执行常量折叠，把只依赖常量的计算提前完成，例如固定的 `Shape`、`Gather`、`Mul` 和权重变换。
 3. 删除无效节点，包括 `Identity`、无用 `Cast`、训练期 `Dropout` 和重复的 `Reshape`。
 4. 执行算子融合，例如：
-   - Conv + BN
-   - Conv + Add
-   - Conv + Activation
-   - MatMul + Add
-   - Attention
-   - LayerNorm
+  - Conv + BN
+  - Conv + Add
+  - Conv + Activation
+  - MatMul + Add
+  - Attention
+  - LayerNorm
 
 ONNX Runtime 将图优化分为基础优化、扩展优化和布局优化
 
@@ -494,7 +478,7 @@ ONNX Runtime 将图优化分为基础优化、扩展优化和布局优化
 
 ## 示意图说明
 
-```
+```graphql
 1 原始 ONNX
 2     ↓
 3 合法性检查
@@ -516,7 +500,7 @@ ONNX Runtime 支持在线或离线执行图优化，离线优化模型需要注�
 
 ### 优化后必须重新验证：
 
-```
+```undefined
 1 输出精度是否一致
 2 节点数量是否减少
 3 是否出现不支持算子
@@ -530,7 +514,7 @@ ONNX Runtime 支持在线或离线执行图优化，离线优化模型需要注�
 - ONNX shape inference 为什么可能失败
 - 静态 shape 为什么通常比动态 shape 更容易优化
 
-------
+---
 
 # 09 什么是 Operator Fusion? 为什么 Conv + BN 可以融合？
 
@@ -551,11 +535,11 @@ ONNX Runtime 支持在线或离线执行图优化，离线优化模型需要注�
 
 > 融合前：
 
-------
+---
 
 ## 补充：torch.onnx.export () 失败排查流程图
 
-```
+```cpp
 1 torch.onnx.export() 失败
 2     ↓
 3 是否提示 unsupported operator?
@@ -582,7 +566,7 @@ ONNX Runtime 支持在线或离线执行图优化，离线优化模型需要注�
 
 融合前：
 
-```
+```css
 Input
  ↓
 Conv
@@ -598,7 +582,7 @@ ReLU
 
 融合后：
 
-```
+```css
 Input
  ↓
 Fused Conv + ReLU Kernel
@@ -617,41 +601,41 @@ Output
 
 卷积输出为：
 
-```
+```ini
 y = Conv(x, w, b)
 ```
 
 推理状态下 BatchNorm 为：
 
-```
+```ini
 z = γ × (y - μ) / sqrt(σ² + ε) + β
 ```
 
 定义：
 
-```
+```ini
 scale = γ / sqrt(σ² + ε)
 ```
 
 则可以得到新权重：
 
-```
+```vbnet
 W' = scale × W
 ```
 
 新 Bias：
 
-```
+```vbnet
 b' = scale × (b - μ) + β
 ```
 
 最终：
 
-```
+```ini
 z = Conv(x, W', b')
 ```
 
-------
+---
 
 # 10 为什么同一个 ONNX 模型转换到 TensorRT、NCNN、MNN 后性能差异很大？
 
@@ -662,9 +646,9 @@ z = Conv(x, W', b')
 **底层实现原理**
 
 1. 三种框架面向的主要硬件不同：
-   - TensorRT 主要针对 NVIDIA GPU。
-   - NCNN 重点面向移动和嵌入式 ARM CPU、Vulkan GPU。
-   - MNN 支持 ARM、x86、OpenCL、Vulkan、Metal、CUDA 等多个后端
+  - TensorRT 主要针对 NVIDIA GPU。
+  - NCNN 重点面向移动和嵌入式 ARM CPU、Vulkan GPU。
+  - MNN 支持 ARM、x86、OpenCL、Vulkan、Metal、CUDA 等多个后端
 2. 算子 kernel 实现不同。相同 Conv 可能分别使用 cuDNN、Tensor Core、ARM NEON、Winograd、im2col + GEMM 或手写汇编。
 3. 数据布局不同。NCNN 常使用适合向量化的 packed layout，MNN 可能使用 NC4HW4 等内部格式，TensorRT 则根据 tactic 和 GPU 特性选择内部格式。
 4. 算子融合能力不同。同一计算图在一个框架中可能融合为单个 kernel，在另一个框架中仍然需要执行多个算子。TensorRT 的构建器会根据支持模式自动执行 layer fusion
@@ -677,7 +661,7 @@ z = Conv(x, W', b')
 
 **示意图说明**
 
-```
+```sql
 同一个 ONNX Graph
 ├─ TensorRT
 │   ├─ CUDA / Tensor Core
@@ -703,7 +687,7 @@ z = Conv(x, W', b')
 
 **统一性能测试时至少保证：**
 
-```
+```undefined
 1 相同输入 Shape
 2 相同 Batch
 3 相同精度
@@ -716,7 +700,7 @@ z = Conv(x, W', b')
 
 **建议分别记录：**
 
-```
+```undefined
 1 纯模型执行延迟
 2 端到端延迟
 3 算子级耗时
@@ -728,7 +712,7 @@ z = Conv(x, W', b')
 
 **TensorRT 常用分析方式：**
 
-```
+```diff
 trtexec \
 --onnx=model.onnx \
 --shapes=images:1x3x224x224 \
@@ -741,7 +725,7 @@ trtexec \
 
 **最终选择原则通常是：**
 
-```
+```yaml
 1 NVIDIA GPU:
 2   优先评估 TensorRT
 3
@@ -760,7 +744,7 @@ trtexec \
 - 如何分析模型中发生了哪些算子融合
 - 如何判断动态 shape 是否限制了后端优化
 
-------
+---
 
 # 11 TensorRT 从 ONNX 到 Engine 的过程做了哪些优化？
 
@@ -782,7 +766,7 @@ trtexec \
 
 **示意图说明**
 
-```
+```undefined
 ONNX 模型
  ↓
 ONNX Parser
@@ -826,7 +810,7 @@ TensorRT Tactic 和 Timing Cache 有什么作用
 
 **验证顺序：**
 
-```
+```undefined
 1  PyTorch FP32
 2    ↓
 3  ONNX Runtime FP32
@@ -863,7 +847,7 @@ TensorRT Tactic 和 Timing Cache 有什么作用
 
 **示意图说明**
 
-```
+```makefile
 PTQ:
 FP32 模型
     ↓
@@ -887,7 +871,7 @@ INT8 模型
 
 **选择原则**
 
-```
+```undefined
 1 开发周期短、没有训练环境
 2    → PTQ
 3
@@ -926,7 +910,7 @@ Fake Quantize 的前向和反向如何实现
 
 **示意图说明**
 
-```
+```css
 FP32 模型
     ↓
 图检查和图优化
@@ -948,7 +932,7 @@ NPU / TensorRT 编译
 
 **量化公式：**
 
-```
+```makefile
 q = clamp(round(x / scale) + zero_point)
 x' = scale × (q - zero_point)
 ```
@@ -977,7 +961,7 @@ Q/DQ 模型和 QOperator 模型有什么区别
 
 **示意图说明**
 
-```
+```markdown
 真实业务样本
     ↓
 部署端完全相同的预处理
@@ -993,7 +977,7 @@ MinMax / Entropy / Percentile
 
 **校准数据选择：**
 
-```
+```undefined
 需要覆盖：
   正常光照、暗光、强光
   小目标、大目标、遮挡目标
@@ -1030,7 +1014,7 @@ Entropy Calibration 的核心思想是什么
 
 **示意图说明**
 
-```
+```markdown
 FP32 连续数值
     ↓
 映射到 INT8 离散网格
@@ -1050,7 +1034,7 @@ FP32 连续数值
 
 哪些算子通常需要保留 FP16 或 FP32
 
-------
+---
 
 ## 17 如何定位量化后精度下降来自哪些 Layer?
 
@@ -1071,7 +1055,7 @@ FP32 连续数值
 
 **示意图说明**
 
-```
+```markdown
 FP32 Layer 1 ———— 对比 ———— INT8 Layer 1
     ↓                        ↓
 FP32 Layer 2 ———— 对比 ———— INT8 Layer 2
@@ -1096,7 +1080,7 @@ SQNR 如何衡量量化噪声
 
 如何把 ONNX 中间节点临时设置为模型输出
 
-------
+---
 
 ## 18 一个模型从加载到完成推理，中间经历哪些阶段？
 
@@ -1117,7 +1101,7 @@ SQNR 如何衡量量化噪声
 
 **示意图说明**
 
-```
+```markdown
 读取模型
     ↓
 解析或反序列化
@@ -1141,7 +1125,7 @@ GPU/NPU → CPU
 
 **需要区分：**
 
-```
+```markdown
 模型加载时间：
     文件读取、解析、编译、初始化
 
@@ -1158,7 +1142,7 @@ Engine 和 Execution Context 有什么区别
 
 为什么首次推理通常比后续推理慢
 
-------
+---
 
 ## 19 CPU、GPU、NPU 推理有什么区别？为什么 NPU 更适合端侧 AI?
 
@@ -1179,7 +1163,7 @@ Engine 和 Execution Context 有什么区别
 
 **示意图说明**
 
-```
+```undefined
 CPU
 ├─通用性强
 ├─控制流强
@@ -1203,7 +1187,7 @@ NPU 的 MAC 阵列和片上 SRAM 如何配合
 
 为什么小模型在 CPU 上有时比 NPU 更快
 
-------
+---
 
 ## 20 为什么模型参数减少后，推理速度不一定提升？
 
@@ -1222,7 +1206,7 @@ NPU 的 MAC 阵列和片上 SRAM 如何配合
 
 **示意图说明**
 
-```
+```markdown
 推理延迟
     * 只由参数量决定
 
@@ -1242,7 +1226,7 @@ NPU 的 MAC 阵列和片上 SRAM 如何配合
 
 参数量、FLOPs 和 MACs 有什么区别
 
-------
+---
 
 ## 21 如何判断模型推理瓶颈在计算、内存还是数据搬运？
 
@@ -1263,7 +1247,7 @@ NPU 的 MAC 阵列和片上 SRAM 如何配合
 
 **示意图说明**
 
-```
+```markdown
 推理速度慢
     ↓
 计算单元利用率高？
@@ -1285,7 +1269,7 @@ Memcpy / Reformat / Sync 占比高？
 
 为什么增加 Batch 通常能提高吞吐
 
-------
+---
 
 ## 22 为什么 CPU 和 NPU 之间的数据拷贝会影响性能？
 
@@ -1322,7 +1306,7 @@ Memcpy / Reformat / Sync 占比高？
 
 传统流程：
 
-```
+```css
 1  Camera Buffer
 2    ↓ memcpy
 3  CPU RGB Buffer
@@ -1334,7 +1318,7 @@ Memcpy / Reformat / Sync 占比高？
 
 Zero Copy：
 
-```
+```css
 1  Camera / ISP
 2    ↓
 3  共享 DMA‑BUF
@@ -1349,7 +1333,7 @@ Zero Copy：
 - DMA‑BUF 在 Zero Copy Pipeline 中起什么作用
 - 共享 Buffer 的生产者和消费者如何同步
 
-------
+---
 
 # 24 一个模型部分算子跑 NPU、部分跑 CPU，会有什么影响？
 
@@ -1370,7 +1354,7 @@ Zero Copy：
 
 较好：
 
-```
+```undefined
 1  CPU 预处理
 2    ↓ 一次切换
 3  NPU 大子图
@@ -1380,7 +1364,7 @@ Zero Copy：
 
 较差：
 
-```
+```undefined
 1  NPU 子图
 2    ↓
 3  CPU 单算子
@@ -1397,7 +1381,7 @@ Zero Copy：
 - Execution Provider 如何完成计算图划分
 - 如何查看哪些算子发生了 CPU fallback
 
-------
+---
 
 # 25 端侧 AI 模型性能评估有哪些核心指标？
 
@@ -1413,7 +1397,7 @@ Zero Copy：
 4. 峰值内存需要包含模型权重、Runtime、Workspace、中间 Tensor、输入输出和业务 Buffer。
 5. 功耗评估不仅看平均功率，还应关注单次推理能量，例如：
 
-```
+```undefined
 单次推理能量 = 平均功率 × 单次推理时间
 ```
 
@@ -1422,7 +1406,7 @@ Zero Copy：
 
 **示意图说明**
 
-```
+```undefined
 1  模型评估
 2  ├─正确性
 3  │   └─ Accuracy / mAP / mIoU
@@ -1445,7 +1429,7 @@ Zero Copy：
 - Latency 和 Throughput 为什么不能等价看待
 - 如何测量端侧模型的单次推理能耗
 
-------
+---
 
 # 26 如何准确测量模型推理 Latency？为什么需要 Warmup？
 
@@ -1466,7 +1450,7 @@ Zero Copy：
 
 **常见错误：**
 
-```
+```undefined
 1  没有等待异步设备完成
 2  把 Engine 构建时间算入推理
 3  只测试一次并选择最小值
@@ -1480,7 +1464,7 @@ Zero Copy：
 - 为什么 CUDA Event 比 CPU 时间戳更适合测 GPU Kernel
 - P99 Latency 应该如何计算
 
-------
+---
 
 # 27 模型推理速度慢，如何系统定位性能瓶颈？
 
@@ -1502,7 +1486,7 @@ Zero Copy：
 
 **示意图说明**
 
-```
+```undefined
 1  模型推理慢
 2    ↓
 3  固定测试环境
@@ -1529,7 +1513,7 @@ Zero Copy：
 - 如何从 Nsight Systems 时间线判断同步瓶颈
 - 为什么平均延迟下降后 P99 可能反而升高
 
-------
+---
 
 # 28 如何优化一个端侧模型的推理速度？
 
@@ -1552,7 +1536,7 @@ Zero Copy：
 
 **示意图说明**
 
-```
+```rust
 1  端侧推理优化
 2  ├─模型结构
 3  │   ├─轻量化
@@ -1580,7 +1564,7 @@ Zero Copy：
 
 **典型流水线：**
 
-```
+```undefined
 1  时刻 T0：采集帧 0
 2  时刻 T1：预处理帧 0 | 采集帧 1
 3  时刻 T2：推理帧 0 | 预处理帧 1 | 采集帧 2
@@ -1589,7 +1573,7 @@ Zero Copy：
 
 **优化优先级：**
 
-```
+```css
 1	先解决 CPU fallback
 ↓
 2	解决大数据拷贝和 Layout 转换

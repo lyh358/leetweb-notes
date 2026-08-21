@@ -124,6 +124,7 @@ Flash 擦除后所有字节为 0xFF，若某地址不是 0xFF，视为「已使�
 
 - Bootloader 如何设计 A/B 分区
 - OTA 镜像如何做 CRC、Hash 和签名校验
+---
 
 ### 1. Bootloader 如何设计 A/B 分区？
 

@@ -391,7 +391,7 @@ STM32 启动方式决定了 **复位后先从哪里取指执行程序。**
 
 - **底层实现原理**
 
-1. STM32 的内存一般包括 **Flash、SRAM**，部分型号还带 **CCM、Backup SRAM、EEPROM 模拟区** 等。
+1. =={pink}STM32 的内存一般包括 ==**=={pink}Flash、SRAM==**，部分型号还带 **CCM、Backup SRAM、EEPROM 模拟区** 等。
 2. 外设通常包括 **GPIO、USART、SPI、I2C、TIM、ADC、DAC、DMA、CAN、USB、RTC** 等，但具体数量因型号而异。
 3. 比如低端型号资源少，适合简单控制；高端型号 Flash/RAM 更大，外设更多，适合复杂应用。
 4. 所以不能笼统说 STM32 有多少内存、多少外设，必须先看 **具体芯片型号的数据手册。**

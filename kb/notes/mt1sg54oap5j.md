@@ -128,7 +128,7 @@ Flash 擦除后所有字节为 0xFF，若某地址不是 0xFF，视为「已使�
 ### 1. Bootloader 如何设计 A/B 分区？
 
 1. **=={pink}分区规划（5分区）==**
-Flash 划分App A（运行区）、App B=={yellow}（备份升级区）、==Bootloader=={yellow}、==OTA元数据分区、**参数区**。A/B 两个 App 分区大小完全一致。
+Flash 划分App A（运行区）、App B（备份升级区）、==Bootloader=={yellow}、==OTA元数据分区、**参数区**。A/B 两个 App 分区大小完全一致。
 2. **=={pink}元数据保存状态==**
 =={yellow}元数据分区记录：当前有效启动分区、升级状态、校验信息、是否需要回滚。==应用层 OTA 把新固件下载到非运行的分区（比如当前跑 A，则写到 B 分区）。
 3. **=={pink}Bootloader 启动逻辑==**

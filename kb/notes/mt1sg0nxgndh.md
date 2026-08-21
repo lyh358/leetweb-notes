@@ -61,7 +61,7 @@ STM32 定时器常用来做 =={pink}定时中断、PWM 输出、输入捕获、�
 **PWM（Pulse Width Modulation，脉宽调制）**
 一种用数字信号模拟模拟量的技术。通过快速切换高低电平，改变高电平占整个周期的比例（占空比），来控制平均电压或功率。
 **TIM（Timer，定时器）**硬件外设，产生 PWM 的源头。
-PSC（Prescaler，预分频器）
+**PSC（Prescaler，预分频器）**
 降低计数器时钟频率的除法器。
 **ARR（Auto-Reload Register，自动重装载寄存器）**
 决定 PWM 周期的寄存器。计数器从 0 计数到 ARR，然后溢出复位，完成一个周期。

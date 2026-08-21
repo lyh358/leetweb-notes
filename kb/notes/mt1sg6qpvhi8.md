@@ -286,7 +286,9 @@ FLOPs =={green}只算乘加次数（运算量）==，没算=={pink}内存带宽�
 
 **如何判断模型是否发生 CPU fallback**
 
-Profiling 看算子耗时分布：若=={yellow}某些算子在 NPU 上耗时极短但 CPU 侧出现高占用，或总 latency 远大于 NPU kernel 累加时间==，即发生 fallback；
+Profiling 看算子耗时分布：若=={yellow}某些算子在 NPU 上耗时极短但 CPU 侧出现高占用==
+
+=={yellow}或总 latency 远大于 NPU kernel 累加时间==，即发生 fallback；
 
 昇腾可用 msprof 查看 Task Schedule 中 CPU 任务占比。
 

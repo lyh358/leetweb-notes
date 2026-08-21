@@ -137,7 +137,7 @@ Flash 擦除后所有字节为 0xFF，若某地址不是 0xFF，视为「已使�
 - =={yellow}如果标记为==`PENDING_TEST`=={yellow}（待测试新固件）：尝试启动新分区；如果多次启动失败，自动设置==`ROLLBACK`=={yellow}，切回旧分区。==
 - =={yellow}设备应用层运行正常后，主动设置==`CONFIRMED`=={yellow}确认新固件有效，取消回滚逻辑。==
 
-4. **=={pink}回滚机制==**：
+4. **=={pink}回滚机制==**
 =={yellow}新固件启动崩溃、校验失败，Bootloader 放弃该分区，切换到老的可用 App 分区运行。==
 
 ### 2. OTA 镜像 CRC、Hash、签名校验

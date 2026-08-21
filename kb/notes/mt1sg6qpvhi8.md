@@ -20,7 +20,7 @@
 2. `opset` 表示**=={pink}算子规范版本==**。=={green}同一个== `Resize`、`Slice` 等=={green}算子在不同 opset ==下，=={green}输入形式和语义可能不同==，=={yellow}部署端必须支持模型使用的 opset==
 3. **=={pink}推理引擎加载 ONNX 后==**，会完成**=={green}模型解析、合法性检查==、=={yellow}形状推导、常量折叠、算子融合和内存规划==**。
 4. **=={pink}运行时==**会=={yellow}把每个**节点映射到具体 kernel**==，=={yellow}或者把一段==**=={yellow}子图交给 CPU、GPU、NPU 等==**=={yellow} Execution Provider ==**=={yellow}执行==**；不支持的节点可能回退到 CPU
-5. =={pink}**ONNX 只定义 “算子语义是什么”**==，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，=={yellow}具体实现由 **CANN**、TensorRT、ONNX Runtime、NCNN、MNN 等后端决定==。
+5. =={pink}**ONNX 只定义 “算子语义是什么”**==，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，=={yellow}具体实现由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN 等后端决定==。
 
 **示意图说明**
 

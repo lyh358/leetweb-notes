@@ -161,6 +161,11 @@ per-channel 量化权重 = 卷积/全连接层的每个输出通道单独计算�
 **第六步：PTQ 无法达到精度要求时，使用 QAT**
 让模型在训练阶段模拟量化误差，权重会主动适应整数表示。
 
+| 方法 | 全称 | 原理 | 适用场景 |
+| --- | --- | --- | --- |
+| PTQ | Post-Training Quantization | 模型训练完后，用校准数据统计范围，直接转 INT8 | 简单、快、大多数场景够用 |
+| QAT | Quantization-Aware Training | 训练时模拟 INT8 的 round/clip 误差，权重主动学习适应 | PTQ 精度掉太多，有训练资源 |
+
 **示意图说明**
 
 ```markdown

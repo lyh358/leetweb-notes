@@ -16,7 +16,7 @@
 
 - **Tickless**
 
-**取消1ms周期的sysTick中断，****算出下一个任务还要多久才就绪，设个定时器，CPU 睡过去，到点再醒。******- **Tick**
+取消1ms周期的sysTick中断，算出下一个任务还要多久才就绪，设个定时器，CPU 睡过去，到点再醒。****- **Tick**
 
 每 1ms（configTICK_RATE_HZ=1000）来次 SysTick 中断，CPU 被迫醒来检查调度- **考察场景**
 考察你是否理解 RTOS 为什么周期 Tick 会影响低功耗，以及 Tickless 如何减少无意义唤醒。

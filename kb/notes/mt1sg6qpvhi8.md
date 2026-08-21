@@ -14,7 +14,7 @@
 - `ModelProto`保存整个**=={pink}模型==**=={pink}及==**=={pink}版本信息==。**
 - `GraphProto` 表示**=={pink}节点之间的数据依赖==**=={pink}（==**=={pink}图结构==**=={pink}）==。
 - `NodeProto` 表示**=={pink}算子==**。
-- `TensorProto` 表示**权重**或**常量**。
+- `TensorProto` 表示**=={pink}权重==**=={pink}或==**=={pink}常量==**。
 
 1. **ONNX 计算图**通常是**有向无环图**，**节点**表示`Conv`、`Add`、`Relu`等**标准算子**，**边**表示**Tensor 数据流**。
 2. `opset` 表示**算子规范版本**。同一个算子在不同 opset 下，输入形式和语义可能不同，部署端必须支持模型使用的 opset

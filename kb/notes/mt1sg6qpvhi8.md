@@ -19,7 +19,7 @@
 1. **=={yellow}ONNX 计算图==**=={yellow}通常是==**=={yellow}有向无环图==**=={yellow}，==**=={yellow}节点==****=={yellow}表示==**`Conv`**=={yellow}、==**`Add`**=={yellow}、==**`Relu`=={yellow}等==**=={yellow}标准算子==**=={yellow}，==**=={yellow}边==**=={yellow}表示==**=={yellow}Tensor 数据流==**=={yellow}。==
 2. `opset`=={pink} 表示==**=={pink}算子规范版本==**=={pink}。===={green}同一个算子===={green}在===={green}不同 opset ===={green}下，===={green}输入形式和语义可能不同==，=={pink}**部署端必须支持模型使用的 opset**==
 3. **=={yellow}推理引擎加载 ONNX 后==**=={yellow}，会完成==**=={yellow}模型解析、合法性检查==**=={yellow}、==**=={yellow}形状推导、常量折叠、算子融合和内存规划==**=={yellow}。==
-4. **运行时**会把每个**节点映射到具体 kernel**，或者把一段**子图交给 CPU、GPU、NPU 等****执行**；不支持的节点可能回退到 CPU。
+4. **=={yellow}运行时==**=={yellow}会把每个==**=={yellow}节点映射到具体 kernel==**=={yellow}，或者把一段==**=={yellow}子图交给 CPU、GPU、NPU 等==****=={yellow}执行==**=={yellow}；不支持的节点可能回退到 CPU。==
 5. **ONNX 只定义 “算子语义是什么”**，不规定卷积必须使用 GEMM、Winograd 还是直接卷积，**具体实现**由 **CANN**、TensorRT、**ONNX Runtime**、NCNN、MNN **等后端决定**。
 
 **示意图说明**

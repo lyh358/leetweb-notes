@@ -12,7 +12,7 @@
 2. 一个 ONNX 模型=={pink}主要==由 `ModelProto`、`GraphProto`、`NodeProto`、`TensorProto` =={pink}组成==：
 
 - `NodeProto` 表示=={green}算子==。
-- `TensorProto` 表示权重或常量。
+- `TensorProto` 表示=={green}权重或常量==。
 - `GraphProto` 表示节点之间的数据依赖。
 - `ModelProto` 保存整个模型及版本信息
 

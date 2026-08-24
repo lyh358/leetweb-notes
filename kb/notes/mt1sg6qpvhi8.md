@@ -75,7 +75,9 @@ onnx.save(model, "model_inferred.onnx")
 
 - **什么是 kernel ？**
 
-Kernel = 在 GPU/NPU/AI Core 等加速器上执行的具体计算函数/程序，是算子的硬件实现。Kernel 是算子在硬件上的实际执行代码——比如 "Conv2d" 这个算子，在 CPU 上是一套 C++ 循环，在 CUDA 上是一个 .cu 文件，在昇腾 NPU 上就是一个 .o 二进制 kernel。
+Kernel = 在 GPU/NPU/AI Core 等加速器上执行的具体计算函数/程序，是算子的硬件实现。
+
+Kernel 是算子在硬件上的实际执行代码——比如 "Conv2d" 这个算子，在 CPU 上是一套 C++ 循环，在 CUDA 上是一个 .cu 文件，在昇腾 NPU 上就是一个 .o 二进制 kernel。
 
 上层: 算子 (Operator)  ← "Conv2d", "MatMul", "Softmax"
 

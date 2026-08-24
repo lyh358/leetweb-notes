@@ -16,7 +16,7 @@
 - `GraphProto` 表示=={green}节点之间的数据依赖==。
 - `ModelProto` 保存=={green}整个模型==及=={green}版本信息==
 
-1. ONNX计算图通常是=={yellow}有向无环图==，**节点**表示 `Conv`、`Add`、`Relu` 等**标准算子**，**边**表示 **Tensor 数据流**。
+1. **ONNX计算图**通常是=={yellow}有向无环图==，**节点**表示 `Conv`、`Add`、`Relu` 等**标准算子**，**边**表示 **Tensor 数据流**。
 2. `opset` 表示**算子规范版本**。=={green}同一个算子在不同 opset 下，输入形式和语义可能不同==，=={yellow}部署端必须支持模型使用的 opset==。
 3. **推理引擎加载 ONNX 后**，会完成=={yellow}模型解析、合法性检查、形状推导、常量折叠、算子融合和内存规划==。
 4. **运行时**会把每个节点映射到具体 kernel，或者把一段子图交给 CPU、GPU、NPU 等 Execution Provider 执行；不支持的节点可能回退到 CPU

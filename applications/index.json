@@ -1,5 +1,16 @@
 [
   {
+    "id": "mt7f57w09vdc",
+    "company": "汇川技术",
+    "role": "嵌入式",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://recruit.inovance.com/#/dashboard/applications",
+    "created": 1787586998832,
+    "updated": 1787586998832
+  },
+  {
     "id": "mt7egfdpnl68",
     "company": "蔚来汽车",
     "role": "CDD驱动开发",

@@ -155,11 +155,8 @@ INT8 数值 q
 1  分类：Top‑1 / Top‑5
 2  检测：mAP / Recall / 小目标 AP
 3  分割：mIoU / Dice
-4  关键点：OKS / PCK
+4  关键点：OKS / PCKx细节
 ```
-
-**
-**
 
 **
 **

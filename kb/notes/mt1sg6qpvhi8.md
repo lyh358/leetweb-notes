@@ -75,7 +75,7 @@ onnx.save(model, "model_inferred.onnx")
 
 - **什么是 kernel ？**
 
-**Kernel = 在 GPU/NPU/AI Core 等加速器上执行的具体计算函数/程序，是算子的硬件实现。**---
+Kernel = 在 GPU/NPU/AI Core 等加速器上执行的具体计算函数/程序，是算子的硬件实现。---
 
 # 02 量化后精度衰减如何处理？
 

@@ -4,11 +4,11 @@
     "company": "汇川技术",
     "role": "嵌入式",
     "location": "深圳",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://recruit.inovance.com/#/dashboard/applications",
     "created": 1787586998832,
-    "updated": 1787586998832
+    "updated": 1787587001129
   },
   {
     "id": "mt7egfdpnl68",

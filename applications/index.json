@@ -4,11 +4,11 @@
     "company": "奇瑞",
     "role": "啥都有",
     "location": "",
-    "applied": false,
+    "applied": true,
     "stage": "测评",
     "website": "https://chery.zhiye.com/personal/deliveryRecord",
     "created": 1787583815090,
-    "updated": 1787583816610
+    "updated": 1787583817617
   },
   {
     "id": "mt635nrf3y2a",

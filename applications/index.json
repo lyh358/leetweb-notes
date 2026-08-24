@@ -1,5 +1,16 @@
 [
   {
+    "id": "mt7fb4fvg2dk",
+    "company": "赛力斯",
+    "role": "还没开",
+    "location": "",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "",
+    "created": 1787587274299,
+    "updated": 1787587274299
+  },
+  {
     "id": "mt7f57w09vdc",
     "company": "汇川技术",
     "role": "嵌入式",

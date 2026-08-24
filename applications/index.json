@@ -1,14 +1,14 @@
 [
   {
-    "id": "mt7d8zaqz7mz",
-    "company": "奇瑞",
-    "role": "啥都有",
+    "id": "mt7egfdpnl68",
+    "company": "蔚来汽车",
+    "role": "CDD驱动开发",
     "location": "",
-    "applied": true,
-    "stage": "测评",
-    "website": "https://chery.zhiye.com/personal/deliveryRecord",
-    "created": 1787583815090,
-    "updated": 1787583817617
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://nio.jobs.feishu.cn/campus/position",
+    "created": 1787585842141,
+    "updated": 1787585842141
   },
   {
     "id": "mt635nrf3y2a",

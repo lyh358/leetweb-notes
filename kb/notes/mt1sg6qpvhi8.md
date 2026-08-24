@@ -74,6 +74,8 @@ onnx.save(model, "model_inferred.onnx")
 > ONNX 形状推导并不保证处理所有动态表达式，复杂动态 `Reshape`、控制流和自定义算子可能无法完整推导。(ONNX)
 
 - **什么是 kernel ？**
+- **
+**
 
 # 02 量化后精度衰减如何处理？
 

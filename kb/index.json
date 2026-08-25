@@ -501,6 +501,20 @@
       "parent": "mt8tuvtz140h",
       "kind": "md",
       "created": 1787680758152
+    },
+    {
+      "id": "mt8z0724wrgr",
+      "name": "基于昇腾边缘计算平台的锂电池寿命预测系统--高频问题",
+      "parent": "mt8tuvtz140h",
+      "kind": "pdf",
+      "created": 1787680822972
+    },
+    {
+      "id": "mt8z09khq5t3",
+      "name": "基于昇腾边缘计算平台的锂电池寿命预测系统--STAR",
+      "parent": "mt8tuvtz140h",
+      "kind": "pdf",
+      "created": 1787680826225
     }
   ]
 }

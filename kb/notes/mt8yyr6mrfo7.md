@@ -782,7 +782,7 @@ cn  [1, 1, 100]
 
 =={yellow}opset表示ONNX算子语义规范的版本。==
 
-=={green}不同opset下，LSTM、Gather、Squeeze等算子的属性和表达方式可能不同。==昇腾ATC不一定支持最新版本中的所有算子，因此不能盲目选择最高版本。
+=={green}不同opset下，LSTM、Gather、Squeeze等**算子的属性和表达方式可能不同**。==昇腾ATC不一定支持最新版本中的所有算子，因此不能盲目选择最高版本。
 
 项目选择opset 12，主要是在以下两方面之间取平衡：
 

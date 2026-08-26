@@ -878,13 +878,15 @@ Ascend NPU需要结合以下内容生成专用模型：
 
 目标平台为：
 
-- 开发板：**Atlas 200I DK A2**；
-- 处理器架构：**ARM64 Linux**；
-- NPU：**Ascend 310B4**；
-- 软件栈：**CANN**；
-- 推理接口：ACL Lite。
+- =={green}开发板：==**=={green}Atlas 200I DK A2==**=={green}；==
+- =={green}处理器架构：==**=={green}ARM64 Linux==**=={green}；==
+- =={green}NPU：==**=={green}Ascend 310B4==**=={green}；==
+- =={green}软件栈：==**=={green}CANN==**=={green}；==
+- =={green}推理接口：==**=={green}ACL Lite==**=={green}。==
 
-通过SSH远程登录板端后，可以使用`npu-smi info`确认NPU型号和运行状态，并检查CANN环境变量、Python架构及依赖库是否与aarch64平台匹配。
+通过=={yellow}SSH远程登录板端==后，可以使用`npu-smi info`确认NPU型号和运行状态，并检查CANN环境变量、Python架构及依赖库是否与aarch64平台匹配。
+
+---
 
 ### 4. ATC编译过程
 
@@ -902,7 +904,7 @@ atc \
   --log=info
 ```
 
-主要参数含义如下：
+**主要参数**含义如下：
 
 | 参数 | 作用 |
 | --- | --- |

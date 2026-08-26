@@ -389,9 +389,9 @@ $$
 
 $$
 RUL
-
-## \widehat{EOLCycle}
-
+=
+\widehat{EOLCycle}
+-
 CurrentCycle
 $$
 

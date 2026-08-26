@@ -675,7 +675,7 @@ $$
 
 [ PyTorch\rightarrow ONNX\rightarrow Ascend\ OM ]
 
-ONNX模型中包含：
+**ONNX模型中包含：**
 
 - 模型计算图；
 - 算子类型和连接关系；

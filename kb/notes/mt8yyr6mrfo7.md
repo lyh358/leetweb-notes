@@ -635,7 +635,7 @@ $$
 
 - =={yellow}PyTorch训练模型如何转换为跨框架的静态计算图；==
 - =={yellow}LSTM动态序列如何适配NPU的静态编译；==
-- ONNX模型如何编译为Ascend 310B4能够执行的OM模型；
+- =={yellow}ONNX模型如何编译为Ascend 310B4能够执行的OM模型；==
 - 如何在ARM64 Linux板端建立完整的推理和资源管理流程。
 
 ---

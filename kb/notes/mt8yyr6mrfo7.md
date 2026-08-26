@@ -444,7 +444,7 @@ CurrentCycle
 $$
 因此，=={yellow}整个任务本质上是==：
 
-> **先完成容量回归**，再**根据容量**预测曲线**推导EOL**和**RUL**。
+> **=={yellow}先完成容量回归==**=={yellow}，再==**=={yellow}根据容量==**=={yellow}预测曲线==**=={yellow}推导EOL==**=={yellow}和==**=={yellow}RUL==**=={yellow}。==
 
 ### 3. 训练方法
 

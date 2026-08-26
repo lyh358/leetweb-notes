@@ -402,7 +402,7 @@ GRA和PCA解决的不是同一个问题：
 
 =={green}普通RNN**能够处理序列**==，但在=={green}**较长序列反向传播**==过程中容易出现=={green}**梯度消失**或**梯度爆炸**==，=={green}难以稳定保留**较早循环的信息**。==
 
-**LSTM**在=={yellow}RNN基础上==**=={yellow}增加了==**=={yellow}细胞状态==**=={yellow}以及==**=={yellow}遗忘门==****=={yellow}**、**==输入门=={yellow}**和**==****=={yellow}输出门===={yellow}：==
+**=={yellow}LSTM==**=={yellow}在===={yellow}RNN基础上==**=={yellow}增加了==**=={yellow}细胞状态==**=={yellow}以及==**=={yellow}遗忘门==****=={yellow}**、**===={yellow}输入门===={yellow}**和**==****=={yellow}输出门===={yellow}：==
 
 - =={yellow}遗忘门决定**保留多少历史信息**；==
 - =={yellow}输入门决定**写入多少当前信息**；==

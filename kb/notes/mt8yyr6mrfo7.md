@@ -1338,7 +1338,7 @@ python inference_on_acsend_battery_rul_2.py \
 
 ### 
 
-### 9. 板端验证方法
+### 8. 板端验证方法
 
 整个部署链路应从四个层次验证：
 

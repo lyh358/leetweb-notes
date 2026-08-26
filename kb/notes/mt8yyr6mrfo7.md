@@ -832,7 +832,7 @@ $$
 
 1. =={yellow}使用**ONNX Checker**检查**模型结构是否合法**；==
 2. =={yellow}**ONNX shape inference** 检查**输入输出名称、Shape和数据类型**；==
-3. =={yellow}使用**相同输入**对比**PyTorch**和ONNX Runtime输出。==
+3. =={yellow}使用**相同输入**对比**PyTorch**和**ONNX Runtime输出**。==
 
 当前保留的三个ONNX模型结构检查均通过，输入输出Shape也与部署代码一致。数值一致性验证仍应以当时保存的测试结果或运行日志为准。
 

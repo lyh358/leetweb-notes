@@ -1009,7 +1009,7 @@ OM生成后不能只检查文件是否存在，还需要验证：
 
 **=={yellow}ONNX只是通用中间模型，不能直接在Ascend 310B4上执行（但是可以在板端CPU运行，用不了NPU）==**=={yellow}，所以我使用ATC将ONNX编译成OM。==
 
-=={pink}编译时需要明确指定==**=={yellow}三组输入Shape==**=={yellow}、==**=={yellow}ND张量格式==**=={yellow}、==**=={yellow}目标芯片Ascend 310B4==**=={yellow}和==**=={yellow}精度模式==**。初版**采用FP32**，是因为**=={green}回归任务精度优先==**。OM生成后，我还会在**=={yellow}板端通过ACL Lite编写推理程序==**=={yellow}实际==**=={yellow}加载和执行==**，而不是只以ATC编译成功作为部署完成的标准。
+=={pink}编译时需要明确指定==**=={yellow}三组输入Shape==**=={yellow}、==**=={yellow}ND张量格式==**=={yellow}、==**=={yellow}目标芯片Ascend 310B4==**=={yellow}和==**=={yellow}精度模式==**。初版**=={green}采用FP32==**，是因为**=={green}回归任务精度优先==**。OM生成后，我还会在**=={yellow}板端通过ACL Lite编写推理程序==**=={yellow}实际==**=={yellow}加载和执行==**，而不是只以ATC编译成功作为部署完成的标准。
 
 ---
 

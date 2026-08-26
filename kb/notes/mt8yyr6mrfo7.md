@@ -914,7 +914,7 @@ atc \
 | `--input_format=ND` | =={yellow}使用普通N维张量格式== |
 | `--input_shape` | =={yellow}指定三个输入的固定Shape== |
 | `--soc_version` | =={yellow}指定目标芯片Ascend 310B4== |
-| `--precision_mode` | 设置模型编译精度策略 |
+| `--precision_mode` | =={yellow}设置模型编译精度策略== |
 | `--log=info` | 输出编译日志，便于定位问题 |
 
 ### 5. 为什么需要指定目标芯片

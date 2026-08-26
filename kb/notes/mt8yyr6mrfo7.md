@@ -1269,8 +1269,6 @@ outputs = model.execute([window_array, h0, c0])
 
 #### 第九步：容量反标准化
 
-# 
-
 $$
 Capacity_{\text{pred}}
 

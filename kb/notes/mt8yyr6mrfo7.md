@@ -1342,7 +1342,7 @@ python inference_on_acsend_battery_rul_2.py \
 
 整个部署链路应从四个层次验证：
 
-#### 模型结构验证
+#### =={yellow}模型结构验证==
 
 确认ONNX输入输出、数据类型和Shape正确。
 

@@ -714,8 +714,7 @@ model.load_state_dict(state)
 
 #### =={yellow}第三步：切换到推理模式==
 
-=={yellow}
-==
+因为我们要得到推理图而不是训练图
 
 导出前调用：
 

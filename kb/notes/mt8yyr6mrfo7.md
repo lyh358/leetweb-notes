@@ -1159,7 +1159,7 @@ c0 = outputs[2].copy()
 
 ### 3. 为什么使用ACL Lite
 
-ACL是昇腾平台底层推理接口，可以控制：
+=={pink}ACL是昇腾平台底层推理接口==，可以控制：
 
 - Device；
 - Context；

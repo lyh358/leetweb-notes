@@ -37,11 +37,11 @@
     "company": "shopee",
     "role": "",
     "location": "",
-    "applied": false,
+    "applied": true,
     "stage": "测评",
     "website": "",
     "created": 1787711897929,
-    "updated": 1787763363113
+    "updated": 1787763366195
   },
   {
     "id": "mt9h2630aw0w",

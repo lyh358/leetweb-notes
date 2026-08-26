@@ -747,6 +747,8 @@ c0: [1, 1, 100]
 
 =={green}**Dummy Input**的作用是让PyTorch在**导出过程中执行一次前向传播**，并**据此建立ONNX计算图**。==
 
+---
+
 #### =={pink}第五步：导出ONNX==
 
 ```graphql
@@ -830,13 +832,15 @@ $$
 
 ### 8. 验证方式
 
-**模型导出后需要进行三级验证**：
+模型导出后需要进行**三级验证**：
 
-1. 使用**ONNX Checker**检查模型结构是否合法；
-2. Shape inference检查输入输出名称、Shape和数据类型；
-3. 使用相同输入对比PyTorch和ONNX Runtime输出。
+1. =={yellow}使用==**=={yellow}ONNX Checker==**=={yellow}检查==**=={yellow}模型结构是否合法==**=={yellow}；==
+2. =={yellow}Shape inference检查==**=={yellow}输入输出名称、Shape和数据类型==**=={yellow}；==
+3. =={yellow}使用==**=={yellow}相同输入==**=={yellow}对比==**=={yellow}PyTorch和ONNX Runtime===={yellow}输出==**=={yellow}。==
 
 当前保留的三个ONNX模型结构检查均通过，输入输出Shape也与部署代码一致。数值一致性验证仍应以当时保存的测试结果或运行日志为准。
+
+---
 
 ### 9. 面试口述版
 

@@ -1054,7 +1054,7 @@ hn ：本次推理后的隐藏状态
 cn ：本次推理后的细胞状态
 ```
 
-板端完成一次推理后执行：
+=={yellow}板端完成一次推理后执行：==
 
 ```ini
 outputs = model.execute([window_array, h0, c0])

@@ -1327,7 +1327,7 @@ python inference_on_acsend_battery_rul_2.py \
 推理结束后，需要按照生命周期释放：
 
 - 模型资源；
--输入输出Dataset；
+- 输入输出Dataset；
 - Device内存；
 - Stream；
 - Context；

@@ -726,7 +726,7 @@ model.eval()
 
 当前LSTM结构中不一定包含Dropout和BatchNorm，但在模型导出流程中显式调用`eval()`仍然是必要的工程规范。
 
-#### =={yellow}第四步：构造固定Shape的虚拟输入==
+#### =={pink}第四步：构造固定Shape的虚拟输入==
 
 部署=={green}模型的主要输入为==：
 

@@ -791,6 +791,8 @@ cn  [1, 1, 100]
 
 当前ONNX模型经过检查，主要包含LSTM、Transpose、Squeeze、Gather和Gemm等算子，计算图结构相对简单。
 
+---
+
 ### 6. 为什么不使用动态Shape
 
 部署版本没有设置`dynamic_axes`，而是固定为：

@@ -629,7 +629,7 @@ $$
 
 整体部署链路为：
 
-**PyTorch `.pth`模型 → ONNX中间模型 → ATC编译 → OM离线模型 → ACL Lite板端推理 → 结果反标准化与验证**
+**=={yellow}PyTorch ==`.pth`=={yellow}模型 → ONNX中间模型 → ATC编译 → OM离线模型 → ACL Lite板端推理 → 结果反标准化与验证==**
 
 这个过程中需要解决四类问题：
 

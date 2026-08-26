@@ -1146,7 +1146,7 @@ c0 = outputs[2].copy()
 
 - **ACL运行环境初始化；**
 - **NPU设备**和**Context上下文创建**；
-- OM模型加载；
+- **OM模型加载；**
 - 输入输出Buffer管理；
 - Host与Device之间的数据传输；
 - 模型执行；

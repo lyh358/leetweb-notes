@@ -1,5 +1,16 @@
 [
   {
+    "id": "mt9gcrn535j8",
+    "company": "元戎启行",
+    "role": "软件开发（ROS、Linux）",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://app.mokahr.com/campus-recruitment/deeproute/145894#/candidateHome/applications",
+    "created": 1787709962993,
+    "updated": 1787709962993
+  },
+  {
     "id": "mt7hy10rn4j5",
     "company": "新华三",
     "role": "嵌入式、AI调优",

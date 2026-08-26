@@ -668,11 +668,11 @@ $$
 
 ### 3. 为什么使用ONNX作为中间格式
 
-ONNX是一种与训练框架和tui'li'k'j相对解耦的模型中间表示。
+ONNX是一种与=={yellow}**训练框架**和**推理框架**相对**解耦**的模型中间表示==。
 
 在这个项目中，ONNX承担了桥梁作用：
 
-[ PyTorch\rightarrow ONNX\rightarrow Ascend\ OM ]
+[ PyTorch-> ONNX->  Ascend\ OM ]
 
 ONNX模型中包含：
 

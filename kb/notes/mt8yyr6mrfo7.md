@@ -639,7 +639,7 @@ $$
 - PyTorch=={pink}**训练模型.pth**如何转换为跨框架的**静态计算图ONNX**==；
 - =={pink}**LSTM动态序列**如何适配**NPU的静态编译**==；
 - =={pink}**ONNX模型**如何编译为Ascend 310B4能够执行的**OM模型**==；
-- 如何在ARM64 Linux**板端**建立完整的**推理和资源管理**流程。
+- =={yellow}如何在ARM64 Linux==**=={yellow}板端==**=={yellow}建立完整的==**=={yellow}推理和资源管理==**=={yellow}流程==。
 
 ---
 

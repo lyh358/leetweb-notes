@@ -661,7 +661,7 @@ $$
 - 昇腾平台能够识别的算子表示；
 - 针对Ascend芯片编译后的执行信息。
 
-如果直接在ARM板端使用PyTorch加载`.pth`，即使能够运行，也主要是在CPU上执行，不能使用Ascend NPU的推理能力，而且板端还要安装完整的PyTorch依赖。
+如果**直接在ARM板端使用PyTorch加载`.pth`，即使能够运行，也主要是在CPU上执行，不能使用Ascend NPU的推理能力**，而且板端还要安装完整的PyTorch依赖。
 
 因此，需要先将PyTorch模型导出为ONNX，再通过昇腾ATC编译器生成OM模型。
 

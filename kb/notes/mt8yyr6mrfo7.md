@@ -745,7 +745,7 @@ c0: [1, 1, 100]
 - =={yellow}4表示PCA处理后的健康因子维度；==
 - =={yellow}100表示LSTM隐藏层维度。==
 
-=={yellow}同时把LSTM的==`h0/c0`=={yellow}设置为**显式输入**，把==`hn/cn`=={yellow}设置为输出==
+=={yellow}同时把LSTM的==`h0/c0`=={yellow}设置为**显式输入**，把==`hn/cn`=={yellow}设置为**输出**==
 
 =={green}**Dummy Input**的作用是让PyTorch在**导出过程中执行一次前向传播**，并**据此建立ONNX计算图**。==
 

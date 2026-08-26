@@ -1,5 +1,16 @@
 [
   {
+    "id": "mt9hi8nd5bm7",
+    "company": "shopee",
+    "role": "",
+    "location": "",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "",
+    "created": 1787711897929,
+    "updated": 1787711897929
+  },
+  {
     "id": "mt9h2630aw0w",
     "company": "算能科技",
     "role": "嵌入式软件开发",

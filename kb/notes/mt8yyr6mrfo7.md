@@ -780,7 +780,7 @@ cn  [1, 1, 100]
 
 ### 5. 为什么使用opset 12
 
-opset表示ONNX算子语义规范的版本。
+=={yellow}opset表示ONNX算子语义规范的版本。==
 
 不同opset下，LSTM、Gather、Squeeze等算子的属性和表达方式可能不同。昇腾ATC不一定支持最新版本中的所有算子，因此不能盲目选择最高版本。
 

@@ -672,7 +672,7 @@ ONNX是一种与=={yellow}**训练框架**和**推理框架**相对**解耦**的
 
 在这个项目中，ONNX承担了桥梁作用：
 
-[ PyTorch-> ONNX->  Ascend\ OM ]
+[ PyTorch-> ONNX->  Ascend OM ]
 
 ONNX模型中包含：
 

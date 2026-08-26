@@ -1171,7 +1171,7 @@ c0 = outputs[2].copy()
 
 直接使用ACL代码量较大，容易在资源生命周期管理中出现遗漏。
 
-ACL Lite是对ACL常用流程的Python封装。项目使用它简化资源初始化、模型加载和执行流程，但底层实际推理仍由ACL Runtime完成。
+=={yellow}ACL Lite是对ACL常用流程的Python封装==。项目使用它简化资源初始化、模型加载和执行流程，但底层实际推理仍由ACL Runtime完成。
 
 因此，准确口径是：
 

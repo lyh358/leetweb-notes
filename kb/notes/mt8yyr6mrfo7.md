@@ -1144,14 +1144,14 @@ c0 = outputs[2].copy()
 
 =={green}OM只是编译完成的模型文件==。真正完成板端部署还需要处理：
 
-- **ACL运行环境初始化；**
-- **NPU设备**和**Context上下文创建**；
-- **OM模型加载；**
-- **输入输出Buffer管理**；
-- **Host与Device之间的数据传输**；
-- **模型执行**；
-- **输出解析和反标准化**；
-- 资源释放。
+- **=={yellow}ACL运行环境初始化；==**
+- **=={yellow}NPU设备==**=={yellow}和==**=={yellow}Context上下文创建==**=={yellow}；==
+- **=={yellow}OM模型加载；==**
+- **=={yellow}输入输出Buffer管理==**=={yellow}；==
+- **=={yellow}Host与Device之间的数据传输==**=={yellow}；==
+- **=={yellow}模型执行==**=={yellow}；==
+- **=={yellow}输出解析和反标准化==**=={yellow}；==
+- **=={yellow}资源释放==**=={yellow}。==
 
 因此，板端部署的交付物不仅是一个OM文件，还包括围绕OM模型建立的推理程序。
 

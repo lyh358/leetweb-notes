@@ -881,8 +881,8 @@ Ascend NPU需要结合以下内容生成专用模型：
 - =={green}**开发板**：Atlas 200I DK A2；==
 - =={green}**处理器架构**：ARM64 Linux；==
 - =={green}**NPU**：Ascend 310B4；==
-- =={green}软件栈：CANN；==
-- =={green}推理接口：ACL Lite。==
+- =={green}**软件栈**：CANN；==
+- =={green}**推理接口**：ACL Lite。==
 
 通过SSH远程登录板端后，可以使用`npu-smi info`确认NPU型号和运行状态，并检查CANN环境变量、Python架构及依赖库是否与aarch64平台匹配。
 

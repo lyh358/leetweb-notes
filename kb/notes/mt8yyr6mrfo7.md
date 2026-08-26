@@ -744,7 +744,7 @@ c0: [1, 1, 100]
 - =={green}4表示PCA处理后的健康因子维度；==
 - =={green}100表示LSTM隐藏层维度。==
 
-Dummy Input的作用是让PyTorch在导出过程中执行一次前向传播，并据此建立ONNX计算图。
+**Dummy Input的作用**是让PyTorch在导出过程中执行一次前向传播，并据此建立ONNX计算图。
 
 #### 第五步：导出ONNX
 

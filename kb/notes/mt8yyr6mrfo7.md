@@ -854,6 +854,8 @@ $$
 
 > 在Atlas 200I DK A2完成CANN环境配置与ATC编译，将ONNX模型转换为Ascend 310B4可执行的OM模型。
 
+### 
+
 ### 2. ONNX为什么还不能直接在NPU上运行
 
 ONNX是通用计算图，并不包含针对Ascend 310B4编译后的执行信息。

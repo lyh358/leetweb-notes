@@ -909,7 +909,7 @@ atc \
 | 参数 | 作用 |
 | --- | --- |
 | `--model` | =={yellow}指定输入的ONNX模型== |
-| `--framework=5` | 表示输入模型格式为ONNX |
+| `--framework=5` | =={yellow}表示输入模型格式为ONNX== |
 | `--output` | 指定输出OM模型名称 |
 | `--input_format=ND` | 使用普通N维张量格式 |
 | `--input_shape` | 指定三个输入的固定Shape |

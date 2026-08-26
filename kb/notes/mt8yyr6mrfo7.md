@@ -878,7 +878,7 @@ Ascend NPU需要结合以下内容生成专用模型：
 
 目标平台为：
 
-- =={green}开发板：Atlas 200I DK A2；==
+- =={green}**开发板**：Atlas 200I DK A2；==
 - =={green}处理器架构：ARM64 Linux；==
 - =={green}NPU：Ascend 310B4；==
 - =={green}软件栈：CANN；==

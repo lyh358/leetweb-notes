@@ -714,6 +714,9 @@ model.load_state_dict(state)
 
 #### =={yellow}第三步：切换到推理模式==
 
+=={yellow}
+==
+
 导出前调用：
 
 ```javascript

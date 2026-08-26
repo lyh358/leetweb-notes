@@ -535,6 +535,20 @@
       "parent": "mta149m8p60g",
       "kind": "md",
       "created": 1787744849005
+    },
+    {
+      "id": "mta15fvz2qte",
+      "name": "自动驾驶机器人分布式通信与监控系统——STAR",
+      "parent": "mta149m8p60g",
+      "kind": "pdf",
+      "created": 1787744893103
+    },
+    {
+      "id": "mta15imlhz42",
+      "name": "自动驾驶机器人分布式通信与监控系统——介绍及问答",
+      "parent": "mta149m8p60g",
+      "kind": "pdf",
+      "created": 1787744896654
     }
   ]
 }

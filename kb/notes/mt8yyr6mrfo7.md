@@ -830,7 +830,7 @@ $$
 
 模型导出后需要进行**三级验证**：
 
-1. 使用ONNX Checker检查模型结构是否合法；
+1. =={yellow}使用ONNX Checker检查模型结构是否合法；==
 2. ONNX shape inference 检查输入输出名称、Shape和数据类型；
 3. 使用相同输入对比PyTorch和ONNX Runtime输出。
 

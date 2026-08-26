@@ -872,7 +872,7 @@ Ascend NPU需要结合以下内容生成专用模型：
 - 算子实现选择；
 - 图优化结果。
 
-**ATC，也就是Ascend Tensor Compiler**，负责**将通用ONNX图编译成与目标昇腾芯片匹配的OM模型。**
+**=={yellow}ATC，也就是Ascend Tensor Compiler==**=={yellow}，负责==**=={yellow}将通用ONNX图编译成与目标昇腾芯片匹配的OM模型。==**
 
 ### 3. 板端环境准备
 

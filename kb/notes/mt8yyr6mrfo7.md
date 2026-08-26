@@ -786,7 +786,7 @@ cn  [1, 1, 100]
 - =={yellow}能够**完整表达**当前**LSTM模型**；==
 - =={yellow}与当时使用的**PyTorch**和**CANN工具链**具有较好的**兼容性**。==
 
-当前**ONNX模型**经过检查，主要包含**LSTM**、**Transpose**、**Squeeze**、**Gather**和Gemm等算子，计算图结构相对简单。
+当前**ONNX模型**经过检查，主要包含**LSTM**、**Transpose**、**Squeeze**、**Gather**和**Gemm**等算子，计算图结构相对简单。
 
 ### 6. 为什么不使用动态Shape
 

@@ -1145,7 +1145,7 @@ c0 = outputs[2].copy()
 =={green}OM只是编译完成的模型文件==。真正完成板端部署还需要处理：
 
 - **ACL运行环境初始化；**
-- **NPU设备**和Context上下文创建；
+- **NPU设备**和**Context上下文创建**；
 - OM模型加载；
 - 输入输出Buffer管理；
 - Host与Device之间的数据传输；

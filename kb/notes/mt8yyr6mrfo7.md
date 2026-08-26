@@ -1346,7 +1346,7 @@ python inference_on_acsend_battery_rul_2.py \
 
 确认ONNX输入输出、数据类型和Shape正确。
 
-#### 编译验证
+#### =={yellow}编译验证==
 
 确认ATC成功生成目标芯片对应的OM模型，且没有不支持算子。
 

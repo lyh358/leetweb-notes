@@ -1334,7 +1334,7 @@ python inference_on_acsend_battery_rul_2.py \
 - Device；
 - ACL Runtime。
 
-如果只初始化而不释放，连续运行时可能产生设备内存泄漏，最终导致模型加载或内存申请失败。
+如果=={yellow}只初始化而不释放，连续运行时可能产生设备内存泄漏，最终导致模型加载或内存申请失败。==
 
 ### 
 

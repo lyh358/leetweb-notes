@@ -712,7 +712,7 @@ model.load_state_dict(state)
 
 如果保存文件中还包含优化器和训练轮数等信息，则需要从Checkpoint中取出`state_dict`。
 
-#### =={yellow}第三步：切换到推理模式==
+#### =={pink}第三步：切换到推理模式==
 
 因为我们要得到**推理图而不是训练图**
 

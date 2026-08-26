@@ -787,7 +787,7 @@ cn  [1, 1, 100]
 =={yellow}项目选择opset 12，主要是在以下两方面之间取平衡：==
 
 - =={green}能够**完整表达**当前LSTM模型；==
-- =={green}与当时使用的PyTorch和CANN工具链具有较好的**兼容性**。==
+- =={green}与当时使用的**PyTorch和CANN**工具链具有较好的**兼容性**。==
 
 当前ONNX模型经过检查，主要包含LSTM、Transpose、Squeeze、Gather和Gemm等算子，计算图结构相对简单。
 

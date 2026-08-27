@@ -442,7 +442,7 @@ HTTP响应
 
 `320 x 240 x 2 = 153600 Bytes`
 
-一帧约150KB。JPEG压缩后通常可以显著减小数据量，更适合ESP32-CAM通过Wi-Fi传输。
+一帧约150KB。JPEG=={yellow}压缩后通常可以显著减小数据量==，更适合ESP32-CAM通过Wi-Fi传输。
 
 ### 9.2 PSRAM双帧缓冲
 

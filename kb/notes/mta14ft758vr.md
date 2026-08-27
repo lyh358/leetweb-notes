@@ -150,7 +150,7 @@ message Object {
 }
 ```
 
-2） 然后通过`protoc`编译器生成C++、Python、Java等语言对应的代码。
+2） 然后通过编译器生成C++、Python、Java等语言对应的代码。
 
 它的价值主要体现在四个方面：
 

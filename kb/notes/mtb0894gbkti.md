@@ -239,7 +239,7 @@ Wi-Fi成功
 - =={yellow}**MQTT**每**3**秒检查并尝试重连；==
 - =={yellow}MQTT **Keep Alive**为**60**秒。==
 
-### 6.3 遥测消息封装
+### =={pink}6.3 遥测消息封装==
 
 采集任务生成`TelemetryMessage`，=={yellow}**上传任务**将其序列化为JSON==：
 

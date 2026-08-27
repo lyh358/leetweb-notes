@@ -133,7 +133,7 @@ MQTT通过**Keep Alive**和**PING报文**=={yellow}检测连接是否仍然有�
 - `DeviceName`；
 - `DeviceSecret`。
 
-=={yellow}三元组用于==生成MQTT连接所需的：
+=={yellow}三元组用于==生成=={yellow}MQTT连接==所需的：
 
 - Client ID；
 - Username；

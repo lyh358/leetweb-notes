@@ -402,6 +402,8 @@ taskUploader
 
 系统使用**=={green}四个互斥锁==**：
 
+s
+
 | 互斥锁 | 保护对象 | 访问任务 |
 | --- | --- | --- |
 | `g_stateMutex` | 当前传感器、GPS和网络状态 | 采集、GPS、网络、OLED、HTTP、上传 |

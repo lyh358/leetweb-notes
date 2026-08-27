@@ -274,7 +274,7 @@ MQTT的`connect()`也可能在Socket超时范围内阻塞。
 
 ### 7.1 WDT的作用
 
-=={yellow}ESP32的Task Watchdog用于发现某个任务是否长时间占用CPU==，导致Idle任务或其他受监控任务无法获得调度。
+=={yellow}ESP32的Task Watchdog用于发现**某个任务是否长时间占用CPU**==，导致Idle任务或其他受监控任务无法获得调度。
 
 容易触发WDT的情况包括：
 

@@ -387,7 +387,7 @@ taskUploader
 
 ### =={yellow}5.2 EventGroup：表达网络状态==
 
-`g_netEvents`包含**两个状态位**：
+`g_netEvents`包含**=={green}两个状态位==**：
 
 - `WIFI_CONNECTED_BIT`；
 - `MQTT_CONNECTED_BIT`。

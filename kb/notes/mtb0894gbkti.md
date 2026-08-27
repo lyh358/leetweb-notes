@@ -352,7 +352,7 @@ beehive/<device_id>/cmd
 `PubSubClient`=={yellow}会被**两个任务使用**：==
 
 - =={yellow}**网络任务**==调用`connect()`和`loop()`；
-- =={yellow}上传任务==调用`publish()`。
+- =={yellow}**上传任务**==调用`publish()`。
 
 因为它不是线程安全对象，所以=={yellow}使用**互斥锁**==`mqttMutex`=={yellow}**保护**。否则两个任务可能同时修改Socket状态和收发缓冲。==
 

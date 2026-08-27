@@ -336,7 +336,7 @@ void loop() {
 
 采集任务不直接调用MQTT发送数据。
 
-### 4.5 GPS解析任务
+### =={yellow}4.5 GPS解析任务==
 
 `taskGpsReader`负责：
 

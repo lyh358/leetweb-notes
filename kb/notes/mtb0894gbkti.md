@@ -394,7 +394,7 @@ MQTT恢复后：
 
 ### =={pink}8.1 为什么使用HTTP==
 
-ESP32-CAM采集的是JPEG二进制数据。HTTP天然支持：
+ESP32-CAM=={yellow}采集的是JPEG二进制数据。HTTP天然支持==：
 
 - 直接返回`image/jpeg`；
 - 通过普通浏览器查看；

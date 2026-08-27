@@ -402,7 +402,7 @@ ESP32-CAM=={yellow}采集的是JPEG二进制数据。HTTP天然支持==：
 - 使用MJPEG连续传输图像；
 - 无须在设备端对图像分片和重组。
 
-HTTP在这里采用请求—响应模式：
+=={yellow}HTTP在这里采用请求—响应模式：==
 
 ```markdown
 PC端发起HTTP GET

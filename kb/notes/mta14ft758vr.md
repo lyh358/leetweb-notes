@@ -286,8 +286,8 @@ Qt界面集中展示
 
 这里=={yellow}选择**gRPC也能自然复用Protobuf**==：
 
-- =={yellow}Protobuf定义监控数据；==
-- =={yellow}gRPC负责跨节点流式传输；==
+- =={yellow}Protobuf**定义监控数据**；==
+- =={yellow}gRPC负责**跨节点流式传输**；==
 - =={yellow}Qt负责在中心端展示节点状态。==
 
 ---

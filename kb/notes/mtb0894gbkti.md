@@ -127,7 +127,7 @@ MQTT通过**Keep Alive**和**PING报文**=={yellow}检测连接是否仍然有�
 4. =={green}获取**设备三元组**==；
 5. =={green}在**固件**中**配置MQTT连接参数**==。
 
-设备三元组包括：
+=={yellow}设备三元组包括：==
 
 - `ProductKey`；
 - `DeviceName`；

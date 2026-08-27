@@ -150,8 +150,6 @@ message Object {
 }
 ```
 
-=={yellow}2） 然后通过 **protoc**== =={yellow}**编译器**===={yellow}生===={yellow}成C++、Python、Java等语言对应的代码。==
-
 它的价值主要体现在四个方面：
 
 - **跨语言**：同一份`.proto`可以生成多种语言代码；

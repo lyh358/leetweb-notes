@@ -392,7 +392,7 @@ taskUploader
 - `WIFI_CONNECTED_BIT`；
 - `MQTT_CONNECTED_BIT`。
 
-网络任务负责设置或清除这些位，上传任务根据状态位决定是否发布。
+=={green}网络任务负责设置或清除这些位，上传任务根据状态位决定是否发布。==
 
 当Wi-Fi断开时，同时清除Wi-Fi和MQTT状态，因为MQTT依赖底层网络连接。
 

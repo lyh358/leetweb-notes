@@ -376,7 +376,7 @@ beehive/<device_id>/cmd
 - =={yellow}上传任务停止真实发布；==
 - =={yellow}遥测写入RAM环形缓存。==
 
-### 7.2 恢复补发
+### =={pink}7.2 恢复补发==
 
 MQTT恢复后：
 

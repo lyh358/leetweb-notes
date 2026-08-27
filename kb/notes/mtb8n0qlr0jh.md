@@ -289,7 +289,7 @@ MQTT的`connect()`也可能在Socket超时范围内阻塞。
 
 在Arduino-ESP32中，`delay()`通常最终会让当前FreeRTOS任务进入阻塞状态，并不等于传统裸机中的纯忙等。
 
-项目进一步直接使用：
+=={yellow}项目进一步直接使用：==
 
 ```scss
 vTaskDelay(pdMS_TO_TICKS(ms));

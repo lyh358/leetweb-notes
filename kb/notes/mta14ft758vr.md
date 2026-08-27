@@ -88,6 +88,8 @@
 
 ROS Msg本身没有问题。它与ROS Topic、rosbag、rostopic等工具结合得非常好。在一个完全由ROS组成的机器人项目中，直接使用ROS Msg通常是最自然的选择。
 
+---
+
 ## 4. 为什么还会出现Protobuf
 
 问题出现在机器人系统逐渐变大，并开始与ROS之外的系统协作之后。

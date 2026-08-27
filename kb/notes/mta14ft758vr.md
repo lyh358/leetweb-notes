@@ -453,7 +453,7 @@ publisher.publish(protobuf_message);
 
 这条链路需要完成=={pink}**四项任务**==：
 
-### 4.1 节点性能采集
+### =={yellow}4.1 节点性能采集==
 
 从Linux的`/proc`文件系统读取：
 

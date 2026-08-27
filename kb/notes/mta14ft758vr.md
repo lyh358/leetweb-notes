@@ -434,7 +434,7 @@ Protobuf消息 ──┘
 
 对于=={yellow}原生ROS Msg，保持原来的通信方式不变==。
 
-对于Protobuf消息，需要解决两个问题：
+对于=={yellow}Protobuf消息==，需要解决两个问题：
 
 1. 让ROS将Protobuf类型识别为可以发布和订阅的消息；
 2. 告诉ROS如何计算消息长度，以及如何完成序列化和反序列化。

@@ -167,7 +167,7 @@ float weight = g_scale.get_units(10);
 - =={yellow}配置DATA和SCK引脚；==
 - =={yellow}设置标定系数；==
 - 检查模块是否就绪；
-- 执行去皮；
+- =={yellow}执行去皮；==
 - 使用多次采样均值计算重量。
 
 ### 4.4 去皮和标定

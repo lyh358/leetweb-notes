@@ -447,7 +447,7 @@ esp_camera_fb_return(fb);
 
 将帧缓冲归还驱动。忘记归还会耗尽可用缓冲区，导致后续采集失败。
 
-### =={pink}7.4 I²S/DMA与PSRAM==
+### =={pink}7.4 I²S/DMA与PSRAM（）==
 
 图像采集底层由`esp_camera`驱动使用I²S/DMA路径，将OV2640数据搬运到帧缓冲区。
 

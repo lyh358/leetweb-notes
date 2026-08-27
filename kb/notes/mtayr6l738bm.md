@@ -245,7 +245,7 @@ GPS模块用于：
 
 ### =={yellow}5.2 为什么使用UART==
 
-NEO-6M会按照固定波特率持续输出NMEA语句，例如：
+=={green}NEO-6M会按照固定波特率持续输出NMEA语句==，例如：
 
 - $GPGGA；
 - $GPRMC。

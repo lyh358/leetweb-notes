@@ -342,7 +342,7 @@ void loop() {
 
 - 每隔=={green}较短时间**检查UART接收缓冲**==；
 - =={green}**持续取出**NMEA字节==；
-- 交给TinyGPSPlus=={green}流式解析==；
+- 交给TinyGPSPlus=={green}**流式解析**==；
 - =={green}定位更新后写入共享状态==；
 - =={green}保存==经纬度、有效标志和卫星数量。
 

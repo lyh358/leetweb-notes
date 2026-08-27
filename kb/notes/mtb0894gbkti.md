@@ -364,7 +364,7 @@ beehive/<device_id>/cmd
 
 ---
 
-## 7. MQTT断网处理
+## =={pink}7. MQTT断网处理==
 
 ### 7.1 采集与联网解耦
 

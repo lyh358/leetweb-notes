@@ -186,7 +186,7 @@
 - =={yellow}底层ESP-IDF组件==；
 - =={yellow}**FreeRTOS**实时操作系统内核==。
 
-=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
+=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
 
 ```scss
 void loop() {
@@ -272,7 +272,7 @@ void loop() {
 | 任务 | 优先级 | 主要职责 |
 | --- | --- | --- |
 | `taskSensorAcquire` | =={yellow}3== | =={yellow}**DHT22**和**HX711**周期采集==、=={yellow}**告警位生成**和**消息入队**== |
-| `taskGpsReader` | =={yellow}3== | =={yellow}**持续读取UART字节**并**解析NMEA定位数据**== |
+| `taskGpsAcquire` | =={yellow}3== | =={yellow}**持续读取UART字节**并**解析NMEA定位数据**== |
 | `taskOledDisplay` | =={yellow}1== | =={yellow}**读取最新系统状态**并**低频刷新OLED**== |
 
 传感器任务与GPS任务优先级相同，两者在阻塞或主动延时后让出CPU。=={green}OLED只负责显示，实时性要求最低，因此优先级最低。==

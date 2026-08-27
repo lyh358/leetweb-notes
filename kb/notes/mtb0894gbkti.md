@@ -444,7 +444,7 @@ HTTP响应
 
 一帧约150KB。JPEG=={yellow}压缩后通常可以显著减小数据量==，更适合ESP32-CAM通过Wi-Fi传输。
 
-### 9.2 PSRAM双帧缓冲
+### =={pink}9.2 PSRAM双帧缓冲==
 
 检测到PSRAM后配置：
 

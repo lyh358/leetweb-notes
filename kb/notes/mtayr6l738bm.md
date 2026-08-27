@@ -105,7 +105,7 @@ float temperature = g_dht.readTemperature();
 采集后检查：
 
 - =={yellow}**返回值**是否为**NaN**或**无穷值**；==
-- =={yellow}湿度是否处于0%～100%；==
+- =={yellow}**湿度**是否处于0%～100%；==
 - =={yellow}温度是否处于传感器合理量程。==
 
 如果本次读取失败：

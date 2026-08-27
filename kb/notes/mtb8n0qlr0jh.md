@@ -270,7 +270,7 @@ MQTT的`connect()`也可能在Socket超时范围内阻塞。
 
 ---
 
-## =={pink}7. 优化三：通过主动阻塞降低WDT（Watch‑Dog Timer，看门狗定时器）风险==
+## =={pink}7. 优化三：通过主动阻塞降低WDT（Watch‑Dog Timer，看门狗定时器）chao's风险==
 
 ### 7.1 WDT的作用
 

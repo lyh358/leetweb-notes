@@ -182,7 +182,7 @@
 最终版本基于：
 
 - =={yellow}ESP32-S3双核处理器；==
-- Arduino-ESP32开发框架；
+- =={yellow}Arduino==-ESP32开发框架；
 - 底层ESP-IDF组件；
 - FreeRTOS实时操作系统内核。
 

@@ -237,7 +237,7 @@ Wi-Fi成功
 
 - =={yellow}**Wi-Fi**每**5**秒检查并尝试重连；==
 - =={yellow}**MQTT**每**3**秒检查并尝试重连；==
-- =={yellow}MQTT Keep Alive为**60**秒。==
+- =={yellow}MQTT **Keep Alive**为**60**秒。==
 
 ### 6.3 遥测消息封装
 

@@ -140,7 +140,7 @@ ROS Topic
 - =={green}Protobuf：**电报**，**二进制密文**，**必须有密码本**（==`.proto`=={green}）**才能解析**==；体积很小，解析速度快很多
 
 **=={pink}使用流程：==**
-1）开发者使用 .proto 文件定义消息：
+**1）**开发者使用 .proto 文件定义消息：
 
 ```go
 message Object {
@@ -150,7 +150,7 @@ message Object {
 }
 ```
 
-2） 然后通过 **protoc 编译器**生成C++、Python、Java等**不同语言对应的代码**。
+**2）** 然后通过 **protoc 编译器**生成C++、Python、Java等**不同语言对应的代码**。
 
 它的价值主要体现在四个方面：
 

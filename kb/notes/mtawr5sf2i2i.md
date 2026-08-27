@@ -326,7 +326,7 @@ void loop() {
 
 `taskSensorAcquire`负责：
 
-- 按设定周期读取DHT22；
+- 按设定=={yellow}周期读取==DHT22；
 - 读取HX711并计算重量；
 - 检查数据有效性；
 - 读取GPS任务提供的最新定位快照；

@@ -186,7 +186,7 @@
 - =={yellow}底层ESP-IDF组件==；
 - =={yellow}**FreeRTOS**实时操作系统内核==。
 
-=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
+=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
 
 ```scss
 void loop() {
@@ -259,7 +259,7 @@ void loop() {
 
 | 任务 | 优先级 | 主要职责 |
 | --- | --- | --- |
-| `taskNetManager` | 4 | Wi-Fi/MQTT连接维护、心跳、重连、ArduinoOTA和URL OTA |
+| `taskNetManager` | =={yellow}4== | Wi-Fi/MQTT连接维护、心跳、重连、ArduinoOTA和URL OTA |
 | `taskUploader` | 3 | 消费遥测队列、MQTT发布、断网缓存和联网补发 |
 | `taskHttpServer` | 2 | 本地状态页、JSON API和Web OTA请求处理 |
 

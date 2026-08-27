@@ -468,7 +468,7 @@ publisher.publish(protobuf_message);
 
 ### =={yellow}4.3 指标流式上报==
 
-**在各计算节点运行Monitor Agent**，将**采集结果封装为Protobuf**消息，通过gRPC客户端流持续上报到Monitor Center。
+**在各计算节点运行Monitor Agent**，将**采集结果封装为Protobuf**消息，**通过gRPC客户端**流持续上报到Monitor Center。
 
 ### =={yellow}4.4 中心汇总与展示==
 

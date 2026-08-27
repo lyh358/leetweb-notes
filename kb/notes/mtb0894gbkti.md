@@ -266,7 +266,7 @@ Wi-Fi成功
 
 ### =={pink}6.4 Topic设计==
 
-最终架构逻辑上划分为三类Topic：
+最终架构逻辑上划分为=={yellow}**三类Topic**==：
 
 ```bash
 beehive/<device_id>/telemetry

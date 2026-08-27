@@ -371,8 +371,8 @@ beehive/<device_id>/cmd
 =={yellow}网络断开后：==
 
 - =={yellow}传感器任务继续采集==；
-- GPS任务继续解析；
-- OLED继续显示；
+- =={yellow}GPS任务继续解析；==
+- =={yellow}OLED继续显示；==
 - 上传任务停止真实发布；
 - 遥测写入RAM环形缓存。
 

@@ -41,7 +41,7 @@
 
 =={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或==**=={yellow}Windows==**=={yellow}的==**=={yellow}传统操作系统==**=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的==**=={yellow}机器人软件框架==**=={yellow}。==
 
-可以把ROS理解成机器人各个软件模块之间的“通信基础设施”。
+可以把ROS理解成机器人=={yellow}各个软件模块之间的“通信基础设施”==。
 
 在ROS中，每个功能程序称为一个Node。例如：
 

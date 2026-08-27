@@ -288,7 +288,7 @@ beehive/<device_id>/cmd
 
 项目的=={yellow}**周期遥测**主要使用**QoS 0**==。
 
-QoS 0（Quality of Service Level 0，服务质量等级0）是MQTT协议中定义的三种消息传递服务质量等级之一，也是最低、最简单的等级。
+> QoS 0（Quality of Service Level 0，服务质量等级0）是MQTT协议中定义的三种消息传递服务质量等级之一，也是最低、最简单的等级。
 
 核心特点
 

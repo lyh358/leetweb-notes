@@ -315,7 +315,7 @@ void loop() {
 
 `taskHttpServer`周期调用WebServer请求处理，提供：
 
-- =={green}本地设备状态页；==
+- =={green}**本地设备状态页**；==
 - `/api/state`状态接口；
 - =={green}Web OTA上传入口==；
 - =={green}重启等维护接口==。

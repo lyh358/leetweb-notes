@@ -489,7 +489,7 @@ ESP32 I²S 外设（配置为摄像头并行接收模式）
 
 检测到PSRAM时：
 
-- 帧缓冲放入PSRAM；
+- =={yellow}帧缓冲放入PSRAM；==
 - 配置两个Frame Buffer；
 - 使用`CAMERA_GRAB_LATEST`；
 - 优先获取最新图像，降低旧帧积压。

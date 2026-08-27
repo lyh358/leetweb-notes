@@ -373,7 +373,7 @@ beehive/<device_id>/cmd
 - =={yellow}传感器任务继续采集==；
 - =={yellow}GPS任务继续解析；==
 - =={yellow}OLED继续显示；==
-- 上传任务停止真实发布；
+- =={yellow}上传任务停止真实发布；==
 - 遥测写入RAM环形缓存。
 
 ### 7.2 恢复补发

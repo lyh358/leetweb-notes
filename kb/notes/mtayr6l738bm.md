@@ -2,7 +2,7 @@
 
 ## 1. 对应简历条目
 
-> **外设驱动与物联网通信：**基于GPIO/单总线、UART、I²C驱动DHT22、HX711、NEO-6M GPS及OLED；通过MQTT/Alink完成遥测上云，ESP32-CAM采用HTTP＋I²S/DMA＋PSRAM双帧缓冲传输JPEG，实现控制流与图像数据流分离。
+> 外设驱动与物联网通信：基于GPIO/单总线、UART、I²C驱动DHT22、HX711、NEO-6M GPS及OLED；通过MQTT/Alink完成遥测上云，ESP32-CAM采用HTTP＋I²S/DMA＋PSRAM双帧缓冲传输JPEG，实现控制流与图像数据流分离。
 
 A3重点解释这句话的前半部分：
 
@@ -615,7 +615,9 @@ SharedState中的最新GPS
 
 > 外设方面，我根据不同设备的数据特点选择不同接口。DHT22通过单总线GPIO采集温湿度，采样后检查NaN和物理范围；HX711通过DATA和SCK两线时序读取24位称重数据，上电后执行去皮，并通过已知重量完成标定，再采用10次均值降低随机波动。
 > 
+> 
 > GPS使用硬件UART接收9600波特率的NMEA字节流，由独立任务持续读取并使用TinyGPSPlus流式解析，避免长周期采样导致UART缓冲区溢出。OLED采用硬件I²C和U8g2全缓冲模式，由低优先级任务读取共享快照后刷新。
+> 
 > 
 > 这些外设读取后会统一融合成包含温湿度、重量、GPS、网络质量和告警位的TelemetryMessage，再写入Queue交给上传任务。摄像头侧使用ESP32-CAM和OV2640，通过`esp_camera`复用底层I²S/DMA采集路径，在PSRAM中配置双帧缓冲，为后续HTTP图传和YOLOv8识别提供JPEG图像。
 

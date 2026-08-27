@@ -181,7 +181,7 @@
 
 最终版本基于：
 
-- =={yellow}ESP32-S3双核处理器；==
+- =={yellow}ESP32-S3**双核**处理器；==
 - =={yellow}Arduino==-ESP32=={yellow}开发框架==；
 - =={yellow}底层ESP-IDF组件==；
 - =={yellow}FreeRTOS实时操作系统内核==。

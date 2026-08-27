@@ -472,7 +472,7 @@ publisher.publish(protobuf_message);
 
 ### =={yellow}4.4 中心汇总与展示==
 
-**Monitor Center接收**不同节点的数据，**维护节点状态**和最新性能指标，再通过Qt界面展示CPU、内存、网络等运行信息。
+**Monitor Center接收**不同节点的数据，**维护节点状态**和最新性能指标，再通过**Qt界面展示**CPU、内存、网络等运行信息。
 
 ## 5. 系统模块划分
 

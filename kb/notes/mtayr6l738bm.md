@@ -392,7 +392,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C
 
 ---
 
-## 7. ESP32-CAM图像采集
+## =={pink}7. ESP32-CAM图像采集==
 
 这一部分只解释采集和缓存，HTTP传输放在A4。
 

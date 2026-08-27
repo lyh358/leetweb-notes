@@ -429,7 +429,7 @@ esp_camera驱动
         ↓
 I²S/DMA搬运
         ↓
-PSRAM zhen
+PSRAM 帧缓冲区
         ↓
 HTTP响应
 ```

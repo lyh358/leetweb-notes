@@ -39,6 +39,8 @@
 
 初版程序的典型结构可以抽象为：
 
+s'y
+
 ```scss
 void loop() {
     readDht();

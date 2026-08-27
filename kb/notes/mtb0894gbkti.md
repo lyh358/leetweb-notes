@@ -235,9 +235,9 @@ Wi-Fi成功
 
 当前策略大致为：
 
-- Wi-Fi每5秒检查并尝试重连；
-- MQTT每3秒检查并尝试重连；
-- MQTT Keep Alive为60秒。
+- =={yellow}Wi-Fi每5秒检查并尝试重连；==
+- =={yellow}MQTT每3秒检查并尝试重连；==
+- =={yellow}MQTT Keep Alive为60秒。==
 
 ### 6.3 遥测消息封装
 

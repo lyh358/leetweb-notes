@@ -39,7 +39,7 @@
 
 ## 2. ROS在机器人系统中扮演什么角色
 
-=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或==**=={yellow}Windows==**=={yellow}的==**=={yellow}传统操作系统==**=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的==**=={yellow}机器人软件框架==**=={yellow}。==
+=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或====**={yellow}Windows**=={yellow}=={yellow}的==**=={yellow}传统操作系统==**=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的====**={yellow}机器人软件框架**=={yellow}=={yellow}。==
 
 可以把ROS理解成机器人=={yellow}各个软件模块之间的“**通信基础设施**”==。
 
@@ -92,7 +92,7 @@ ROS Msg本身没有问题。它与ROS Topic、rosbag、rostopic等工具结合�
 
 ## 4. 为什么还会出现Protobuf
 
-问题出现在机器人系统逐渐变大，并开始与ROS之外的系统协作之后。
+问题出现在=={pink}机器人系统逐渐变大，并开始与ROS之外的系统协作之后==。
 
 例如，一个自动驾驶系统除了ROS模块，可能还包含：
 

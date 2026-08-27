@@ -39,7 +39,7 @@
 
 ## 2. ROS在机器人系统中扮演什么角色
 
-ROS**不是**类似**Linux**或**Windows**的**传统操作系统**，而是**运行在Linux之上**的机器人软件框架。
+=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或==**=={yellow}Windows==**=={yellow}的==**=={yellow}传统操作系统==**=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的==**=={yellow}机器人软件框架==**=={yellow}。==
 
 可以把ROS理解成机器人各个软件模块之间的“通信基础设施”。
 

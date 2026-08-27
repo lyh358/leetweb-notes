@@ -1,6 +1,6 @@
 # 自动驾驶机器人分布式通信与监控系统——STAR
 
-> 这个项目不是把ROS消息“转换成”Protobuf，也不是因为Protobuf更流行就把ROS消息替换掉，而是让ROS通信框架同时兼容ROS Msg和Protobuf两类消息，从而保留ROS生态，同时接入更通用的Protobuf数据生态。
+> 这个项目不是把ROS消息“转换成”Protobuf，也不是因为Protobuf更流行就把ROS消息替换掉，而是**=={yellow}让ROS通信框架同时兼容ROS Msg和Protobuf两类消息==**，从而保留ROS生态，同时接入更通用的Protobuf数据生态。
 
 下面按照“把面试官当作完全不了解这个领域的人”的方式重新展开。
 

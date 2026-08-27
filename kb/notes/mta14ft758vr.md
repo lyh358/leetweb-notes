@@ -483,8 +483,8 @@ publisher.publish(protobuf_message);
 | =={yellow}**Linux性能采集模块**== | 从`/proc`采集CPU、内存、网络等运行指标 |
 | =={yellow}**Monitor Agent**== | 周期性执行采集，并向中心端流式上报数据 |
 | =={yellow}**Monitor Center**== | 接收和汇总多个节点的性能数据，维护节点状态 |
-| =={yellow}Qt监控界面== | 展示Linux节点的性能指标和变化趋势 |
-| =={green}工程构建模块== | 使用CMake、Docker和Shell组织编译及运行环境 |
+| =={yellow}**Qt监控界面**== | 展示Linux节点的性能指标和变化趋势 |
+| =={green}**工程构建模块**== | 使用CMake、Docker和Shell组织编译及运行环境 |
 
 ## 6. 个人职责
 

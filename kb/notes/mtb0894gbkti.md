@@ -215,7 +215,7 @@ PubSubClient mqttClient(wifiClient);
 - Socket超时；
 - 消息回调函数。
 
-### 6.2 连接流程
+### =={pink}6.2 连接流程==
 
 ```markdown
 检查Wi-Fi状态

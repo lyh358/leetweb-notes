@@ -129,7 +129,7 @@ ROS Topic
 
 ## 5. Protobuf是什么
 
-Protobuf，也就是**Protocol Buffers**，是一种Google 开源，**跨语言、跨平台**的**结构化数据定义**和**二进制序列化**框架。
+=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的==**=={yellow}结构化数据定义==**=={yellow}和==**=={yellow}二进制序列化==**=={yellow}框架===={yellow}。==
 
 开发者使用`.proto`文件定义消息：
 

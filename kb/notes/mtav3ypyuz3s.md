@@ -51,7 +51,7 @@
 
 =={pink}整个系统可以分为**六个部分**。==
 
-=={pink}嵌入式终端（esp32s3+esp32cam）+阿里云物联网平台+后端（mySQL+Flask）+PCtxsb（）==
+=={pink}嵌入式终端（esp32s3+esp32cam）+阿里云物联网平台+后端（mySQL+Flask）+PCtxsbie（）==
 
 ---
 

@@ -271,9 +271,9 @@ void loop() {
 
 | 任务 | 优先级 | 主要职责 |
 | --- | --- | --- |
-| `taskSensorAcquire` | 3 | DHT22和HX711周期采集、告警位生成和消息入队 |
-| `taskGpsReader` | 3 | 持续读取UART字节并解析NMEA定位数据 |
-| `taskOledDisplay` | 1 | 读取最新系统状态并低频刷新OLED |
+| `taskSensorAcquire` | =={yellow}3== | DHT22和HX711周期采集、告警位生成和消息入队 |
+| `taskGpsReader` | =={yellow}3== | 持续读取UART字节并解析NMEA定位数据 |
+| `taskOledDisplay` | =={yellow}1== | 读取最新系统状态并低频刷新OLED |
 
 传感器任务与GPS任务优先级相同，两者在阻塞或主动延时后让出CPU。OLED只负责显示，实时性要求最低，因此优先级最低。
 

@@ -377,7 +377,7 @@ g_telemetryQueue
 taskUploader
 ```
 
-=={green}Queue用于解耦采集和上传：==
+=={green}Queue用于**解耦采集和上传**：==
 
 - 采集任务只负责产生数据；
 - 上传任务处理不确定的网络时延；

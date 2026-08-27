@@ -129,7 +129,7 @@ ROS Topic
 
 ## 5. Protobuf是什么
 
-Protobuf，也就是Protocol Buffers，是一种通用的结构化数据定义和二进制序列化机制。
+Protobuf，也就是**Protocol Buffers**，是一种通用的结构化数据定义和二进制序列化机制。
 
 开发者使用`.proto`文件定义消息：
 

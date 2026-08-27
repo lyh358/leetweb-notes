@@ -150,7 +150,7 @@ message Object {
 }
 ```
 
-2） 然后通过 protoc 编译器生成C++、Python、Java等语言对应的代码。
+=={yellow}2） 然后通过 protoc== =={yellow}编译器===={yellow}生===={yellow}成C++、Python、Java等语言对应的代码。==
 
 它的价值主要体现在四个方面：
 

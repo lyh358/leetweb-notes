@@ -358,7 +358,7 @@ OLED用于现场调试和状态确认，显示：
 
 ### =={pink}6.3 全缓冲刷新==
 
-项目使用U8g2全缓冲模式：
+=={yellow}项目使用U8g2全缓冲模式：==
 
 ```undefined
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C

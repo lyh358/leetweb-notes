@@ -392,7 +392,7 @@ MQTT恢复后：
 
 ## =={pink}8. HTTP图像链路==
 
-### 8.1 为什么使用HTTP
+### =={pink}8.1 为什么使用HTTP==
 
 ESP32-CAM采集的是JPEG二进制数据。HTTP天然支持：
 

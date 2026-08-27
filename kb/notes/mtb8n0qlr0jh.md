@@ -39,7 +39,7 @@
 
 初版程序的典型结构可以抽象为：
 
-所有任务都放在Arduino默认的
+所有任务都放在Arduino默认的Task
 
 ```scss
 void loop() {

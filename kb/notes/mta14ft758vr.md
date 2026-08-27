@@ -466,11 +466,11 @@ publisher.publish(protobuf_message);
 
 将不同类型的指标拆分成独立采集器，使CPU、内存和网络采集逻辑可以分别维护和扩展。
 
-### 4.3 指标流式上报
+### =={yellow}4.3 指标流式上报==
 
 在各计算节点运行Monitor Agent，将采集结果封装为Protobuf消息，通过gRPC客户端流持续上报到Monitor Center。
 
-### 4.4 中心汇总与展示
+### =={yellow}4.4 中心汇总与展示==
 
 Monitor Center接收不同节点的数据，维护节点状态和最新性能指标，再通过Qt界面展示CPU、内存、网络等运行信息。
 

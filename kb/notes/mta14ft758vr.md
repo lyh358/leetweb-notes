@@ -222,7 +222,7 @@ ROS subscribe()
 Protobuf对象
 ```
 
-而ROS原生`.msg`仍然可以正常使用，所以项目实现的是：
+=={green}而ROS原生==`.msg`=={green}仍然可以正常使用==，所以项目实现的是：
 
 > ROS同时兼容ROS Msg和Protobuf消息，而不是用Protobuf彻底替换ROS Msg。
 

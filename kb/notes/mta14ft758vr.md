@@ -455,7 +455,7 @@ publisher.publish(protobuf_message);
 
 ### =={yellow}4.1 节点性能采集==
 
-从Linux的`/proc`文件系统读取：
+从Linux的`/proc`**文件系统读取**：
 
 - CPU运行数据；
 - 内存和交换分区数据；

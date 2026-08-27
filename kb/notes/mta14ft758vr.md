@@ -171,7 +171,7 @@ message Object {
 
 | 对比项 | ROS Msg | Protobuf |
 | --- | --- | --- |
-| 主要定位 | =={yellow}ROS生态内部通信== | 通用数据定义与序列化 |
+| 主要定位 | =={yellow}ROS生态内部通信== | =={yellow}通用数据定义与序列化== |
 | 数据定义 | `.msg` | `.proto` |
 | ROS工具链适配 | =={yellow}原生支持== | =={yellow}默认不识别== |
 | 跨系统复用 | =={yellow}相对受限== | =={yellow}更方便== |

@@ -284,7 +284,7 @@ Monitor Center
 Qt界面集中展示
 ```
 
-这里=={yellow}选择gRPC也能自然复用Protobuf==：
+这里=={yellow}选择**gRPC也能自然复用Protobuf**==：
 
 - Protobuf定义监控数据；
 - gRPC负责跨节点流式传输；

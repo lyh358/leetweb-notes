@@ -385,7 +385,7 @@ taskUploader
 - =={green}**网络**慢**不会**直接**阻塞传感器采集**==；
 - =={green}**队列满**时，消息**转入离线环形缓存**==。
 
-### =={pink}5.2 EventGroup：表达网络状态==
+### =={yellow}5.2 EventGroup：表达网络状态==
 
 `g_netEvents`包含两个状态位：
 

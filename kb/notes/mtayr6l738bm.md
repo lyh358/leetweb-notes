@@ -461,7 +461,7 @@ esp_camera_fb_return(fb);
 
 **数据流**
 
-```
+```css
 OV2640 传感器
     │
     ▼ DVP 并行数据（PCLK + VSYNC + HSYNC + D[7:0]）
@@ -656,7 +656,7 @@ SharedState中的最新GPS
 
 ---
 
-```
+```css
 OV2640 传感器
 
     │

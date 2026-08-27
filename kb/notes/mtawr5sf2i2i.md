@@ -402,7 +402,7 @@ taskUploader
 
 系统使用**=={green}四个互斥锁==**：
 
-全局变量SharedState锁环形缓冲区锁MQTT锁I2C锁
+=={green}全局变量SharedState锁===={green}环形缓冲区锁===={green}MQTT锁===={green}I2C锁==
 
 | 互斥锁 | 保护对象 | 访问任务 |
 | --- | --- | --- |

@@ -100,7 +100,7 @@ float temperature = g_dht.readTemperature();
 
 > 我基于DHT库完成设备接入和采集逻辑，同时掌握DHT22的单总线时序和40位数据格式。
 
-### 3.5 异常处理
+### =={pink}3.5 异常处理==
 
 采集后检查：
 

@@ -383,7 +383,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C
 因此OLED任务：
 
 - =={green}**优先级设为1**；==
-- =={green}默认每1秒刷新；==
+- =={green}默认每**1秒刷新**；==
 - =={green}读取SharedState快照；==
 - =={green}获取I²C Mutex后刷新；==
 - =={green}刷新完成后释放锁。==

@@ -457,7 +457,7 @@ publisher.publish(protobuf_message);
 
 从Linux的`/proc`**文件系统读取**：
 
-- CPU运行数据；
+- **CPU**运行数据；
 - 内存和交换分区数据；
 - 网络收发数据；
 - 系统负载及相关运行信息。

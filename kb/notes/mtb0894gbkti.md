@@ -198,8 +198,8 @@ MQTT通过**Keep Alive**和**PING报文**=={yellow}检测连接是否仍然有�
 
 项目使用：
 
-- `WiFiClient`：=={pink}提供底层TCP连接；==
-- `PubSubClient`：实现MQTT协议；
+- `WiFiClient`：=={yellow}提供底层TCP连接；==
+- `PubSubClient`=={yellow}：实现MQTT协议；==
 - `ArduinoJson`：构造和解析JSON。
 
 ```scss

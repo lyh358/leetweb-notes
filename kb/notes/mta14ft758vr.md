@@ -206,7 +206,7 @@ message Object {
 
 > =={yellow}扩展ROS的==**=={yellow}类型识别==**=={yellow}和==**=={yellow}序列化机制==**=={yellow}，让ROS知道==**=={yellow}怎样识别、打包和还原Protobuf消息==**=={yellow}。==
 
-=={green}完成扩展后==，业务层不需要先把Protobuf转换成ROS Msg，而是可以直接使用原来的ROS接口：
+=={green}完成扩展后==，业务层不需要先把Protobuf转换成ROS Msg，而是可=={green}以直接使用原来的ROS接口==：
 
 ```scss
 Protobuf对象

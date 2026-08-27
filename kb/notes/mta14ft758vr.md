@@ -202,7 +202,7 @@ message Object {
 
 =={green}ROS原生生成的消息已经具备这些信息，但普通Protobuf类没有==。因此，=={green}把一个Protobuf对象直接传给ROS的==`publish()`=={green}接口，ROS无法按照原来的方式处理。==
 
-这就引出了项目的第一个核心需求：
+这就引出了**项目的第一个核心需求**：
 
 > 扩展ROS的类型识别和序列化机制，让ROS知道怎样识别、打包和还原Protobuf消息。
 

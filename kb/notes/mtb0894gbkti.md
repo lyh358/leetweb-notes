@@ -241,7 +241,7 @@ Wi-Fi成功
 
 ### 6.3 遥测消息封装
 
-采集任务生成`TelemetryMessage`，上传任务将其序列化为JSON：
+采集任务生成`TelemetryMessage`，=={yellow}上传任务将其序列化为JSON==：
 
 ```json
 {

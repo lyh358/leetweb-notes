@@ -295,7 +295,7 @@ MQTT的`connect()`也可能在Socket超时范围内阻塞。
 vTaskDelay(pdMS_TO_TICKS(ms));
 ```
 
-它的作用是：
+=={yellow}它的作用是：==
 
 ```markdown
 当前任务进入Blocked状态

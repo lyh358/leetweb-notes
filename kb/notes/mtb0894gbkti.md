@@ -284,7 +284,7 @@ beehive/<device_id>/cmd
 
 ### =={pink}6.5 QoS选择==
 
-项目的周期遥测主要使用QoS 0。
+项目的=={yellow}周期遥测主要使用QoS 0==。
 
 原因是：
 

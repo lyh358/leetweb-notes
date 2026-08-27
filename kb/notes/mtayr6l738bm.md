@@ -410,6 +410,8 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C
 
 =={yellow}OV2640通过**DVP并行接口**输出：==
 
+=={yellow}DVP==**Digital Video Port**，数字视频端口
+
 - =={green}**8位像素数据**；==
 - =={green}**像素时钟**；==
 - =={green}**行同步**；==

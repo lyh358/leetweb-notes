@@ -411,7 +411,7 @@ taskUploader
 
 其中`PubSubClient`不是线程安全对象。网络任务会调用`loop()`和重连接口，上传任务会调用`publish()`，因此必须使用同一个互斥锁串行化访问。
 
-### 5.4 全局变量SharedState：保存最新状态
+### =={pink}5.4 全局变量SharedState：保存最新状态==
 
 系统保留了一份`SharedState`：
 

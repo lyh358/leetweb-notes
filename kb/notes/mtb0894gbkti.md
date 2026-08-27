@@ -347,7 +347,7 @@ beehive/<device_id>/cmd
 
 网络任务读取待处理地址，再执行HTTP固件下载和更新。
 
-### 6.7 MQTT线程安全
+### =={pink}6.7 MQTT线程安全==
 
 `PubSubClient`会被两个任务使用：
 

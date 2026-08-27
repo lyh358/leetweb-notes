@@ -168,7 +168,7 @@ MQTT通过**Keep Alive**和**PING报文**=={yellow}检测连接是否仍然有�
 
 ### =={pink}5.3 Alink消息格式==
 
-设备将遥测封装成Alink JSON。示意格式为：
+设备=={yellow}将遥测封装成Alink JSON==。示意格式为：
 
 ```json
 {

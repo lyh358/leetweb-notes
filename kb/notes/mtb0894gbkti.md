@@ -111,7 +111,7 @@ ESP32发布者
 
 #### =={green}5.提供连接保活机制==
 
-MQTT通过Keep Alive和PING报文检测连接是否仍然有效。
+MQTT通过**Keep Alive**和PING报文检测连接是否仍然有效。
 
 ---
 

@@ -415,7 +415,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C
 - =={green}**行同步**；==
 - =={green}**帧同步**。==
 
-摄像头寄存器通过SCCB接口配置。ESP32-CAM应用层使用`esp_camera`组件，不直接手写DVP采集驱动。
+摄像头寄存器通过SCCB接口配置。=={yellow}ESP32-CAM应用层使用==`esp_camera`=={yellow}组件，不直接手写DVP采集驱动。==
 
 ### 7.3 JPEG采集
 

@@ -149,6 +149,8 @@ while (!mqttClient.connected()) {
 
 ### =={pink}4.2 状态驱动的连接管理==
 
+=={pink}其实本质上是吧==
+
 最终系统使用网络状态和上次尝试时间控制重连：
 
 ```markdown

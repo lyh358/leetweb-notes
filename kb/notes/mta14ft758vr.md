@@ -73,7 +73,7 @@
 时间戳
 ```
 
-=={yellow}ROS原生通过==`.msg`=={yellow}文件描述这种数据结构，这套消息体系通常称为ROS Msg或rosmsg。==
+=={yellow}ROS原生通过==`.msg`=={yellow}文件描述这种数据结构，这套消息体系通常称为**ROS Msg**或rosmsg。==
 
 开发者先编写`.msg`文件，ROS在编译时为它生成C++、Python等语言对应的代码。通信时，ROS再把消息对象序列化为二进制数据，通过TCPROS等方式发送给订阅者。
 

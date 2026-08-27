@@ -341,7 +341,7 @@ void loop() {
 `taskGpsReader`负责：
 
 - 每隔=={green}较短时间检查UART接收缓冲==；
-- 持续取出NMEA字节；
+- =={green}持续取出NMEA字节==；
 - 交给TinyGPSPlus流式解析；
 - 定位更新后写入共享状态；
 - 保存经纬度、有效标志和卫星数量。

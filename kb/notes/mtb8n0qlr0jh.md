@@ -292,7 +292,7 @@ MQTT的`connect()`也可能在Socket超时范围内阻塞。
 =={yellow}项目进一步直接使用：==
 
 ```scss
-vTaskDelay(pdMS_TO_TICKS(ms));
+vTaskDelay(c's);
 ```
 
 =={yellow}它的作用是：==

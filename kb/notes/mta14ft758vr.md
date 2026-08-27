@@ -75,7 +75,7 @@
 
 =={yellow}ROS**原生**通过**.msg**===={yellow}**文件描述这种数据结构**，这套消息体系通常称为**ROS Msg**或rosmsg。==
 
-=={green}开发者先编写==`.msg`=={green}文件==
+=={green}1) 开发者先编写==`.msg`=={green}文件==
 
 =={green}ROS在编译时为它生成C++、Python等语言对应的代码。==
 

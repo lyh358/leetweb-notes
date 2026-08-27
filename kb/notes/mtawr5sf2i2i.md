@@ -101,7 +101,7 @@
 | 外设 | 接口 | 规划原因 |
 | --- | --- | --- |
 | DHT22 | =={yellow}**单总线GPIO**== | 只需一根数据线，适合低频温湿度采集 |
-| HX711 | =={yellow}DATA＋SCK双线GPIO时序== | HX711采用专用两线时序输出称重数据 |
+| HX711 | =={yellow}DATA＋SCK**双线GPIO时序**== | HX711采用专用两线时序输出称重数据 |
 | NEO-6M | =={yellow}UART== | GPS持续输出NMEA数据，串口适合流式接收 |
 | OLED | =={yellow}I2C== | 占用引脚少，刷新带宽足以满足状态显示 |
 | ESP32-CAM | =={yellow}DVP+I2S+DMA== | 隔离图像采集、缓存和网络传输开销 |

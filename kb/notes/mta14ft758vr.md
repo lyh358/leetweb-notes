@@ -198,7 +198,7 @@ message Object {
 - =={yellow}它应该==**=={yellow}怎样计算序列化长度==**=={yellow}；==
 - =={yellow}它应该==**=={yellow}怎样序列化和反序列化==**=={yellow}。==
 
-这些规则分别由ROS的Traits和Serialization机制负责。
+=={pink}这些规则分别由ROS的Traits和Serialization机制负责。==
 
 ROS原生生成的消息已经具备这些信息，但普通Protobuf类没有。因此，把一个Protobuf对象直接传给ROS的`publish()`接口，ROS无法按照原来的方式处理。
 

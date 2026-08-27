@@ -226,7 +226,7 @@ Protobuf对象
 
 > =={yellow}ROS**同时兼容ROS Msg和Protobuf消息**，而不是用Protobuf彻底替换ROS Msg。==
 
-## 
+---
 
 ## 7. 引入Protobuf后带来了什么价值
 

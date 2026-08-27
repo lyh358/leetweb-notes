@@ -461,24 +461,6 @@ esp_camera_fb_return(fb);
 
 **数据流**
 
-**OV2640 传感器**
-
-    **│**
-
-    **▼ DVP 并行数据（PCLK + VSYNC + HSYNC + D[7:0]）**
-
-**ESP32 I²S 外设（配置为摄像头并行接收模式）**
-
-    **│**
-
-    **▼ DMA 控制器自动搬运**
-
-**帧缓冲区（PSRAM 或 SRAM）**
-
-    **│**
-
-    **▼ CPU 处理（编码、AI 推理、显示等）**
-
 这里应准确表述为：
 
 > 我通过`esp_camera`配置和使用底层I²S/DMA采集能力，而不是从零手写DMA驱动。
@@ -653,3 +635,23 @@ SharedState中的最新GPS
 > 这些外设读取后会统一融合成包含温湿度、重量、GPS、网络质量和告警位的TelemetryMessage，再写入Queue交给上传任务。摄像头侧使用ESP32-CAM和OV2640，通过`esp_camera`复用底层I²S/DMA采集路径，在PSRAM中配置双帧缓冲，为后续HTTP图传和YOLOv8识别提供JPEG图像。
 
 ---
+
+```
+OV2640 传感器
+
+    │
+
+    ▼ DVP 并行数据（PCLK + VSYNC + HSYNC + D[7:0]）
+
+ESP32 I²S 外设（配置为摄像头并行接收模式）
+
+    │
+
+    ▼ DMA 控制器自动搬运
+
+帧缓冲区（PSRAM 或 SRAM）
+
+    │
+
+    ▼ CPU 处理（编码、AI 推理、显示等）
+```

@@ -231,7 +231,7 @@ void loop() {
 - ArduinoOTA和HTTPUpdate；
 - NVS/Preferences。
 
-### FreeRTOS内核层
+### =={yellow}FreeRTOS内核层==
 
 负责：
 

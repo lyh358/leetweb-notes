@@ -165,7 +165,7 @@ float weight = g_scale.get_units(10);
 初始化过程包括：
 
 - =={yellow}**配置**DATA和SCK**引脚**；==
-- =={yellow}设置标定系数；==
+- =={yellow}**设置标定系数**；==
 - 检查模块是否就绪；
 - =={yellow}执行去皮；==
 - =={yellow}使用**多次采样均值**计算重量。==

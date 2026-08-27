@@ -440,7 +440,7 @@ Wi-Fi/MQTT状态
 
 =={green}当出现以下情况时，遥测数据进入环形缓存：==
 
-- =={green}MQTT未连接；==
+- =={green}**MQTT未连接**；==
 - =={green}MQTT发布失败；==
 - =={green}遥测Queue已满。==
 

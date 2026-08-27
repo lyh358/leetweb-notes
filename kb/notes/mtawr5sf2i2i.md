@@ -260,7 +260,7 @@ void loop() {
 | 任务 | 优先级 | 主要职责 |
 | --- | --- | --- |
 | `taskNetManager` | =={yellow}4== | =={yellow}**Wi-Fi/MQTT连接维护**、**心跳**、**重连**==、**ArduinoOTA**和**URL OTA** |
-| `taskUploader` | =={yellow}3== | =={yellow}**消费遥测队列**、**MQTT发布**、**断网缓存**和联网补发== |
+| `taskUploader` | =={yellow}3== | =={yellow}**消费遥测队列**、**MQTT发布**、**断网缓存**和**联网补发**== |
 | `taskHttpServer` | =={yellow}2== | =={yellow}本地状态页==、JSON API和=={yellow}Web OTA请求处理== |
 
 网络管理任务优先级最高，因为MQTT需要持续调用`loop()`维护心跳，Wi-Fi和MQTT断线后也需要及时更新系统状态。

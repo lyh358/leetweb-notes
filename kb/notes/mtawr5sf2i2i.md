@@ -348,7 +348,7 @@ void loop() {
 
 GPS数据是连续字节流，因此需要比普通温湿度采集更频繁地读取，否则UART接收缓冲区可能溢出。
 
-### 4.6 OLED显示任务
+### =={yellow}4.6 OLED显示任务==
 
 `taskOledDisplay`负责：
 

@@ -224,7 +224,7 @@ Protobuf对象
 
 =={green}而ROS原生==`.msg`=={green}仍然可以正常使用==，所以**项目实现的是**：
 
-> =={yellow}ROS同时兼容ROS Msg和Protobuf消息，而不是用Protobuf彻底替换ROS Msg。==
+> =={yellow}ROS**同时兼容ROS Msg和Protobuf消息**，而不是用Protobuf彻底替换ROS Msg。==
 
 ## 7. 引入Protobuf后带来了什么价值
 

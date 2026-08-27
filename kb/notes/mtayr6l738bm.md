@@ -282,7 +282,7 @@ UART收到一个字节
 GPS与DHT22、HX711不同：
 
 - =={yellow}DHT22和HX711按**秒级周期主动读取**；==
-- =={yellow}GPS会持续输出字节流，需要毫秒级检查UARTc。==
+- =={yellow}GPS会持续输出字节流，需要毫秒级检查UARThcq。==
 
 如果GPS只在5秒一次的传感器任务中读取，UART缓冲可能积累大量字节甚至溢出。因此单独设置`taskGpsReader`：
 

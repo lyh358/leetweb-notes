@@ -290,7 +290,7 @@ beehive/<device_id>/cmd
 
 > QoS 0（Quality of Service Level 0，服务质量等级0）是MQTT协议中定义的三种消息传递服务质量等级之一，也是最低、最简单的等级。
 
-核心特点
+**核心特点**
 
 "至多一次"（At most once）
 

@@ -65,7 +65,7 @@
 
 - =={yellow}**DHT22**采集蜂箱温湿度；==
 - =={yellow}**HX711和称重传感器**采集蜂箱重量；==
-- =={yellow}NEO-6M GPS获取蜂箱位置；==
+- =={yellow}**NEO-6M** GPS获取蜂箱位置；==
 - =={yellow}OLED显示本地传感器数据和设备状态；==
 - =={yellow}通过Wi-Fi连接网络；==
 - =={yellow}通过MQTT将遥测数据上传至阿里云物联网平台；==

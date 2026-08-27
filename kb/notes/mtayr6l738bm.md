@@ -386,7 +386,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C
 - =={green}默认每**1秒刷新**；==
 - =={green}**读取SharedState快照**；==
 - =={green}**获取I²C Mutex后刷新**；==
-- =={green}刷新完成后释放锁。==
+- =={green}**刷新完成后释放锁**。==
 
 OLED即使异常，也不应该影响传感器和通信主流程。
 

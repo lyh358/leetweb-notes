@@ -349,7 +349,7 @@ beehive/<device_id>/cmd
 
 ### =={pink}6.7 MQTT线程安全==
 
-`PubSubClient`=={yellow}会被两个任务使用：==
+`PubSubClient`=={yellow}会被**两个任务使用**：==
 
 - =={yellow}网络任务==调用`connect()`和`loop()`；
 - =={yellow}上传任务==调用`publish()`。

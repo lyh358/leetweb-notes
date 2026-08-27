@@ -271,7 +271,7 @@ void loop() {
 
 | 任务 | 优先级 | 主要职责 |
 | --- | --- | --- |
-| `taskSensorAcquire` | =={yellow}3== | =={yellow}DHT22和HX711周期采集==、=={yellow}告警位生成和消息入队== |
+| `taskSensorAcquire` | =={yellow}3== | =={yellow}**DHT22**和HX711周期采集==、=={yellow}告警位生成和消息入队== |
 | `taskGpsReader` | =={yellow}3== | =={yellow}持续读取UART字节并解析NMEA定位数据== |
 | `taskOledDisplay` | =={yellow}1== | =={yellow}读取最新系统状态并低频刷新OLED== |
 

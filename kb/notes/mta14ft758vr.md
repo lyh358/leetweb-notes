@@ -756,7 +756,7 @@ typename std::enable_if<
 
 如果`T`不是Protobuf消息，表达式替换失败，这个候选实现被移除，ROS继续选择原来的模板逻辑。
 
-### 4.2 为什么要使用SFINAE
+### 4.3 为什么要使用SFINAE
 
 如果直接修改ROS公共逻辑，在运行时通过`if/else`判断消息类型，容易影响原生ROS Msg，而且需要引入额外的运行时分支。
 

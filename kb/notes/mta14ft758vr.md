@@ -772,7 +772,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 如果`T`**是Protobuf消息**，**这段表达式能够生成一个有效类型**，**编译器选择Protobuf专用实现**。
 
-如果`T`不是Protobuf消息，表达式替换失败，这个候选实现被移除，ROS继续选择原来的模板逻辑。
+如果`T`**不是Protobuf消息**，表达式替换失败，这个候选实现被移除，ROS继续选择原来的模板逻辑。
 
 ---
 

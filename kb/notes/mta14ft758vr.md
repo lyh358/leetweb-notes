@@ -709,8 +709,8 @@ SFINAE的完整名称是：
 
 1. **=={yellow}全特化==**：`template<> struct A<X>`
 =={yellow}类型严格匹配，==**=={yellow}不涉及 SFINAE==**=={yellow}。对不上就直接回退主模板。==
-2. **带条件的偏特化 / 重载模板（enable_if /concept 之前的老写法）**
-依靠 SFINAE：替换生成非法类型 →丢弃该候选，继续其它匹配。
+2. **=={yellow}带条件的偏特化 / 重载模板（enable_if /concept 之前的老写法）==**
+=={yellow}依靠 SFINAE：替换生成非法类型 →丢弃该候选，继续其它匹配。==
 
 ---
 

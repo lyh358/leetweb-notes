@@ -748,7 +748,7 @@ struct IsMessage<T,typename enable_if<is_base_of_v<google::protobuf::Message, T>
 > : boost::true_type {};
 ```
 
-项目中的=={yellow}判断条件可以简化==为：
+项目中的=={yellow}**判断条件可以简化**==为：
 
 ```php
 std::is_base_of<google::protobuf::Message,T>::value

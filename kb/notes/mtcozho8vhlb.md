@@ -340,7 +340,7 @@ DEM记录事件状态
 - =={yellow}IAR；==
 - ADS/Tasking；
 - CMake；
-- 串口、日志和wireshark抓包工具；
+- 串口、日志和=={yellow}wireshark抓包==工具；
 - MISRA C编码规范；
 - AUTOSAR MemMap内存段管理。
 

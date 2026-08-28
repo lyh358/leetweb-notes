@@ -216,7 +216,7 @@ A2已经能够从单台Linux计算节点采集CPU、内存和网络指标，=={y
 
 ## =={pink}2. gRPC是什么==
 
-gRPC是**Google 开源的高性能 RPC（远程过程调用）框架**。
+=={yellow}gRPC是==**=={yellow}Google 开源的高性能 RPC（远程过程调用）框架==**=={yellow}。==
 
 普通函数调用发生在同一个程序中：
 

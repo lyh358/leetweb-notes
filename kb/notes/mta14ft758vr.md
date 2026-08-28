@@ -1341,7 +1341,7 @@ for (auto& collector : collectors) {
 
 =={yellow}不同采集器通过基类指针统一保存==，但=={yellow}这些对象又需要被自动释放==。
 
-因此，项目使用**unique_ptr管理采集器**：
+因此，=={yellow}项目使用==**=={yellow}unique_ptr管理采集器==**：
 
 ```cpp
 std::unique_ptr<IMetricCollector>

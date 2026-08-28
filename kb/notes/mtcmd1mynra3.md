@@ -310,7 +310,7 @@ A2采集得到的数据已经封装为`NodeMetrics`，gRPC可以直接使用这�
 
 ### =={pink}5.1 Monitor Agent==
 
-Agent运行在每个被监控的Linux计算节点上，主要负责：
+=={green}Agent运行在每个被监控的Linux计算节点==上，主要负责：
 
 1. 根据配置创建CPU、内存和网络采集器；
 2. 按照采样周期执行采集；

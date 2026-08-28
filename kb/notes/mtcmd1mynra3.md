@@ -138,7 +138,7 @@ if(collector){
 
 1. **=={yellow}初始化采集器==**：通过工厂模式加载需要的指标采集组件（CPU、memory、network 等），可插拔，不用就不加载。
 2. **=={yellow}本地采集指标==**：读取`/proc`，计算各项性能。**采集逻辑全部在本机完成，不依赖 ROS**。
-3. **封装 Protobuf 消息**：把原始数据打包成`NodeMetrics`protobuf 结构体。
+3. **=={yellow}封装 Protobuf 消息==**：把原始数据打包成`NodeMetrics`protobuf 结构体。
 4. **gRPC 流式上报**：建立一次长连接，持续不断发送监控数据，不需要每次上报都新建 RPC 请求。
 
 > ⚠️Agent**不做数据分析、不做告警判断**；健康等级、告警阈值判断是交给中心 Monitor Center 完成。Agent 只负责采集 + 上报原始数据。

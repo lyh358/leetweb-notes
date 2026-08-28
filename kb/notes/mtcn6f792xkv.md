@@ -156,6 +156,8 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 > CMake 作为项目构建工具，管理整个工程编译。自动查找 roscpp、protobuf、gRPC、Qt 依赖；编译 proto 文件生成消息与 gRPC 代码；拆分多个模块编译出库文件和可执行程序，同时兼容 catkin 的 ROS 编译环境。
 
+---
+
 # R：项目结果
 
 ## 1. 功能结果

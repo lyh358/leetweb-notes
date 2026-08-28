@@ -1326,7 +1326,7 @@ for (auto& collector : collectors) {
 
 ### 面试速答
 
-> =={yellow}Agent**只依赖**==`IMetricCollector`=={yellow}基类，并通过虚函数调用不同子类的==`Collect()`。这样Agent不需要关心采集器的具体类型，遍历一个容器就能完成所有指标采集。
+> =={yellow}Agent**只依赖**==`IMetricCollector`=={yellow}**基类**，并通过虚函数调用不同子类的==`Collect()`。这样Agent不需要关心采集器的具体类型，遍历一个容器就能完成所有指标采集。
 
 ---
 

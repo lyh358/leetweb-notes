@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -758,19 +758,20 @@ std::is_base_of<google::protobuf::Message,T>::value
 
 > 判断类型`T`是不是一个Protobuf消息类。
 > 
-> is_base_of<google::protobuf::Message,T>::value //返回值是True或False
+> 
+> is_base_of[google::protobuf::Message,T]()::value //返回值是True或False
 
 **=={yellow}再通过==`enable_if`=={yellow}控制模板是否生效==**：
 
-condition==is_base_of<google::protobuf::Message,T>::value
+condition==is_base_of[google::protobuf::Message,T]()::value
 
 ```php
 typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::type
 ```
 
-=={yellow}如果===={yellow}is_base_of::value===={yellow}是True，===={yellow}enable_if<True>::type==**=={yellow}返回合法类型==**
+=={yellow}如果===={yellow}is_base_of::value===={yellow}是True，===={yellow}enable_if::type==**=={yellow}返回合法类型==**
 
-=={yellow}如果==`T`**=={yellow}是Protobuf消息==**=={yellow}，==**=={yellow}这段表达式能够生成一个有效类型==**=={yellow}，==**=={yellow}编译器选择Protobuf专用实现==**=={yellow}。==
+=={yellow}如果==`T`**=={yellow}是Protobuf消息==**=={yellow}，==**}这段表达式能够生成一个有效类型**=={yellow}=={yellow}，==**=={yellow}编译器选择Protobuf专用实现==**=={yellow}。==
 
 =={yellow}如果==`T`**=={yellow}不是Protobuf消息==**=={yellow}，表达式==**=={yellow}替换失败==**=={yellow}，这个==**=={yellow}候选实现被移除==**=={yellow}，ROS==**=={yellow}继续选择==**=={yellow}原来的模板逻辑。==
 

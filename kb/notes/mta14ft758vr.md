@@ -1450,7 +1450,7 @@ Monitor Agent程序启动
     ↓
 把采集结果填充进Protobuf消息 `NodeMetrics`，打上本节点node_id、时间戳
     ↓
-通过gRPC客户端流ReportMetrics**，持续把NodeMetrics上报给Monitor Center
+通过gRPC客户端流ReportMetrics，持续把NodeMetrics上报给Monitor Center
     ↓
 睡眠，等待下一个采样周期，循环往复
 ```

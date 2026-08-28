@@ -977,7 +977,7 @@ t.SerializeToString(&pb_str);
 总长度 = 4字节 + Protobuf消息体长度
 ```
 
-#### =={pink}第二步：写入ROS输出流==
+#### =={yellow}第二步：写入ROS输出流==
 
 `write()`执行以下操作：
 

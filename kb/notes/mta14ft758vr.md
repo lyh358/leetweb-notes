@@ -731,7 +731,7 @@ std::enable_if<condition>
 - `std::is_base_of`判断`T`是否继承某个基类；
 - `std::enable_if`只在条件成立时提供一个有效的`type`。
 
-=={pink}**以偏特化IsMessage<T>为例**==
+#### =={pink}**以偏特化IsMessage<T>为例**==
 
 项目中的判断条件可以简化为：
 

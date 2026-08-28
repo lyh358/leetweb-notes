@@ -745,7 +745,7 @@ struct IsMessage : boost::false_type {};
 // -------- SFINAE 偏特化：匹配所有protobuf派生类 --------
 template<typename T>
 struct IsMessage<T,
-    typename enable_if<std::is_base_of_v<google::protobuf::Message, T>>::type
+    typename enable_if<is_base_of_v<google::protobuf::Message, T>>::type
 > : boost::true_type {};
 ```
 

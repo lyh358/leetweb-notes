@@ -338,7 +338,7 @@ DEM记录事件状态
 工程中接触的主要工具和规范包括：
 
 - =={yellow}**IAR（白盒调试）；**==
-- =={yellow}**上位机**==
+- =={yellow}**上位机（）**==
 - ADS/Tasking；
 - CMake；
 - 串口、日志和=={yellow}**wireshark抓包**==工具；

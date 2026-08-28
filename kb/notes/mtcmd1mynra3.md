@@ -39,7 +39,7 @@ collectors.push_back(std::move(mem));
 "irq_load"  → 创建 IrqLoadCollector
 ```
 
-=={yellow}Agent **只调用工厂**，传入字符串名字，拿基类智能指针：==
+=={yellow}Agent **只调用工厂**，**传入字符串名字**，拿基类智能指针：==
 
 ```cpp
 // Agent只知道工厂、基类IMetricCollector，不知道CpuCollector这些子类

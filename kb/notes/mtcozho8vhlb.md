@@ -341,7 +341,7 @@ DEM记录事件状态
 - =={yellow}**上位机（黑盒调试）**==
 - ADS/Tasking；
 - CMake；
-- 串口、日志和=={yellow}**wireshark抓包（最终产物检查）**==工具；
+- 串口、日志和=={yellow}**wireshark抓包（最终产物检查：）**==工具；
 - MISRA C编码规范；
 - AUTOSAR MemMap内存段管理。
 

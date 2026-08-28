@@ -1352,7 +1352,7 @@ std::unique_ptr<IMetricCollector>
 =={yellow}项目中的**容器**是==：
 
 ```cpp
-std::vector<std::unique_ptr<IMetricCollector>>
+std::vector<unique_ptr<IMetricCollector>>
 ```
 
 它表示：

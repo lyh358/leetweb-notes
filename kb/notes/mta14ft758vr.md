@@ -646,6 +646,8 @@ struct TypeInfo<int> {
 
 =={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`=={yellow}、==`Definition`=={yellow}和==`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
+上述几种模板是
+
 可以将它=={pink}理解为==：
 
 ```markdown

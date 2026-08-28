@@ -951,7 +951,7 @@ ROS查询Definition等信息
 | `write()` | =={yellow}将对象写入输出缓冲区== |
 | `read()` | =={yellow}从输入缓冲区还原对象== |
 
-=={green}如果只补充Traits而不补充Serializer，ROS虽然知道它是一条消息，但仍然不知道怎样实际传输它。==
+=={green}如果只补充Traits而不补充Serializer，ROS虽然知道它是一条消息，但仍然不**知道怎样实际传输它。**==
 
 ### 6.2 项目中的序列化流程
 

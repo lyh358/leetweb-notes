@@ -1249,7 +1249,7 @@ public:
 
 在此基础上实现：
 
-采集器
+采集器接口ji'lei
 
 ```markdown
 IMetricCollector

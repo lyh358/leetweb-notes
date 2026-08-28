@@ -735,26 +735,6 @@ std::enable_if<condition>
 
 > 目标：写一个 `IsMessage<T>` 的偏特化，**只有 T 是 protobuf 消息（`google::protobuf::Message`子类）才启用这个偏特化；普通 ROS 消息就走原来主模板**。
 
-#include <type_traits>
-
-#include <boost/type_traits.hpp>
-
-// 主模板：默认不是ROS消息
-
-template<typename T>
-
-struct IsMessage : boost::false_type {};
-
-// -------- SFINAE 偏特化：匹配所有protobuf派生类 --------
-
-template<typename T>
-
-struct IsMessage<T,
-
-    typename std::enable_if<std::is_base_of_v<google::protobuf::Message, T>>::type
-
-> : boost::true_type {};
-
 项目中的判断条件可以简化为：
 
 ```php
@@ -1868,3 +1848,25 @@ gRPC负责跨节点性能监控
 > 这个项目虽然是个人学习项目，没有业务上线和量化指标，但它让我把ROS底层消息机制、Linux性能采集、C++设计方法和gRPC分布式通信串成了一套完整的学习实践。
 
 ---
+
+```
+#include <type_traits>
+
+#include <boost/type_traits.hpp>
+
+// 主模板：默认不是ROS消息
+
+template<typename T>
+
+struct IsMessage : boost::false_type {};
+
+// -------- SFINAE 偏特化：匹配所有protobuf派生类 --------
+
+template<typename T>
+
+struct IsMessage<T,
+
+    typename std::enable_if<std::is_base_of_v<google::protobuf::Message, T>>::type
+
+> : boost::true_type {};
+```

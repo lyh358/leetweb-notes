@@ -1214,7 +1214,7 @@ ROS Topic
 `IrqLoadCollector`读取：
 
 - `/proc/loadavg`中的=={yellow}一分钟和五分钟负载；==
-- `/proc/stat`中的硬中断和软中断累计次数。
+- `/proc/stat`中的=={yellow}硬中断和软中断累计次数==。
 
 这些指标可以辅助判断计算节点是否处于持续高负载状态。
 

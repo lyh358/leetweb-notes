@@ -735,7 +735,7 @@ std::enable_if<condition>
 代码
 ```
 
-=={pink}**以偏特化IsMessage<T>为例**==
+#### =={pink}**以偏特化IsMessage<T>为例**==
 
 项目中的判断条件可以简化为：
 

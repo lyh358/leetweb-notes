@@ -191,7 +191,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 ---
 
-3. Qt（GUI 图形界面库）
+**3. Qt（GUI 图形界面库）**
 
 ### 干什么的
 

@@ -948,8 +948,8 @@ ROS查询Definition等信息
 | 接口 | 作用 |
 | --- | --- |
 | `serializedLength()` | =={yellow}计算序列化后需要多少字节== |
-| `write()` | 将对象写入输出缓冲区 |
-| `read()` | 从输入缓冲区还原对象 |
+| `write()` | =={yellow}将对象写入输出缓冲区== |
+| `read()` | =={yellow}从输入缓冲区还原对象== |
 
 如果只补充Traits而不补充Serializer，ROS虽然知道它是一条消息，但仍然不知道怎样实际传输它。
 

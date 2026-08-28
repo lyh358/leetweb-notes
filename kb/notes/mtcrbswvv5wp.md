@@ -100,7 +100,7 @@ DEM记录事件状态
 
 =={green}这类诊断只在**雷达上电阶段执行一次**==，例如：
 
-- =={yellow}Flash数据CRC；==
+- =={yellow}**Flash数据CRC；**==
 - =={yellow}FPGA参数完整性；==
 - =={yellow}程序或出厂参数签名。==
 

@@ -123,7 +123,7 @@ RTE位于=={green}**应用软件**和**底层模块之间**==，负责=={green}*
 BSW提供=={yellow}**AUTOSAR通用基础服务**==，例如：
 
 - =={green}**RTA-OS任务调度**==；
-- =={green}**DCM（）诊断通信**==；
+- =={green}**DCM（Diagnostic Communication Manager，诊断通信管理器）诊断通信**==；
 - =={green}**DEM（Diagnostic Event Manager，诊断事件管理器）**==；
 - **Flash**和NvM存储管理；
 - **以太网**和DoIP协议栈；

@@ -288,7 +288,7 @@ gRPC：负责投递信件
 
 > 如果监控链路本身跑在 ROS Topic 上，一旦 ROS 崩，监控直接失效，就**=={green}失去故障排查最重要手段。==**
 
-### 4.2 gRPC原生支持Protobuf
+### =={pink}4.2 gRPC原生支持Protobuf==
 
 A2采集得到的数据已经封装为`NodeMetrics`，gRPC可以直接使用这份消息定义，不需要再编写一套转换逻辑。
 

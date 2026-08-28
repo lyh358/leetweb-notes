@@ -850,7 +850,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 | `HasHeader` | 是否包含ROS标准Header |
 | `IsFixedSize` | 序列化长度是否固定 |
 
-=={yellow}ROS在建立发布订阅关系和处理消息时，会使用这些信息完成**类型识别**、**连接校验**和序列化策略选择。==
+=={yellow}ROS在建立发布订阅关系和处理消息时，会使用这些信息完成**类型识别**、**连接校验**和**序列化策略选择**。==
 
 ### 5.2 项目中怎样扩展Traits
 

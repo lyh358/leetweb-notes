@@ -161,6 +161,8 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 QM 全称：Quality Management，代表**无功能安全要求**，运行非安全关键业务。
 
+Trusted 分区（Trusted OS‑Application 可信分区）
+
 > 项目使用双核Cortex-R5和AUTOSAR RTA-OS，通过周期任务、事件、中断及跨分区通信，将诊断、控制、通信和点云处理分配到不同核心和安全分区。
 
 ---

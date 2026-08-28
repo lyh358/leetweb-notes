@@ -73,7 +73,7 @@ DEM记录事件状态
 =={green}这类诊断在**雷达运行过程中持续执行**==，例如：
 
 - =={yellow}入口**电流电压**；==
-- =={yellow}ADC采样；==
+- =={yellow}**ADC**采样；==
 - =={yellow}温度；==
 - =={yellow}Rx Start Signal；==
 - =={yellow}芯片通信状态。==

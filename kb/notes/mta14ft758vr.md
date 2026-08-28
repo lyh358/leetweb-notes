@@ -756,7 +756,7 @@ typename std::enable_if<
 
 如果`T`不是Protobuf消息，表达式替换失败，这个候选实现被移除，ROS继续选择原来的模板逻辑。
 
--
+---
 
 ### 4.3 为什么要使用SFINAE
 

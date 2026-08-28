@@ -941,7 +941,7 @@ ROS查询Definition等信息
 
 =={green}Traits解决的是“ROS是否认识这种类型”==，=={pink}**Serialization解决的是**==：
 
-> =={yellow}ROS应该怎样把这个对象转换成可传输的字节，以及接收后怎样将字节还原成对象。==
+> =={yellow}ROS应该怎样把这个对象**转换成可传输的字节**，以及接收后怎样将字节还原成对象。==
 
 ROS的Serializer主要提供三个操作：
 

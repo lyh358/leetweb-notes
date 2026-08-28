@@ -250,7 +250,7 @@ result = GetMetrics();
 
 ---
 
-## 3. Protobuf和gRPC是什么关系
+## =={pink}3. Protobuf和gRPC是什么关系==
 
 这两个概念容易混淆，可以这样区分：
 

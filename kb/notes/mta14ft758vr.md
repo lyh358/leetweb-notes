@@ -762,7 +762,7 @@ std::is_base_of<google::protobuf::Message,T>::value
 
 **=={yellow}再通过==`enable_if`=={yellow}控制模板是否生效==**：
 
-condition
+condition==
 
 ```php
 typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::type

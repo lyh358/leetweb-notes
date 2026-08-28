@@ -878,7 +878,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 pb_msgs/PublishInfo
 ```
 
-作用是让ROS在建立连接和调试时能够识别消息类型。
+作用是让ROS在建立连接和调试时能够=={yellow}识别消息类型==。
 
 #### `Definition`
 

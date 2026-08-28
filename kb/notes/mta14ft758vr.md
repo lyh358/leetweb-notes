@@ -791,6 +791,9 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 方案 1：每个 protobuf 消息手写一套全特化
 
+❌缺点：
+每新增一个 proto 消息，就要手写一大段特化代码。proto 文件一多，重复代码爆炸，无法自动化。
+
 如果直接修改ROS公共逻辑，在运行时通过`if/else`判断消息类型，容易影响原生ROS Msg，而且需要引入额外的运行时分支。
 
 使用SFINAE后，类型选择发生在编译阶段：

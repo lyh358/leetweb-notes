@@ -281,7 +281,7 @@ gRPC：负责投递信件
 
 项目没有继续使用ROS Topic完成性能监控，主要有三个原因。
 
-### 4.1 致命依赖：ROS1 Topic 强依赖 roscore
+### 4.1 致命依赖：ROS Topic 强依赖 roscore
 
 ROS Topic主要承担感知、规划和控制等机器人业务数据的传递。
 

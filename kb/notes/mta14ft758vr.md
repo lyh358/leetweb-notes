@@ -789,12 +789,12 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 #### =={pink}**如果不用 SFINAE，有哪些替代方案，以及它们的缺点**==
 
-方案 1：每个 protobuf 消息手写一套全特化
+#### **方案 1：每个 protobuf 消息手写一套全特化**
 
 ❌缺点：
 每新增一个 proto 消息，就要手写一大段特化代码。proto 文件一多，重复代码爆炸，无法自动化。
 
-方案 2：运行时判断
+#### **方案 2：运行时判断**
 
 在 Serializer 内部写 if 判断。
 
@@ -804,6 +804,16 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 2. 运行时判断有开销；最重要：很多错误希望**编译期就报错，而不是跑到线上才发现**。
 
 > 模板的问题：**T 是什么类型编译期就确定，很多分支必须编译期做，不能丢到函数体内 if。**
+
+#### **方案 3：虚函数多态，封装一层基类**
+
+把所有 protobuf 消息包一层统一基类，用继承虚函数。
+❌缺点：
+
+- ROS1 roscpp 的消息系统**完全基于模板，不是基于虚基类**。`Publisher::publish(T&)`是模板函数，要求传入真实消息类型 T，不能统一传基类指针。
+- 需要包装层，丢失原有类型，API 变丑，额外内存开销。
+
+---
 
 如果直接修改ROS公共逻辑，在运行时通过`if/else`判断消息类型，容易影响原生ROS Msg，而且需要引入额外的运行时分支。
 

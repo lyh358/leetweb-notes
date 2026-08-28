@@ -1437,6 +1437,23 @@ Agent的采集主流程不需要修改。
 
 ## 10. 完整采集流程
 
+### Agent 做 4 件核心事情：
+
+1. **初始化采集器**：通过工厂模式加载需要的指标采集组件（CPU、memory、network 等），可插拔，不用就不加载。
+2. **本地采集指标**：读取`/proc`，计算各项性能。**采集逻辑全部在本机完成，不依赖 ROS**。
+3. **封装 Protobuf 消息**：把原始数据打包成`NodeMetrics`protobuf 结构体。
+4. **gRPC 流式上报**：建立一次长连接，持续不断发送监控数据，不需要每次上报都新建 RPC 请求。
+
+> ⚠️Agent**不做数据分析、不做告警判断**；健康等级、告警阈值判断是交给中心 Monitor Center 完成。Agent 只负责采集 + 上报原始数据。
+
+## 3. 和 Monitor Center 的交互（gRPC 流式）
+
+1. Agent 端（客户端）：调用`ReportMetrics(stream NodeMetrics)` **客户端流 RPC**
+  - 建立一次 gRPC 连接，循环不断往流里面写监控消息；
+  - 一个节点只需要一条长流，周期性源源不断吐出本机指标。
+2. Center 端（服务端）接收各个 Agent 流过来的数据，根据`node_id`区分不同机器，存入 map 做缓存，判断健康状态。
+3. Qt 监控界面再通过**服务端流 SubscribeMetrics**从 Center 拉取全部节点实时数据渲染界面。
+
 ```
 Monitor Agent程序启动
     ↓

@@ -735,6 +735,10 @@ std::enable_if<condition>
 
 > 目标：写一个 `IsMessage<T>` 的偏特化，**只有 T 是 protobuf 消息（`google::protobuf::Message`子类）才启用这个偏特化；普通 ROS 消息就走原来主模板**。
 
+```
+代码
+```
+
 项目中的判断条件可以简化为：
 
 ```php

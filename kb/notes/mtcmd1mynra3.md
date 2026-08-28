@@ -326,7 +326,7 @@ robot-B
 robot-C
 ```
 
-### 5.2 Monitor Center
+### =={pink}5.2 Monitor Center==
 
 Center运行在中心节点上，主要负责：
 

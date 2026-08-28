@@ -180,6 +180,15 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 1. =={green}**Shell 脚本**配合 docker，**一键启动 / 关闭整套环境**==，不用手动敲一大堆命令。
 
+### 关键点
+
+- Docker 只做环境打包、模拟多节点测试；**业务代码本身不写在 docker 里面**。
+- 解决库版本冲突问题：本机 gRPC、protobuf 版本和 ROS 要求版本不一致，容器内部环境统一。
+
+### 面试口述
+
+> Docker 用来统一项目运行环境，基于 Ubuntu20.04 构建镜像，预装 ROS Noetic、gRPC、Protobuf、Qt 全部依赖。我利用 Docker 启动多个容器，模拟多个机器人 Linux 计算节点，分别运行 Agent、Center、ROS 测试节点，在单机就可以完成分布式监控链路的验证，避免本地环境版本不一致带来的编译运行问题，同时搭配 shell 脚本简化启动流程。
+
 # R：项目结果
 
 ## 1. 功能结果

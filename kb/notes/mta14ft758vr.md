@@ -646,7 +646,7 @@ struct TypeInfo<int> {
 
 =={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`=={yellow}、==`Definition`=={yellow}和==`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
-ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer）**，`.msg`编译工具 gencpp 就是自动生成这些特化代码。，下面的几种模板类是ROS实现msg通信的消息系统核心：
+ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer）**，`.msg`编译工具 gencpp 就是自动生成这些特化代码，下面的几种模板类是ROS实现msg通信的消息系统核心：
 
 可以将它=={pink}理解为==：
 

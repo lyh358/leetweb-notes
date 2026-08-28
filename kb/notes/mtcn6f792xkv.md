@@ -160,6 +160,26 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 ## **2. Docker（容器）**
 
+### 干什么的
+
+Docker 做**环境隔离、打包运行环境**。
+解决痛点：“在我电脑能跑，你的机器跑不起来”。
+把操作系统依赖、ROS Noetic、protobuf、gRPC、Qt 全部打包进镜像。不需要本机手动装一堆版本匹配的库。
+
+### 在项目中怎么用
+
+1. 编写`Dockerfile`：基础镜像选用 ubuntu20.04（对应 ROS Noetic），镜像内部安装 ROS‑Noetic、protoc、gRPC、Qt5、cmake 等全部依赖。
+2. 构建 docker 镜像：把项目源码拷进容器。
+3. 可以启动多个容器模拟**多计算节点**场景：
+  - 容器 1：运行 roscore + ROS 业务 talker/listener 测试节点
+  - 容器 2：运行 Monitor Agent，模拟机器人计算板 A
+  - 容器 3：运行 Monitor Agent，模拟机器人计算板 B
+  - 容器 4：运行 Monitor Center 中心服务
+
+> 一台物理机，启动多个 docker 容器，模拟多台 Linux 计算节点分布式场景，不需要多台真实机器做实验。
+
+1. Shell 脚本配合 docker，一键启动 / 关闭整套环境，不用手动敲一大堆命令。
+
 # R：项目结果
 
 ## 1. 功能结果

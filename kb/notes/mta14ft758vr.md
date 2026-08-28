@@ -672,6 +672,8 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 
 > ROS 官方注释：**想要让任意类型在 roscpp 通信，只需要特化 Serializer + message_traits。**
 
+---
+
 可以将它=={pink}理解为==：
 
 ```markdown

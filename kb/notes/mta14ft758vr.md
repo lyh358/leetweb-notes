@@ -1359,7 +1359,7 @@ std::vector<unique_ptr<IMetricCollector>>
 
 - =={green}Agent统一拥有这些采集器==；
 - =={green}不允许随意复制采集器对象==；
-- Agent退出时自动释放所有采集器；
+- =={green}Agent退出时自动释放所有采集器==；
 - 避免裸指针产生内存泄漏和所有权不清的问题。
 
 工厂创建采集器后，通过`std::move`将所有权转移给Agent的容器。

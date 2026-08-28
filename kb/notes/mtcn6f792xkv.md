@@ -125,6 +125,32 @@ CMake 是**C/C++ 跨平台构建系统**，它不直接编译代码；读取`CMa
 
 **项目里面有多个模块**：ROS‑Protobuf 兼容层、性能采集库、Agent 程序、Center 服务、Qt 界面、Protobuf/gRPC 代码生成。
 
+1. **寻找依赖库**
+查找：`roscpp`、`Protobuf`、`gRPC`、Qt5、Boost 等第三方库头文件和库文件路径。
+
+```
+find_package(roscpp REQUIRED)
+find_package(Protobuf REQUIRED)
+find_package(gRPC REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+```
+
+1. **编译 proto 文件，自动生成 C++ 代码**
+调用`protoc`、grpc_cpp_plugin，读取`.proto`，生成 Protobuf 消息类、gRPC 服务 Stub 代码。
+
+> 业务消息、监控`NodeMetrics`全部在这里自动生成，不用手写。
+
+1. **划分模块，编译库和可执行程序**
+
+- 编译静态库：ros_protobuf_adapter（ROS‑Protobuf 兼容层）、collector_lib（可插拔采集框架）
+- 编译可执行文件：
+  - `agent_node`：Monitor Agent 可执行程序
+  - `center_server`：Monitor Center gRPC 服务端
+  - `qt_monitor_gui`：Qt 监控界面程序
+
+1. 设置头文件路径、链接库、编译选项。
+2. 配合 ROS，支持 catkin 编译（ROS Noetic 基于 cmake）。
+
 # R：项目结果
 
 ## 1. 功能结果

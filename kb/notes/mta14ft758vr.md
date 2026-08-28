@@ -761,8 +761,7 @@ std::is_base_of<google::protobuf::Message,T>::value
 再通过`enable_if`控制模板是否生效：
 
 ```php
-typename std::enable_if<
-    std::is_base_of<google::protobuf::Message, T>::value
+typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value
 >::type
 ```
 

@@ -852,6 +852,8 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 =={yellow}ROS在**建立发布订阅关系和处理消息**时，会**使用这些信息**完成**类型识别**、**连接校验**和**序列化策略选择**。==
 
+---
+
 ### =={pink}5.2 项目中怎样扩展Traits==
 
 项目对继承自`google::protobuf::Message`的类型提供了以下Traits。

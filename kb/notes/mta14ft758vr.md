@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -748,7 +748,7 @@ struct IsMessage<T,typename enable_if<is_base_of_v<google::protobuf::Message, T>
 > : boost::true_type {};
 ```
 
-项目中的**=={yellow}判断条件可以简化==**为：
+项目中的=={yellow}判断条件可以简化==为：
 
 ```php
 std::is_base_of<google::protobuf::Message,T>::value
@@ -769,7 +769,7 @@ condition==is_base_of[google::protobuf::Message,T]()::value
 typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::type
 ```
 
-=={green}如果==**=={green}is_base_of::value是True==**=={green}，==**=={green}enable_if::type==**=={green}返回==**=={green}合法类型==**=={green}。==
+=={green}如果==**=={green}is_base_of::value是True==**=={green}，====**={green}enable_if::type**=={yellow}=={green}返回==**=={green}合法类型==**=={green}。==
 
 **如果T是Protobuf消息**，这段表达式**能够生成一个有效类型**，编译器**选择Protobuf专用实现**。
 

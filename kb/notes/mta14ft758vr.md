@@ -1142,7 +1142,7 @@ ROS Topic
 
 =={green}项目架构是== **=={green}Agent（多份，各个机器） + Monitor Center（一份，中心服务）==**
 
-- **Monitor Agent**：部署在每一个被监控的机器人计算板 / Linux 节点上，是 “本地采集 + 上报” 的探针程序
+- **Monitor Agent**：部署在每一个被监控的机器人计算板 / Linux 节点上，是 “本地采集 + 上报” 的=={yellow}探针程序==
 - **Monitor Center**：中心服务，接收所有 Agent 上报的数据，做汇总、缓存，给 Qt 监控界面提供数据
 
 ---

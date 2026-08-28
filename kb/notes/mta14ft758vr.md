@@ -650,7 +650,7 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 
 四大核心triats模板：全部在命名空间 `ros::message_traits`，都是 struct 模板，专门给消息类型 T 打元信息标签。
 
-DataType<T>MD5Sum<T>Definition<T>IsMessage<T>序列化核心模板Serializer<T>
+DataType<T>MD5Sum<T>Definition<T>IsMessage<T>序列化核心模板Serializer<T>命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心
 
 可以将它=={pink}理解为==：
 

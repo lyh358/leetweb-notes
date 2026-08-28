@@ -316,7 +316,7 @@ A2采集得到的数据已经封装为`NodeMetrics`，gRPC可以直接使用这�
 2. 按照采样=={yellow}周期执行**采集**==；
 3. 将=={yellow}**结果填充**到==`NodeMetrics`；
 4. =={yellow}**添加**节点ID和时间戳==；
-5. =={yellow}通过gRPC持续上报==到Center。
+5. =={yellow}通过gRPC持续**上报**==到Center。
 
 每个Agent通过`node_id`标识自己，例如：
 

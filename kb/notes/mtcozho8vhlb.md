@@ -81,7 +81,7 @@
 
 ## =={pink}5. MCU软件采用什么架构==
 
-项目采用AUTOSAR Classic分层架构。
+项目采用=={yellow}**AUTOSAR Classic分层架构**==。
 
 ```markdown
 ASW应用层

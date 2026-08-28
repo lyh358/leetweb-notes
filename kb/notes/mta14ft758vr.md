@@ -792,7 +792,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 #### =={yellow}方案 1：每个 protobuf 消息手写一套全特化==
 
 **❌缺点：**
-每新增一个 proto 消息，就要手写一大段特化代码。proto 文件一多，重复代码爆炸，无法自动化。
+=={green}每新增一个 proto 消息，就要手写一大段特化代码。proto 文件一多，重复代码爆炸，无法自动化。==
 
 #### **=={yellow}方案 2：运行时判断==**
 

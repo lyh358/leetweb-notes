@@ -902,7 +902,7 @@ proto_md5
 
 这使Protobuf发布端和订阅端能够通过ROS的类型检查流程，但它不能真正反映不同`.proto`结构之间的差异。工程化版本应该根据完整的Protobuf描述文件生成稳定的Schema哈希。
 
-默认ROS消息biao's
+默认ROS消息标识
 
 项目将其设置为`FalseType`，表示通用Protobuf消息不默认包含ROS标准的`std_msgs::Header`。
 

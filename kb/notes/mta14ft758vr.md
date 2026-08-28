@@ -872,7 +872,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 #### `DataType`
 
-项目通过Protobuf的Descriptor**获取消息名称**，并生成类似下面的**类型标识**：
+=={yellow}项目通过Protobuf的Descriptor==**=={yellow}获取消息名称==**=={yellow}，并生成类似下面的==**=={yellow}类型标识==**：
 
 ```undefined
 pb_msgs/PublishInfo

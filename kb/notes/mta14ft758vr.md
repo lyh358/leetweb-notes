@@ -890,8 +890,6 @@ pb_msgs/PublishInfo
 
 作用相当于=={yellow}为ROS提供这条Protobuf消息的**结构说明**==。
 
-#### `MD5Sum`
-
 ROS1在发布者和订阅者建立连接时，会比较消息的MD5标识，避免结构不兼容的消息错误连接。
 
 当前原型中为Protobuf消息提供了固定标识：

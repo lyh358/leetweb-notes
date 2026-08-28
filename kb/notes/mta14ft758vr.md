@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}、=={yellow}`Definition`=={yellow}和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -731,9 +731,9 @@ std::enable_if<condition>
 - `std::is_base_of`判断`T`是否继承某个基类；
 - `std::enable_if`只在条件成立时提供一个有效的`type`。
 
-#### =={pink}**以偏特化IsMessage<T>为例**==
+#### =={pink}**以偏特化IsMessage为例**==
 
-```
+```cpp
 #include <type_traits>
 #include <boost/type_traits.hpp>
 using namespace std;
@@ -751,8 +751,7 @@ struct IsMessage<T,typename enable_if<is_base_of_v<google::protobuf::Message, T>
 项目中的判断条件可以简化为：
 
 ```php
-std::is_base_of<
-    google::protobuf::Message,
+std::is_base_of<oogle::protobuf::Message,
     T
 >::value
 ```
@@ -1862,7 +1861,7 @@ gRPC负责跨节点性能监控
 
 ---
 
-```
+```cpp
 #include <type_traits>
 
 #include <boost/type_traits.hpp>

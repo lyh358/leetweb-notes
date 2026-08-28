@@ -51,7 +51,7 @@ if(collector){
 
 **=={pink}新增磁盘采集器的时候：==**
 
-1. =={yellow}写==`DiskCollector`==={yellow}**继承**=={yellow}`IMetricCollector`=={yellow}，实现 Collect ()==
+1. =={yellow}写==`DiskCollector`===={yellow}**继承**=={yellow}`IMetricCollector`=={yellow}，实现 Collect ()==
 2. =={yellow}在工厂**注册**== `"disk"` =={yellow}和它的构造函数==
 3. **=={yellow}Agent 完全不用改一行代码！==** =={yellow}配置传字符串==`"disk"`=={yellow}，工厂就生成对应的对象。==
 
@@ -99,7 +99,7 @@ if(collector){
 
 ### 面试速答
 
-> =={green}工厂模式把对象创建和对象使用分开。Agent只向工厂传入==`cpu`=={green}、==`memory`=={green}等名称，工厂负责返回对应的采集器。后续增加新指标时，只需要实现接口并注册到工厂，不需要修改Agent的核心采集循环。==
+> =={green}工厂模式把对象创建和对象使用分开。Agent只向工厂传入==`cpu`=={green}、==`memory`==={green}等名称，工厂负责返回对应的采集器。后续增加新指标时，只需要实现接口并注册到工厂，不需要修改Agent的核心采集循环。==
 
 ---
 
@@ -129,7 +129,7 @@ if(collector){
 
 项目架构是 **Agent（多份，各个机器） + Monitor Center（一份，中心服务）**
 
-- **Monitor Agent：部署在每一个被监控的机器人计算板 / Linux 节点上，是 “本地采集 + 上报” 的探针程序**
+- **Monitor Agent：部署在每一个被监控的机器人计算板 / Linux 节点上，是 “本地采集 + 上报” 的=={green}探针程序==**
 - **Monitor Center：中心服务，接收所有 Agent 上报的数据，做汇总、缓存，给 Qt 监控界面提供数据**
 
 > 类比：每台机器上派一个 “现场观察员”，这个观察员就是 Agent；观察员不停采集本机 CPU、内存，源源不断把报告发给总部（Center）。

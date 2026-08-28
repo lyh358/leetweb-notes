@@ -39,7 +39,7 @@
 
 ## 2. ROS在机器人系统中扮演什么角色
 
-=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或====**={yellow}Windows**=={yellow}=={yellow}的==**=={yellow}传统操作系统==**=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的====**={yellow}机器人软件框架**=={yellow}=={yellow}。==
+=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或====={yellow}**={yellow}Windows**=={yellow}=={yellow}的====**={yellow}传统操作系统**=={yellow}=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的====={yellow}**={yellow}机器人软件框架**=={yellow}=={yellow}。==
 
 可以把ROS理解成机器人=={yellow}各个软件模块之间的“**通信基础设施**”==。
 
@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`=={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`==={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -129,7 +129,7 @@ ROS Topic
 
 ## 5. Protobuf是什么
 
-=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的==**=={yellow}结构化数据定义==**=={yellow}和==**=={yellow}二进制序列化==**=={yellow}框架===={yellow}。==
+=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的====**={yellow}结构化数据定义**=={yellow}=={yellow}和==**=={yellow}二进制序列化==**=={yellow}框架===={yellow}。==
 
 > **序列化**：内存中的=={green}结构体 / 对象== → =={green}二进制字节==；
 > **反序列化**：二进制字节 → 还原内存结构体 / 对象。
@@ -180,7 +180,7 @@ message Object {
 
 所以，=={pink}**引入Protobuf的主要原因**不是盲目追求性能==，而是：
 
-> =={yellow}希望**同一份*消息定义*既能用于ROS节点通信**，**也能复用于gRPC和其他非ROS系统**，减少**重复定义**和**转换代码**。==
+> =={yellow}希望**同一份_消息定义_既能用于ROS节点通信**，**也能复用于gRPC和其他非ROS系统**，减少**重复定义**和**转换代码**。==
 
 =={yellow}至于**序列化速度**和**数据体积**，**Protobuf**在部分数据结构上可能**更有优势**==，但本项目没有进行严格的性能基准测试，因此面试中不声称具体提升比例。
 
@@ -204,7 +204,7 @@ message Object {
 
 这就引出了**=={pink}项目的第一个核心需求==**：
 
-> =={yellow}扩展ROS的==**=={yellow}类型识别==**=={yellow}和==**=={yellow}序列化机制==**=={yellow}，让ROS知道==**=={yellow}怎样识别、打包和还原Protobuf消息==**=={yellow}。==
+> =={yellow}扩展ROS的==**=={yellow}类型识别==**=={yellow}和====**={yellow}序列化机制**=={yellow}=={yellow}，让ROS知道==**=={yellow}怎样识别、打包和还原Protobuf消息==**=={yellow}。==
 
 =={green}完成扩展后==，业务层不需要先把Protobuf转换成ROS Msg，而是可=={green}以直接使用原来的ROS接口==：
 
@@ -525,12 +525,21 @@ publisher.publish(protobuf_message);
 
 ## 1. 要解决的问题
 
-ROS原生只能直接发布满足其消息类型要求的对象。对于普通ROS Msg，构建工具会自动生成：
+ROS原生只能直接发布满足其消息类型要求的对象。=={green}对于普通ROS Msg，**构建工具**会**自动生成**==：
 
-- 消息类型信息；
-- MD5校验信息；
-- 消息定义；
-- 序列化和反序列化代码。
+- =={yellow}消息**类型信息**==；
+- =={yellow}**MD5校验**信息==；
+- =={yellow}消息**定义**==；
+- =={yellow}**序列化**和**反序列化**代码。==
+
+---
+
+**=={pink}MD5==**
+MD5 是一种**哈希算法（消息摘要算法）**，可以把任意大小的文件 / 文本，计算出一个**128 位、32 位十六进制字符串**，这个字符串就叫 **MD5 值**。
+
+> 简单理解：给文件生成一个独一无二的 “=={yellow}数字身份证==”。
+
+---
 
 而通过`.proto`生成的Protobuf类，只继承自`google::protobuf::Message`。虽然它本身具有序列化能力，但ROS并不知道：
 
@@ -540,25 +549,25 @@ ROS原生只能直接发布满足其消息类型要求的对象。对于普通RO
 - 应该怎样将它写入ROS缓冲区；
 - 接收后应该怎样还原。
 
-因此，一个Protobuf对象默认不能直接传给ROS的`publish()`接口。
+因此，=={yellow}一个Protobuf对象默认不能直接传给ROS的==`publish()`=={yellow}接口。==
 
-我的处理思路不是把每一种Protobuf消息手动转换成ROS Msg，而是在ROS底层增加一套通用规则：
+我的=={pink}**处理思路**==不是把每一种Protobuf消息手动转换成ROS Msg，而是=={pink}**在ROS底层增加一套通用规则**==：
 
 ```cpp
 只要一个C++类型继承自google::protobuf::Message
                     ↓
 就将它识别为Protobuf消息
                     ↓
-为它提供统一的ROS Traits信息
+为它提供统一的 ROS Traits 信息（ROS）
                     ↓
-使用Protobuf自己的接口完成序列化
+使用Protobuf自己的接口完成序列化（proto）
                     ↓
-通过原有ROS Topic完成传输
+通过原有ROS Topic完成传输（ROS）
 ```
 
 ---
 
-## 2. 整体实现链路
+## =={pink}2. 整体实现链路==
 
 以项目中的`PublishInfo`消息为例：
 
@@ -573,7 +582,7 @@ Traits提供ROS消息身份信息
     ↓
 Serializer完成二进制序列化
     ↓
-ROS Topic通过TCPROS发送
+ROS Topic通过TCP ROS发送
     ↓
 订阅端读取二进制数据
     ↓
@@ -582,7 +591,7 @@ ParseFromString反序列化
 得到PublishInfo对象
 ```
 
-扩展后，发布者仍然使用ROS原来的接口：
+=={pink}扩展后，发布者仍然使用ROS原来的接口：**publish**==
 
 ```rust
 ros::Publisher pub =
@@ -595,7 +604,7 @@ pub.publish(proto_msg_info);
 
 ---
 
-### 3. 模板偏特化是什么
+## 3. 模板偏特化是什么
 
 #### 3.1 基础概念
 

@@ -166,7 +166,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 =={green}解决痛点：“在我电脑能跑，你的机器跑不起来”==。
 =={green}把操作系统依赖、ROS Noetic、protobuf、gRPC、Qt 全部打包进镜像==。不需要本机手动装一堆版本匹配的库。
 
-### 在项目中怎么用
+### =={pink}在项目中怎么用==
 
 1. 编写`Dockerfile`：基础镜像选用 ubuntu20.04（对应 ROS Noetic），镜像内部安装 ROS‑Noetic、protoc、gRPC、Qt5、cmake 等全部依赖。
 2. 构建 docker 镜像：把项目源码拷进容器。

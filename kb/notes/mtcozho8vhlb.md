@@ -174,7 +174,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 - =={yellow}不同客户配置和硬件差异==；
 - AUTOSAR接口和模块边界；
-- =={yellow}ISO 26262功能安全要求；==
+- =={yellow}**ISO 26262功能安全要求**；==
 - =={yellow}**MISRA C编码规范**；==
 - MemMap内存段管理；
 - APP、BOOT、Release和Factory版本；

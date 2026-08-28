@@ -51,7 +51,7 @@ if(collector){
 
 **=={pink}新增磁盘采集器的时候：==**
 
-1. =={yellow}写==`DiskCollector`===={yellow}**继承**=={yellow}`IMetricCollector`=={yellow}，实现 Collect ()==
+1. =={yellow}写==`DiskCollector`===={yellow}={yellow}**继承**=={yellow}`IMetricCollector`=={yellow}，实现 Collect ()==
 2. =={yellow}在工厂**注册**== `"disk"` =={yellow}和它的构造函数==
 3. **=={yellow}Agent 完全不用改一行代码！==** =={yellow}配置传字符串==`"disk"`=={yellow}，工厂就生成对应的对象。==
 
@@ -99,7 +99,7 @@ if(collector){
 
 ### 面试速答
 
-> =={green}工厂模式把对象创建和对象使用分开。Agent只向工厂传入==`cpu`=={green}、==`memory`==={green}等名称，工厂负责返回对应的采集器。后续增加新指标时，只需要实现接口并注册到工厂，不需要修改Agent的核心采集循环。==
+> =={green}工厂模式把对象创建和对象使用分开。Agent只向工厂传入==`cpu`=={green}、==`memory`===={green}等名称，工厂负责返回对应的采集器。后续增加新指标时，只需要实现接口并注册到工厂，不需要修改Agent的核心采集循环。==
 
 ---
 
@@ -189,7 +189,7 @@ Monitor Agent程序启动
 
 # A3：基于gRPC和Protobuf构建分布式监控链路
 
-## 1. 为什么还需要gRPC
+## =={pink}1. 为什么还需要gRPC==
 
 A2已经能够从单台Linux计算节点采集CPU、内存和网络指标，但数据仍然留在本机。
 

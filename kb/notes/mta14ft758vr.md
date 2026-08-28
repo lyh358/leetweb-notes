@@ -904,7 +904,7 @@ proto_md5
 
 =={pink}**默认ROS消息标识：HasHeader**==
 
-项目将其设置为`FalseType`，表示通用Protobuf消息不默认包含ROS标准的`std_msgs::Header`。
+=={yellow}项目将其设置为==`FalseType`，表示通用Protobuf消息不默认包含ROS标准的`std_msgs::Header`。
 
 #### `IsFixedSize`
 

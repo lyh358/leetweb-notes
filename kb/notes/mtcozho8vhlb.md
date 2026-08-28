@@ -107,7 +107,7 @@ E311X MCU及外围硬件
 
 ASW由多个SWC软件组件组成，负责上层业务，例如：
 
-- `SWC_Mode_Ctl`：模式状态机；
+- `SWC_Mode_Ctl`：=={yellow}**模式状态机**==；
 - `SWC_DIAG`：功能安全诊断；
 - `SWC_UDS`：UDS诊断服务；
 - `SWC_Basic_Function`：基础功能；

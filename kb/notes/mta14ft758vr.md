@@ -1129,7 +1129,7 @@ ROS Topic
 
 =={green}ROS业务节点运行在Linux计算机==上。即使ROS Topic通信正常，感知、规划或控制程序也=={green}可能==因为CPU负载过高、内存不足或网络拥塞而=={green}运行异常==。
 
-因此，每个计算节点都需要一个Monitor Agent，周期性采集本机的：
+=={yellow}因此，每个计算节点都需要一个Monitor Agent，周期性采集本机的==：
 
 - CPU占用率；
 - 内存和交换分区使用量；

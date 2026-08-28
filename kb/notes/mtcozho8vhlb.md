@@ -93,7 +93,7 @@ RTE运行时环境
 BSW基础软件 / CDD复杂设备驱动
 OS、诊断栈、存储、通信、FPGA和SPAD等专用驱动
                 ↓
-MCAL微控制器抽象层
+MCAL微控制器驱动抽象层
 ADC、DIO、SPI、以太网、Flash等芯片驱动
                 ↓
 E311X MCU及外围硬件

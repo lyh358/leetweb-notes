@@ -943,7 +943,7 @@ ROS查询Definition等信息
 
 > =={yellow}ROS应该怎样把这个对象**转换成可传输的字节**，以及**接收后**怎样将字节**还原成对象**。==
 
-=={pink}ROS的Serializer主要提供三个操作：==
+=={pink}ROS的Serializer主要提供**三个操作**：==
 
 | 接口 | 作用 |
 | --- | --- |

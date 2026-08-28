@@ -49,7 +49,7 @@ if(collector){
 }
 ```
 
-**新增磁盘采集器的时候：**
+**=={pink}新增磁盘采集器的时候：==**
 
 1. 写`DiskCollector`继承`IMetricCollector`，实现 Collect ()
 2. 在工厂注册 `"disk"` 和它的构造函数

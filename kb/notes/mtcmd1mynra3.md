@@ -315,7 +315,7 @@ A2采集得到的数据已经封装为`NodeMetrics`，gRPC可以直接使用这�
 1. 根据配置=={yellow}**创建**==CPU、内存和网络=={yellow}**采集器**==；
 2. 按照采样=={yellow}周期执行**采集**==；
 3. 将=={yellow}**结果填充**到**protobuf消息**==`NodeMetrics`；
-4. =={yellow}**添加**节点ID和时间戳==；
+4. =={yellow}**添加节点ID**和时间戳==；
 5. =={yellow}通过gRPC持续**上报**==到Center。
 
 每个Agent通过`node_id`标识自己，例如：

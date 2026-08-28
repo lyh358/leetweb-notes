@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -1093,7 +1093,7 @@ ROS Topic
 > **=={yellow}第二部分是Serialization扩展。我为Protobuf类型提供了专用的Serializer==**。发送时调用`SerializeToString()`将对象转换成二进制数据，写入4字节长度和消息体；接收时读取长度和数据，再调用`ParseFromString()`还原对象。
 > 
 > 
-> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和==`subscribe`===={yellow}={green}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
+> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和==`subscribe`===={yellow}={yellow}={green}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
 
 ## 10. 高频追问速答
 
@@ -1212,7 +1212,7 @@ ROS Topic
 
 `/proc/net/dev`提供的是各网卡从=={yellow}系统**启动以来累计接收和发送的字节数**，不是每秒速率==。
 
-因此，`NetworkCollector`保存**=={yellow}上一次的收发字节数===={yellow}**和==**===={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数==**=={yellow}。==
+因此，`NetworkCollector`保存**=={yellow}上一次的收发字节数===={yellow}**和==**===={yellow}={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数==**=={yellow}。==
 
 项目中会跳过`lo`回环接口，再对其他网卡的数据进行汇总。
 
@@ -1347,7 +1347,7 @@ for (auto& collector : collectors) {
 std::unique_ptr<IMetricCollector>
 ```
 
-`unique_ptr`表示一个采集器在同一时间只有一个所有者。它离开作用域或从容器中移除时，会自动释放对象，不需要手动调用`delete`。
+`unique_ptr`=={green}表示一个采集器在同一时间只有一个所有者。它离开作用域或从容器中移除时，会自动释放对象==，不需要手动调用`delete`。
 
 项目中的容器是：
 

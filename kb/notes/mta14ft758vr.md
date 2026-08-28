@@ -1446,7 +1446,7 @@ Agent的采集主流程不需要修改。
 
 > ⚠️Agent**不做数据分析、不做告警判断**；健康等级、告警阈值判断是交给中心 Monitor Center 完成。Agent 只负责采集 + 上报原始数据。
 
-### 和 Monitor Center 的交互（gRPC 流式）
+### =={pink}和 Monitor Center 的交互（gRPC 流式）==
 
 1. Agent 端（客户端）：调用`ReportMetrics(stream NodeMetrics)` **客户端流 RPC**
   - 建立一次 gRPC 连接，循环不断往流里面写监控消息；

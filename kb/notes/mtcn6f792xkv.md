@@ -126,7 +126,8 @@ CMake 是**C/C++ 跨平台构建系统**，它不直接编译代码；读取`CMa
 **项目里面有多个模块**：ROS‑Protobuf 兼容层、性能采集库、Agent 程序、Center 服务、Qt 界面、Protobuf/gRPC 代码生成。
 
 1. **寻找依赖库**
-2. 查找：`roscpp`、`Protobuf`、`gRPC`、Qt5、Boost 等第三方库头文件和库文件路径。
+
+查找：`roscpp`、`Protobuf`、`gRPC`、Qt5、Boost 等第三方库头文件和库文件路径。
 
 ```
 find_package(roscpp REQUIRED)

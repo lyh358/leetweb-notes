@@ -28,7 +28,7 @@ collectors.push_back(std::move(mem));
 2. 如果新增`DiskCollector磁盘采集器`，**必须修改 Agent 的源码**，加一行 new 代码。
 3. 如果想要配置文件控制开启哪些采集项，代码很难做。
 
-### ✅使用工厂模式（项目中的做法）
+### =={pink}✅使用工厂模式（项目中的做法）==
 
 `CollectorFactory`就是工厂类。内部维护一张映射表：字符串名字 → 创建对象的函数。
 

@@ -115,7 +115,7 @@ Monitor Center接收数据
 
 # 开发工具
 
-## 1.CMake
+## 1.CMake（构建编译工具）
 
 # R：项目结果
 

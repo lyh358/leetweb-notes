@@ -653,7 +653,7 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 1. DataType<T>
 
 2. MD5Sum<T>
-Definition<T>
+3. Definition<T>
 IsMessage<T>
 序列化核心模板Serializer<T>命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心
 

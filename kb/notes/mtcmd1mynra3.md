@@ -8,7 +8,7 @@
 > **工厂模式**：使用者告诉工厂 “我要 cpu 采集器”，工厂帮你 new 出来返回接口基类指针。使用者完全不用碰子类。
 
 **=={yellow}项目里的工厂类==**：`CollectorFactory`
-**采集器有一堆子类**：`CpuCollector`、`MemoryCollector`、`NetworkCollector`、`IrqLoadCollector`，全部继承抽象基类 `IMetricCollector`。
+**=={yellow}采集器有一堆子类==**：`CpuCollector`、`MemoryCollector`、`NetworkCollector`、`IrqLoadCollector`，全部继承抽象基类 `IMetricCollector`。
 
 ### 
 

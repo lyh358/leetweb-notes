@@ -654,7 +654,7 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 
 全部在命名空间 ros::message_traits，都是 struct 模板，专门给消息类型 T 打元信息标签。
 
-1. DataType<T>
+=={yellow}1. DataType<T>==
 - 作用：提供消息的**DataType（完整消息类型名）**
 - 发布订阅时，topic 注册、topic 类型校验拿这个字符串。
 

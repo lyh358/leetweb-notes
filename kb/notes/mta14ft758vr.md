@@ -761,8 +761,7 @@ std::is_base_of<google::protobuf::Message,T>::value
 再通过`enable_if`控制模板是否生效：
 
 ```php
-typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value
->::type
+typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::type
 ```
 
 如果`T`是Protobuf消息，这段表达式能够生成一个有效类型，编译器选择Protobuf专用实现。

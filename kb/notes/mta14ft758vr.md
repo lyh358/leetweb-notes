@@ -1349,7 +1349,7 @@ std::unique_ptr<IMetricCollector>
 
 `unique_ptr`=={green}表示一个采集器在同一时间只有一个所有者。它离开作用域或从容器中移除时，会自动释放对象==，不需要手动调用`delete`。
 
-=={yellow}项目中的容器是==：
+=={yellow}项目中的**容器**是==：
 
 ```cpp
 std::vector<std::unique_ptr<IMetricCollector>>

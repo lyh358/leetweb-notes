@@ -1087,7 +1087,7 @@ ROS Topic
 > ROS默认只能直接处理具备ROS消息特征和序列化规则的类型，而`.proto`生成的C++类只是继承自Protobuf的`Message`基类，所以直接调用`publish()`时，ROS既不知道它是不是合法消息，也不知道应该怎么进行序列化。
 > 
 > 
-> 我的实现主要分成两部分。第一部分是Traits扩展，我通过模板偏特化和SFINAE，判断一个类型是否继承自`google::protobuf::Message`。如果满足条件，就为它提供`IsMessage`、`DataType`、`MD5Sum`、`Definition`等类型信息，让ROS能够识别它。对于普通ROS Msg，这些偏特化不会生效，仍然走原有逻辑。
+> 我的实现主要分成两部分。**=={yellow}第一部分是Traits扩展，我通过模板偏特化和SFINAE==**，判断一个类型是否继承自`google::protobuf::Message`。如果满足条件，就为它提供`IsMessage`、`DataType`、`MD5Sum`、`Definition`等类型信息，让ROS能够识别它。对于普通ROS Msg，这些偏特化不会生效，仍然走原有逻辑。
 > 
 > 
 > **=={yellow}第二部分是Serialization扩展。我为Protobuf类型提供了专用的Serializer==**。发送时调用`SerializeToString()`将对象转换成二进制数据，写入4字节长度和消息体；接收时读取长度和数据，再调用`ParseFromString()`还原对象。

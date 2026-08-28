@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -1093,7 +1093,7 @@ ROS Topic
 > **=={yellow}第二部分是Serialization扩展。我为Protobuf类型提供了专用的Serializer==**。发送时调用`SerializeToString()`将对象转换成二进制数据，写入4字节长度和消息体；接收时读取长度和数据，再调用`ParseFromString()`还原对象。
 > 
 > 
-> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和==`subscribe`=={green}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
+> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和==`subscribe`==={green}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
 
 ## 10. 高频追问速答
 
@@ -1157,13 +1157,13 @@ ROS Topic
 | `/proc/stat` | 获取各=={yellow}**CPU**==核心累计=={yellow}运行时间和中断次数== |
 | `/proc/meminfo` | 获取=={yellow}总**内存**、可用内存和交换分区信息== |
 | `/proc/net/dev` | 获取不同=={yellow}**网卡**==累计=={yellow}收发字节数== |
-| `/proc/loadavg` | 获取=={yellow}系统==一分钟和五分钟平均=={yellow}负载== |
+| `/proc/loadavg` | 获取=={yellow}**系统**==一分钟和五分钟平均=={yellow}负载== |
 
 =={green}**项目直接读取并解析这些文件**，**不需要**额外安装监控**工具**，也不需要编写**内核驱动**==。
 
 ---
 
-## 3. 各项指标怎样计算
+## =={pink}3. 各项指标怎样计算==
 
 ### 3.1 CPU占用率
 

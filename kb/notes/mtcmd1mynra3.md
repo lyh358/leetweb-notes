@@ -281,7 +281,7 @@ gRPC：负责投递信件
 
 项目没有继续使用ROS Topic完成性能监控，主要有三个原因。
 
-### 4.1 致命依赖：ROS Topic 强依赖 roscore
+### =={pink}4.1 致命依赖：ROS Topic 强依赖 roscore==
 
 - 如果`roscore`挂掉，**全部 Topic 通信直接瘫痪**，监控链路也跟着失效。
 - 监控的本意：**当 ROS 业务系统崩溃的时候，我依然要采集机器 CPU 内存，排查为什么 ROS 挂掉**。

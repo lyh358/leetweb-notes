@@ -1051,7 +1051,7 @@ t.ParseFromString(pb_str);
 负责：为一类Protobuf类型提供专门实现
         ↓
 SFINAE
-负责：判断当前类型是否属于Protobuf消息
+负责：判断当前类型是否属于Protobuf消息，选择合适的
         ↓
 Traits
 负责：告诉ROS这是什么消息、具有什么属性

@@ -51,11 +51,13 @@ if(collector){
 
 **=={pink}新增磁盘采集器的时候：==**
 
-1. =={yellow}写==`DiskCollector`=={yellow}**继承**==`IMetricCollector`=={yellow}，实现 Collect ()==
+1. =={yellow}写==`DiskCollector`==={yellow}**继承**=={yellow}`IMetricCollector`=={yellow}，实现 Collect ()==
 2. =={yellow}在工厂**注册**== `"disk"` =={yellow}和它的构造函数==
 3. **=={yellow}Agent 完全不用改一行代码！==** =={yellow}配置传字符串==`"disk"`=={yellow}，工厂就生成对应的对象。==
 
 > =={green}这就是文档说的==**=={green}可插拔==**=={green}：新增组件，不需要修改业务主流程。==
+
+### 
 
 ### 
 

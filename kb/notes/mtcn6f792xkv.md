@@ -138,6 +138,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 1. **=={yellow}编译 proto 文件，自动生成 C++ 代码==**
 
+调用`protoc`、grpc_cpp_plugin，读取`.proto`，生成 Protobuf 消息类、gRPC 服务 Stub 代码。
 > 业务消息、监控`NodeMetrics`全部在这里自动生成，不用手写。
 
 1. **划分模块，编译库和可执行程序**

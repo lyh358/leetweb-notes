@@ -860,6 +860,8 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 #### 
 
+#### `IsMessage`=={yellow}返回：True==
+
 ```graphql
 返回True
 ```

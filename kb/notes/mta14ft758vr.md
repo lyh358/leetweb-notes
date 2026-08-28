@@ -820,7 +820,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 =={yellow}使用SFINAE后，类型选择发生在编译阶段：==
 
 - =={yellow}Protobuf消息走**新增实现**；==
-- =={yellow}ROS Msg走原有实现；==
+- =={yellow}ROS Msg走**原有实现**；==
 - =={yellow}**两条路径互不影响；**==
 - =={yellow}**不需要运行时**判断；==
 - 新增Protobuf消息=={yellow}**不需要修改底层代码**==。

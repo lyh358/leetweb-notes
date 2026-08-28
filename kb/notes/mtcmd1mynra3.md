@@ -355,7 +355,7 @@ rpc ReportMetrics(stream NodeMetrics)
     returns (ReportAck);
 ```
 
-`stream NodeMetrics`表示客户端可以在一次RPC调用中连续发送多条`NodeMetrics`。
+`stream NodeMetrics`表示=={yellow}客户端可以在一次RPC调用中连续发送多条==`NodeMetrics`。
 
 通信过程是：
 

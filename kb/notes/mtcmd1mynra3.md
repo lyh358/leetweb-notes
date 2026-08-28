@@ -53,7 +53,7 @@ if(collector){
 
 1. =={yellow}写==`DiskCollector`=={yellow}继承==`IMetricCollector`=={yellow}，实现 Collect ()==
 2. =={yellow}在工厂注册== `"disk"` =={yellow}和它的构造函数==
-3. **Agent 完全不用改一行代码！** 配置传字符串`"disk"`，工厂就生成对应的对象。
+3. **=={yellow}Agent 完全不用改一行代码！==** =={yellow}配置传字符串==`"disk"`=={yellow}，工厂就生成对应的对象。==
 
 > 这就是文档说的**可插拔**：新增组件，不需要修改业务主流程。
 

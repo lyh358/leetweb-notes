@@ -808,7 +808,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 #### **=={yellow}方案 3：虚函数多态，封装一层基类==**
 
 把所有 protobuf 消息包一层统一基类，用继承虚函数。
-❌缺点：
+**❌缺点：**
 
 - ROS1 roscpp 的消息系统**完全基于模板，不是基于虚基类**。`Publisher::publish(T&)`是模板函数，要求传入真实消息类型 T，不能统一传基类指针。
 - 需要包装层，丢失原有类型，API 变丑，额外内存开销。

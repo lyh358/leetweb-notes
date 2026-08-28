@@ -770,9 +770,9 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 =={yellow}如果===={yellow}is_base_of::value===={yellow}是True，===={yellow}enable_if<True>::type==**=={yellow}返回合法类型==**
 
-如果`T`**是Protobuf消息**，**这段表达式能够生成一个有效类型**，**编译器选择Protobuf专用实现**。
+=={yellow}如果==`T`**=={yellow}是Protobuf消息==**=={yellow}，==**=={yellow}这段表达式能够生成一个有效类型==**=={yellow}，==**=={yellow}编译器选择Protobuf专用实现==**=={yellow}。==
 
-如果`T`**不是Protobuf消息**，表达式**替换失败**，这个**候选实现被移除**，ROS**继续选择**原来的模板逻辑。
+=={yellow}如果==`T`**=={yellow}不是Protobuf消息==**=={yellow}，表达式==**=={yellow}替换失败==**=={yellow}，这个==**=={yellow}候选实现被移除==**=={yellow}，ROS==**=={yellow}继续选择==**=={yellow}原来的模板逻辑。==
 
 ---
 

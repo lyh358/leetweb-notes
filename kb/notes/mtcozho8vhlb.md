@@ -154,12 +154,13 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 - **=={yellow}Core0==**=={yellow}主要运行**模式控制**、**诊断**、**通信**、**参数管理**以及**大部分BSW**和**CDD**==；
 - **=={yellow}Core1==**=={yellow}主要承担**点云相关的实时处理**；==
 - **=={green}周期任务==**=={green}主要由==**=={green}RTE Schedule Table==**=={green}按照==**=={green}1ms、5ms、10ms、100ms==**=={green}等周期调度；==
-- =={green}**QM**和**Trusted分区**之间通过**IOC机制通信**；==
+- =={green}**QM**和**Trusted分区**之间通过**IOC（）机制通信**；==
 - =={green}高实时数据路径也会==**=={green}使用中断和共享内存==**=={green}进行==**=={green}跨核协作==**=={green}。==
 
 实习面试中不需要一开始背出全部任务，只需说明：
 
 > =={yellow}**QM 分区**（Quality Management）==：代表**无功能安全要求**，运行非安全关键业务。
+> 
 > 
 > =={yellow}**Trusted 分区**（Trusted OS‑Application 可信分区）==：运行在处理器**特权模式，**一般用来跑**BSW 基础软件、内核相关驱动**；
 

@@ -769,7 +769,7 @@ std::is_base_of<google::protobuf::Message,T>::value
 typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::type
 ```
 
-=={green}如果==**=={green}is_base_of::value是True==**=={green}，====={green}**={green}enable_if::type**===={green}返回==**=={green}合法类型==**=={green}。==
+=={green}如果==**=={green}is_base_of::value是True==**=={green}，===={green}**enable_if::type**===={green}返回==**=={green}合法类型==**=={green}。==
 
 **如果T是Protobuf消息**，这段表达式**能够生成一个有效类型**，编译器**选择Protobuf专用实现**。
 

@@ -30,7 +30,7 @@ collectors.push_back(std::move(mem));
 
 ### =={pink}✅使用工厂模式（项目中的做法）==
 
-`CollectorFactory`就是工厂类。=={yellow}内部维护一张映射表：字符串名字 → 创建对象的函数==。
+`CollectorFactory`就是工厂类。=={yellow}内部维护一张**映射表**：字符串名字 → 创建对象的函数==。
 
 ```bash
 "cpu"       → 创建 CpuCollector

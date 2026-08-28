@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -777,7 +777,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 ---
 
-### 4.3 为什么要使用SFINAE
+### =={pink}4.3 为什么要使用SFINAE==
 
 如果直接修改ROS公共逻辑，在运行时通过`if/else`判断消息类型，容易影响原生ROS Msg，而且需要引入额外的运行时分支。
 

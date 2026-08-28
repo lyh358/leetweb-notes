@@ -105,7 +105,7 @@ E311X MCU及外围硬件
 
 ### =={pink}ASW（主要6层）==
 
-ASW由多个SWC软件组件组成，负责上层业务，例如：
+ASW由多个SWC软件组件组成，负责=={yellow}上层业务==，例如：
 
 - `SWC_Mode_Ctl`：=={yellow}**模式状态机**==；
 - `SWC_DIAG`：=={yellow}**功能安全诊断**==；

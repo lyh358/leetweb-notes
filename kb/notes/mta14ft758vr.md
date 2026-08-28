@@ -1065,7 +1065,7 @@ ROS Topic
 
 可以用一句话概括：
 
-> =={yellow}**模板偏特化**提供**扩展入口**，**SFINAE**负责在编**译期筛选Protobuf类型**，Traits解决ROS对消息的类型识别问题，Serializer解决消息的二进制收发问题。==
+> =={yellow}**模板偏特化**提供**扩展入口**，**SFINAE**负责在编**译期筛选Protobuf类型**，**Traits**解决ROS对消息的类型识别问题，Serializer解决消息的二进制收发问题。==
 
 ---
 

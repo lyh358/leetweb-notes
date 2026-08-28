@@ -1370,7 +1370,7 @@ std::vector<unique_ptr<IMetricCollector>>
 
 ---
 
-## 8. 工厂模式在项目中怎样使用
+## =={pink}8. 工厂模式在项目中怎样使用==
 
 如果Agent直接创建具体对象：
 

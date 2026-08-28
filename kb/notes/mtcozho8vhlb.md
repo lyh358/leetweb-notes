@@ -159,7 +159,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 实习面试中不需要一开始背出全部任务，只需说明：
 
-> =={yellow}QM 分区（Quality Management）==：代表**无功能安全要求**，运行非安全关键业务。
+> =={yellow}**QM 分区**（Quality Management）==：代表**无功能安全要求**，运行非安全关键业务。
 > 
 > =={yellow}Trusted 分区（Trusted OS‑Application 可信分区）==：运行在处理器**特权模式，**一般用来跑**BSW 基础软件、内核相关驱动**；
 

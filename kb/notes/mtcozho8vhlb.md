@@ -288,8 +288,8 @@ DEM记录事件状态
 
 =={yellow}我在遥测数据中增加了：==
 
-- EfuseId；
-- Chip ID。
+- =={green}EfuseId；==
+- =={green}Chip ID。==
 
 使上位机能够区分不同雷达或芯片的数据来源，支持多设备并发监控和问题追溯。
 

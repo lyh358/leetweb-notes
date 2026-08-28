@@ -798,7 +798,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 在 Serializer 内部写 if 判断。
 
-❌巨大问题：
+**❌巨大问题：**
 
 1. **模板是编译期实例化**，当 T 根本不是 protobuf 子类，`dynamic_cast`这一行会直接触发编译错误，类型不兼容，编译直接挂，根本跑不到运行时。
 2. 运行时判断有开销；最重要：很多错误希望**编译期就报错，而不是跑到线上才发现**。

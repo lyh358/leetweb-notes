@@ -888,7 +888,7 @@ pb_msgs/PublishInfo
 - 消息完整名称；
 - 字段及消息结构描述。
 
-作用相当于=={yellow}为ROS提供这条Protobuf消息的结构说明==。
+作用相当于=={yellow}为ROS提供这条Protobuf消息的**结构说明**==。
 
 #### `MD5Sum`
 

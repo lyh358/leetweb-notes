@@ -758,7 +758,7 @@ std::is_base_of<google::protobuf::Message,T>::value
 
 > 判断类型`T`是不是一个Protobuf消息类。
 > 
-> is_base_of<google::protobuf::Message,T>::value /
+> is_base_of<google::protobuf::Message,T>::value
 
 **=={yellow}再通过==`enable_if`=={yellow}控制模板是否生效==**：
 

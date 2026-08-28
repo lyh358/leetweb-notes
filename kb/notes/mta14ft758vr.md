@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -129,7 +129,7 @@ ROS Topic
 
 ## 5. Protobuf是什么
 
-=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的====={yellow}**={yellow}结构化数据定义**=={yellow}=={yellow}和====**={yellow}二进制序列化**=={yellow}=={yellow}框架===={yellow}。==
+=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的====={yellow}**={yellow}结构化数据定义**=={yellow}=={yellow}和====={yellow}**={yellow}二进制序列化**=={yellow}=={yellow}框架===={yellow}。==
 
 > **序列化**：内存中的=={green}结构体 / 对象== → =={green}二进制字节==；
 > **反序列化**：二进制字节 → 还原内存结构体 / 对象。
@@ -642,7 +642,7 @@ struct TypeInfo<int> {
 
 =={yellow}这个项目**面对的不是某一个固定的Protobuf消息**，**而是所有继承自**==`google::protobuf::Message`=={yellow}**的类型**，因此**更适合使用模板偏特化**。==
 
-### 3.2 在项目中的作用
+### =={pink}3.2 在项目中的作用==
 
 项目为ROS的`DataType`、`MD5Sum`、`Definition`和`Serializer`等模板增加了Protobuf版本的偏特化。
 

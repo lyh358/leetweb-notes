@@ -696,7 +696,7 @@ ROS原来的模板
 
 SFINAE的完整名称是：
 
-> =={yellow}Substitution Failure Is Not An Error，替换失败不是错误。==
+> =={yellow}**Substitution Failure Is Not An Error，替换失败不是错误。**==
 
 C++在为模板代入具体类型时，如果某个候选模板的类型表达式不成立，不会立刻导致整个程序编译失败，而是将这个候选模板从匹配集合中移除，再尝试其他实现。
 

@@ -1136,7 +1136,7 @@ ROS Topic
 - =={yellow}**网络收发速率**；==
 - =={yellow}**系统负载**和**中断信息**。==
 
-=={pink}采集结**果统一写入**==`NodeMetrics`=={pink}消息，交给后面的gRPC模块上报。==
+=={pink}采集结**果统一写入**==`NodeMetrics`=={pink}消息，交给后面的**gRPC模块上报**。==
 
 ---
 

@@ -145,7 +145,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 ---
 
-## 6. 双核和RTA-OS怎样分工
+## =={pink}6. 双核和RTA-OS怎样分工==
 
 项目使用的=={green}RTA-OS是符合AUTOSAR规范的**车规操作系统**==，不是FreeRTOS。
 

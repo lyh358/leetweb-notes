@@ -123,7 +123,7 @@ CMake 是**C/C++ 跨平台构建系统**，它不直接编译代码；读取`CMa
 
 ### 在本项目里面做了什么
 
-项目里面有多个模块：ROS‑Protobuf 兼容层、性能采集库、Agent 程序、Center 服务、Qt 界面、Protobuf/gRPC 代码生成。
+**项目里面有多个模块**：ROS‑Protobuf 兼容层、性能采集库、Agent 程序、Center 服务、Qt 界面、Protobuf/gRPC 代码生成。
 
 # R：项目结果
 

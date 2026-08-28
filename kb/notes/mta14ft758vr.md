@@ -866,7 +866,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 作用是告诉ROS：
 
-> =={yellow}这个Protobuf类型**可以被视为一条消息**，可以进入发布订阅流程。==
+> =={yellow}这个Protobuf类型**可以被视为一条消息**，**可以进入发布订阅流程**。==
 
 这是Protobuf获得ROS“消息身份”的关键。
 

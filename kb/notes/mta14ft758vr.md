@@ -959,7 +959,7 @@ ROS查询Definition等信息
 
 #### =={yellow}第一步：计算消息长度==
 
-调用Protobuf提供的序列化接口，将消息转换成二进制字符串：
+=={yellow}调用Protobuf提供的序列化接口，将消息转换成二进制字符串==：
 
 ```scss
 t.SerializeToString(&pb_str);

@@ -650,6 +650,8 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 
 四大核心triats模板：全部在命名空间 `ros::message_traits`，都是 struct 模板，专门给消息类型 T 打元信息标签。
 
+DataType<T>
+
 可以将它=={pink}理解为==：
 
 ```markdown

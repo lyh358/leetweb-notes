@@ -131,7 +131,7 @@ BSW提供=={yellow}**AUTOSAR通用基础服务**==，例如：
 
 ### CDD
 
-CDD负责标准AUTOSAR模块难以直接覆盖的雷达专用硬件驱动，例如：
+CDD负责=={yellow}标准AUTOSAR模块难以直接覆盖的雷达专用硬件驱动==，例如：
 
 - FPGA；
 - SPAD；

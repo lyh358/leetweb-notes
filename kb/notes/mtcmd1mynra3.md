@@ -232,7 +232,7 @@ result = GetMetrics();
 服务端执行ReportMetrics()
 ```
 
-=={yellow}gRPC通常使用==`.proto`=={yellow}同时定义：==
+**=={yellow}gRPC通常使用==`.proto`**=={yellow}同时定义：==
 
 - 通信的数据结构；
 - 服务提供哪些接口；

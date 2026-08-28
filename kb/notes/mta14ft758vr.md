@@ -1138,6 +1138,8 @@ ROS Topic
 
 =={pink}采集结**果统一写入**==`NodeMetrics`=={pink}消息，交给后面的**gRPC模块上报**。==
 
+---
+
 项目架构是 **Agent（多份，各个机器） + Monitor Center（一份，中心服务）**
 
 - **Monitor Agent**：部署在每一个被监控的机器人计算板 / Linux 节点上，是 “本地采集 + 上报” 的探针程序

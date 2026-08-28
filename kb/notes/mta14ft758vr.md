@@ -765,7 +765,7 @@ std::is_base_of<google::protobuf::Message,T>::value
 condition==is_base_of<google::protobuf::Message,T>::value
 
 ```php
-typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::typer'g
+typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::typer
 ```
 
 如果`T`是Protobuf消息，这段表达式能够生成一个有效类型，编译器选择Protobuf专用实现。

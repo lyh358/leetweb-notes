@@ -214,7 +214,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 ### 在系统中的位置
 
-这一部分主要位于MCU软件的ASW和CDD层，并通过RTE与BSW、MCAL及硬件交互。
+这一部分主要位于MCU软件的=={yellow}ASW和CDD层==，并通过RTE与BSW、MCAL及硬件交互。
 
 ### 主要工作
 

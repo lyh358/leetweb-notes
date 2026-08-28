@@ -210,7 +210,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 ---
 
-## 2. 工作线一：AUTOSAR嵌入式功能开发
+## =={pink}2. 工作线一：AUTOSAR嵌入式功能开发==
 
 ### 在系统中的位置
 

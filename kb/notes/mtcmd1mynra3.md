@@ -328,7 +328,7 @@ robot-C
 
 ### =={pink}5.2 Monitor Center==
 
-Center运行在中心节点上，主要负责：
+=={green}Center运行在中心节点上==，主要负责：
 
 1. 接收不同Agent上报的指标；
 2. 根据`node_id`区分不同计算节点；

@@ -1021,7 +1021,7 @@ ROS输入缓冲区
 t.ParseFromString(pb_str);
 ```
 
-恢复完成后，订阅回调拿到的就是原始Protobuf消息对象，可以直接访问其中的字段或调用`DebugString()`。
+=={yellow}恢复完成后，订阅回调拿到的就是原始Protobuf消息对象==，可以直接访问其中的字段或调用`DebugString()`。
 
 ### 6.3 为什么不自己实现Protobuf编码
 

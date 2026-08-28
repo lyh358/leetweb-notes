@@ -1155,7 +1155,7 @@ ROS Topic
 | =={yellow}文件== | =={yellow}项目中的用途== |
 | --- | --- |
 | `/proc/stat` | 获取各CPU核心累计运行时间和中断次数 |
-| `/proc/meminfo` | 获取总内存、可用内存和交换分区信息 |
+| `/proc/meminfo` | 获取=={yellow}总内存、可用内存和交换分区信息== |
 | `/proc/net/dev` | 获取不同=={yellow}网卡==累计=={yellow}收发字节数== |
 | `/proc/loadavg` | 获取=={yellow}系统==一分钟和五分钟平均=={yellow}负载== |
 

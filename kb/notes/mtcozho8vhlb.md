@@ -129,7 +129,7 @@ BSW提供=={yellow}**AUTOSAR通用基础服务**==，例如：
 - **以太网**和DoIP协议栈；
 - EcuM、BswM等系统管理。
 
-### CDD
+### =={pink}CDD==
 
 CDD负责=={yellow}标准AUTOSAR模块难以直接覆盖的**雷达专用硬件驱动**==，例如：
 

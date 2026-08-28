@@ -428,7 +428,7 @@ rpc SubscribeMetrics(SubscribeRequest)
 
 Center根据请求，从缓存中选择对应节点的数据，再持续写入服务端流。
 
-### 为什么使用服务端流
+### =={pink}为什么使用服务端流==
 
 Qt监控端需要持续获得最新指标。如果使用普通请求响应，就需要反复轮询Center。
 

@@ -1308,7 +1308,7 @@ network_collector.Collect();
 std::vector<std::unique_ptr<IMetricCollector>> collectors;
 ```
 
-=={yellow}采集时统一遍历：==
+=={yellow}采集时**统一遍历**：==
 
 ```scss
 for (auto& collector : collectors) {

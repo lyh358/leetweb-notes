@@ -125,7 +125,7 @@ if(collector){
 
 ## 10. 完整采集流程
 
-### =={pink}Agent 做 4 件核心事情：==
+### =={pink}Agent 是干嘛的：==
 
 项目架构是 **Agent（多份，各个机器） + Monitor Center（一份，中心服务）**
 

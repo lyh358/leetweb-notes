@@ -769,6 +769,12 @@ condition==is_base_of[google::protobuf::Message,T]()::value
 typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::type
 ```
 
+如果is_base_of::value是True，enable_if::type返回合法类型
+
+如果T是Protobuf消息，这段表达式能够生成一个有效类型，编译器选择Protobuf专用实现。
+
+如果T不是Protobuf消息，表达式替换失败，这个候选实现被移除，ROS继续选择原来的模板逻辑。
+
 ---
 
 ### 4.3 为什么要使用SFINAE

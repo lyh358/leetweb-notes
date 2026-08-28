@@ -129,7 +129,7 @@ CMake 是**C/C++ 跨平台构建系统**，它不直接编译代码；读取`CMa
 
 查找：roscpp、Protobuf、gRPC、Qt5、Boost 等第三方库头文件和库文件路径。
 
-```
+```scss
 find_package(roscpp REQUIRED)
 find_package(Protobuf REQUIRED)
 find_package(gRPC REQUIRED)
@@ -139,6 +139,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 1. **=={yellow}编译 proto 文件，自动生成 C++ 代码==**
 
 调用`protoc`、grpc_cpp_plugin，读取`.proto`，生成 Protobuf 消息类、gRPC 服务 Stub 代码。
+
 > 业务消息、监控`NodeMetrics`全部在这里自动生成，不用手写。
 
 1. **=={yellow}划分模块，编译库和可执行程序==**
@@ -171,10 +172,11 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 1. =={yellow}编写==`Dockerfile`：=={green}**基础镜像**选用 **ubuntu20.04**==（对应 =={green}**ROS Noetic**==），=={green}**镜像内部安装** ROS‑Noetic、protoc、gRPC、Qt5、cmake 等**全部依赖**。==
 2. =={green}构建 docker 镜像：把项目源码拷进容器。==
 3. =={green}可以启动多个容器模拟==**=={green}多计算节点==**=={green}场景：==
-  - =={yellow}**容器 1：**运行 **roscore + ROS 业务** talker/listener 测试节点==
-  - =={yellow}**容器 2：**运行 **Monitor Agent**，模拟机器人计算板 A==
-  - =={yellow}**容器 3**：运行 **Monitor Agent**，模拟机器人计算板 B==
-  - =={yellow}**容器 4：**运行 **Monitor Center** 中心服务==
+
+- =={yellow}**容器 1：**运行 **roscore + ROS 业务** talker/listener 测试节点==
+- =={yellow}**容器 2：**运行 **Monitor Agent**，模拟机器人计算板 A==
+- =={yellow}**容器 3**：运行 **Monitor Agent**，模拟机器人计算板 B==
+- =={yellow}**容器 4：**运行 **Monitor Center** 中心服务==
 
 > =={yellow}**一台物理机，启动多个 docker 容器**，**模拟多台 Linux 计算节点分布式场景**==，不需要多台真实机器做实验。
 
@@ -191,7 +193,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 ---
 
-**3. Qt（GUI 图形界面库）**
+## **3. Qt（GUI 图形界面库）**
 
 ### 干什么的
 
@@ -209,9 +211,10 @@ Qt 是 C++ 跨平台图形界面库，用来做可视化窗口程序。
 2. Center 源源不断推送各个节点`NodeMetrics`监控快照。
 3. Qt 接收流式回来的数据，利用 Qt 的信号槽机制，把网络线程收到的数据投递到 UI 主线程。
 4. UI 界面展示：
-  - 各个节点列表、node_id、健康等级（正常 / 警告 / 危险）
-  - CPU 占用、内存、网络速率数值
-  - 简单趋势曲线，直观看到负载变化
+
+- 各个节点列表、node_id、健康等级（正常 / 警告 / 危险）
+- CPU 占用、内存、网络速率数值
+- 简单趋势曲线，直观看到负载变化
 
 > ⚠️重要细节：
 > gRPC 接收消息是在后台网络线程，**Qt UI 控件只能在主线程操作，不能子线程直接刷新 UI**；

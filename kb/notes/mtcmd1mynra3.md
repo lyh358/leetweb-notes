@@ -130,7 +130,7 @@ if(collector){
 项目架构是 **Agent（多份，各个机器） + Monitor Center（一份，中心服务）**
 
 - **Monitor Agent：=={green}部署在==每一个被监控的机器人计算板 / Linux =={green}节点==上，是 =={yellow}“本地采集 + 上报==” 的=={green}探针程序==**
-- **Monitor Center：中心服务，接收所有 Agent 上报的数据，做汇总、缓存，给 Qt 监控界面提供数据**
+- **Monitor Center：=={yellow}中心服务==，接收所有 Agent 上报的数据，做汇总、缓存，给 Qt 监控界面提供数据**
 
 > 类比：每台机器上派一个 “现场观察员”，这个观察员就是 Agent；观察员不停采集本机 CPU、内存，源源不断把报告发给总部（Center）。
 

@@ -1362,7 +1362,7 @@ std::vector<unique_ptr<IMetricCollector>>
 - =={green}Agent**退出时自动释放**所有采集器==；
 - 避免裸指针产生内存泄漏和所有权不清的问题。
 
-工厂创建采集器后，通过`move`将所有权转移给Agent的容器。
+=={yellow}工厂创建采集器后，通过==`move`=={yellow}将所有权转移给Agent的容器。==
 
 ### 面试速答
 

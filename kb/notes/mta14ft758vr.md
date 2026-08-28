@@ -1090,7 +1090,7 @@ ROS Topic
 > 我的实现主要分成两部分。第一部分是Traits扩展，我通过模板偏特化和SFINAE，判断一个类型是否继承自`google::protobuf::Message`。如果满足条件，就为它提供`IsMessage`、`DataType`、`MD5Sum`、`Definition`等类型信息，让ROS能够识别它。对于普通ROS Msg，这些偏特化不会生效，仍然走原有逻辑。
 > 
 > 
-> **第二部分是Serialization扩展。我为Protobuf类型提供了专用的Serializer**。发送时调用`SerializeToString()`将对象转换成二进制数据，写入4字节长度和消息体；接收时读取长度和数据，再调用`ParseFromString()`还原对象。
+> **=={yellow}第二部分是Serialization扩展。我为Protobuf类型提供了专用的Serializer==**。发送时调用`SerializeToString()`将对象转换成二进制数据，写入4字节长度和消息体；接收时读取长度和数据，再调用`ParseFromString()`还原对象。
 > 
 > 
 > 这样，上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的`publish`和`subscribe`接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。

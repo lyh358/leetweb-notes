@@ -273,7 +273,7 @@ gRPC：负责投递信件
 - 系统负载与中断；
 - 节点健康等级。
 
-=={yellow}同一份Protobuf定义可以被Agent、Center和监控端共同使用==。
+=={yellow}同一份Protobuf定义可以被**Agent、Center和监控端**共同使用==。
 
 ---
 

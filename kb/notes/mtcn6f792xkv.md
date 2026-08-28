@@ -178,7 +178,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 > =={yellow}**一台物理机，启动多个 docker 容器**，**模拟多台 Linux 计算节点分布式场景**==，不需要多台真实机器做实验。
 
-1. Shell 脚本配合 docker，一键启动 / 关闭整套环境，不用手动敲一大堆命令。
+1. =={green}Shell 脚本配合 docker，一键启动 / 关闭整套环境==，不用手动敲一大堆命令。
 
 # R：项目结果
 

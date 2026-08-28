@@ -126,7 +126,7 @@ BSW提供=={yellow}**AUTOSAR通用基础服务**==，例如：
 - =={green}**DCM诊断通信**==；
 - =={green}**DEM故障管理**==；
 - Flash和NvM存储管理；
-- 以太网和DoIP协议栈；
+- **以太网**和DoIP协议栈；
 - EcuM、BswM等系统管理。
 
 ### CDD

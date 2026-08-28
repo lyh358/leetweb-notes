@@ -139,7 +139,7 @@ CDD负责=={yellow}标准AUTOSAR模块难以直接覆盖的**雷达专用硬件�
 - 特殊ADC采集；
 - 自定义遥测和调试协议。
 
-### MCAL
+### =={pink}MCAL==
 
 MCAL是最靠近MCU硬件的一层，提供ADC、DIO、SPI、ETH和Flash等标准驱动接口。
 

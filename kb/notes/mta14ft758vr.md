@@ -733,6 +733,21 @@ std::enable_if<condition>
 
 #### =={pink}**以偏特化IsMessage<T>为例**==
 
+```
+#include <type_traits>
+#include <boost/type_traits.hpp>
+
+// 主模板：默认不是ROS消息
+template<typename T>
+struct IsMessage : boost::false_type {};
+
+// -------- SFINAE 偏特化：匹配所有protobuf派生类 --------
+template<typename T>
+struct IsMessage<T,
+    typename std::enable_if<std::is_base_of_v<google::protobuf::Message, T>>::type
+> : boost::true_type {};
+```
+
 项目中的判断条件可以简化为：
 
 ```php

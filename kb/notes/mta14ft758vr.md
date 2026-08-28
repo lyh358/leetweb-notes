@@ -947,7 +947,7 @@ ROS查询Definition等信息
 
 | 接口 | 作用 |
 | --- | --- |
-| `serializedLength()` | 计算序列化后需要多少字节 |
+| `serializedLength()` | =={yellow}计算序列化后需要多少字节== |
 | `write()` | 将对象写入输出缓冲区 |
 | `read()` | 从输入缓冲区还原对象 |
 

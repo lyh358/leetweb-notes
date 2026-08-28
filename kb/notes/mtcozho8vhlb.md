@@ -141,7 +141,7 @@ CDD负责=={yellow}标准AUTOSAR模块难以直接覆盖的**雷达专用硬件�
 
 ### =={pink}MCAL==
 
-MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和Flash等硬件标准驱动c'x接口。
+MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和Flash等硬件标准驱动抽象接口。
 
 ---
 

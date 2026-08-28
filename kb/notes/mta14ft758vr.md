@@ -910,7 +910,7 @@ proto_md5
 
 项目将其设置为`FalseType`。因为Protobuf消息中可能包含字符串、数组等变长字段，序列化后的长度不是固定值。
 
-### 5.3 Traits在链路中的位置
+### =={pink}5.3 Traits在链路中的位置==
 
 ```markdown
 Protobuf消息对象

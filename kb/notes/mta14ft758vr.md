@@ -1302,7 +1302,7 @@ memory_collector.Collect();
 network_collector.Collect();
 ```
 
-=={yellow}而是将**所有采集器**用**智能指针unique_ptr**保存到同一个vector容器中==：
+=={yellow}而是将**所有采集器**用**智能指针unique_ptr**保存到**同一个vector容器**中==：
 
 ```cpp
 std::vector<std::unique_ptr<IMetricCollector>> collectors;

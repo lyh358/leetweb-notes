@@ -227,7 +227,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 ### 职责边界
 
-我的职责是基于已有AUTOSAR平台完成具体功能的开发、适配和验证，不负责从零开发整套AUTOSAR基础软件或RTA-OS内核。
+我的职责是基于=={yellow}已有AUTOSAR平台完成具体功能的开发、适配和验证==，不负责从零开发整套AUTOSAR基础软件或RTA-OS内核。
 
 ---
 

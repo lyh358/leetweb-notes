@@ -149,7 +149,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
   - `center_server`：Monitor Center gRPC 服务端
   - `qt_monitor_gui`：Qt 监控界面程序
 
-1. **设置头文件路径、链接库、编译选项**。
+1. **=={yellow}设置头文件路径、链接库、编译选项==**。
 2. **配合 ROS，支持 catkin 编译**（ROS Noetic 基于 cmake）。
 
 # R：项目结果

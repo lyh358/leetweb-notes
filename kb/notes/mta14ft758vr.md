@@ -668,7 +668,7 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 - 布尔 trait：标记这个类型是不是合法 ROS 消息类型。
 - `IsMessage<T>::value == true` roscpp 才承认这个类型可以用于 publish/subscribe。**必须特化为 true，否则直接编译报错**。
 
-=={pink}序列化核心模板===={yellow}Serializer<T>==命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心
+=={pink}序列化核心模板===={yellow}**Serializer<T>**==命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心
 
 > ROS 官方注释：**想要让任意类型在 roscpp 通信，只需要特化 Serializer + message_traits。**
 

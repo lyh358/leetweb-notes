@@ -10,6 +10,53 @@
 **=={yellow}项目里的工厂类==**：`CollectorFactory`
 **=={yellow}采集器有一堆子类==**：`CpuCollector`、`MemoryCollector`、`NetworkCollector`、`IrqLoadCollector`，全部继承抽象基类 `IMetricCollector`。
 
+### ❌不使用工厂（坏写法）
+
+Monitor Agent（使用者）直接 new 各个具体类：
+
+```
+// Agent代码里面直接写死new具体子类
+auto cpu = std::make_unique<CpuCollector>();
+auto mem = std::make_unique<MemoryCollector>();
+collectors.push_back(std::move(cpu));
+collectors.push_back(std::move(mem));
+```
+
+**缺点：**
+
+1. Agent 要包含每一个采集器的头文件，强依赖所有具体实现类。
+2. 如果新增`DiskCollector磁盘采集器`，**必须修改 Agent 的源码**，加一行 new 代码。
+3. 如果想要配置文件控制开启哪些采集项，代码很难做。
+
+### ✅使用工厂模式（项目中的做法）
+
+`CollectorFactory`就是工厂类。内部维护一张映射表：字符串名字 → 创建对象的函数。
+
+```
+"cpu"       → 创建 CpuCollector
+"memory"    → 创建 MemoryCollector
+"network"   → 创建 NetworkCollector
+"irq_load"  → 创建 IrqLoadCollector
+```
+
+Agent 只调用工厂，传入字符串名字，拿基类智能指针：
+
+```
+// Agent只知道工厂、基类IMetricCollector，不知道CpuCollector这些子类
+auto collector = CollectorFactory::Instance().Create("cpu");
+if(collector){
+    collectors.push_back(std::move(collector));
+}
+```
+
+**新增磁盘采集器的时候：**
+
+1. 写`DiskCollector`继承`IMetricCollector`，实现 Collect ()
+2. 在工厂注册 `"disk"` 和它的构造函数
+3. **Agent 完全不用改一行代码！** 配置传字符串`"disk"`，工厂就生成对应的对象。
+
+> 这就是文档说的**可插拔**：新增组件，不需要修改业务主流程。
+
 ### 
 
 ### 

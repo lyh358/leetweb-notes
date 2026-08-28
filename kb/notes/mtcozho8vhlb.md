@@ -103,7 +103,7 @@ E311X MCU及外围硬件
 
 > =={yellow}**ASW负责业务功能**==，=={yellow}**RTE负责连接与调度**==，=={yellow}**BSW负责通用基础设施软件**==，=={yellow}**CDD负责雷达专用硬件驱动**==，=={yellow}**MCAL负责访问MCU外设**==。
 
-### ASW（）
+### ASW（zhu'yao）
 
 ASW由多个SWC软件组件组成，负责上层业务，例如：
 

@@ -870,8 +870,6 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 这是Protobuf获得ROS“消息身份”的关键。
 
-#### 
-
 =={yellow}项目通过Protobuf的Descriptor==**=={yellow}获取消息名称==**=={yellow}，并生成类似下面的==**=={yellow}类型标识==**：
 
 ```undefined

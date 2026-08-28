@@ -1249,7 +1249,7 @@ public:
 
 在此基础上实现：
 
-采集器接口基类（虚函数）
+采集器接口基类（虚函数采集接口）
 
 ```markdown
 IMetricCollector

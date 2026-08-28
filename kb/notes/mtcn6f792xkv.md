@@ -160,7 +160,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 ## **=={pink}2. Docker（容器）==**
 
-### 干什么的
+### =={pink}干什么的==
 
 =={yellow}Docker 做==**=={yellow}环境隔离、打包运行环境==**。
 =={green}解决痛点：“在我电脑能跑，你的机器跑不起来”==。

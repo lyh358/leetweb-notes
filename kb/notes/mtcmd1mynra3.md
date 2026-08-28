@@ -12,7 +12,7 @@
 
 ### =={pink}❌不使用工厂（坏写法）==
 
-Monitor Agent（使用者）直接 new 各个具体类：
+=={yellow}Monitor Agent（使用者）直接 new 各个具体类==：
 
 ```cpp
 // Agent代码里面直接写死new具体子类

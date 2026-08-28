@@ -78,7 +78,7 @@ DEM记录事件状态
 - =={yellow}**Rx Start Signal；**==
 - =={yellow}芯片通信状态。==
 
-它们通常按照5ms或其他周期执行：
+它们通常按照=={green}5ms或其他周期执行==：
 
 ```markdown
 周期读取数据

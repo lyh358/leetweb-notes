@@ -781,7 +781,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 **=={yellow}SFINAE 的本质==**=={yellow}：**编译期做类型分支判断**，在模板重载 / 偏特化层面实现「类型分发」，**不用运行时判断**，**也不用虚函数多态**。==
 
-我们希望：
+=={green}我们希望：==
 
 - 如果类型 T 是 protobuf 的子类 → 使用我们写的那套 ROS Serializer /message_traits 逻辑
 - 如果类型 T 是普通 ROS msg（gencpp 生成）→ 使用 ROS 原生模板逻辑

@@ -658,7 +658,7 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 - 作用：提供消息的**DataType（完整消息类型名）**
 - 发布订阅时，topic 注册、topic 类型校验拿这个字符串。
 
-2. MD5Sum<T>
+=={yellow}2. MD5Sum<T>==
 - 作用：提供 ROS 消息 MD5 校验和；节点握手时两边对比这个 MD5 字符串，不一致直接拒绝连接。
 
 3. Definition<T>

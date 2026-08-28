@@ -858,9 +858,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 项目对继承自`google::protobuf::Message`的类型提供了以下Traits。
 
-#### 
-
-#### `IsMessage`=={yellow}返回：True==
+总开关：
 
 ```graphql
 返回True

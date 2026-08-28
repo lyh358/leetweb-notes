@@ -648,7 +648,7 @@ struct TypeInfo<int> {
 
 ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer）**，`.msg`编译工具 gencpp 就是自动生成这些特化代码，下面的几种模板类是ROS实现msg通信的消息系统核心：
 
-四大核心
+四大核心tria
 
 可以将它=={pink}理解为==：
 

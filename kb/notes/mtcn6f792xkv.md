@@ -115,7 +115,7 @@ Monitor Center接收数据
 
 # 开发工具
 
-## 1.CMake（构建编译工具）
+## =={pink}1.CMake（构建编译工具）==
 
 CMake 是**C/C++ 跨平台构建系统**，它不直接编译代码；读取`CMakeLists.txt`配置文件，生成 Makefile/Ninja 构建脚本，再调用 gcc/g++ 完成编译、链接。
 

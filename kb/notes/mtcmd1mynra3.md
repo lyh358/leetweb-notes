@@ -10,11 +10,11 @@
 **=={yellow}项目里的工厂类==**：`CollectorFactory`
 **=={yellow}采集器有一堆子类==**：`CpuCollector`、`MemoryCollector`、`NetworkCollector`、`IrqLoadCollector`，全部继承抽象基类 `IMetricCollector`。
 
-### ❌不使用工厂（坏写法）
+### =={pink}❌不使用工厂（坏写法）==
 
 Monitor Agent（使用者）直接 new 各个具体类：
 
-```
+```cpp
 // Agent代码里面直接写死new具体子类
 auto cpu = std::make_unique<CpuCollector>();
 auto mem = std::make_unique<MemoryCollector>();
@@ -32,7 +32,7 @@ collectors.push_back(std::move(mem));
 
 `CollectorFactory`就是工厂类。内部维护一张映射表：字符串名字 → 创建对象的函数。
 
-```
+```bash
 "cpu"       → 创建 CpuCollector
 "memory"    → 创建 MemoryCollector
 "network"   → 创建 NetworkCollector
@@ -41,7 +41,7 @@ collectors.push_back(std::move(mem));
 
 Agent 只调用工厂，传入字符串名字，拿基类智能指针：
 
-```
+```cpp
 // Agent只知道工厂、基类IMetricCollector，不知道CpuCollector这些子类
 auto collector = CollectorFactory::Instance().Create("cpu");
 if(collector){

@@ -1357,7 +1357,7 @@ std::vector<unique_ptr<IMetricCollector>>
 
 它表示：
 
-- Agent统一拥有这些采集器；
+- =={green}Agent统一拥有这些采集器==；
 - 不允许随意复制采集器对象；
 - Agent退出时自动释放所有采集器；
 - 避免裸指针产生内存泄漏和所有权不清的问题。

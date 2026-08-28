@@ -257,7 +257,7 @@ result = GetMetrics();
 - **Protobuf负责描述和编码数据**；
 - **gRPC负责把数据从一个节点传到另一个节点，并组织远程服务调用**。
 
-可以类比为：
+=={yellow}可以类比为：==
 
 ```undefined
 Protobuf：规定信件的内容格式

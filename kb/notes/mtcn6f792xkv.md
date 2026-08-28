@@ -189,7 +189,9 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 > Docker 用来统一项目运行环境，基于 Ubuntu20.04 构建镜像，预装 ROS Noetic、gRPC、Protobuf、Qt 全部依赖。我利用 Docker 启动多个容器，模拟多个机器人 Linux 计算节点，分别运行 Agent、Center、ROS 测试节点，在单机就可以完成分布式监控链路的验证，避免本地环境版本不一致带来的编译运行问题，同时搭配 shell 脚本简化启动流程。
 
-## 3. Qt（GUI 图形界面库）
+---
+
+3. Qt（GUI 图形界面库）
 
 ### 干什么的
 

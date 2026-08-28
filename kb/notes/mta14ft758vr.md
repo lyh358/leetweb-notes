@@ -648,9 +648,9 @@ struct TypeInfo<int> {
 
 ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer）**，`.msg`编译工具 gencpp 就是自动生成这些特化代码，下面的几种模板类是ROS实现msg通信的消息系统核心：
 
-四大核心triats模板：全部在命名空间 `ros::message_traits`，都是 struct 模板，专门给消息类型 T 打元信息标签。
+四大核心triats模板：全部在命名空间 `ros::message_traits`，都是 struct 模板，专门给消息类型 T 打元信息标签。DataType<T>
 
-DataType<T>MD5Sum<T>Definition<T>IsMessage<T>
+MD5Sum<T>Definition<T>IsMessage<T>
 
 序列化核心模板Serializer<T>命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心
 

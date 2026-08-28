@@ -625,7 +625,7 @@ struct TypeInfo {
 
 ##### =={pink}全特化==
 
-只针对某一个确定类型：
+=={yellow}只针对某一个确定类型：==
 
 ```cpp
 template<>

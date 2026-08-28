@@ -796,6 +796,8 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 方案 2：运行时判断
 
+在 Serializer 内部写 if 判断。
+
 如果直接修改ROS公共逻辑，在运行时通过`if/else`判断消息类型，容易影响原生ROS Msg，而且需要引入额外的运行时分支。
 
 使用SFINAE后，类型选择发生在编译阶段：

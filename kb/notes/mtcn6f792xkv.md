@@ -199,7 +199,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 =={yellow}Qt 是 C++ 跨平台图形界面库，用来做可视化窗口程序。==
 
-> 本项目 Qt**不是业务机器人 UI，是监控客户端 GUI**。
+> 本项目 Qt**不是业务机器人 UI，=={yellow}是监控客户端 GUI==**=={yellow}。==
 
 ### 在项目中的角色
 

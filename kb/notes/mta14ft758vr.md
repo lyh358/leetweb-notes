@@ -694,7 +694,7 @@ ROS原来的模板
 
 ### =={pink}4.1 基础概念==
 
-SFINAE的完整名称是：
+=={green}SFINAE的完整名称是：==
 
 > =={yellow}**Substitution Failure Is Not An Error，替换失败不是错误。**==
 

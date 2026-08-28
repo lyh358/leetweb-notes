@@ -664,7 +664,7 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 =={yellow}3. **Definition<T>**==
 - 作用：返回完整展开的消息 Definition 文本；用来调试、rosbag、动态消息解析；**MD5Sum 原始输入就是这份文本**。
 
-=={yellow}4. IsMessage<T>==
+=={yellow}4. **IsMessage<T>**==
 - 布尔 trait：标记这个类型是不是合法 ROS 消息类型。
 - `IsMessage<T>::value == true` roscpp 才承认这个类型可以用于 publish/subscribe。**必须特化为 true，否则直接编译报错**。
 

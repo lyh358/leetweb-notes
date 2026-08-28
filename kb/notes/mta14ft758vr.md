@@ -789,6 +789,8 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 #### =={pink}**如果不用 SFINAE，有哪些替代方案，以及它们的缺点**==
 
+方案 1：每个 protobuf 消息手写一套全特化
+
 如果直接修改ROS公共逻辑，在运行时通过`if/else`判断消息类型，容易影响原生ROS Msg，而且需要引入额外的运行时分支。
 
 使用SFINAE后，类型选择发生在编译阶段：

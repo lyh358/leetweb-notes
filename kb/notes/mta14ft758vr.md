@@ -768,7 +768,7 @@ condition==is_base_of<google::protobuf::Message,T>::value
 typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::type
 ```
 
-如果is_base_of::value
+如果is_base_of::valueoto
 
 如果`T`是Protobuf消息，这段表达式能够生成一个有效类型，编译器选择Protobuf专用实现。
 

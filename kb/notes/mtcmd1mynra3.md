@@ -286,7 +286,7 @@ gRPC：负责投递信件
 - =={yellow}如果==`roscore`=={yellow}挂掉，==**=={yellow}全部 Topic 通信直接瘫痪==**=={yellow}，监控链路也跟着失效。==
 - =={yellow}监控的本意：==**=={yellow}当 ROS 业务系统崩溃的时候，我依然要采集机器 CPU 内存，排查为什么 ROS 挂掉==**=={yellow}。==
 
-> 如果监控链路本身跑在 ROS Topic 上，一旦 ROS 崩，监控直接失效，就失去故障排查最重要手段。
+> 如果监控链路本身跑在 ROS Topic 上，一旦 ROS 崩，监控直接失效，就**失去故障排查最重要手段。**
 
 ### 4.2 gRPC原生支持Protobuf
 

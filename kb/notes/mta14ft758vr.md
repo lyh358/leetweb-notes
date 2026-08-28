@@ -1185,7 +1185,7 @@ ROS Topic
 
 项目中的`CpuCollector`会保存上一次每个CPU核心的`idle`和`total`，下一次采集时使用差值计算利用率。
 
-### 3.2 内存使用量
+### =={pink}3.2 内存使用量==
 
 `MemoryCollector`读取`/proc/meminfo`中的：
 

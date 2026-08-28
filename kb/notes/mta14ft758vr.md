@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-项目为ROS的`DataType`、`MD5Sum`、`Definition`和`Serializer`等模板增加了Protobuf版本的偏特化。
+=={yellow}项目为ROS的==`DataType`=={yellow}、==`MD5Sum`=={yellow}、==`Definition`=={yellow}和==`Serializer`=={yellow}等模板增加了Protobuf版本的偏特化。==
 
 可以将它理解为：
 

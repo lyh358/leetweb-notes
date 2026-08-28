@@ -337,7 +337,7 @@ DEM记录事件状态
 
 工程中接触的主要工具和规范包括：
 
-- =={yellow}IAR；==
+- =={yellow}**IAR；**==
 - =={yellow}上位机==
 - ADS/Tasking；
 - CMake；

@@ -658,7 +658,7 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 - 作用：提供 ROS 消息 MD5 校验和；节点握手时两边对比这个 MD5 字符串，不一致直接拒绝连接。
 
 3. Definition<T>
-
+作用：返回完整展开的消息 Definition 文本；用来调试、rosbag、动态消息解析；**MD5Sum 原始输入就是这份文本**。
 4. IsMessage<T>
 
 序列化核心模板Serializer<T>命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心

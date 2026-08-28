@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`=={yellow}、==`Definition`=={yellow}和==`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`==={yellow}、=={yellow}`Definition`=={yellow}和==`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -654,21 +654,25 @@ ROS1 C++ 通信不靠虚类，**全部依靠模板特化（traits + Serializer�
 
 全部在=={green}命名空间 ros::message_traits==，都是 =={green}struct 模板==，专门给=={green}消息类型 T 打**元信息标签**==。
 
-=={yellow}1. **DataType<T>**==
+=={yellow}1. **DataType**==
+
 - 作用：提供消息的**DataType（完整消息类型名）**
 - 发布订阅时，topic 注册、topic 类型校验拿这个字符串。
 
-=={yellow}2. **MD5Sum<T>**==
+=={yellow}2. **MD5Sum**==
+
 - 作用：**提供** ROS 消息 **MD5 校验和**；**节点握手时**两边**对比**这个 **MD5 字符串**，**不一致直接拒绝**连接。
 
-=={yellow}3. **Definition<T>**==
+=={yellow}3. **Definition**==
+
 - 作用：**返回完整展开的消息 Definition 文本**；用来调试、rosbag、动态消息解析；**MD5Sum 原始输入就是这份文本**。
 
-=={yellow}4. **IsMessage<T>**==
+=={yellow}4. **IsMessage**==
+
 - **布尔 trait**：**标记**这个类型**是不是合法** ROS 消息**类型**。
 - `IsMessage<T>::value == true` roscpp **才承认**这个类型**可以用于 publish/subscribe**。**必须特化为 true，否则直接编译报错**。
 
-=={pink}序列化核心模板===={yellow}**Serializer<T>**==命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心
+=={pink}序列化核心模板===={yellow}**Serializer**==命名空间 `ros::serialization`，**真正负责二进制编解码**，是消息网络传输 /rosbag 写入的核心
 
 > =={pink}ROS 官方注释：==**=={pink}想要让任意类型在 roscpp 通信，只需要特化 Serializer + message_traits。==**
 
@@ -682,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`=={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`==={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -698,7 +702,7 @@ ROS原来的模板
 
 > =={yellow}**Substitution Failure Is Not An Error，替换失败不是错误。**==
 
-=={yellow}在==**=={yellow}编译期（模板实例化阶段）==**=={yellow}，对于==**=={yellow}某个消息类型T==**=={yellow}，T在尝试使==**=={yellow}用实际类型代替偏特化==****=={yellow}模板的形参==**=={yellow}的过程中（此时没有进入结构体内部代码），==**=={yellow}如果产生了非法类型==**=={yellow}/表达式，此时==**=={yellow}编译器不报编译错误==**=={yellow}，而是===={yellow}把这个==**=={yellow}模板特化版本==**=={yellow}从==**=={yellow}重载候选集==**=={yellow}里==**=={yellow}丢弃==**=={yellow}，编译器===={yellow}继续===={yellow}去找==**=={yellow}其它可行版本==**=={yellow}。==
+**=={yellow}在====={yellow}编译期（模板实例化阶段）=={yellow}=={yellow}，对于===={yellow}某个消息类型T===={yellow}，T在尝试使===={yellow}用实际类型代替偏特化==****=={yellow}模板的形参===={yellow}的过程中（此时没有进入结构体内部代码），===={yellow}如果产生了非法类型===={yellow}/表达式，此时===={yellow}编译器不报编译错误===={yellow}，而是===={yellow}把这个===={yellow}模板特化版本===={yellow}从====={yellow}重载候选集=={yellow}=={yellow}里===={yellow}丢弃===={yellow}，编译器===={yellow}继续===={yellow}去找===={yellow}其它可行版本===={yellow}。==**
 
 如果**所有候选全部替换失败**，最后**才报编译错误**。
 

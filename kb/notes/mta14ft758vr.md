@@ -39,7 +39,7 @@
 
 ## 2. ROS在机器人系统中扮演什么角色
 
-=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或====={yellow}**={yellow}Windows**=={yellow}=={yellow}的====**={yellow}传统操作系统**=={yellow}=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的====={yellow}**={yellow}机器人软件框架**=={yellow}=={yellow}。==
+=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或====={yellow}**={yellow}Windows**=={yellow}=={yellow}的====={yellow}**={yellow}传统操作系统**=={yellow}=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的====={yellow}**={yellow}机器人软件框架**=={yellow}=={yellow}。==
 
 可以把ROS理解成机器人=={yellow}各个软件模块之间的“**通信基础设施**”==。
 
@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`==={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -129,7 +129,7 @@ ROS Topic
 
 ## 5. Protobuf是什么
 
-=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的====**={yellow}结构化数据定义**=={yellow}=={yellow}和==**=={yellow}二进制序列化==**=={yellow}框架===={yellow}。==
+=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的====={yellow}**={yellow}结构化数据定义**=={yellow}=={yellow}和====**={yellow}二进制序列化**=={yellow}=={yellow}框架===={yellow}。==
 
 > **序列化**：内存中的=={green}结构体 / 对象== → =={green}二进制字节==；
 > **反序列化**：二进制字节 → 还原内存结构体 / 对象。
@@ -204,7 +204,7 @@ message Object {
 
 这就引出了**=={pink}项目的第一个核心需求==**：
 
-> =={yellow}扩展ROS的==**=={yellow}类型识别==**=={yellow}和====**={yellow}序列化机制**=={yellow}=={yellow}，让ROS知道==**=={yellow}怎样识别、打包和还原Protobuf消息==**=={yellow}。==
+> =={yellow}扩展ROS的==**=={yellow}类型识别==**=={yellow}和====={yellow}**={yellow}序列化机制**=={yellow}=={yellow}，让ROS知道==**=={yellow}怎样识别、打包和还原Protobuf消息==**=={yellow}。==
 
 =={green}完成扩展后==，业务层不需要先把Protobuf转换成ROS Msg，而是可=={green}以直接使用原来的ROS接口==：
 
@@ -608,7 +608,7 @@ pub.publish(proto_msg_info);
 
 #### 3.1 基础概念
 
-C++模板用于描述一套可以处理多种类型的通用代码。
+C++模板用于描述一套可以处理多种s'j类型的通用代码。
 
 例如，可以先定义一个通用模板：
 

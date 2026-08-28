@@ -779,7 +779,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 ### =={pink}4.3 为什么要使用SFINAE==
 
-**SFINAE 的本质**：编译期做类型分支判断，在模板重载 / 偏特化层面实现「类型分发」，不用运行时判断，也不用虚函数多态。
+**=={yellow}SFINAE 的本质==**=={yellow}：编译期做类型分支判断，在模板重载 / 偏特化层面实现「类型分发」，不用运行时判断，也不用虚函数多态。==
 
 如果直接修改ROS公共逻辑，在运行时通过`if/else`判断消息类型，容易影响原生ROS Msg，而且需要引入额外的运行时分支。
 

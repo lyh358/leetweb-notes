@@ -176,7 +176,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
   - =={yellow}容器 3：运行 Monitor Agent，模拟机器人计算板 B==
   - =={yellow}容器 4：运行 Monitor Center 中心服务==
 
-> 一台物理机，启动多个 docker 容器，模拟多台 Linux 计算节点分布式场景，不需要多台真实机器做实验。
+> =={yellow}一台物理机，启动多个 docker 容器，模拟多台 Linux 计算节点分布式场景==，不需要多台真实机器做实验。
 
 1. Shell 脚本配合 docker，一键启动 / 关闭整套环境，不用手动敲一大堆命令。
 

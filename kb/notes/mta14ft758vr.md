@@ -751,7 +751,7 @@ struct IsMessage<T,typename enable_if<is_base_of_v<google::protobuf::Message, T>
 项目中的判断条件可以简化为：
 
 ```php
-std::is_base_of<oogle::protobuf::Message,T>::value
+std::is_base_of<google::protobuf::Message,T>::value
 ```
 
 它的含义是：

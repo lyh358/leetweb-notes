@@ -141,7 +141,7 @@ if(collector){
 3. **=={yellow}封装 Protobuf 消息==**：把原始数据打包成`NodeMetrics`protobuf 结构体。
 4. **=={yellow}gRPC 流式上报==**：建立一次长连接，持续不断发送监控数据，不需要每次上报都新建 RPC 请求。
 
-> ⚠️Agent**=={green}不做数据分析、不做告警判断==**；健康等级、告警阈值判断是交给中心 Monitor Center 完成。Agent 只负责采集 + 上报原始数据。
+> ⚠️Agent**=={green}不做数据分析、不做告警判断==**；健康等级、告警阈值判断是交给中心 Monitor =={yellow}Center 完成==。Agent 只负责采集 + 上报原始数据。
 
 ### =={pink}和 Monitor Center 的交互（gRPC 流式）==
 

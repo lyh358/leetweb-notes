@@ -880,7 +880,7 @@ pb_msgs/PublishInfo
 
 作用是让ROS在建立连接和调试时能够=={yellow}识别消息类型==。
 
-**结构说明：Definition**
+**=={pink}结构说明：==**=={pink}**Definition**==
 
 通过Protobuf反射接口获取Descriptor，再提取：
 

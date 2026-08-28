@@ -173,7 +173,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 3. =={green}可以启动多个容器模拟==**=={green}多计算节点==**=={green}场景：==
   - =={yellow}容器 1：运行 roscore + ROS 业务 talker/listener 测试节点==
   - =={yellow}容器 2：运行 Monitor Agent，模拟机器人计算板 A==
-  - 容器 3：运行 Monitor Agent，模拟机器人计算板 B
+  - =={yellow}容器 3：运行 Monitor Agent，模拟机器人计算板 B==
   - 容器 4：运行 Monitor Center 中心服务
 
 > 一台物理机，启动多个 docker 容器，模拟多台 Linux 计算节点分布式场景，不需要多台真实机器做实验。

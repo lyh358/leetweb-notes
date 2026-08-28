@@ -169,7 +169,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 ### =={pink}在项目中怎么用==
 
 1. =={yellow}编写==`Dockerfile`：=={green}**基础镜像**选用 **ubuntu20.04**==（对应 =={green}**ROS Noetic**==），=={green}**镜像内部安装** ROS‑Noetic、protoc、gRPC、Qt5、cmake 等**全部依赖**。==
-2. 构建 docker 镜像：把项目源码拷进容器。
+2. =={green}构建 docker 镜像：把项目源码拷进容器。==
 3. 可以启动多个容器模拟**多计算节点**场景：
   - 容器 1：运行 roscore + ROS 业务 talker/listener 测试节点
   - 容器 2：运行 Monitor Agent，模拟机器人计算板 A

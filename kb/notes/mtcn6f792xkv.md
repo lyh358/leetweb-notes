@@ -163,7 +163,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 ### 干什么的
 
 =={yellow}Docker 做==**=={yellow}环境隔离、打包运行环境==**。
-解决痛点：“在我电脑能跑，你的机器跑不起来”。
+=={green}解决痛点：“在我电脑能跑，你的机器跑不起来”==。
 把操作系统依赖、ROS Noetic、protobuf、gRPC、Qt 全部打包进镜像。不需要本机手动装一堆版本匹配的库。
 
 ### 在项目中怎么用

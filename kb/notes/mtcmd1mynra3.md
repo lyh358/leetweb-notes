@@ -308,7 +308,7 @@ A2采集得到的数据已经封装为`NodeMetrics`，gRPC可以直接使用这�
 
 整个监控系统采用Agent/Center结构。
 
-### 5.1 Monitor Agent
+### =={pink}5.1 Monitor Agent==
 
 Agent运行在每个被监控的Linux计算节点上，主要负责：
 

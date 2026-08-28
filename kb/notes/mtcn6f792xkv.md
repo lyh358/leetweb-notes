@@ -183,7 +183,7 @@ find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 ### =={pink}关键点==
 
 - =={yellow}Docker 只做**环境打包**、**模拟多节点测试**==；**业务代码本身不写在 docker 里面**。
-- =={yellow}解决库版本冲突问题：本机 gRPC、protobuf 版本和 ROS 要求版本不一致，容器内部环境统一。==
+- =={yellow}**解决库版本冲突**问题：本机 gRPC、protobuf 版本和 ROS 要求版本不一致，容器内部环境统一。==
 
 ### 面试口述
 

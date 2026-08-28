@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、==`MD5Sum`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}、=={yellow}`Definition`**=={yellow}**和**=={yellow}**`Serializer`**=={yellow}**等模板**增加了**Protobuf版本的偏特化。**==
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 
@@ -1093,7 +1093,7 @@ ROS Topic
 > **=={yellow}第二部分是Serialization扩展。我为Protobuf类型提供了专用的Serializer==**。发送时调用`SerializeToString()`将对象转换成二进制数据，写入4字节长度和消息体；接收时读取长度和数据，再调用`ParseFromString()`还原对象。
 > 
 > 
-> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和==`subscribe`===={yellow}={yellow}={yellow}={green}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
+> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和==`subscribe`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
 
 ## 10. 高频追问速答
 
@@ -1212,7 +1212,7 @@ ROS Topic
 
 `/proc/net/dev`提供的是各网卡从=={yellow}系统**启动以来累计接收和发送的字节数**，不是每秒速率==。
 
-因此，`NetworkCollector`保存**=={yellow}上一次的收发字节数===={yellow}**和==**===={yellow}={yellow}={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数==**=={yellow}。==
+因此，`NetworkCollector`保存**=={yellow}上一次的收发字节数===={yellow}**和==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数==**=={yellow}。==
 
 项目中会跳过`lo`回环接口，再对其他网卡的数据进行汇总。
 
@@ -1372,42 +1372,18 @@ std::vector<unique_ptr<IMetricCollector>>
 
 ## =={pink}8. 工厂模式在项目中怎样使用==
 
-如果Agent直接创建具体对象：
+> **普通写法**：使用者自己 `new CpuCollector()` →使用者要知道类名、头文件、构造细节。
+> 
+> 
+> **工厂模式**：使用者告诉工厂 “我要 cpu 采集器”，工厂帮你 new 出来返回接口基类指针。使用者完全不用碰子类。
 
-```scss
-new CpuCollector();
-new MemoryCollector();
-new NetworkCollector();
-```
+项目里：`CollectorFactory`
+采集器有一堆子类：
+`CpuCollector`、`MemoryCollector`、`NetworkCollector`、`IrqLoadCollector`，全部继承抽象基类 `IMetricCollector`。
 
-Agent就会依赖所有具体采集器。每增加一个新采集器，都要修改Agent代码。
+### 
 
-因此，项目设计了`CollectorFactory`。工厂内部维护“采集器名称—创建函数”的映射关系：
-
-```bash
-"cpu"       → 创建CpuCollector
-"memory"    → 创建MemoryCollector
-"network"   → 创建NetworkCollector
-"irq_load"  → 创建IrqLoadCollector
-```
-
-Agent只需要根据名称创建：
-
-```cpp
-auto collector =
-    CollectorFactory::Instance().Create("cpu");
-```
-
-它不需要了解`CpuCollector`的构造细节。
-
-新增磁盘采集器时，基本流程是：
-
-1. 编写`DiskCollector`并继承`IMetricCollector`；
-2. 实现`Collect()`；
-3. 将`"disk"`及其创建函数注册到工厂；
-4. Agent通过名称创建并加入采集器列表。
-
-Agent的采集主流程不需要修改。
+### 
 
 ### 面试速答
 

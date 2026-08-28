@@ -74,7 +74,7 @@ DEM记录事件状态
 
 - =={yellow}入口**电流电压**；==
 - =={yellow}**ADC**采样；==
-- =={yellow}温度；==
+- =={yellow}**温度**；==
 - =={yellow}Rx Start Signal；==
 - =={yellow}芯片通信状态。==
 

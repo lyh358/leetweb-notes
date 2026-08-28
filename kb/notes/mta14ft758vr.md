@@ -846,7 +846,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 | `IsMessage` | 这是不是一条合法的ROS消息 |
 | `DataType` | 这条消息的类型名称是什么 |
 | `MD5Sum` | 通信双方使用的消息结构是否一致 |
-| `Definition` | 消息的结构定义是什么 |
+| `Definition` | 消息的**结构定义**是什么 |
 | `HasHeader` | 是否包含ROS标准Header |
 | `IsFixedSize` | 序列化长度是否固定 |
 

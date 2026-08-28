@@ -837,7 +837,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 =={yellow}Traits可以理解为一个类型的“**编译期档案**”。==
 
-=={green}ROS拿到一个C++类型后，**不会**通过大量运行时判断来分析它，而是查询对应的Traits，了解这个类型具有什么性质。==
+=={green}ROS拿到一个C++类型后，**不会**通过大量**运行时判断**来分析它，而是查询对应的Traits，了解这个类型具有什么性质。==
 
 例如：
 

@@ -151,7 +151,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 在整体分工上：
 
-- **Core0**主要运行模式控制、诊断、通信、参数管理以及大部分BSW和CDD；
+- **=={yellow}Core0==**=={yellow}主要运行模式控制、诊断、通信、参数管理以及大部分BSW和CDD==；
 - **Core1**主要承担点云相关的实时处理；
 - 周期任务主要由RTE Schedule Table按照1ms、5ms、10ms、100ms等周期调度；
 - QM和Trusted分区之间通过IOC等机制通信；

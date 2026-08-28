@@ -1437,6 +1437,24 @@ Agent的采集主流程不需要修改。
 
 ## 10. 完整采集流程
 
+```
+Monitor Agent程序启动
+    ↓
+调用CollectorFactory工厂，创建CPU/内存/网络等采集器（unique_ptr管理，存入vector容器）
+    ↓
+开启循环，按采样周期周期性工作
+    ↓
+遍历全部采集器，多态调用Collect()
+    ↓
+读取本机/proc虚拟文件系统，计算CPU使用率、内存、网络速率等指标
+    ↓
+把采集结果填充进Protobuf消息 `NodeMetrics`，打上本节点node_id、时间戳
+    ↓
+通过gRPC客户端流ReportMetrics，持续把NodeMetrics上报给Monitor Center
+    ↓
+睡眠，等待下一个采样周期，循环往复
+```
+
 ---
 
 ## 11. A2口语化回答

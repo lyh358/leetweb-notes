@@ -906,6 +906,8 @@ proto_md5
 
 =={yellow}项目将其设置为==`FalseType`，表示通用Protobuf消息不默认包含ROS标准的`std_msgs::Header`。
 
+序列化长度：IsFixedSize
+
 项目将其设置为`FalseType`。因为Protobuf消息中可能包含字符串、数组等变长字段，序列化后的长度不是固定值。
 
 ### 5.3 Traits在链路中的位置

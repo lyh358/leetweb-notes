@@ -1031,7 +1031,7 @@ t.ParseFromString(pb_str);
 
 原因是：
 
-- `SerializeToString()`已经负责字段编号和具体编码；
+- `SerializeToString()`=={yellow}已经负责字段编号和具体编码；==
 - `ParseFromString()`已经负责字段解析和对象恢复；
 - 自己实现容易产生协议兼容和边界处理问题；
 - 项目的重点是ROS与Protobuf的适配，而不是重新设计序列化协议。

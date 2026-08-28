@@ -1023,6 +1023,8 @@ t.ParseFromString(pb_str);
 
 =={green}恢复完成后，订阅回调拿到的就是原始Protobuf消息对象==，可以直接访问其中的字段或调用`DebugString()`。
 
+### 
+
 ### 6.3 为什么不自己实现Protobuf编码
 
 项目只负责把Protobuf序列化能力接入ROS，不重新实现Protobuf的Wire Format。

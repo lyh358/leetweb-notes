@@ -46,7 +46,7 @@ rpc Configure(ConfigRequest)
 | 接口 | 通信形式 | 使用原因 |
 | --- | --- | --- |
 | `ReportMetrics` | =={yellow}客户端流== | =={yellow}Agent持续上报==多条指标 |
-| `SubscribeMetrics` | =={yellow}服务端流== | Center持续向监控端推送指标 |
+| `SubscribeMetrics` | =={yellow}服务端流== | =={yellow}Center持续==向监控端推送指标 |
 | `Configure` | =={yellow}普通请求响应== | 一次发送配置，一次返回结果 |
 
 记忆方式可以压缩为：

@@ -120,7 +120,7 @@ RTE位于=={green}**应用软件**和**底层模块之间**==，负责=={green}*
 
 ### =={pink}BSW==
 
-BSW提供AUTOSAR通用基础服务，例如：
+BSW提供=={yellow}**AUTOSAR通用基础服务**==，例如：
 
 - RTA-OS任务调度；
 - DCM诊断通信；

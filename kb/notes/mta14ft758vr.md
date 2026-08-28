@@ -640,7 +640,7 @@ struct TypeInfo<int> {
 
 =={yellow}不是只针对一个具体类型，而是**针对满足某种形式或条件的一类类型**。==
 
-=={yellow}这个项目**面对的不是某一个固定的Protobuf消息**，**而是所有继承自**==`google::protobuf::Message`=={yellow}**的类型**，因此更适合使用模板偏特化。==
+=={yellow}这个项目**面对的不是某一个固定的Protobuf消息**，**而是所有继承自**==`google::protobuf::Message`=={yellow}**的类型**，因此**更适合使用模板偏特化**。==
 
 ### 3.2 在项目中的作用
 

@@ -147,7 +147,7 @@ if(collector){
 
 1. Agent 端（客户端）：调用`ReportMetrics(stream NodeMetrics)` **客户端流 RPC**
 
-- 建立一次 gRPC 连接，循环不断往流里面写监控消息；
+- =={yellow}建立一次 gRPC 连接，循环不断往流里面写监控消息==；
 - 一个节点只需要一条长流，周期性源源不断吐出本机指标。
 
 1. Center 端（服务端）接收各个 Agent 流过来的数据，根据`node_id`区分不同机器，存入 map 做缓存，判断健康状态。

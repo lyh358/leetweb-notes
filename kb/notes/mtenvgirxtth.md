@@ -308,7 +308,7 @@ flowchart TD
 DiagFpgaPara1GetKeyInfo()
 ```
 
-=={yellow}算法层输出8字节：==
+=={yellow}**算法层输出8字节**：==
 
 ```kotlin
 Byte 0～3：storageCrc

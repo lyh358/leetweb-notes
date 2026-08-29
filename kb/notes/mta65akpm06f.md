@@ -686,7 +686,7 @@ UDS是否能够读取DTC
 
 ## 1. S：背景与问题
 
-激光雷达的=={yellow}Flash中不仅存放MCU程序==，还保存：
+激光雷达的=={yellow}**Flash中不仅存放MCU程序**==，还保存：
 
 - FPGA Bitstream；
 - FPGA程序参数；

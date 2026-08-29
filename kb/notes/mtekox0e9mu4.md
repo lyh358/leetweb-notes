@@ -306,6 +306,291 @@ CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `Diag
 
 可以把它们理解成：**诊断项表决定“怎么运行”，事件表决定“怎么报故障”，任务表决定“运行哪段代码”。**
 
+## 1. `g_diagItemTableCfg`：诊断项配置表
+
+### 它是什么
+
+一行代表一个完整的诊断功能，例如：
+
+- 入口电压诊断；
+- Rx Start Signal诊断；
+- Flash CRC自检；
+- FPGA参数CRC自检。
+
+典型字段包括：
+
+```
+{
+    DIAGID_RX_START_SIGNAL,     // 诊断项ID
+    0x4900,                     // 诊断编号
+    DIAG_PERIOD_5MS,            // 运行周期
+    TRUE,                       // 是否启用
+    IR_STANDBY_MODE |
+    IR_PWRIN_VOLT_L2            // 抑制条件
+}
+```
+
+### 负责什么
+
+它回答四个问题：
+
+- 这个诊断项是否存在？
+- 是否启用？
+- 多久执行一次？
+- 什么工况下禁止执行？
+
+因此，它主要描述诊断功能的**调度属性和运行条件**。
+
+### 谁使用
+
+主要由诊断框架和抑制模块使用：
+
+- `DiagCfgTableInit()`：上电检查和加载配置；
+- `DiagGetDiagItemPeriod()`：查询运行周期；
+- `DiagInhiGetDiagItemState()`：检查当前是否被抑制；
+- `DiagPeriodTask()`：判断这一周期是否应该执行该诊断。
+
+### 怎么用
+
+每次5 ms诊断任务运行时，框架会查表：
+
+```
+if (诊断项已启用 &&
+    当前没有被抑制 &&
+    配置周期等于5ms)
+{
+    执行对应诊断任务;
+}
+```
+
+它相当于诊断功能的**运行许可证**。
+
+---
+
+## 2. `g_eventTableCfg`：故障事件配置表
+
+### 它是什么
+
+一行代表一个可以向DEM上报的故障事件。
+
+一个诊断项可以包含一个或多个故障事件。例如，某个电压诊断项下面可能同时包含：
+
+- 欠压事件；
+- 过压事件；
+- 信号无效事件。
+
+典型字段包括：
+
+```
+{
+    EVTID_RX_START_SIGNAL_FAULT, // 故障事件ID
+    DIAGID_RX_START_SIGNAL,      // 归属的诊断项
+    FTL_LEVEL,                   // 故障等级
+    FAIL_DEBOUNCE_COUNT,         // Fail防抖
+    PASS_DEBOUNCE_COUNT          // Pass防抖
+}
+```
+
+### 负责什么
+
+它回答：
+
+- 这个故障事件属于哪个诊断项？
+- 故障严重程度是多少？
+- 连续失败多少次才确认故障？
+- 连续通过多少次才恢复？
+- 故障确认后如何交给DEM处理？
+
+它描述的是诊断结果的**故障管理规则**。
+
+### 谁使用
+
+主要由诊断事件处理模块和DEM接口使用：
+
+- `DiagCfgTableInit()`：初始化事件运行状态；
+- `DiagSendResultToDem()`：根据事件ID查配置；
+- debounce模块：进行Fail/Pass防抖；
+- DEM：存储DTC状态、冻结帧和故障记录；
+- UDP故障外发、UDS读DTC等模块：读取最终故障状态。
+
+### 怎么用
+
+业务代码一般只负责给出一个原始判断：
+
+```
+DiagSendResultToDem(
+    EVTID_RX_START_SIGNAL_FAULT,
+    isFailed
+);
+```
+
+之后框架根据 `g_eventTableCfg` 自动完成：
+
+```
+原始Pass/Fail
+    ↓
+查事件配置
+    ↓
+执行Fail/Pass防抖
+    ↓
+更新事件状态
+    ↓
+上报DEM
+    ↓
+生成DTC、冻结帧或故障消息
+```
+
+因此业务模块不需要自己重复实现故障等级、防抖和DEM管理。
+
+---
+
+## 3. `g_diagTaskTable`：诊断任务绑定表
+
+### 它是什么
+
+这张表把一个抽象的诊断ID与实际C函数绑定起来。
+
+例如：
+
+```
+{
+    DIAGID_RX_START_SIGNAL,
+    DiagRxStartSignalInit,
+    DiagRxStartSignalMainTask,
+    DiagRxStartSignalGetKeyInfo
+}
+```
+
+通常包含：
+
+- 诊断项ID；
+- 初始化函数；
+- 周期主任务函数；
+- 关键数据或冻结帧获取函数。
+
+### 负责什么
+
+它回答：
+
+- 这个诊断功能初始化时调用哪个函数？
+- 周期执行时调用哪个函数？
+- 出现故障时从哪里获取关键数据？
+
+它相当于诊断框架与具体业务代码之间的**函数路由表**。
+
+### 谁使用
+
+主要由调度框架使用：
+
+- `DiagSelftestInit()`：调用上电自检类诊断的Init函数；
+- `DiagSelftestTask()`：调用上电自检主任务；
+- `DiagPeriodTask()`：调用周期诊断主任务；
+- 故障记录模块：调用 `GetKeyInfo()` 获取冻结帧或关键数据。
+
+### 怎么用
+
+框架遍历任务表，通过函数指针调用业务代码：
+
+```
+for (i = 0; i < g_diagTaskNum; i++)
+{
+    if (周期匹配 && 诊断项未被抑制)
+    {
+        g_diagTaskTable[i].taskFunc();
+    }
+}
+```
+
+这样新增诊断功能时，只需要增加配置和实现函数，不必在统一调度框架里写大量：
+
+```
+if (diagId == ...)
+{
+    ...
+}
+else if (...)
+{
+    ...
+}
+```
+
+---
+
+## 三张表怎么关联
+
+它们通过 `diagId` 和 `eventId`串起来：
+
+```
+g_diagItemTableCfg
+诊断项ID、周期、使能、抑制
+          │
+          │ diagId
+          ▼
+g_diagTaskTable
+Init、MainTask、GetKeyInfo函数
+          │
+          │ 业务代码产生Pass/Fail
+          ▼
+g_eventTableCfg
+事件ID、所属诊断项、故障等级、防抖
+          │
+          ▼
+        DEM/DTC
+```
+
+以Rx Start Signal为例：
+
+```
+诊断项表
+规定每5ms执行、待机或入口电压异常时抑制
+        ↓
+任务表
+找到DiagRxStartSignalMainTask函数
+        ↓
+业务代码
+读取FPGA状态并判断Pass/Fail
+        ↓
+事件表
+按照故障等级和防抖规则处理
+        ↓
+DEM
+记录或清除对应DTC
+```
+
+---
+
+## 谁配置、谁生成、谁使用
+
+从人员和软件两个角度看：
+
+| 阶段 | 使用者 | 做什么 |
+| --- | --- | --- |
+| 需求定义 | 系统/诊断工程师 | 确定诊断ID、事件ID、故障等级、防抖及抑制条件 |
+| 功能开发 | MCU软件工程师 | 实现Init、MainTask和GetKeyInfo等业务函数 |
+| 配置维护 | 项目软件工程师 | 在 `CATALOG.csv`及对应诊断CSV中增加配置 |
+| 代码生成 | 自动生成脚本 | `diag_configAutoGen.py`读取CSV，生成 `diag_cfg.c`三张表 |
+| 编译阶段 | 编译器/链接器 | 把三张静态配置表编译进固件 |
+| 上电阶段 | `DiagCfgTableInit()` | 检查配置并初始化运行状态 |
+| 运行阶段 | 调度、抑制、事件和DEM模块 | 查表调度任务、处理防抖并管理DTC |
+
+完整链路是：
+
+```
+诊断需求
+  → 修改CSV
+  → 运行update_diag_config.bat
+  → diag_configAutoGen.py生成diag_cfg.c
+  → 编译进ECU固件
+  → DiagInit上电加载
+  → 周期任务按表调度
+  → 业务判断
+  → 按事件表上报DEM
+```
+
+## 面试简答口径
+
+> 配置层主要有三张表。第一张是诊断项表，配置诊断ID、执行周期、使能状态和抑制条件，决定一个诊断什么时候能运行；第二张是故障事件表，配置事件归属、故障等级和Fail/Pass防抖，决定诊断结果如何转换成DEM事件；第三张是任务绑定表，通过函数指针把诊断ID与Init、MainTask和GetKeyInfo函数绑定，决定框架实际调用哪段业务代码。三张表由CSV经过脚本自动生成到 `diag_cfg.c`，上电时由诊断框架初始化，运行时由调度、抑制和DEM模块共同查表使用。
+
 ## 六、关键时序与流程图说明
 
 ### 6.1 上电完整UML时序

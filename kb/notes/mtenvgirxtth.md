@@ -295,51 +295,12 @@ flowchart TD
 
 > 核心判定函数采用“故障注入优先，真实数据判定兜底”的策略。函数先查询工站注入结果，如果是强制Fail或Pass，就直接将对应结果上报DEM并提前返回；没有注入时，再检查storageCrc和calcCrc是否有效，0和0xFFFFFFFF被视为无效值，无效时不报CRC故障。只有两个CRC都有效时才进行一致性比较，不一致上报Fail，一致上报Pass。这样既能支持产线完整诊断链路验收，也能避免CRC读取异常造成误报。
 
-```c
-static DiagRetCode DiagFpgaPara1GetCrcDiagResult(void)
-{
-    DiagRetCode ret = RET_DIAG_NORMAL;
-    boolean errFlag = FALSE;
-    // 读取产线故障注入指令
-    StInjectRes injectRes = FaultInjectSelftestGetCmdResult(DIAGID_FPGA_PARA1);
-
-    // 优先级1：注入强制故障，跳过真实CRC比对
-    if (injectRes == ST_INJECT_RES_FAIL)
-    {
-        ret |= DiagSendResultToDem(EVTID_FPGA_PARA1_FAULT, TRUE);
-        return ret;
-    }
-    // 优先级2：注入强制正常，跳过真实CRC比对
-    if (injectRes == ST_INJECT_RES_PASS)
-    {
-        ret |= DiagSendResultToDem(EVTID_FPGA_PARA1_FAULT, FALSE);
-        return ret;
-    }
-
-    // 优先级3：无注入，执行真实CRC一致性判断
-    // 任意CRC为0/0xFFFFFFFF，视为无效，不报故障
-    if ((s_fpgaPara1CrcInfo.storageCrc == DIAG_FPGAPARA1_CRC_DEFAULT_VALUE || s_fpgaPara1CrcInfo.storageCrc == 0U)
-        || (s_fpgaPara1CrcInfo.calcCrc == DIAG_FPGAPARA1_CRC_DEFAULT_VALUE || s_fpgaPara1CrcInfo.calcCrc == 0U))
-    {
-        errFlag = FALSE;
-    }
-    else
-    {
-        // 双CRC均有效，不一致则故障
-        errFlag = (boolean)(s_fpgaPara1CrcInfo.storageCrc != s_fpgaPara1CrcInfo.calcCrc);
-    }
-    // 上报故障状态至DEM事件管理
-    ret |= DiagSendResultToDem(EVTID_FPGA_PARA1_FAULT, errFlag);
-    return ret;
-}
-```
-
-**判定优先级**：故障注入FAIL > 故障注入PASS > 原生CRC一致性比对
-**容错规则**：CRC读取失败填充哨兵值时，强制无故障，规避误报。
+**=={yellow}判定优先级==**：故障注入FAIL > 故障注入PASS > 原生CRC一致性比对
+**=={yellow}容错规则==**：CRC读取失败填充哨兵值时，强制无故障，规避误报。
 
 ---
 
-### 2.7 KeyInfo冻结帧快照接口
+### =={pink}2.7 KeyInfo冻结帧快照接口==
 
 如果DEM需要记录关键数据，就调用：
 
@@ -347,7 +308,7 @@ static DiagRetCode DiagFpgaPara1GetCrcDiagResult(void)
 DiagFpgaPara1GetKeyInfo()
 ```
 
-算法层输出8字节：
+=={yellow}算法层输出8字节：==
 
 ```kotlin
 Byte 0～3：storageCrc

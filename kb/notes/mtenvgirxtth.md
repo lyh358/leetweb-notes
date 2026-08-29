@@ -484,7 +484,7 @@ PTC写入RAM
 
 ### 方案二：NVM Flash持久化
 
-最终方案是把上电自检注入信息写入NVM：
+=={yellow}最终方案是把上电自检注入信息写入NVM：==
 
 ```markdown
 PTC 0x4F写入注入配置

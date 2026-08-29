@@ -2,7 +2,7 @@
 
 ### 1. 功能标识
 
-- 诊断ID：`DIAGID_FPGA_PARA1 = 0x1E00`
+- =={yellow}诊断ID==：`DIAGID_FPGA_PARA1 = 0x1E00`
 - 故障事件ID：`EVTID_FPGA_PARA1_FAULT = 0x1E01-` 0x1E06
 - 功能全称：Program Parameters CRC Diagnosis（FPGA参数上电CRC完整性自检）
 - 执行周期：`DIAG_PERIOD_ST`，**整机上电仅执行一次**，属于上电自检类诊断

@@ -91,7 +91,7 @@ s_fpgaPara1CrcMainStatus =
     DIAG_FPGAPARA1_WAIT_PERIPARA_LOADED;
 ```
 
-之后，`DiagSelftestTask`每5ms调用一次主函数。
+之后，`DiagSelftestTask`=={green}每5ms调用一次主函数==。
 
 算法层查询：
 

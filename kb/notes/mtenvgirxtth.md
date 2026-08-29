@@ -302,7 +302,7 @@ flowchart TD
 
 ### =={pink}2.7 KeyInfo冻结帧快照接口==
 
-=={yellow}如果DEM需要记录关键数据，就调用==：
+=={yellow}如果DEM需要记录关键数据，就**调用**==：
 
 ```scss
 DiagFpgaPara1GetKeyInfo()

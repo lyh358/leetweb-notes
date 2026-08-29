@@ -433,7 +433,7 @@ DiagSendResultToDem(
 
 ---
 
-#### 3. g_diagTaskTable：诊断任务绑定表
+#### =={pink}3. g_diagTaskTable===={pink}：诊断任务绑定表==
 
 ##### 它是什么
 

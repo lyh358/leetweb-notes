@@ -105,7 +105,7 @@ CddPeriPara_GetStatus()
 RET_DIAG_UNFINISHED
 ```
 
-=={green}**诊断框架会在下一个5ms周期继续调用**，不阻塞OS任务==。
+=={green}**诊断框架会在下一个5ms周期继续调用**，**不阻塞OS任务**==。
 
 如果状态已经达到 `LOADED`，就读取双CRC快照：
 

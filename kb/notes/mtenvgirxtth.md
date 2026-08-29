@@ -393,7 +393,7 @@ flowchart TD
 4. **=={green}状态接口==** `CddPeriPara_GetStatus()`
 
 - `CDD_PERIPARA_STATE_LOADING`：**加载中**
-- `CDD_PERIPARA_STATE_LOADED`：加载完成（成功/损坏）
+- `CDD_PERIPARA_STATE_LOADED`：**加载完成**（成功/损坏）
 - `CDD_PERIPARA_STATE_LOADED_FAIL`：加载失败
 
 1. 配套读取API

@@ -337,7 +337,7 @@ CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `Diag
 - `DiagInhiGetDiagItemState()`：检查当前是否被抑制；
 - `DiagPeriodTask()`：判断这一周期是否应该执行该诊断。
 
-### 怎么用
+##### 怎么用
 
 每次5 ms诊断任务运行时，框架会查表：
 

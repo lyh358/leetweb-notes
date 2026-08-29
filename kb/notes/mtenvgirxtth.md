@@ -202,8 +202,8 @@ else
 | --- | --- | --- |
 | 有效 | 相同且有效 | =={yellow}Pass== |
 | 有效 | 不同且有效 | =={yellow}Fail== |
-| `0`或`0xFFFFFFFF` | 任意值 | 不报CRC故障 |
-| 任意值 | `0`或`0xFFFFFFFF` | 不报CRC故障 |
+| `0`或`0xFFFFFFFF` | 任意值 | =={yellow}不报CRC故障== |
+| 任意值 | `0`或`0xFFFFFFFF` | =={yellow}不报CRC故障== |
 
 这里要注意：
 

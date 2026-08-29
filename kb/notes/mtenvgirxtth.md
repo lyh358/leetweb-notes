@@ -248,12 +248,6 @@ DIAG_FPGAPARA1_DONE
 
 =={yellow}此后不再重复校验==，符合“每次上电仅自检一次”的需求。
 
----
-
-```markdown
-
-```
-
 算法层只提供原始Pass/Fail，后续由诊断框架负责：
 
 - Fail/Pass防抖；

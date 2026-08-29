@@ -62,7 +62,7 @@ DiagRetCode DiagFpgaPara1Init(void)
 }
 ```
 
-**=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，重置缓存与状态机。==
+**=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，**重置缓存**与状态机。==
 
 ### 2.3 主状态机任务 DiagFpgaPara1MainTask
 

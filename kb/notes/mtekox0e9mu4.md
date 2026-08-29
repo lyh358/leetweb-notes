@@ -298,7 +298,7 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 
 CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `DiagInit`初始化加载
 
-### 5.4 配置表
+### 5.4 静态配置表
 
 ## 六、关键时序与流程图说明
 

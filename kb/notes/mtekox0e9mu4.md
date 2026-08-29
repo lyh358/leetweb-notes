@@ -11,7 +11,7 @@
 
 ### 核心目标
 
-外设参数（Para1）从Flash加载完成后，对比**Flash原始存储CRC (storage Crc)** 和**加载实时计算CRC (calc Crc)**；二者不一致则上报DEM故障，标识参数被篡改/加载损坏；同时支持产线故障注入校验、故障快照冻结帧输出。
+=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和==**=={green}加载实时计算CRC (calc Crc)==**=={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
 
 ### =={pink}整体五层软件分层架构==
 
@@ -19,9 +19,9 @@
 | --- | --- | --- | --- |
 | =={yellow}**配置层**== | **规则定义**者 | CSV配置故障ID、等级、防抖、函数绑定；自动生成`diag_cfg.c`三表 | 项目必配，不可裁剪 |
 | =={yellow}**调度层**== | **平台调度**器 | 上电自检周期调度、DEM事件上报、故障生命周期管理 | 平台通用，不可裁剪 |
-| =={yellow}**算法层**== | Feature核心逻辑 | 三态状态机、CRC比对判定、故障注入旁路、KeyInfo快照输出 | 静态代码，跨项目可复用 |
-| =={yellow}**数据源层**== | 数据提供底层CDD | Flash参数加载、实时CRC计算、双CRC读取接口、加载状态查询 | CDD基础组件，Feature强依赖 |
-| =={yellow}**工站层**== | 产验收闭环链路 | PTC命令故障注入/整机复位/故障查询、NVM注入参数持久化 | 仅Factory量产固件，Release可裁剪 |
+| =={yellow}**算法层**== | Feature**核心逻辑** | 三态状态机、CRC比对判定、故障注入旁路、KeyInfo快照输出 | 静态代码，跨项目可复用 |
+| =={yellow}**数据源层**== | **数据提供**，底层CDD | Flash参数加载、实时CRC计算、双CRC读取接口、加载状态查询 | CDD基础组件，Feature强依赖 |
+| =={yellow}**工站层**== | 产**验收闭环**链路 | PTC命令故障注入/整机复位/故障查询、NVM注入参数持久化 | 仅Factory量产固件，Release可裁剪 |
 
 ## 二、算法层核心代码：diag_fpgapara1.c
 
@@ -280,8 +280,6 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 | `mode_ctl_user.c` | 复位前NVM全部写入、整机掉电复位调度 |
 
 ## 五、配置层：CSV自动生成流程
-
-![image](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893435173-2142b3af-7b04-4adc-8a69-18a230fc07e4.png)
 
 ### 5.1 配置输入文件
 

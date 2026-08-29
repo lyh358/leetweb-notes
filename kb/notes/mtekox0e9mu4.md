@@ -388,13 +388,13 @@ if (诊断项已启用 && 当前没有被抑制 && 配置周期等于5ms)
 - =={yellow}故障严重程度==是多少？
 - =={yellow}**连续失败多少次**才**确认**故障==？
 - =={yellow}**连续通过多少次**才**恢复**==？
-- 故障确认后如何交给DEM处理？
+- =={yellow}故障**确认后如何交给DEM处理**？==
 
-它描述的是诊断结果的**故障管理规则**。
+它描述的是=={yellow}诊断结果的==**=={yellow}故障管理规则==**=={yellow}。==
 
 ##### =={green}谁使用==
 
-主要由诊断事件处理模块和DEM接口使用：
+主要由**=={yellow}诊断事件处理模块==**=={yellow}和==**=={yellow}DEM接口==**使用：
 
 - `DiagCfgTableInit()`：初始化事件运行状态；
 - `DiagSendResultToDem()`：根据事件ID查配置；
@@ -404,7 +404,7 @@ if (诊断项已启用 && 当前没有被抑制 && 配置周期等于5ms)
 
 ##### =={green}怎么用==
 
-业务代码一般只负责给出一个原始判断：
+=={yellow}**业务代码**一般**只负责给出一个原始判断**：==
 
 ```scss
 DiagSendResultToDem(
@@ -413,7 +413,7 @@ DiagSendResultToDem(
 );
 ```
 
-之后框架根据 `g_eventTableCfg` 自动完成：
+之后框架根据 g_eventTableCfg 自动完成：
 
 ```markdown
 原始Pass/Fail

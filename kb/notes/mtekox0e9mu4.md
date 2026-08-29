@@ -413,14 +413,14 @@ DiagSendResultToDem(
 );
 ```
 
-之后框架根据 g_eventTableCfg 自动完成：
+之后=={yellow}**框架根据 g_eventTableCfg**== =={yellow}自动完成==：
 
 ```markdown
 原始Pass/Fail
     ↓
-查事件配置
+查故障事件配置
     ↓
-执行Fail/Pass防抖
+执行防抖/恢复
     ↓
 更新事件状态
     ↓

@@ -226,7 +226,7 @@ DiagSendResultToDem(
 
 **=={yellow}算法层只提供原始Pass/Fail==**，=={yellow}后续由诊断框架负责==：
 
-- Fail/Pass防抖；
+- Fail/Pass**防抖**；
 - 故障等级处理；
 - DEM事件状态更新；
 - DTC记录与清除；

@@ -35,19 +35,19 @@
 
 1. =={yellow}参数是否加载完成；==
 2. =={yellow}Flash参数**头部保存的CRC**== `storageCrc`=={yellow}；==
-3. =={yellow}参数加载过程**中实时计算的**== `calcCrc`=={yellow}。==
+3. =={yellow}参数加载过程**中实时计算的CRC**== `calcCrc`=={yellow}。==
 
 #### =={green}输出==
 
-算法层最终产生：
+**算法层最终产生**：
 
-- CRC诊断Pass或Fail；
-- DEM事件 `EVTID_FPGA_PARA1_FAULT`；
-- 8字节故障快照：
-  - 前4字节：`storageCrc`
-  - 后4字节：`calcCrc`
+- =={yellow}**CRC诊断Pass或Fail**；==
+- =={yellow}**DEM事件**== `EVTID_FPGA_PARA1_FAULT`；
+- =={yellow}**8字节故障快照**==：
+  - =={yellow}前4字节==：`storageCrc`
+  - =={yellow}后4字节==：`calcCrc`
 
-### 2.2 初始化函数 DiagFpgaPara1Init
+### =={pink}2.2 初始化函数 DiagFpgaPara1Init==
 
 ```c
 DiagRetCode DiagFpgaPara1Init(void)
@@ -62,7 +62,7 @@ DiagRetCode DiagFpgaPara1Init(void)
 }
 ```
 
-**作用**：上电自检框架启动时仅调用一次，重置缓存与状态机。
+**=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，重置缓存与状态机。==
 
 ### 2.3 主状态机任务 DiagFpgaPara1MainTask
 

@@ -120,7 +120,7 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 ---
 
-#### 2. CRC_RUN：执行核心判定
+#### =={pink}2. CRC_RUN：执行核心判定==
 
 判定分成三层优先级。
 

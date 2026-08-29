@@ -5,7 +5,7 @@
 ### 1. 功能标识
 
 - =={yellow}**诊断项ID**==：`DIAGID_FPGA_PARA1 = 0x1E00`
-- =={yellow}**故障事件ID**==：`EVTID_FPGA_PARA1_FAULT = 0x1E01-` 0x1E06
+- =={yellow}**故障事件ID**==：`EVTID_FPGA_PARA1_FAULT = 0x1E01-` `0x1E06`
 - 功能全称：Program Parameters CRC Diagnosis（FPGA参数上电CRC完整性自检）
 - =={yellow}**执行周期**==：`DIAG_PERIOD_ST`，**=={yellow}整机上电仅执行一次==**，属于上电自检类诊断
 - =={yellow}**故障等级**：FTL7==（Output_Untrusted，=={yellow}点云数据不可信==）
@@ -13,7 +13,7 @@
 
 ### 核心目标
 
-=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和===={green}**加载实时计算CRC (calc Crc)**===={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
+=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和===={green}**加载实时计算CRC (calc Crc)**=={yellow}=={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
 
 ### =={pink}整体五层软件分层架构==
 

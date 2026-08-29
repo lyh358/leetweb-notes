@@ -224,7 +224,7 @@ DiagSendResultToDem(
 );
 ```
 
-=={yellow}后面的防抖、故障等级和DTC管理不由算法层处理，而是**交给诊断框架**：==
+=={yellow}后面的**防抖、故障等级和DTC管理**不由算法层处理，而是**交给诊断框架**：==
 
 ```markdown
 算法层产生原始Pass/Fail

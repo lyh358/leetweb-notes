@@ -13,7 +13,7 @@
 
 ### 核心目标
 
-=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和====={green}**={green}加载实时计算CRC (calc Crc)**===={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
+=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和===={green}**加载实时计算CRC (calc Crc)**===={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
 
 ### =={pink}整体五层软件分层架构==
 

@@ -93,7 +93,7 @@ s_fpgaPara1CrcMainStatus =
 
 =={green}之后==，`DiagSelftestTask`=={green}**每5ms调用一次主函数**==。
 
-算法层查询：
+=={green}算法层查询：==
 
 ```scss
 CddPeriPara_GetStatus()

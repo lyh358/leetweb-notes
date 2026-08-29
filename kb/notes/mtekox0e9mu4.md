@@ -285,7 +285,7 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 
 ### =={pink}5.1 配置输入文件==
 
-=={pink}开发者需要手动维护两个CSV表格==
+=={pink}开发者需要手动维护两个CSV表格，分别是==
 
 - `CATALOG.csv`：全局故障等级、防抖、抑制参数
 - `0x1E.csv`：本诊断专属注入阈值、FHTI时长、故障码映射

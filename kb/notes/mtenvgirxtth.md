@@ -224,7 +224,7 @@ DiagSendResultToDem(
 );
 ```
 
-**=={yellow}算法层只提供原始Pass/Fail==**，后续由诊断框架负责：
+**=={yellow}算法层只提供原始Pass/Fail==**，=={yellow}后续由诊断框架负责==：
 
 - Fail/Pass防抖；
 - 故障等级处理；

@@ -582,8 +582,6 @@ DEM
 
 ### 6.1 上电完整UML时序
 
-![image](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893428915-9cb14e59-99e3-412a-95b1-2dc1ab8eabba.png)
-
 1. `DiagInit`调用`DiagFpgaPara1Init`重置状态机至WAIT
 2. 每5ms `DiagSelftestTask`调度`DiagFpgaPara1MainTask`
 3. 状态WAIT：轮询CDD加载状态，未就绪返回UNFINISHED

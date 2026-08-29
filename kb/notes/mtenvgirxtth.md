@@ -99,7 +99,7 @@ s_fpgaPara1CrcMainStatus =
 CddPeriPara_GetStatus()
 ```
 
-如果参数仍在异步加载，就返回：
+=={green}如果参数仍在异步加载，就返回：==
 
 ```undefined
 RET_DIAG_UNFINISHED

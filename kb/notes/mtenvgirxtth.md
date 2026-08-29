@@ -228,7 +228,7 @@ DiagSendResultToDem(
 
 - Fail/Pass**防抖**；
 - **故障等级处理**；
-- DEM事件状态更新；
+- **DEM**事件状态更新；
 - DTC记录与清除；
 - 冻结帧保存。
 

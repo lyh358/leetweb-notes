@@ -171,7 +171,7 @@ storageCrc != calcCrc → 参数可能损坏或被篡改，诊断Fail
 
 =={yellow}在比较之前，算法先检查CRC是否有效。==
 
-以下值被视为无效：
+=={green}以下值被视为无效：==
 
 ```undefined
 0x00000000

@@ -3,11 +3,11 @@
 ### 1. 功能标识
 
 - =={yellow}**诊断项ID**==：`DIAGID_FPGA_PARA1 = 0x1E00`
-- =={yellow}故障事件ID==：`EVTID_FPGA_PARA1_FAULT = 0x1E01-` 0x1E06
+- =={yellow}**故障事件ID**==：`EVTID_FPGA_PARA1_FAULT = 0x1E01-` 0x1E06
 - 功能全称：Program Parameters CRC Diagnosis（FPGA参数上电CRC完整性自检）
-- =={yellow}执行周期==：`DIAG_PERIOD_ST`，**=={yellow}整机上电仅执行一次==**，属于上电自检类诊断
-- =={yellow}故障等级：FTL7==（Output_Untrusted，=={yellow}点云数据不可信==）
-- =={yellow}防抖配置：debounce=1，**单次异常直接确认故障**==
+- =={yellow}**执行周期**==：`DIAG_PERIOD_ST`，**=={yellow}整机上电仅执行一次==**，属于上电自检类诊断
+- =={yellow}**故障等级**：FTL7==（Output_Untrusted，=={yellow}点云数据不可信==）
+- =={yellow}**防抖配置**：debounce=1，**单次异常直接确认故障**==
 
 ### 核心目标
 
@@ -17,8 +17,8 @@
 
 | 分层 | 定位 | 核心职责 | 可裁剪性 |
 | --- | --- | --- | --- |
-| =={yellow}**配置层**== | 规则定义者 | CSV配置故障ID、等级、防抖、函数绑定；自动生成`diag_cfg.c`三表 | 项目必配，不可裁剪 |
-| =={yellow}**调度层**== | 平台调度器 | 上电自检周期调度、DEM事件上报、故障生命周期管理 | 平台通用，不可裁剪 |
+| =={yellow}**配置层**== | **规则定义**者 | CSV配置故障ID、等级、防抖、函数绑定；自动生成`diag_cfg.c`三表 | 项目必配，不可裁剪 |
+| =={yellow}**调度层**== | **平台调度**器 | 上电自检周期调度、DEM事件上报、故障生命周期管理 | 平台通用，不可裁剪 |
 | =={yellow}**算法层**== | Feature核心逻辑 | 三态状态机、CRC比对判定、故障注入旁路、KeyInfo快照输出 | 静态代码，跨项目可复用 |
 | =={yellow}**数据源层**== | 数据提供底层CDD | Flash参数加载、实时CRC计算、双CRC读取接口、加载状态查询 | CDD基础组件，Feature强依赖 |
 | =={yellow}**工站层**== | 产验收闭环链路 | PTC命令故障注入/整机复位/故障查询、NVM注入参数持久化 | 仅Factory量产固件，Release可裁剪 |

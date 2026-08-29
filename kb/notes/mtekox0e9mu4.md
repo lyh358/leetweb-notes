@@ -394,7 +394,7 @@ if (诊断项已启用 && 当前没有被抑制 && 配置周期等于5ms)
 
 ##### =={green}谁使用==
 
-主要由**=={yellow}诊断事件处理模块===={yellow}**和==**===={yellow}DEM接口==**使用：
+主要由**=={yellow}诊断事件处理模块===={yellow}**和==**===={yellow}={yellow}DEM接口==**使用：
 
 - `DiagCfgTableInit()`：初始化事件运行状态；
 - `DiagSendResultToDem()`：根据事件ID查配置；
@@ -507,6 +507,7 @@ else if (...)
 
 #### 三张表怎么关联
 
+```
 ```mermaid
 flowchart LR
     A[CATALOG.csv<br/>全局诊断总目录]

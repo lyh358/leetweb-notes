@@ -114,7 +114,7 @@ CddPeriPara_GetParaCrcGet(..., &storageCrc);
 CddPeriPara_GetParaCrcCal(..., &calcCrc);
 ```
 
-然后进入 `CRC_RUN`。
+=={green}然后进入== `CRC_RUN`=={green}。==
 
 这里有一个时序细节：**进入CRC_RUN的当次调用仍返回UNFINISHED，真正的CRC判定放在下一个5ms周期执行。**
 

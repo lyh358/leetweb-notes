@@ -25,7 +25,7 @@
 | =={yellow}**数据源层**== | **数据提供**，底层CDD | Flash参数加载、实时CRC计算、双CRC读取接口、加载状态查询 | CDD基础组件，Feature强依赖 |
 | =={yellow}**工站层**== | 产**验收闭环**链路 | PTC命令故障注入/整机复位/故障查询、NVM注入参数持久化 | 仅Factory量产固件，Release可裁剪 |
 
-## 二、算法层核心代码：diag_fpgapara1.c
+## =={pink}二、算法层核心代码：diag_fpgapara1.c==
 
 ### 2.1 宏与类型定义
 
@@ -287,8 +287,8 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 
 =={yellow}开发者需要手动维护两个CSV表格，分别是==
 
-- `CATALOG.csv`：全局故障等级、防抖、抑制参数
-- `0x1E.csv`：本诊断专属注入阈值、FHTI时长、故障码映射
+- `CATALOG.csv`：全系统=={yellow}诊断功能的==**=={yellow}总目录==，包括**全局故障等级、防抖、抑制参数
+- `0x1E.csv`：本=={yellow}诊断项的==**=={yellow}专项明细表==，**专属注入阈值、FHTI时长、故障码映射
 
 ### =={pink}5.2 生成工具==
 
@@ -394,7 +394,7 @@ if (诊断项已启用 && 当前没有被抑制 && 配置周期等于5ms)
 
 ##### =={green}谁使用==
 
-主要由**=={yellow}诊断事件处理模块===={yellow}**和==**==={yellow}DEM接口==**使用：
+主要由**=={yellow}诊断事件处理模块===={yellow}**和==**===={yellow}DEM接口==**使用：
 
 - `DiagCfgTableInit()`：初始化事件运行状态；
 - `DiagSendResultToDem()`：根据事件ID查配置；
@@ -462,14 +462,14 @@ DiagSendResultToDem(
 它回答：
 
 - 这个诊断功能=={yellow}初始化时调用哪个函数==？
-- 周期执行时调用哪个函数？
-- 出现故障时从哪里获取关键数据？
+- =={yellow}周期执行时调用哪个函数==？
+- =={yellow}出现故障时从哪里获取关键数据==？
 
-它相当于诊断框架与具体业务代码之间的**函数路由表**。
+它相当于**诊断框架与具体业务代码**之间的**=={yellow}函数路由表==**。
 
 ##### =={green}谁使用==
 
-主要由调度框架使用：
+主要由=={yellow}**调度框架使用**==：
 
 - `DiagSelftestInit()`：调用上电自检类诊断的Init函数；
 - `DiagSelftestTask()`：调用上电自检主任务；
@@ -478,7 +478,7 @@ DiagSendResultToDem(
 
 ##### =={green}怎么用==
 
-框架遍历任务表，通过函数指针调用业务代码：
+**=={yellow}框架遍历任务表，通过函数指针调用业务代码==**：
 
 ```scss
 for (i = 0; i < g_diagTaskNum; i++)
@@ -568,7 +568,7 @@ DEM
 诊断需求
   → 修改CSV
   → 运行update_diag_config.bat
-  → diag_configAutoGen.py生成diag_cfg.c
+  → diag_configAutoGen.py生成diag_cfg.c三张表
   → 编译进ECU固件
   → DiagInit上电加载
   → 周期任务按表调度

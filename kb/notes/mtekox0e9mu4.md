@@ -476,7 +476,7 @@ DiagSendResultToDem(
 - `DiagPeriodTask()`：调用周期诊断主任务；
 - 故障记录模块：调用 `GetKeyInfo()` 获取冻结帧或关键数据。
 
-##### 怎么用
+##### =={green}怎么用==
 
 框架遍历任务表，通过函数指针调用业务代码：
 

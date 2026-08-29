@@ -506,7 +506,7 @@ CRC算法读取注入结果
 
 ---
 
-### 4.4 PTC命令的软件调用链
+### =={pink}4.4 PTC命令的软件调用链==
 
 工站下发的命令经过以下模块：
 
@@ -531,7 +531,7 @@ flowchart TD
 
 | 文件 | 职责 |
 | --- | --- |
-| `ptc_cmd.c` | 识别 `0x4F/0x10/0xFF`等PTC主命令并分发 |
+| `ptc_cmd.c` | =={yellow}识别== `0x4F/0x10/0xFF`等PTC主命令并分发 |
 | `fault_ptc.c` | 解析故障注入、恢复和查询相关负载 |
 | `fault_inject_handle.c` | 根据诊断类型和诊断ID选择处理模块 |
 | `fault_inject_selftest.c` | 管理ST上电自检注入、RAM状态和NVM持久化 |

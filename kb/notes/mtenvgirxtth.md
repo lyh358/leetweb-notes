@@ -146,7 +146,7 @@ if (injectRes == ST_INJECT_RES_PASS)
 
 =={green}如果工站配置了强制Pass，也跳过真实CRC比较，直接上报正常。==
 
-=={green}这两条分支用于产线FHTI验收，不代表修改实际Flash数据。==
+=={green}这两条分支用于**产线FHTI验收**，不代表修改实际Flash数据。==
 
 ##### =={yellow}第三优先级：真实CRC比较==
 

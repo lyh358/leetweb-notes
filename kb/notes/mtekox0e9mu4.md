@@ -507,82 +507,13 @@ else if (...)
 
 #### 三张表怎么关联
 
-它们通过 `diagId` 和 `eventId`串起来：
-
-```markdown
-g_diagItemTableCfg
-诊断项ID、周期、使能、抑制
-          │
-          │ diagId
-          ▼
-g_diagTaskTable
-Init、MainTask、GetKeyInfo函数
-          │
-          │ 业务代码产生Pass/Fail
-          ▼
-g_eventTableCfg
-事件ID、所属诊断项、故障等级、防抖
-          │
-          ▼
-        DEM/DTC
-```
-
-以Rx Start Signal为例：
-
-```markdown
-诊断项表
-规定每5ms执行、待机或入口电压异常时抑制
-        ↓
-任务表
-找到DiagRxStartSignalMainTask函数
-        ↓
-业务代码
-读取FPGA状态并判断Pass/Fail
-        ↓
-事件表
-按照故障等级和防抖规则处理
-        ↓
-DEM
-记录或清除对应DTC
-```
-
----
-
-#### 谁配置、谁生成、谁使用
-
-从人员和软件两个角度看：
-
-| 阶段 | 使用者 | 做什么 |
-| --- | --- | --- |
-| 需求定义 | 系统/诊断工程师 | 确定诊断ID、事件ID、故障等级、防抖及抑制条件 |
-| 功能开发 | MCU软件工程师 | 实现Init、MainTask和GetKeyInfo等业务函数 |
-| 配置维护 | 项目软件工程师 | 在 `CATALOG.csv`及对应诊断CSV中增加配置 |
-| 代码生成 | 自动生成脚本 | `diag_configAutoGen.py`读取CSV，生成 `diag_cfg.c`三张表 |
-| 编译阶段 | 编译器/链接器 | 把三张静态配置表编译进固件 |
-| 上电阶段 | `DiagCfgTableInit()` | 检查配置并初始化运行状态 |
-| 运行阶段 | 调度、抑制、事件和DEM模块 | 查表调度任务、处理防抖并管理DTC |
-
-完整链路是：
-
-```undefined
-诊断需求
-  → 修改CSV
-  → 运行update_diag_config.bat
-  → diag_configAutoGen.py生成diag_cfg.c三张表
-  → 编译进ECU固件
-  → DiagInit上电加载
-  → 周期任务按表调度
-  → 业务判断
-  → 按事件表上报DEM
-```
-
-#### 面试简答口径
+面试简答口径
 
 > 配置层主要有三张表。第一张是诊断项表，配置诊断ID、执行周期、使能状态和抑制条件，决定一个诊断什么时候能运行；第二张是故障事件表，配置事件归属、故障等级和Fail/Pass防抖，决定诊断结果如何转换成DEM事件；第三张是任务绑定表，通过函数指针把诊断ID与Init、MainTask和GetKeyInfo函数绑定，决定框架实际调用哪段业务代码。三张表由CSV经过脚本自动生成到 `diag_cfg.c`，上电时由诊断框架初始化，运行时由调度、抑制和DEM模块共同查表使用。
 
 ---
 
-**六、关键时序与流程图说明**
+## **六、关键时序与流程图说明**
 
 ### 6.1 上电完整UML时序
 

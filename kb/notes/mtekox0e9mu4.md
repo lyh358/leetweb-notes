@@ -435,7 +435,7 @@ DiagSendResultToDem(
 
 #### =={pink}3. g_diagTaskTable===={pink}：诊断任务绑定表==
 
-##### 它是什么
+##### =={green}它是什么==
 
 这张表把一个抽象的诊断ID与实际C函数绑定起来。
 

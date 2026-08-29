@@ -315,7 +315,7 @@ Byte 0～3：storageCrc
 Byte 4～7：calcCrc
 ```
 
-这样产线或售后通过UDS读取冻结帧时，可以看到：
+=={yellow}这样产线或售后通过UDS读取冻结帧时，可以看到：==
 
 ```undefined
 期望CRC是多少

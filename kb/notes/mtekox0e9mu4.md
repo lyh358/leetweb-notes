@@ -290,17 +290,17 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 - `CATALOG.csv`：全局故障等级、防抖、抑制参数
 - `0x1E.csv`：本诊断专属注入阈值、FHTI时长、故障码映射
 
-### 5.2 生成工具
+### =={pink}5.2 生成工具==
 
-`diag_configAutoGen.py`自动脚本，修改CSV后执行`update_diag_config.bat`生成`diag_cfg.c`三张核心配置表：
+`diag_configAutoGen.py`=={yellow}自动脚本==，修改CSV后执行`update_diag_config.bat`=={yellow}生成==`diag_cfg.c`=={yellow}**三张核心配置表**：==
 
-1. `g_diagTaskTable`：绑定Init/MainTask/GetKeyInfo函数
-2. `g_eventTableCfg`：绑定故障事件ID、防抖、故障等级FTL7
-3. `g_diagItemTableCfg`：绑定诊断ID、上电自检周期、故障抑制
+1. `g_diagTaskTable`：**诊断任务表**，绑定=={yellow}**Init/MainTask/GetKeyInfo函数**==
+2. `g_eventTableCfg`：**故障事件表**，绑定=={yellow}**故障事件ID、防抖、故障等级FTL7**==
+3. `g_diagItemTableCfg`：**诊断项配置表**，绑定=={yellow}**诊断ID、上电自检周期、故障抑制条件**==
 
-### 5.3 编译加载流程
+### =={pink}5.3 编译加载流程==
 
-CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `DiagInit`初始化加载
+维护CSV → 运行生成脚本 → 得到diag_cfg.c三张配置表 → 编译进固件 → `DiagInit`初始化加载
 
 ### 5.4 三张静态配置表
 

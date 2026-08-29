@@ -1,5 +1,7 @@
 ## =={pink}一、功能基础信息==
 
+---
+
 ### 1. 功能标识
 
 - =={yellow}**诊断项ID**==：`DIAGID_FPGA_PARA1 = 0x1E00`
@@ -11,7 +13,7 @@
 
 ### 核心目标
 
-=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和====**={green}加载实时计算CRC (calc Crc)**=={yellow}=={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
+=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和====={green}**={green}加载实时计算CRC (calc Crc)**=={yellow}=={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
 
 ### =={pink}整体五层软件分层架构==
 
@@ -341,7 +343,7 @@ CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `Diag
 
 每次5 ms诊断任务运行时，框架会查表：
 
-```
+```markdown
 if (诊断项已启用 &&
     当前没有被抑制 &&
     配置周期等于5ms)
@@ -368,7 +370,7 @@ if (诊断项已启用 &&
 
 典型字段包括：
 
-```
+```cpp
 {
     EVTID_RX_START_SIGNAL_FAULT, // 故障事件ID
     DIAGID_RX_START_SIGNAL,      // 归属的诊断项
@@ -404,7 +406,7 @@ if (诊断项已启用 &&
 
 业务代码一般只负责给出一个原始判断：
 
-```
+```scss
 DiagSendResultToDem(
     EVTID_RX_START_SIGNAL_FAULT,
     isFailed
@@ -413,7 +415,7 @@ DiagSendResultToDem(
 
 之后框架根据 `g_eventTableCfg` 自动完成：
 
-```
+```markdown
 原始Pass/Fail
     ↓
 查事件配置
@@ -439,7 +441,7 @@ DiagSendResultToDem(
 
 例如：
 
-```
+```markdown
 {
     DIAGID_RX_START_SIGNAL,
     DiagRxStartSignalInit,
@@ -478,7 +480,7 @@ DiagSendResultToDem(
 
 框架遍历任务表，通过函数指针调用业务代码：
 
-```
+```scss
 for (i = 0; i < g_diagTaskNum; i++)
 {
     if (周期匹配 && 诊断项未被抑制)
@@ -490,7 +492,7 @@ for (i = 0; i < g_diagTaskNum; i++)
 
 这样新增诊断功能时，只需要增加配置和实现函数，不必在统一调度框架里写大量：
 
-```
+```scss
 if (diagId == ...)
 {
     ...
@@ -507,7 +509,7 @@ else if (...)
 
 它们通过 `diagId` 和 `eventId`串起来：
 
-```
+```markdown
 g_diagItemTableCfg
 诊断项ID、周期、使能、抑制
           │
@@ -527,7 +529,7 @@ g_eventTableCfg
 
 以Rx Start Signal为例：
 
-```
+```markdown
 诊断项表
 规定每5ms执行、待机或入口电压异常时抑制
         ↓
@@ -562,7 +564,7 @@ DEM
 
 完整链路是：
 
-```
+```undefined
 诊断需求
   → 修改CSV
   → 运行update_diag_config.bat

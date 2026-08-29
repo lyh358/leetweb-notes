@@ -507,28 +507,6 @@ else if (...)
 
 #### 三张表怎么关联
 
-```
-```mermaid
-flowchart LR
-    A[CATALOG.csv<br/>全局诊断总目录]
-    B[0x1E.csv<br/>CRC诊断专项明细]
-    C[diag_configAutoGen.py]
-    D[g_diagItemTableCfg<br/>调度、使能、抑制]
-    E[g_eventTableCfg<br/>事件、等级、防抖]
-    F[g_diagTaskTable<br/>函数入口绑定]
-    G[诊断框架运行]
-    H[工站注入与DEM上报]
-
-    A --> C
-    B --> C
-    C --> D
-    C --> E
-    C --> F
-    D --> G
-    E --> H
-    F --> G
-```
-
 #### 面试简答口径
 
 > 配置层主要有三张表。第一张是诊断项表，配置诊断ID、执行周期、使能状态和抑制条件，决定一个诊断什么时候能运行；第二张是故障事件表，配置事件归属、故障等级和Fail/Pass防抖，决定诊断结果如何转换成DEM事件；第三张是任务绑定表，通过函数指针把诊断ID与Init、MainTask和GetKeyInfo函数绑定，决定框架实际调用哪段业务代码。三张表由CSV经过脚本自动生成到 `diag_cfg.c`，上电时由诊断框架初始化，运行时由调度、抑制和DEM模块共同查表使用。

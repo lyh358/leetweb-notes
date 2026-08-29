@@ -122,9 +122,9 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 #### =={pink}2. CRC_RUN：执行核心判定==
 
-=={yellow}判定分成三层优先级。==
+=={green}判定分成三层优先级。==
 
-##### 第一优先级：注入强制故障
+##### =={yellow}第一优先级：注入强制故障==
 
 ```scss
 if (injectRes == ST_INJECT_RES_FAIL)
@@ -133,9 +133,9 @@ if (injectRes == ST_INJECT_RES_FAIL)
 }
 ```
 
-如果工站配置了强制Fail，就跳过真实CRC比较，直接上报故障。
+=={green}如果工站配置了强制Fail，就跳过真实CRC比较，直接上报故障。==
 
-##### 第二优先级：注入强制正常
+##### =={yellow}第二优先级：注入强制正常==
 
 ```scss
 if (injectRes == ST_INJECT_RES_PASS)
@@ -144,9 +144,9 @@ if (injectRes == ST_INJECT_RES_PASS)
 }
 ```
 
-如果工站配置了强制Pass，也跳过真实CRC比较，直接上报正常。
+=={yellow}如果工站配置了强制Pass，也跳过真实CRC比较，直接上报正常。==
 
-这两条分支用于产线FHTI验收，不代表修改实际Flash数据。
+=={green}这两条分支用于产线FHTI验收，不代表修改实际Flash数据。==
 
 ##### 第三优先级：真实CRC比较
 

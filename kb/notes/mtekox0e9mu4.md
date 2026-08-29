@@ -317,19 +317,6 @@ CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `Diag
 - Flash CRC自检；
 - FPGA参数CRC自检。
 
-典型字段包括：
-
-```
-{
-    DIAGID_RX_START_SIGNAL,     // 诊断项ID
-    0x4900,                     // 诊断编号
-    DIAG_PERIOD_5MS,            // 运行周期
-    TRUE,                       // 是否启用
-    IR_STANDBY_MODE |
-    IR_PWRIN_VOLT_L2            // 抑制条件
-}
-```
-
 ### 负责什么
 
 它回答四个问题：

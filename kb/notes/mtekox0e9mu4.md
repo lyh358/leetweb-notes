@@ -394,7 +394,7 @@ if (诊断项已启用 && 当前没有被抑制 && 配置周期等于5ms)
 
 ##### =={green}谁使用==
 
-主要由**=={yellow}诊断事件处理模块==**=={yellow}和==**=={yellow}DEM接口==**使用：
+主要由**=={yellow}诊断事件处理模块===={yellow}**和==**==={yellow}DEM接口==**使用：
 
 - `DiagCfgTableInit()`：初始化事件运行状态；
 - `DiagSendResultToDem()`：根据事件ID查配置；
@@ -455,13 +455,13 @@ DiagSendResultToDem(
 - =={yellow}**诊断项ID**；==
 - =={yellow}**初始化 Init 函数**；==
 - =={yellow}**周期主任务 MainTask 函数**；==
-- =={yellow}关键数据或**冻结帧获取 函数**。==
+- =={yellow}关键数据或**冻结帧获取 GetKeyInfo 函数**。==
 
 ##### =={green}负责什么==
 
 它回答：
 
-- 这个诊断功能初始化时调用哪个函数？
+- 这个诊断功能=={yellow}初始化时调用哪个函数==？
 - 周期执行时调用哪个函数？
 - 出现故障时从哪里获取关键数据？
 

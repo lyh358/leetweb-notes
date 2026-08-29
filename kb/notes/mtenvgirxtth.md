@@ -531,18 +531,18 @@ flowchart TD
 
 | 文件 | 职责 |
 | --- | --- |
-| `ptc_cmd.c` | =={yellow}识别== `0x4F/0x10/0xFF`等PTC主命令并分发 |
-| `fault_ptc.c` | 解析故障注入、恢复和查询相关负载 |
-| `fault_inject_handle.c` | 根据诊断类型和诊断ID选择处理模块 |
-| `fault_inject_selftest.c` | 管理ST上电自检注入、RAM状态和NVM持久化 |
+| `ptc_cmd.c` | =={yellow}识别== `0x4F/0x10/0xFF`等=={yellow}PTC主命令并分发== |
+| `fault_ptc.c` | **解析故障注入**、恢复和查询相关负载 |
+| `fault_inject_handle.c` | 根据诊断类型和诊断ID=={yellow}**选择处理模块**== |
+| `fault_inject_selftest.c` | =={yellow}**管理ST上电自检注入、RAM状态和NVM持久化**== |
 | `mode_ctl_user.c` | 在执行电源复位前配合完成NVM写入和复位调度 |
 | `diag_fpgapara1.c` | 上电CRC判定时读取注入结果 |
 
 ---
 
-### 4.2 完整产验收流程
+### =={pink}4.2 完整产验收流程==
 
-#### 1. 写入强制故障配置
+#### =={yellow}1. 写入强制故障配置==
 
 工站通过 `0x4F write`下发：
 
@@ -554,7 +554,7 @@ flowchart TD
 
 软件解析后把配置写入NVM。
 
-#### 2. 读取确认
+#### =={yellow}2. 读取确认==
 
 可以通过 `0x4F read`读取当前配置，确认：
 

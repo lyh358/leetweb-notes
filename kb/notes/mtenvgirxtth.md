@@ -383,7 +383,7 @@ flowchart TD
 
 ---
 
-## 三、数据源层 CddPeriPara 接口说明
+## =={pink}三、数据源层 CddPeriPara 接口说明==
 
 诊断算法层不自行加载Flash、不计算CRC，仅消费CDD输出数据：
 

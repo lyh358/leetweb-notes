@@ -62,11 +62,11 @@ DiagRetCode DiagFpgaPara1Init(void)
 }
 ```
 
-**=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，**重置缓存**与状态机。==
+**=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，**重置缓存**与**状态机**。==
 
-### 2.3 主状态机任务 DiagFpgaPara1MainTask
+### =={pink}2.3 非阻塞主状态机任务 DiagFpgaPara1MainTask==
 
-由`DiagSelftestTask`每5ms周期调度，三状态流转逻辑：
+由`DiagSelftestTask`=={yellow}每**5ms周期调度**，**三状态流转**==逻辑：
 
 ```mermaid
 stateDiagram-v2
@@ -80,7 +80,7 @@ stateDiagram-v2
     DONE --> DONE: 自检已经结束\n不再执行
 ```
 
-#### 1. WAIT：等待参数加载完成
+#### =={yellow}1. WAIT：等待参数加载完成==
 
 上电初始化时：
 

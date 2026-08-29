@@ -324,9 +324,9 @@ Byte 4～7：calcCrc
 
 =={green}从而**判断**是否存在：==
 
-- **Flash参数被篡改**；
-- Flash**位翻转**；
-- 参数**加载过程损坏**；
+- **=={yellow}Flash参数被篡改==**=={yellow}；==
+- =={yellow}Flash==**=={yellow}位翻转==**=={yellow}；==
+- =={yellow}参数==**=={yellow}加载过程损坏==**=={yellow}；==
 - 参数文件与当前软件版本不匹配。
 
 **作用**：UDS读取冻结帧时输出8字节快照，4B存储CRC+4B计算CRC，售后/产线定位参数损坏根源。

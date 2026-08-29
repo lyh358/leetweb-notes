@@ -322,7 +322,7 @@ Byte 4～7：calcCrc
 实际计算CRC是多少
 ```
 
-=={green}从而判断是否存在：==
+=={green}从而**判断**是否存在：==
 
 - Flash参数被篡改；
 - Flash位翻转；

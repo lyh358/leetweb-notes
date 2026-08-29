@@ -455,7 +455,7 @@ DiagSendResultToDem(
 - =={yellow}**诊断项ID**；==
 - =={yellow}**初始化 Init 函数**；==
 - =={yellow}**周期主任务 MainTask 函数**；==
-- =={yellow}关键数据或**冻结帧获取函数**。==
+- =={yellow}关键数据或**冻结帧获取 函数**。==
 
 ##### =={green}负责什么==
 

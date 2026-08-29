@@ -300,65 +300,63 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 
 ### =={pink}5.3 编译加载流程==
 
-维护CSV → 运行生成脚本 → 得到diag_cfg.c三张配置表 → 编译进固件 → `DiagInit`初始化加载
+**=={yellow}维护CSV → 运行生成脚本 → 得到diag_cfg.c三张配置表 → 编译进固件 →== `DiagInit`=={yellow}初始化加载==**
 
-### 5.4 三张静态配置表
+### =={pink}5.4 三张静态配置表==
 
 1. `g_diagItemTableCfg`：诊断项配置表
 2. `g_eventTableCfg`：故障事件配置表
 3. `g_diagTaskTable`：诊断任务绑定表
 
-可以把它们理解成：**诊断项表决定“怎么运行”，事件表决定“怎么报故障”，任务表决定“运行哪段代码”。**
+可以把它们理解成：**=={yellow}诊断项表决定“怎么运行”==，=={yellow}事件表决定“怎么报故障”==，=={yellow}任务表决定“运行哪段代码”==。**
 
-#### 1. `g_diagItemTableCfg`：诊断项配置表
+#### =={pink}1. g_diagItemTableCfg===={pink}：诊断项配置表==
 
-##### 它是什么
+##### =={green}它是什么==
 
-一行代表一个完整的诊断功能，例如：
+=={yellow}一行代表一个完整的诊断功能，例如：==
 
 - 入口电压诊断；
 - Rx Start Signal诊断；
 - Flash CRC自检；
 - FPGA参数CRC自检。
 
-##### 负责什么
+##### =={green}负责什么==
 
-它回答四个问题：
+它**回答四个问题**：
 
-- 这个诊断项是否存在？
-- 是否启用？
-- 多久执行一次？
-- 抑制条件？
+- =={yellow}这个==**=={yellow}诊断项是否存在==**=={yellow}？==
+- **=={yellow}是否启用==**=={yellow}？==
+- **=={yellow}多久执行一次（上电/周期）==**=={yellow}？==
+- **=={yellow}抑制条件==**=={yellow}？==
 
-因此，它主要描述诊断功能的**调度属性和运行条件**。
+因此，它主要=={yellow}描述诊断功能的==**=={yellow}调度属性和运行条件==**。
 
-##### 谁使用
+##### =={green}谁使用==
 
-主要由诊断框架和抑制模块使用：
+主要由=={yellow}**诊断框架**和**抑制模块**==使用：
 
 - `DiagCfgTableInit()`：上电检查和加载配置；
 - `DiagGetDiagItemPeriod()`：查询运行周期；
 - `DiagInhiGetDiagItemState()`：检查当前是否被抑制；
 - `DiagPeriodTask()`：判断这一周期是否应该执行该诊断。
 
-##### 怎么用
+##### =={green}怎么用==
 
-每次5 ms诊断任务运行时，框架会查表：
+=={yellow}每次5 ms诊断任务运行时，框架会查表==：
 
 ```markdown
-if (诊断项已启用 &&
-    当前没有被抑制 &&
-    配置周期等于5ms)
+if (诊断项已启用 && 当前没有被抑制 && 配置周期等于5ms)
 {
     执行对应诊断任务;
 }
 ```
 
-它相当于诊断功能的**运行许可证**。
+=={yellow}它相当于诊断功能的==**=={yellow}运行许可证==**=={yellow}。==
 
 ---
 
-#### 2. `g_eventTableCfg`：故障事件配置表
+#### 2. ：故障事件配置表
 
 ##### 它是什么
 

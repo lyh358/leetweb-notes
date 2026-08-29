@@ -122,7 +122,7 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 #### =={pink}2. CRC_RUN：执行核心判定==
 
-判定分成三层优先级。
+=={yellow}判定分成三层优先级。==
 
 ##### 第一优先级：注入强制故障
 

@@ -457,7 +457,7 @@ flowchart TD
 → CRC自检执行注入分支
 ```
 
-原平台如果只把注入状态保存在RAM中：
+=={yellow}原平台如果只把注入状态保存在RAM中：==
 
 ```undefined
 PTC写入RAM

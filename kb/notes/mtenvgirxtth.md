@@ -387,16 +387,16 @@ flowchart TD
 
 =={yellow}诊断算法层**不自行加载Flash**、**不计算CRC**，**仅消费CDD输出**数据：==
 
-1. **=={green}CddPeriPara_LoadPara==**：上电异步加载Flash Para1参数块，解析头部/指令/数据段
-2. **=={green}calcCrc生成==**：加载过程增量调用`LibCrc_ParaCrc32`实时累加校验值
+1. **=={green}CddPeriPara_LoadPara==**：=={yellow}**上电异步加载Flash Para1参数块**==，解析头部/指令/数据段
+2. **=={green}calcCrc生成==**：加载过程增量调用`LibCrc_ParaCrc32`=={yellow}**实时累加校验值**==
 3. **=={green}storageCrc读取==**：从Flash参数头部读出出厂存储CRC
 4. **=={green}状态接口==** `CddPeriPara_GetStatus()`
 
 - `CDD_PERIPARA_STATE_LOADING`：**加载中**
 - `CDD_PERIPARA_STATE_LOADED`：**加载完成**（成功/损坏）
-- `CDD_PERIPARA_STATE_LOADED_FAIL`：加载失败
+- `CDD_PERIPARA_STATE_LOADED_FAIL`：**加载失败**
 
-1. 配套读取API
+配套读取API
 
 - `CddPeriPara_GetParaCrcGet()`：获取Flash原始CRC
 - `CddPeriPara_GetParaCrcCal()`：获取加载实时CRC

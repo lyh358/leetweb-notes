@@ -1,27 +1,32 @@
 ## 一、功能基础信息
+
 ### 1. 功能标识
-+ 诊断ID：`DIAGID_FPGA_PARA1 = 0x1E00`
-+ 故障事件ID：`EVTID_FPGA_PARA1_FAULT = 0x1E01`
-+ 功能全称：Program Parameters CRC Diagnosis（FPGA参数上电CRC完整性自检）
-+ 执行周期：`DIAG_PERIOD_ST`，**整机上电仅执行一次**，属于上电自检类诊断
-+ 故障等级：FTL7（Output_Untrusted，点云数据不可信）
-+ 防抖配置：debounce=1，单次异常直接确认故障
+
+- 诊断ID：`DIAGID_FPGA_PARA1 = 0x1E00`
+- 故障事件ID：`EVTID_FPGA_PARA1_FAULT = 0x1E01`
+- 功能全称：Program Parameters CRC Diagnosis（FPGA参数上电CRC完整性自检）
+- 执行周期：`DIAG_PERIOD_ST`，**整机上电仅执行一次**，属于上电自检类诊断
+- 故障等级：FTL7（Output_Untrusted，点云数据不可信）
+- 防抖配置：debounce=1，单次异常直接确认故障
 
 ### 核心目标
+
 外设参数（Para1）从Flash加载完成后，对比**Flash原始存储CRC(storageCrc)** 和**加载实时计算CRC(calcCrc)**；二者不一致则上报DEM故障，标识参数被篡改/加载损坏；同时支持产线故障注入校验、故障快照冻结帧输出。
 
 ### 整体五层软件分层架构
+
 | 分层 | 定位 | 核心职责 | 可裁剪性 |
 | --- | --- | --- | --- |
-| 配置层 | 规则定义者 | CSV配置故障ID、等级、防抖、函数绑定；自动生成`diag_cfg.c`三表 | 项目必配，不可裁剪 |
+| =={yellow}配置层== | 规则定义者 | CSV配置故障ID、等级、防抖、函数绑定；自动生成`diag_cfg.c`三表 | 项目必配，不可裁剪 |
 | 调度层 | 平台调度器 | 上电自检周期调度、DEM事件上报、故障生命周期管理 | 平台通用，不可裁剪 |
 | 算法层 | Feature核心逻辑 | 三态状态机、CRC比对判定、故障注入旁路、KeyInfo快照输出 | 静态代码，跨项目可复用 |
 | 数据源层 | 数据提供底层CDD | Flash参数加载、实时CRC计算、双CRC读取接口、加载状态查询 | CDD基础组件，Feature强依赖 |
 | 工站层 | 产验收闭环链路 | PTC命令故障注入/整机复位/故障查询、NVM注入参数持久化 | 仅Factory量产固件，Release可裁剪 |
 
-
 ## 二、算法层核心代码：diag_fpgapara1.c
+
 ### 2.1 宏与类型定义
+
 ```c
 // CRC无效哨兵值（读取失败/未初始化填充）
 #define DIAG_FPGAPARA1_CRC_DEFAULT_VALUE (0xFFFFFFFFU)
@@ -52,6 +57,7 @@ boolean g_diagFpgaPara1CrcFaultInjectEnable = FALSE;
 ```
 
 ### 2.2 初始化函数 DiagFpgaPara1Init
+
 ```c
 DiagRetCode DiagFpgaPara1Init(void)
 {
@@ -68,6 +74,7 @@ DiagRetCode DiagFpgaPara1Init(void)
 **作用**：上电自检框架启动时仅调用一次，重置缓存与状态机。
 
 ### 2.3 主状态机任务 DiagFpgaPara1MainTask
+
 由`DiagSelftestTask`每5ms周期调度，三状态流转逻辑：
 
 ```c
@@ -110,6 +117,7 @@ DiagRetCode DiagFpgaPara1MainTask(void)
 **时序流程**：上电Init → 周期轮询等待参数 → 参数就绪刷新CRC快照 → 单次比对判定 → 永久完成不再运行。
 
 ### 2.4 辅助函数1：等待参数加载完成
+
 ```c
 static Std_ReturnType DiagFpgaPara1WaitPeriParaLoaded(void)
 {
@@ -126,6 +134,7 @@ static Std_ReturnType DiagFpgaPara1WaitPeriParaLoaded(void)
 **约束**：必须等待CDD参数加载结束后再读取CRC，避免空数据误判故障。
 
 ### 2.5 辅助函数2：刷新双CRC快照
+
 ```c
 static Std_ReturnType DiagFpgaPara1RefreshCrcSnapshot(void)
 {
@@ -153,6 +162,7 @@ static Std_ReturnType DiagFpgaPara1RefreshCrcSnapshot(void)
 ```
 
 ### 2.6 核心判定函数：CRC比对+故障注入优先级逻辑
+
 ```c
 static DiagRetCode DiagFpgaPara1GetCrcDiagResult(void)
 {
@@ -192,10 +202,11 @@ static DiagRetCode DiagFpgaPara1GetCrcDiagResult(void)
 }
 ```
 
-**判定优先级**：故障注入FAIL > 故障注入PASS > 原生CRC一致性比对  
+**判定优先级**：故障注入FAIL > 故障注入PASS > 原生CRC一致性比对
 **容错规则**：CRC读取失败填充哨兵值时，强制无故障，规避误报。
 
 ### 2.7 KeyInfo冻结帧快照接口
+
 ```c
 DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, uint16 *const keyInfoLen, const DiagkeyInfo keyInfoType)
 {
@@ -222,21 +233,24 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 **作用**：UDS读取冻结帧时输出8字节快照，4B存储CRC+4B计算CRC，售后/产线定位参数损坏根源。
 
 ## 三、数据源层 CddPeriPara 接口说明
+
 诊断算法层不自行加载Flash、不计算CRC，仅消费CDD输出数据：
 
 1. **CddPeriPara_LoadPara**：上电异步加载Flash Para1参数块，解析头部/指令/数据段
 2. **calcCrc生成**：加载过程增量调用`LibCrc_ParaCrc32`实时累加校验值
 3. **storageCrc读取**：从Flash参数头部读出出厂存储CRC
 4. **状态接口 **`CddPeriPara_GetStatus()`
-    - `CDD_PERIPARA_STATE_LOADING`：加载中
-    - `CDD_PERIPARA_STATE_LOADED`：加载完成（成功/损坏）
-    - `CDD_PERIPARA_STATE_LOADED_FAIL`：加载失败
+  - `CDD_PERIPARA_STATE_LOADING`：加载中
+  - `CDD_PERIPARA_STATE_LOADED`：加载完成（成功/损坏）
+  - `CDD_PERIPARA_STATE_LOADED_FAIL`：加载失败
 5. 配套读取API
-    - `CddPeriPara_GetParaCrcGet()`：获取Flash原始CRC
-    - `CddPeriPara_GetParaCrcCal()`：获取加载实时CRC
+  - `CddPeriPara_GetParaCrcGet()`：获取Flash原始CRC
+  - `CddPeriPara_GetParaCrcCal()`：获取加载实时CRC
 
 ## 四、工站层：产线故障注入与验收闭环
+
 ### 4.1 PTC配套命令
+
 | PTC主/子命令 | 功能 |
 | --- | --- |
 | 0x4F | 写入NVM故障注入配置（ST模式+期望故障码） |
@@ -244,8 +258,8 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 | 0xFF sub 0x1F | 查询DEM确诊故障列表，校验0x1E01故障 |
 | 0x4F read | 读取当前生效注入配置 |
 
-
 ### 4.2 完整产验收流程
+
 1. PTC下发0x4F写入注入指令，NVM持久化存储
 2. PTC 0x10触发整机电源复位
 3. 上电`FaultInjectSelftestInit`从NVM恢复注入配置
@@ -253,6 +267,7 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 5. PTC查询故障码，匹配预期完成FHTI验收闭环
 
 ### 4.3 工站层核心文件
+
 | 文件路径 | 职责 |
 | --- | --- |
 | `ASW/SWC_PTC/ptc_cmd.c` | PTC 0x4F/0x10/0xFF命令入口分发 |
@@ -261,16 +276,17 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 | `fault_inject_selftest.c` | 自检注入逻辑、NVM读写持久化 |
 | `mode_ctl_user.c` | 复位前NVM全部写入、整机掉电复位调度 |
 
-
 ## 五、配置层：CSV自动生成流程
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893435173-2142b3af-7b04-4adc-8a69-18a230fc07e4.png)
+
+![image](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893435173-2142b3af-7b04-4adc-8a69-18a230fc07e4.png)
 
 ### 5.1 配置输入文件
-+ `CATALOG.csv`：全局故障等级、防抖、抑制参数
-+ `0x1E.csv`：本诊断专属注入阈值、FHTI时长、故障码映射
+
+- `CATALOG.csv`：全局故障等级、防抖、抑制参数
+- `0x1E.csv`：本诊断专属注入阈值、FHTI时长、故障码映射
 
 ### 5.2 生成工具
+
 `diag_configAutoGen.py`自动脚本，修改CSV后执行`update_diag_config.bat`生成`diag_cfg.c`三张核心配置表：
 
 1. `g_diagTaskTable`：绑定Init/MainTask/GetKeyInfo函数
@@ -278,12 +294,14 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 3. `g_diagItemTableCfg`：绑定诊断ID、上电自检周期、故障抑制
 
 ### 5.3 编译加载流程
+
 CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `DiagInit`初始化加载
 
 ## 六、关键时序与流程图说明
+
 ### 6.1 上电完整UML时序
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893428915-9cb14e59-99e3-412a-95b1-2dc1ab8eabba.png)
+
+![image](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893428915-9cb14e59-99e3-412a-95b1-2dc1ab8eabba.png)
 
 1. `DiagInit`调用`DiagFpgaPara1Init`重置状态机至WAIT
 2. 每5ms `DiagSelftestTask`调度`DiagFpgaPara1MainTask`
@@ -293,16 +311,16 @@ CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `Diag
 6. 状态切换DONE，清除自检标志，后续周期不再执行
 
 ### 6.2 主状态机流转逻辑图
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893423244-984f72c4-a523-450c-b78e-9ef263151573.png)
 
-+ WAIT：轮询CDD加载状态，未就绪持续等待
-+ CRC_RUN：读取快照 → 读取注入指令 → 优先级判定 → DEM上报 → 切换DONE
-+ DONE：空操作，自检永久结束
+![image](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893423244-984f72c4-a523-450c-b78e-9ef263151573.png)
+
+- WAIT：轮询CDD加载状态，未就绪持续等待
+- CRC_RUN：读取快照 → 读取注入指令 → 优先级判定 → DEM上报 → 切换DONE
+- DONE：空操作，自检永久结束
 
 ### 6.3 五层端到端全流程时序
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893341835-9440759d-438d-4504-b0b5-af26dcf8881a.png)
+
+![image](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893341835-9440759d-438d-4504-b0b5-af26dcf8881a.png)
 
 1. 配置层：CSV定义0x1E00/0x1E01基础规则
 2. 工站层：PTC下发注入、NVM存储、整机复位
@@ -311,6 +329,7 @@ CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `Diag
 5. 数据源层：CDD Flash加载、双CRC输出
 
 ## 七、核心设计要点总结
+
 1. **单次上电自检**：DONE状态永久锁定，整机运行期间不再重复校验，匹配上电参数完整性自检需求
 2. **异步依赖等待**：CDD参数加载为异步流程，采用周期轮询不阻塞主任务
 3. **无效CRC容错**：读取失败填充0xFFFFFFFF哨兵值，直接屏蔽故障上报，降低误报概率
@@ -319,10 +338,9 @@ CSV → 生成脚本 → diag_cfg.c三张配置表 → 编译进固件 → `Diag
 6. 与ModeCtrl联动：模式切换`STEP_ID_WAIT_FPGA_PARA_READY`等待参数加载完成，保证CRC校验在参数下发前执行
 
 ## 八、配套测试校验链路
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893333666-8c50d122-362d-4a1b-ba68-7738d7a27e64.png)
+
+![image](https://cdn.nlark.com/yuque/0/2026/png/27841183/1786893333666-8c50d122-362d-4a1b-ba68-7738d7a27e64.png)
 
 1. 配置校验：PTC 0x1E00查询功能是否启用、故障参数配置正确性
 2. 运行校验：上电后查询系统故障码，确认无原生CRC故障（Happy Path）
 3. 注入校验：下发故障注入指令复位整机，校验0x1E01故障可正常触发上报
-

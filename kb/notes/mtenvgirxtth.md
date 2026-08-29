@@ -82,7 +82,7 @@ stateDiagram-v2
 
 #### =={yellow}1. WAIT：等待参数加载完成==
 
-上电初始化时：
+=={green}上电初始化时：==
 
 ```makefile
 s_fpgaPara1CrcInfo.storageCrc = 0U;

@@ -213,9 +213,9 @@ else
 
 ---
 
-### 2.5 DEM上报与完成
+### =={pink}2.5 DEM上报与完成==
 
-得到 `errFlag`后，算法调用：
+=={yellow}得到== `errFlag`=={yellow}后，算法调用==：
 
 ```scss
 DiagSendResultToDem(
@@ -224,7 +224,7 @@ DiagSendResultToDem(
 );
 ```
 
-后面的防抖、故障等级和DTC管理不由算法层处理，而是交给诊断框架：
+=={yellow}后面的防抖、故障等级和DTC管理不由算法层处理，而是交给诊断框架：==
 
 ```markdown
 算法层产生原始Pass/Fail

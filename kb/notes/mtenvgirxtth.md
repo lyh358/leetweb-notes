@@ -224,20 +224,6 @@ DiagSendResultToDem(
 );
 ```
 
-=={yellow}后面的**防抖、故障等级和DTC管理**不由算法层处理，而是**交给诊断框架**：==
-
-```markdown
-算法层产生原始Pass/Fail
-        ↓
-事件配置表查询
-        ↓
-Fail/Pass防抖
-        ↓
-DEM事件更新
-        ↓
-DTC记录或清除
-```
-
 算法层只提供原始Pass/Fail，后续由诊断框架负责：
 
 - Fail/Pass防抖；

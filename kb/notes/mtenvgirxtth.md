@@ -13,7 +13,7 @@
 
 ### 核心目标
 
-=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和====={green}**={green}加载实时计算CRC (calc Crc)**=={yellow}=={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
+=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和====={green}**={green}加载实时计算CRC (calc Crc)**===={green}；二者**不一致则上报DEM故障**，标识参数被篡改/加载损坏；同时**支持产线故障注入**校验、**故障快照冻结帧输出**。==
 
 ### =={pink}整体五层软件分层架构==
 
@@ -84,7 +84,7 @@ stateDiagram-v2
 
 上电初始化时：
 
-```
+```makefile
 s_fpgaPara1CrcInfo.storageCrc = 0U;
 s_fpgaPara1CrcInfo.calcCrc = 0U;
 s_fpgaPara1CrcMainStatus =
@@ -95,13 +95,13 @@ s_fpgaPara1CrcMainStatus =
 
 算法层查询：
 
-```
+```scss
 CddPeriPara_GetStatus()
 ```
 
 如果参数仍在异步加载，就返回：
 
-```
+```undefined
 RET_DIAG_UNFINISHED
 ```
 
@@ -109,7 +109,7 @@ RET_DIAG_UNFINISHED
 
 如果状态已经达到 `LOADED`，就读取双CRC快照：
 
-```
+```scss
 CddPeriPara_GetParaCrcGet(..., &storageCrc);
 CddPeriPara_GetParaCrcCal(..., &calcCrc);
 ```
@@ -118,7 +118,7 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 这里有一个时序细节：**进入CRC_RUN的当次调用仍返回UNFINISHED，真正的CRC判定放在下一个5ms周期执行。**
 
-------
+---
 
 #### 2. CRC_RUN：执行核心判定
 
@@ -126,7 +126,7 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 ##### 第一优先级：注入强制故障
 
-```
+```scss
 if (injectRes == ST_INJECT_RES_FAIL)
 {
     DiagSendResultToDem(eventId, TRUE);
@@ -137,7 +137,7 @@ if (injectRes == ST_INJECT_RES_FAIL)
 
 ##### 第二优先级：注入强制正常
 
-```
+```scss
 if (injectRes == ST_INJECT_RES_PASS)
 {
     DiagSendResultToDem(eventId, FALSE);
@@ -152,13 +152,13 @@ if (injectRes == ST_INJECT_RES_PASS)
 
 没有注入命令时，才比较两个CRC：
 
-```
+```ini
 errFlag = (storageCrc != calcCrc);
 ```
 
 即：
 
-```
+```makefile
 storageCrc == calcCrc → 参数内容完整，诊断Pass
 storageCrc != calcCrc → 参数可能损坏或被篡改，诊断Fail
 ```
@@ -167,15 +167,13 @@ storageCrc != calcCrc → 参数可能损坏或被篡改，诊断Fail
 
 ---
 
-
-
 ### 2.4 CRC有效性检查
 
 在比较之前，算法先检查CRC是否有效。
 
 以下值被视为无效：
 
-```
+```undefined
 0x00000000
 0xFFFFFFFF
 ```
@@ -187,7 +185,7 @@ storageCrc != calcCrc → 参数可能损坏或被篡改，诊断Fail
 
 判断逻辑是：
 
-```
+```objectivec
 if (storageCrc无效 || calcCrc无效)
 {
     errFlag = FALSE;
@@ -200,12 +198,12 @@ else
 
 因此完整真值表是：
 
-| `storageCrc`      | `calcCrc`         | 结果        |
-| ----------------- | ----------------- | ----------- |
-| 有效              | 相同且有效        | Pass        |
-| 有效              | 不同且有效        | Fail        |
-| `0`或`0xFFFFFFFF` | 任意值            | 不报CRC故障 |
-| 任意值            | `0`或`0xFFFFFFFF` | 不报CRC故障 |
+| `storageCrc` | `calcCrc` | 结果 |
+| --- | --- | --- |
+| 有效 | 相同且有效 | Pass |
+| 有效 | 不同且有效 | Fail |
+| `0`或`0xFFFFFFFF` | 任意值 | 不报CRC故障 |
+| 任意值 | `0`或`0xFFFFFFFF` | 不报CRC故障 |
 
 这里要注意：
 
@@ -215,13 +213,11 @@ else
 
 ---
 
-
-
 ### 2.5 DEM上报与完成
 
 得到 `errFlag`后，算法调用：
 
-```
+```scss
 DiagSendResultToDem(
     EVTID_FPGA_PARA1_FAULT,
     errFlag
@@ -230,7 +226,7 @@ DiagSendResultToDem(
 
 后面的防抖、故障等级和DTC管理不由算法层处理，而是交给诊断框架：
 
-```
+```markdown
 算法层产生原始Pass/Fail
         ↓
 事件配置表查询
@@ -246,7 +242,7 @@ DTC记录或清除
 
 上报完成后，状态机进入：
 
-```
+```undefined
 DIAG_FPGAPARA1_DONE
 ```
 
@@ -254,15 +250,13 @@ DIAG_FPGAPARA1_DONE
 
 ---
 
-
-
 ### 2.6 核心判定函数：CRC比对+故障注入优先级逻辑
 
 ### 核心判定函数：CRC比对与故障注入优先级
 
 核心函数是：
 
-```
+```scss
 DiagFpgaPara1GetCrcDiagResult()
 ```
 
@@ -274,7 +268,7 @@ DiagFpgaPara1GetCrcDiagResult()
 
 整体优先级为：
 
-```
+```markdown
 注入强制Fail
     >
 注入强制Pass
@@ -286,24 +280,24 @@ DiagFpgaPara1GetCrcDiagResult()
 
 函数首先查询当前诊断项有没有注入命令：
 
-```
+```java
 StInjectRes injectRes =
     FaultInjectSelftestGetCmdResult(DIAGID_FPGA_PARA1);
 ```
 
 可能返回三类结果：
 
-| 返回值               | 含义                          |
-| -------------------- | ----------------------------- |
-| `ST_INJECT_RES_FAIL` | 工站要求强制模拟故障          |
-| `ST_INJECT_RES_PASS` | 工站要求强制模拟正常          |
-| 其他值               | 没有有效注入，执行真实CRC比较 |
+| 返回值 | 含义 |
+| --- | --- |
+| `ST_INJECT_RES_FAIL` | 工站要求强制模拟故障 |
+| `ST_INJECT_RES_PASS` | 工站要求强制模拟正常 |
+| 其他值 | 没有有效注入，执行真实CRC比较 |
 
-------
+---
 
 #### 2. 注入Fail优先
 
-```
+```kotlin
 if (injectRes == ST_INJECT_RES_FAIL)
 {
     ret |= DiagSendResultToDem(
@@ -328,11 +322,11 @@ if (injectRes == ST_INJECT_RES_FAIL)
 - DTC能否被工站查询；
 - FHTI时间是否满足要求。
 
-------
+---
 
 #### 3. 注入Pass次优先
 
-```
+```kotlin
 if (injectRes == ST_INJECT_RES_PASS)
 {
     ret |= DiagSendResultToDem(
@@ -352,7 +346,7 @@ if (injectRes == ST_INJECT_RES_PASS)
 
 这里的Fail和Pass不是修改真实CRC，而是**覆盖诊断判定结果**。
 
-------
+---
 
 #### 4. 无注入时检查CRC有效性
 
@@ -360,7 +354,7 @@ if (injectRes == ST_INJECT_RES_PASS)
 
 以下CRC被视为无效：
 
-```
+```undefined
 0x00000000U
 0xFFFFFFFFU
 ```
@@ -370,7 +364,7 @@ if (injectRes == ST_INJECT_RES_PASS)
 - `0`表示CRC尚未初始化或没有有效结果；
 - `0xFFFFFFFF`是CRC读取失败后填入的哨兵值。
 
-```
+```bash
 if ((storageCrc == 0U) ||
     (storageCrc == 0xFFFFFFFFU) ||
     (calcCrc == 0U) ||
@@ -384,26 +378,26 @@ if ((storageCrc == 0U) ||
 
 这样做是为了避免把“底层CRC读取失败”误判成“Flash参数发生损坏”。
 
-------
+---
 
 #### 5. 双CRC均有效时比较
 
 如果两个CRC都有效：
 
-```
+```ini
 errFlag = (storageCrc != calcCrc);
 ```
 
 对应关系为：
 
-| 条件                    | `errFlag` | 诊断结果 |
-| ----------------------- | --------- | -------- |
-| `storageCrc == calcCrc` | `FALSE`   | Pass     |
-| `storageCrc != calcCrc` | `TRUE`    | Fail     |
+| 条件 | `errFlag` | 诊断结果 |
+| --- | --- | --- |
+| `storageCrc == calcCrc` | `FALSE` | Pass |
+| `storageCrc != calcCrc` | `TRUE` | Fail |
 
 其含义是：
 
-```
+```yaml
 Flash保存CRC == 加载实时计算CRC
 → 参数内容与保存时一致
 → CRC校验通过
@@ -413,13 +407,13 @@ Flash保存CRC != 加载实时计算CRC
 → CRC校验失败
 ```
 
-------
+---
 
 #### 6. 将结果上报DEM
 
 最终调用：
 
-```
+```markdown
 ret |= DiagSendResultToDem(
     EVTID_FPGA_PARA1_FAULT,
     errFlag
@@ -475,7 +469,7 @@ flowchart TD
 
 假设真实CRC当前一致，但工站需要验证CRC故障能否上报。如果先比较真实CRC，结果永远是Pass，工站就无法测试：
 
-```
+```undefined
 故障触发
 → DEM确认
 → DTC记录
@@ -533,26 +527,24 @@ static DiagRetCode DiagFpgaPara1GetCrcDiagResult(void)
 
 ---
 
-
-
 ### 2.7 KeyInfo冻结帧快照接口
 
 如果DEM需要记录关键数据，就调用：
 
-```
+```scss
 DiagFpgaPara1GetKeyInfo()
 ```
 
 算法层输出8字节：
 
-```
+```kotlin
 Byte 0～3：storageCrc
 Byte 4～7：calcCrc
 ```
 
 这样产线或售后通过UDS读取冻结帧时，可以看到：
 
-```
+```undefined
 期望CRC是多少
 实际计算CRC是多少
 ```
@@ -618,8 +610,6 @@ flowchart TD
 
 ---
 
-
-
 ## 三、数据源层 CddPeriPara 接口说明
 
 诊断算法层不自行加载Flash、不计算CRC，仅消费CDD输出数据：
@@ -678,7 +668,7 @@ flowchart TD
 
 但CRC属于 `DIAG_PERIOD_ST`上电自检：
 
-```
+```undefined
 上电
 → 执行一次CRC校验
 → 进入DONE
@@ -687,7 +677,7 @@ flowchart TD
 
 如果工站在系统已经运行后下发注入，CRC自检早已结束，注入不会生效。因此必须：
 
-```
+```undefined
 先写入注入配置
 → 再执行电源复位
 → 重新上电时读取注入配置
@@ -696,7 +686,7 @@ flowchart TD
 
 原平台如果只把注入状态保存在RAM中：
 
-```
+```undefined
 PTC写入RAM
 → 电源复位
 → RAM清空
@@ -723,7 +713,7 @@ PTC写入RAM
 
 最终方案是把上电自检注入信息写入NVM：
 
-```
+```markdown
 PTC 0x4F写入注入配置
         ↓
 解析诊断ID、事件ID和Fail/Pass指令
@@ -766,18 +756,16 @@ flowchart TD
 
 各文件职责是：
 
-| 文件                      | 职责                                      |
-| ------------------------- | ----------------------------------------- |
-| `ptc_cmd.c`               | 识别 `0x4F/0x10/0xFF`等PTC主命令并分发    |
-| `fault_ptc.c`             | 解析故障注入、恢复和查询相关负载          |
-| `fault_inject_handle.c`   | 根据诊断类型和诊断ID选择处理模块          |
-| `fault_inject_selftest.c` | 管理ST上电自检注入、RAM状态和NVM持久化    |
-| `mode_ctl_user.c`         | 在执行电源复位前配合完成NVM写入和复位调度 |
-| `diag_fpgapara1.c`        | 上电CRC判定时读取注入结果                 |
+| 文件 | 职责 |
+| --- | --- |
+| `ptc_cmd.c` | 识别 `0x4F/0x10/0xFF`等PTC主命令并分发 |
+| `fault_ptc.c` | 解析故障注入、恢复和查询相关负载 |
+| `fault_inject_handle.c` | 根据诊断类型和诊断ID选择处理模块 |
+| `fault_inject_selftest.c` | 管理ST上电自检注入、RAM状态和NVM持久化 |
+| `mode_ctl_user.c` | 在执行电源复位前配合完成NVM写入和复位调度 |
+| `diag_fpgapara1.c` | 上电CRC判定时读取注入结果 |
 
 ---
-
-
 
 ### 4.2 完整产验收流程
 
@@ -805,7 +793,7 @@ flowchart TD
 
 工站下发 `0x10`：
 
-```
+```undefined
 写入NVM
 → 确认写入完成
 → 触发整机电源复位
@@ -817,7 +805,7 @@ flowchart TD
 
 重新上电后：
 
-```
+```scss
 FaultInjectSelftestInit();
 ```
 
@@ -827,7 +815,7 @@ FaultInjectSelftestInit();
 
 CRC核心判定函数调用：
 
-```
+```scss
 FaultInjectSelftestGetCmdResult(
     DIAGID_FPGA_PARA1
 );
@@ -835,13 +823,13 @@ FaultInjectSelftestGetCmdResult(
 
 如果返回：
 
-```
+```undefined
 ST_INJECT_RES_FAIL
 ```
 
 就跳过真实CRC比较，直接执行：
 
-```
+```scss
 DiagSendResultToDem(
     EVTID_FPGA_PARA1_FAULT,
     TRUE
@@ -852,7 +840,7 @@ DiagSendResultToDem(
 
 工站重新连接后，通过：
 
-```
+```lua
 0xFF sub 0x1F
 ```
 
@@ -860,7 +848,7 @@ DiagSendResultToDem(
 
 如果返回包含 `0x1E01`，就说明以下链路全部正常：
 
-```
+```undefined
 PTC下发
 → 命令解析
 → NVM保存
@@ -871,13 +859,13 @@ PTC下发
 → DTC查询
 ```
 
-------
+---
 
 #### 7. 故障恢复验证
 
 故障触发后，还要验证恢复路径：
 
-```
+```markdown
 0x4F写入强制Pass
         ↓
 配置持久化到NVM
@@ -901,8 +889,6 @@ CRC算法向DEM上报正常
 - FHTI时间要求。
 
 ---
-
-
 
 ## =={pink}五、配置层：CSV自动生成流程==
 

@@ -150,7 +150,7 @@ if (injectRes == ST_INJECT_RES_PASS)
 
 ##### =={yellow}第三优先级：真实CRC比较==
 
-=={green}没有注入命令时，才比较两个CRC：==
+=={green}**没有注入命令时，才比较两个CRC**：==
 
 ```ini
 errFlag = (storageCrc != calcCrc);

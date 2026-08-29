@@ -281,7 +281,7 @@ DiagRetCode DiagFpgaPara1GetKeyInfo(const EventId evtId, uint8 *const keyInfo, u
 | `fault_inject_selftest.c` | 自检注入逻辑、NVM读写持久化 |
 | `mode_ctl_user.c` | 复位前NVM全部写入、整机掉电复位调度 |
 
-## 五、配置层：CSV自动生成流程
+## =={pink}五、配置层：CSV自动生成流程==
 
 ### 5.1 配置输入文件
 

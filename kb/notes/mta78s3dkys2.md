@@ -92,7 +92,7 @@ SPF位于模型链路前端，负责=={green}**从SRS数据**中**提取子带�
 
 我实习期间重点优化的模型是内部型号为 **SPF_27B_10RB** 的Transformer模型。
 
-### =={yellow}CVSA：信道特征提取==
+### =={yellow}CVSA（Channel Vector Sparse Attention）：信道特征提取==
 
 CVSA通过注意力机制建模不同天线、频率和参考信号之间的相关性，增强信道特征。
 

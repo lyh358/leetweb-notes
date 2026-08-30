@@ -168,7 +168,7 @@ WAIT_LOADED → CRC_RUN → DONE
 
 ### 1. 功能是什么
 
-=={green}SPAD Chip Monitor**不是单一诊断**，而是一组针对PC1300接收芯片的安全监控机制，==覆盖：
+=={green}SPAD Chip Monitor**不是单一诊断**，而是**一组**针对PC1300接收芯片的安全监控机制，==覆盖：
 
 - 内部时钟；
 - BGR基准电压；

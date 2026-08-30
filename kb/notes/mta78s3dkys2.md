@@ -641,9 +641,10 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 
 ### =={pink}每层Transformer里发生什么==
 
+=={green}每一层主要包含**两大部分**：==
 > 输入x
 >  │
->  ├─ 第一部分：多头自注意力
+>  ├─ =={yellow}第一部分：多头自注意力==
 >  │      LayerNorm
 >  │         ↓
 >  │      生成Q、K、V
@@ -654,7 +655,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 >  │         ↓
 >  │      与原输入相加
 >  │
->  └─ 第二部分：FFN
+>  └─ =={yellow}第二部分：FFN==
 >         特征扩展
 >            ↓
 >         GELU激活
@@ -664,6 +665,8 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 >         与输入相加
 >            ↓
 >       得到本层输出
+
+第一步：LayerNorm（层归一化）——把特征调整到稳定范围
 
 每层Transformer主要包括：
 

@@ -288,7 +288,7 @@ dieCorY
 - =={yellow}在报文中增加3字节Efuse设备标识==；
 - =={yellow}保持501字节总长度不变==；
 - =={yellow}CDD硬件读取与ASW协议组包分层==；
-- Efuse有效数据缓存；
+- =={yellow}Efuse有效数据缓存；==
 - 上电未就绪场景下的重试机制；
 - 读取失败不中断遥测；
 - PTC寄存器、Wireshark报文及多设备联调验证。

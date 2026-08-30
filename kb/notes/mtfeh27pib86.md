@@ -195,9 +195,9 @@ WAIT_LOADED → CRC_RUN → DONE
 
 > =={green}**PC1300内部硬件执行检测**==
 >         ↓
-> =={green}FPGA作为寄存器访问桥接==
+> =={green}**FPGA作为寄存器访问桥接**==
 >         ↓
-> =={yellow}MCU通过CDD_SPAD配置并读取状态==
+> =={yellow}**MCU通过CDD_SPAD配置并读取状态**==
 >         ↓
 > =={yellow}SWC_DIAG进行故障聚合和状态判断==
 >         ↓

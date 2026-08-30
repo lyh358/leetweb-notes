@@ -646,8 +646,8 @@ LayerNorm
 
 1. =={yellow}**检查**ONNX**输入输出名称**、**Shape**和**数据类型**；==
 2. =={yellow}使用**ATC**将ONNX转换为Ascend OM；==
-3. =={yellow}在Ascend 310P3上执行OM推理；==
-4. =={yellow}通过相同输入对比ONNX与OM输出；==
+3. =={yellow}在Ascend 310P3上**执行OM推理**；==
+4. =={yellow}通过相同输入**对比ONNX与OM输出**；==
 5. =={yellow}建立**OM**模型的**时延**和**精度基线**。==
 
 基线结果如下：

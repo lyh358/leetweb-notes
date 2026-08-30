@@ -573,7 +573,7 @@ flowchart LR
 这项工作的约束包括：
 
 - 目标硬件固定为=={yellow}**Ascend 310P3**；==
-- =={yellow}CANN版本为8.0==.RC3；
+- =={yellow}**CANN版本为8.0**==.RC3；
 - =={yellow}模型输入Shape固定；==
 - 不修改训练数据和训练流程；
 - 优化方案必须重新编译为OM并在NPU上实测；

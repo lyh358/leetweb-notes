@@ -106,7 +106,7 @@ Decoder结合Transformer和LSTM结构，按照时间步迭代推理，逐步恢�
 
 ### =={yellow}AdapterNet：场景适配==
 
-核心结构;
+=={green}**核心结构**：小型全连接网络==
 
 AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估计提供适配结果。
 

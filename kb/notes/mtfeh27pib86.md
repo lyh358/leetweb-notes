@@ -170,7 +170,7 @@ WAIT_LOADED → CRC_RUN → DONE
 
 =={green}SPAD Chip Monitor**不是单一诊断**，而是**一组**针对**PC1300接收芯片**的**安全监控机制**，==覆盖：
 
-- 内部时钟；
+- =={yellow}内部时钟==；
 - BGR（Bandgap Reference）基准电压：带隙基准，芯片内部不受温度电源影响的稳定参考电压源。；
 - SRAM ECC (Error‑Correcting Code)：静态随机存储器的错误校验纠错机制，检测并修复存储位错误；
 - Loopback：环回，把输出信号直接接回输入，用于芯片内部通路自测；

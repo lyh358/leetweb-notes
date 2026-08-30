@@ -1034,7 +1034,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 **=={pink}3.3.2 计算图层的问题==**
 
-=={green}原始ONNX中存在大量动态Shape相关节点==：
+=={green}原始ONNX中存在大量**动态Shape相关节点**==：
 
 - Shape；
 - Gather；

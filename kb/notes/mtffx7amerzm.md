@@ -44,7 +44,7 @@ Runnable是=={yellow}SWC内部**可以被调度**执行的**函数单元**==。�
 
 =={yellow}MCAL主要封装ADC、SPI、GPIO等**标准MCU外设**==；=={yellow}CDD用于**FPGA、SPAD等项目专用硬件**，或者标准AUTOSAR模块无法满足的复杂访问链路。==
 
-### 10. RTA-OS是什么？
+### =={pink}10. RTA-OS是什么？==
 
 RTA-OS是符合AUTOSAR OS规范的车规实时操作系统。项目中它负责周期任务、事件唤醒、任务优先级和多核调度。
 

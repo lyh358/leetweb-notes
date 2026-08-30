@@ -1065,8 +1065,8 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 310P3中主要涉及：
 
 - =={green}**Cube**：执行Conv、MatMul等矩阵计算；==
-- =={green}Vector：执行Softmax、GELU和逐元素计算；==
-- =={green}MTE：负责GM与片上存储之间的数据搬运。==
+- =={green}**Vector**：执行Softmax、GELU和逐元素计算；==
+- =={green}**MTE**：负责GM与片上存储之间的数据搬运。==
 
 SPF模型的张量Shape较小，Cube完成计算很快，实际瓶颈更多来自：
 

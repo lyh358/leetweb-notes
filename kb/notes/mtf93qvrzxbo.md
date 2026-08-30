@@ -259,7 +259,7 @@ dieCorY
 
 ### =={yellow}第一层：寄存器数据验证==
 
-=={green}使用PTC指令直接读取PC1300 Efuse寄存器==，确认：
+=={green}使用PTC指令**直接读取PC1300 Efuse寄存器**==，确认：
 
 - waferId；
 - dieCorX；

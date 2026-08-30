@@ -8,7 +8,7 @@
 
 =={yellow}AUTOSAR Classic是面向**传统车载ECU**的**标准化软件架构**==。它把应用逻辑、通信接口、基础软件和硬件驱动分层，降低应用代码与具体芯片、驱动之间的耦合。
 
-### 2. AUTOSAR和RTOS是什么关系？
+### =={pink}2. AUTOSAR和RTOS是什么关系？==
 
 AUTOSAR是一套软件架构和接口标准，RTOS负责具体的任务调度。项目使用AUTOSAR Classic架构，底层由RTA-OS负责周期任务、事件和优先级调度。
 

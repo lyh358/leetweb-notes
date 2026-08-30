@@ -130,7 +130,7 @@
 1. =={green}增加**Efuse寄存器地址**和**位域掩码**==；
 2. =={green}**读取两个32位Efuse寄存器**；==
 3. =={green}通过**移位**和**掩码解析三个字段**；==
-4. 封装`CDD_Spad_EfuseChipIdType`结构体；
+4. 封装`CDD_Spad_EfuseChipIdType`结功能构体；
 5. 提供`CDD_Spad_GetEfuseChipId()`接口；
 6. 对空指针和寄存器读取失败进行检查。
 

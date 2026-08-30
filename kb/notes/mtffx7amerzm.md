@@ -96,7 +96,7 @@ ASIL是=={yellow}**ISO 26262定义**的**汽车安全完整性等级**==，=={ye
 
 =={yellow}Hysteresis是**数值维度的滞回**==。=={yellow}**故障阈值和恢复阈值不完全相同**==，使=={yellow}信号在边界附近波动时不会反复报故障和恢复。==
 
-### 22. debounce和hysteresis有什么区别？
+### =={pink}22. debounce和hysteresis有什么区别？==
 
 Hysteresis解决的是“数值在阈值附近抖动”，debounce解决的是“异常持续时间不够”。实际诊断中两者经常同时使用。
 

@@ -193,7 +193,7 @@ WAIT_LOADED → CRC_RUN → DONE
 
 ### 4. 实现链路
 
-> =={green}PC1300内部硬件执行检测==
+> =={green}**PC1300内部硬件执行检测**==
 >         ↓
 > =={green}FPGA作为寄存器访问桥接==
 >         ↓
@@ -203,7 +203,7 @@ WAIT_LOADED → CRC_RUN → DONE
 >         ↓
 > =={yellow}DEM完成确诊、恢复和DTC管理==
 >         ↓
-> 冻结帧保存故障位图或原始计数
+> =={yellow}冻结帧保存故障位图或原始计数==
 
 职责可以概括为：
 

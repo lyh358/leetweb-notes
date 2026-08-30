@@ -78,7 +78,7 @@
 
 =={yellow}PC1300内部的**Efuse信息在芯片出厂时写入**，正常情况下**不可修改**==，包含：
 
-- `waferId`：晶圆编号；
+- `waferId`=={yellow}：晶圆编号；==
 - `dieCorX`：芯片在晶圆上的X坐标；
 - `dieCorY`：芯片在晶圆上的Y坐标。
 

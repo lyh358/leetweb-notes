@@ -84,7 +84,7 @@
 
 =={green}三者组合可以定位一颗具体芯片，因此将它们作为设备标识==：
 
-> 设备标识 = waferId + dieCorX + dieCorY
+> =={yellow}设备标识 = waferId + dieCorX + dieCorY==
 
 这三个字段各占1字节，最终需要在遥测包中增加3字节。
 

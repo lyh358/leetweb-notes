@@ -201,7 +201,7 @@ WAIT_LOADED → CRC_RUN → DONE
 >         ↓
 > =={yellow}SWC_DIAG进行故障聚合和状态判断==
 >         ↓
-> DEM完成确诊、恢复和DTC管理
+> =={yellow}DEM完成确诊、恢复和DTC管理==
 >         ↓
 > 冻结帧保存故障位图或原始计数
 

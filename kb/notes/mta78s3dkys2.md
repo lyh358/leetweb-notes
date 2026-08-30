@@ -750,10 +750,6 @@ Q、K、V分别表示：
 
 注意力输出会与进入注意力模块前的输入直接相加：
 
-[
-x_1=x+\operatorname{Attention}(x)
-]
-
 $$
 [
 x_1=x+\operatorname{Attention}(x)

@@ -84,9 +84,9 @@ flowchart LR
 
 ### =={green}整个信道矩阵估计模块由四个不同的网络组成==
 
-### =={yellow}SPF：粗信道估计==
+### =={yellow}SPF（SRS Processing Filter）：粗信道估计==
 
-核心结构：四层 Transformer  + Linear
+=={green}**核心结构**：**四层 Transforme**r Block + **输入输出Linear层**==
 
 SPF位于模型链路前端，负责=={green}**从SRS数据**中**提取子带级信道信息**==，=={green}为后续模型**提供基础特征**==。
 

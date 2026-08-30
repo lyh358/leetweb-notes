@@ -182,13 +182,7 @@ dieCorY
 因此，我=={yellow}**增加了静态缓存**==：
 
 ```markdown
-第一次成功读取Efuse
-        ↓
-解析waferId和die坐标
-        ↓
-保存到MCU RAM
-        ↓
-后续遥测直接读取缓存
+
 ```
 
 缓存有效后，不再重复访问硬件。

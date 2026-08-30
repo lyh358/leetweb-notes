@@ -4,7 +4,7 @@
 
 ## 5.1 AUTOSAR与软件架构
 
-### 1. 什么是AUTOSAR Classic？
+### =={pink}1. 什么是AUTOSAR Classic？==
 
 AUTOSAR Classic是面向传统车载ECU的标准化软件架构。它把应用逻辑、通信接口、基础软件和硬件驱动分层，降低应用代码与具体芯片、驱动之间的耦合。
 

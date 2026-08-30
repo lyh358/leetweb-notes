@@ -871,19 +871,8 @@ x_2=x_1+\operatorname{FFN}(x_1)
 
 本层输出随后进入下一层Transformer，重复同样的处理。
 
-每层Transformer主要包括：
-
 ```scss
-LayerNorm
-→ QKV生成
-→ MatMul(QKᵀ)
-→ Softmax
-→ MatMul(Score·V)
-→ 输出投影
-→ 残差连接
-→ FFN
-→ GELU
-→ 残差连接
+
 ```
 
 ### 

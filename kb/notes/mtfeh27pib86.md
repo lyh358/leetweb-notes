@@ -199,7 +199,7 @@ WAIT_LOADED → CRC_RUN → DONE
 >         ↓
 > =={yellow}MCU通过CDD_SPAD配置并读取状态==
 >         ↓
-> SWC_DIAG进行故障聚合和状态判断
+> =={yellow}SWC_DIAG进行故障聚合和状态判断==
 >         ↓
 > DEM完成确诊、恢复和DTC管理
 >         ↓

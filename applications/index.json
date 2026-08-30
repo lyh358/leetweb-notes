@@ -4,11 +4,11 @@
     "company": "比亚迪",
     "role": "嵌入式、边缘部署",
     "location": "深圳",
-    "applied": false,
+    "applied": true,
     "stage": "简历筛选",
     "website": "https://job.byd.com/portal/pc/#/personalCenter/myApply",
     "created": 1788112266710,
-    "updated": 1788112268422
+    "updated": 1788112269453
   },
   {
     "id": "mtg3849dbgi1",

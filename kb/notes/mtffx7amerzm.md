@@ -86,7 +86,7 @@ ASIL是=={yellow}**ISO 26262定义**的**汽车安全完整性等级**==，=={ye
 
 ### =={pink}19. 一个硬件异常怎样变成DTC？==
 
-=={yellow}**底层驱动先采集硬件状态**==，=={yellow}SWC_DIAG进行阈值判断==，再把=={yellow}本周期结果提交给DEM==。=={yellow}DEM完成防抖和确诊后映射为DTC==，=={yellow}最后由DCM通过UDS响应给上位机==。
+=={yellow}**底层驱动先采集硬件状态**==，=={yellow}**SWC_DIAG进行阈值判断**==，再把=={yellow}**本周期结果提交给DEM**==。=={yellow}DEM完成防抖和确诊后映射为DTC==，=={yellow}最后由DCM通过UDS响应给上位机==。
 
 ### 20. debounce是什么？
 

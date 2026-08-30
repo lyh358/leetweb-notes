@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtg3vj6e1hzm",
+    "company": "比亚迪",
+    "role": "嵌入式、边缘部署",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://job.byd.com/portal/pc/#/personalCenter/myApply",
+    "created": 1788112266710,
+    "updated": 1788112266710
+  },
+  {
     "id": "mtg3849dbgi1",
     "company": "禾望电气",
     "role": "嵌入式",

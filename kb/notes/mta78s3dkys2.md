@@ -756,6 +756,8 @@ x_1=x+\operatorname{Attention}(x)
 ]
 $$
 
+这叫做 **Residual Connection，残差连接**。
+
 每层Transformer主要包括：
 
 ```scss

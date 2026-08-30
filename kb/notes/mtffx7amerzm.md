@@ -10,7 +10,7 @@
 
 ### =={pink}2. AUTOSAR和RTOS是什么关系？==
 
-AUTOSAR是一套软件架构和接口标准，RTOS负责具体的任务调度。项目使用AUTOSAR Classic架构，底层由RTA-OS负责周期任务、事件和优先级调度。
+=={yellow}AUTOSAR是一套软件架构和接口标准==，RTOS负责具体的任务调度。项目使用AUTOSAR Classic架构，底层由RTA-OS负责周期任务、事件和优先级调度。
 
 ### 3. ASW、RTE、BSW、MCAL和CDD分别是什么？
 

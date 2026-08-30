@@ -111,7 +111,7 @@ E311X MCU及外围硬件
 
 可以用一句话记忆：
 
-> ASW负责业务，RTE负责连接，BSW负责通用汽车软件，CDD负责雷达专用硬件，MCAL负责访问MCU外设。
+> =={yellow}**ASW负责业务功能**==，=={yellow}**RTE负责连接与调度**==，=={yellow}**BSW负责通用基础设施软件**==，=={yellow}**CDD负责雷达专用硬件驱动**==，=={yellow}**MCAL负责访问MCU外设**==。
 
 ### ASW
 

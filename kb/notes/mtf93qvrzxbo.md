@@ -163,9 +163,9 @@ dieCorY
 >         ↓
 > **=={yellow}CDD_SPAD读取并解析==**
 >         ↓
-> **返回EfuseChipId结构体**
+> **=={yellow}返回EfuseChipId结构体==**
 >         ↓
-> **ASW遥测模块组包**
+> **=={yellow}ASW遥测模块组包==**
 >         ↓
 > **UDP发送**
 >         ↓

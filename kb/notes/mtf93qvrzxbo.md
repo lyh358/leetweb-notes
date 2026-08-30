@@ -181,7 +181,7 @@ dieCorY
 
 因此，我=={yellow}**增加了静态缓存**==：
 
-> 第一次成功读取Efuse
+> =={yellow}第一次成功读取Efuse==
 >         ↓
 > 解析waferId和die坐标
 >         ↓

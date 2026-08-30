@@ -220,7 +220,7 @@ flowchart LR
 
 ### =={yellow}第一阶段：模型部署与profiling基线分析==
 
-完成ONNX到OM的模型转换，在Ascend 310P3上进行推理，建立时延和精度基线，并使用msprof分析算子执行和数据搬运特征。
+完成ONNX到OM的模型转换，在Ascend 310P3上进行推理，建立**时延和精度基线**，并使用msprof分析算子执行和数据搬运特征。
 
 ### =={yellow}第二阶段：计算图优化==
 

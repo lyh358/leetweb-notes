@@ -621,7 +621,23 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 | **模型参数量** | =={yellow}**约2.5万**== |
 | **总MACs** | =={yellow}约4890万== |
 
-SPF模型概览
+=={green}SPF模型概览：==
+
+> **原始SRS信道数据**
+>     ↓
+> **输入嵌入层**：把**原始特征**转换成**16维内部特征**
+>     ↓
+> Transformer第1层
+>     ↓
+> Transformer第2层
+>     ↓
+> Transformer第3层
+>     ↓
+> Transformer第4层
+>     ↓
+> **输出层**：转换为**需要的子带信道估计**
+
+**4层结构相同的Transformer**每一层并不是完成不同的固定任务，而是对上一层的结果继续提取和增强
 
 每层Transformer主要包括：
 

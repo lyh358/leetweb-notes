@@ -161,7 +161,7 @@ dieCorY
 
 > PC1300 Efuse寄存器
 >         ↓
-> **CDD_SPAD读取并解析**
+> **=={yellow}CDD_SPAD读取并解析==**
 >         ↓
 > **返回EfuseChipId结构体**
 >         ↓

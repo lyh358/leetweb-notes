@@ -267,7 +267,7 @@ dieCorY
 
 ### =={yellow}第二层：UDP报文验证==
 
-使用Wireshark抓取501字节遥测UDP包，检查：
+使用=={green}Wireshark抓取501字节遥测UDP包==，检查：
 
 - 协议版本是否为v1.02；
 - Efuse字段是否位于约定位置；

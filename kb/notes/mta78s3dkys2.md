@@ -758,6 +758,8 @@ $$
 
 这叫做 **Residual Connection，残差连接**。
 
+可以理解为：
+
 每层Transformer主要包括：
 
 ```scss

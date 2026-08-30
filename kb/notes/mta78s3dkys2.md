@@ -871,10 +871,6 @@ x_2=x_1+\operatorname{FFN}(x_1)
 
 本层输出随后进入下一层Transformer，重复同样的处理。
 
-```scss
-
-```
-
 ### 
 
 ### 

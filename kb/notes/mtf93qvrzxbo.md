@@ -153,7 +153,7 @@ dieCorY
 1. 将协议版本更新为v1.02；
 2. 增加Efuse字段的组包类型；
 3. =={green}增加**独立的Efuse打包函数**；==
-4. =={green}从CDD接口获取芯片ID；==
+4. =={green}**从CDD接口获取芯片ID**；==
 5. =={green}按照3字节顺序写入UDP包；==
 6. 更新字段配置表及Reserved长度。
 

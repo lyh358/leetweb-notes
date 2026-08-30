@@ -94,15 +94,19 @@ SPF位于模型链路前端，负责=={green}**从SRS数据**中**提取子带�
 
 ### =={yellow}CVSA（Channel Vector Sparse Attention）：信道特征提取==
 
-**核心结构**：Transformer + LSTM，带zhuang状态传递
+=={green}**核心结构**：稀疏注意力、位置编码==
 
-CVSA通过注意力机制建模不同天线、频率和参考信号之间的相关性，增强信道特征。
+CVSA通过注意力机制建模不同天线、频率和参考信号之间的相关性，=={green}增强信道特征==。
 
 ### =={yellow}Decoder：精细信道估计==
+
+**=={green}核心结构==**=={green}：Transformer + LSTM，带状状态传递==
 
 Decoder结合Transformer和LSTM结构，按照时间步迭代推理，逐步恢复更精细的信道信息。
 
 ### =={yellow}AdapterNet：场景适配==
+
+核心结构;
 
 AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估计提供适配结果。
 

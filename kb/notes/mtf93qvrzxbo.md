@@ -159,19 +159,17 @@ dieCorY
 
 完整链路是：
 
-```markdown
 PC1300 Efuse寄存器
         ↓
-CDD_SPAD读取并解析
+**CDD_SPAD读取并解析**
         ↓
-返回EfuseChipId结构体
+**返回EfuseChipId结构体**
         ↓
-ASW遥测模块组包
+**ASW遥测模块组包**
         ↓
-UDP发送
+**UDP发送**
         ↓
-上位机根据ID区分设备
-```
+**上位机根据ID区分设备**
 
 ---
 

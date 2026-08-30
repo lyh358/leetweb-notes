@@ -179,7 +179,7 @@ dieCorY
 
 =={green}如果每次发包都重新读取Efuse寄存器，会产生没有必要的SPAD通信和SPI总线开销==。
 
-因此，我增加了静态缓存：
+因此，我=={yellow}**增加了静态缓存**==：
 
 ```markdown
 第一次成功读取Efuse

@@ -171,7 +171,7 @@ WAIT_LOADED → CRC_RUN → DONE
 =={green}SPAD Chip Monitor**不是单一诊断**，而是**一组**针对**PC1300接收芯片**的**安全监控机制**，==覆盖：
 
 - 内部时钟；
-- BGR基准电压：；
+- BGR基准电压：带隙基准，芯片内部不受温度电源影响的稳定参考电压源。；
 - SRAM ECC；
 - Loopback；
 - LVDS通信链路等。

@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtg1mkai4xgw",
+    "company": "韶音科技",
+    "role": "端侧AI、嵌入式",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://campus.shokz.com.cn/#/candidateHome/applications",
+    "created": 1788108489018,
+    "updated": 1788108489018
+  },
+  {
     "id": "mtg0zna68i7u",
     "company": "寻影",
     "role": "嵌入式开发",

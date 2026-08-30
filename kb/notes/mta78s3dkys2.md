@@ -613,7 +613,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 | 项目 | 内容 |
 | --- | --- |
 | **网络结构** | =={yellow}**4层Transformer**== |
-| **每层结构** | =={yellow}**Multi-Head Attention** + **FFN（）**== |
+| **每层结构** | =={yellow}**Multi-Head Attention（多头注意力机制）** + **FFN（前馈神经网络）**== |
 | **输入Shape** | `[1,4,32,32,1]` |
 | **输出Shape** | `[1,4,32,32,1]` |
 | **原始精度** | **=={yellow}FP32==** |
@@ -636,11 +636,15 @@ LayerNorm
 → 残差连接
 ```
 
-### 3.2.2 模型部署链路
+### 
+
+### 
+
+### =={pink}3.2.2 模型部署链路==
 
 我首先完成了：
 
-1. 检查ONNX输入输出名称、Shape和数据类型；
+1. =={yellow}检查ONNX输入输出名称、Shape和数据类型；==
 2. 使用ATC将ONNX转换为Ascend OM；
 3. 在Ascend 310P3上执行OM推理；
 4. 通过相同输入对比ONNX与OM输出；

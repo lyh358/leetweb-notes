@@ -34,15 +34,15 @@ Runnable是=={yellow}SWC内部**可以被调度**执行的**函数单元**==。�
 
 ### =={pink}7. RTE接口是怎么使用的？==
 
-=={yellow}接口通常先**在ARXML中配置**==，再生成`Rte_Read`、`Rte_Write`或`Rte_Call`等代码。应=={yellow}用层通过这些接口访问其他组件，不直接依赖对方内部实现==。
+=={yellow}接口通常先**在ARXML中配置**==，再生成`Rte_Read`、`Rte_Write`或`Rte_Call`等代码。**=={yellow}应==**=={yellow}**用层通过这些接口访问其他组件**，不直接依赖对方内部实现==。
 
-### 8. 为什么不直接从ASW操作底层寄存器？
+### =={pink}8. 为什么不直接从ASW操作底层寄存器？==
 
-直接操作会让业务逻辑与芯片强耦合，不利于复用和测试。项目中通常由MCAL或CDD封装寄存器操作，ASW只调用稳定的抽象接口。
+=={yellow}直接操作会让**业务逻辑与芯片强耦合**，**不利于复用和测试**==。项目中通常=={yellow}由**MCAL或CDD封装寄存器操作**，ASW**只调用稳定的抽象接口**。==
 
-### 9. CDD和MCAL有什么区别？
+### =={pink}9. CDD和MCAL有什么区别？==
 
-MCAL主要封装ADC、SPI、GPIO等标准MCU外设；CDD用于FPGA、SPAD等项目专用硬件，或者标准AUTOSAR模块无法满足的复杂访问链路。
+=={yellow}MCAL主要封装ADC、SPI、GPIO等**标准MCU外设**==；=={yellow}CDD用于**FPGA、SPAD等项目专用硬件**，或者标准AUTOSAR模块无法满足的复杂访问链路。==
 
 ### 10. RTA-OS是什么？
 

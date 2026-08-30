@@ -574,7 +574,7 @@ flowchart LR
 
 - 目标硬件固定为=={yellow}Ascend 310P3；==
 - =={yellow}CANN版本为8.0==.RC3；
-- 模型输入Shape固定；
+- =={yellow}模型输入Shape固定；==
 - 不修改训练数据和训练流程；
 - 优化方案必须重新编译为OM并在NPU上实测；
 - 性能提升后还要通过MSE、余弦相似度和复数相关性验证精度。

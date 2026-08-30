@@ -572,7 +572,7 @@ flowchart LR
 
 这项工作的约束包括：
 
-- 目标硬件固定为Ascend 310P3；
+- 目标硬件固定为=={yellow}Ascend 310P3；==
 - =={yellow}CANN版本为8.0==.RC3；
 - 模型输入Shape固定；
 - 不修改训练数据和训练流程；

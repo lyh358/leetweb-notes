@@ -754,6 +754,12 @@ Q、K、V分别表示：
 x_1=x+\operatorname{Attention}(x)
 ]
 
+$$
+[
+x_1=x+\operatorname{Attention}(x)
+]
+$$
+
 每层Transformer主要包括：
 
 ```scss

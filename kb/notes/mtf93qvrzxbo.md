@@ -159,7 +159,7 @@ dieCorY
 
 完整链路是：
 
-> PC1300 Efuse寄存器
+> =={green}PC1300 Efuse寄存器==
 >         ↓
 > **=={yellow}CDD_SPAD读取并解析==**
 >         ↓

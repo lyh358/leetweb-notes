@@ -4,11 +4,11 @@
     "company": "禾望电气",
     "role": "嵌入式",
     "location": "深圳",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://hopewind.zhiye.com/personal/deliveryRecord",
     "created": 1788111174289,
-    "updated": 1788111174289
+    "updated": 1788111177118
   },
   {
     "id": "mtg2wy1y9b4u",

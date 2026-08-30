@@ -113,82 +113,33 @@ E311X MCU及外围硬件
 
 > =={yellow}**ASW负责业务功能**==，=={yellow}**RTE负责连接与调度**==，=={yellow}**BSW负责通用基础设施软件**==，=={yellow}**CDD负责雷达专用硬件驱动**==，=={yellow}**MCAL负责访问MCU外设**==。
 
-### ASW
+### =={pink}ASW（主要6层）==
 
-ASW由多个SWC软件组件组成，负责上层业务，例如：
+### ASW由多个SWC软件组件组成，负责=={yellow}上层业务==，例如：`SWC_Mode_Ctl`：=={yellow}**模式状态机**==；`SWC_DIAG`：=={yellow}**功能安全诊断**==；`SWC_UDS`：=={yellow}**UDS诊断**==服务；`SWC_Basic_Function`：=={yellow}**基础功能**==；`SWC_Parameter`：=={yellow}**参数管理**==；`SWC_PTC`：=={yellow}**产线和调试**==功能。
 
-- `SWC_Mode_Ctl`：模式状态机；
-- `SWC_DIAG`：功能安全诊断；
-- `SWC_UDS`：诊断服务；
-- `SWC_Basic_Function`：基础功能；
-- `SWC_Parameter`：参数管理；
-- `SWC_PTC`：产线和调试功能。
+### =={pink}RTE==
 
-### RTE
+### RTE位于=={green}**应用软件**和**底层模块之间**==，负责=={green}**转发数据**和**服务调用**==，使上层SWC不需要直接依赖具体硬件驱动。
 
-RTE位于应用软件和底层模块之间，负责转发数据和服务调用，使上层SWC不需要直接依赖具体硬件驱动。
+### =={pink}BSW==
 
-### BSW
+### BSW提供=={yellow}**AUTOSAR通用基础服务**==，例如：=={green}**RTA-OS任务调度**==；=={green}**DCM（Diagnostic Communication Manager，诊断通信管理器）**==；=={green}**DEM（Diagnostic Event Manager，诊断事件管理器）**==；**=={green}Flash==**和NvM存储管理；**=={green}以太网==**和DoIP协议栈；EcuM、BswM等系统管理。
 
-BSW提供AUTOSAR通用基础服务，例如：
+### =={pink}CDD==
 
-- RTA-OS任务调度；
-- DCM诊断通信；
-- DEM故障管理；
-- Flash和NvM存储管理；
-- 以太网和DoIP协议栈；
-- EcuM、BswM等系统管理。
+### CDD负责=={yellow}标准AUTOSAR模块难以直接覆盖的**雷达专用硬件驱动**==，例如：=={green}**FPGA；**===={green}**SPAD；**==高压和电源域；特殊ADC采集；自定义遥测和调试协议。
 
-### CDD
+### =={pink}MCAL==
 
-CDD负责标准AUTOSAR模块难以直接覆盖的雷达专用硬件，例如：
+### MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和Flash等=={yellow}**硬件标准驱动抽象**==接口。
 
-- FPGA；
-- SPAD；
-- 高压和电源域；
-- 特殊ADC采集；
-- 自定义遥测和调试协议。
+## =={pink}6. 双核和RTA-OS怎样分工==
 
-### MCAL
-
-MCAL是最靠近MCU硬件的一层，提供ADC、DIO、SPI、ETH和Flash等标准驱动接口。
-
----
-
-## 6. 双核和RTA-OS怎样分工
-
-项目使用的RTA-OS是符合AUTOSAR规范的车规操作系统，不是FreeRTOS。
-
-在整体分工上：
-
-- **Core0**主要运行模式控制、诊断、通信、参数管理以及大部分BSW和CDD；
-- **Core1**主要承担点云相关的实时处理；
-- 周期任务主要由RTE Schedule Table按照1ms、5ms、10ms、100ms等周期调度；
-- QM和Trusted分区之间通过IOC等机制通信；
-- 高实时数据路径也会使用中断和共享内存进行跨核协作。
-
-实习面试中不需要一开始背出全部任务，只需说明：
-
-> 项目使用双核Cortex-R5和AUTOSAR RTA-OS，通过周期任务、事件、中断及跨分区通信，将诊断、控制、通信和点云处理分配到不同核心和安全分区。
-
----
+### 项目使用的=={green}RTA-OS是符合AUTOSAR规范的**车规操作系统**==，不是FreeRTOS。在整体分工上：**=={yellow}Core0==**=={yellow}主要运行**模式控制**、**诊断**、**通信**、**参数管理**以及**大部分BSW**和**CDD**==；**=={yellow}Core1==**=={yellow}主要承担**点云相关的实时处理**；==**=={green}周期任务==**=={green}主要由==**=={green}RTE Schedule Table==**=={green}按照==**=={green}1ms、5ms、10ms、100ms==**=={green}等周期调度；===={green}**QM**和**Trusted分区**之间通过**IOC（Inter‑OS‑Application Communication）跨分区机制通信**；===={green}高实时数据路径也会==**=={green}使用中断和共享内存==**=={green}进行==**=={green}跨核协作==**=={green}。==实习面试中不需要一开始背出全部任务，只需说明：=={yellow}**QM 分区**（Quality Management）==：代表**无功能安全要求**，运行非安全关键业务。=={yellow}**Trusted 分区**（Trusted OS‑Application 可信分区）==：运行在处理器**特权模式，**一般用来跑**BSW 基础软件、内核相关驱动**；
 
 ## 7. 项目的量产属性
 
-这不是一个单机实验项目，而是需要适配不同客户、硬件版本和软件版本的量产工程。
-
-因此，开发中除了实现功能，还需要考虑：
-
-- 不同客户配置和硬件差异；
-- AUTOSAR接口和模块边界；
-- ISO 26262功能安全要求；
-- MISRA C编码规范；
-- MemMap内存段管理；
-- APP、BOOT、Release和Factory版本；
-- 实机验证、故障注入和问题追溯；
-- 软件包与硬件版本的匹配关系。
-
-这也是禾赛实习与普通个人项目最大的区别：
+### 这不是一个单机实验项目，而是需要适配不同客户、硬件版本和软件版本的量产工程。因此，开发中除了实现功能，还需要考虑：=={yellow}**不同客户配置和硬件差异**==；AUTOSAR接口和模块边界；=={yellow}**ISO 26262功能安全要求**；===={yellow}**MISRA C编码规范**；==MemMap内存段管理；APP、BOOT、Release和Factory版本；实机验证、故障注入和问题追溯；软件包与硬件版本的匹配关系。这也是禾赛实习与普通个人项目最大的区别：
 
 > 不仅要让代码实现功能，还要保证它能够被配置、测试、诊断、集成、追溯并最终交付。
 

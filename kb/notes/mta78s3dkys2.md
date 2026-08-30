@@ -268,7 +268,7 @@ flowchart LR
    ↓
 板端推理建立基线(端到端时延+精度)
    ↓
-msprof与计算图分析（AI Core利用率+算子时延+）
+msprof与计算图分析（AI Core利用率+算子时延+shu'j'ban）
    ↓
 提出图优化、混合精度或Kernel方案
    ↓

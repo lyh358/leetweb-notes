@@ -958,8 +958,8 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 #### 3. ACL板端推理程序
 
 - 固定输入Shape
+- 固定batch_size=1
 
-固定batch_size=1
 #### 4. msprof性能分析工具
 
 使用CANN提供的msprof采集模型执行过程，重点关注：

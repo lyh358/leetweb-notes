@@ -1064,20 +1064,20 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 310P3中主要涉及：
 
-- =={green}**Cube**：执行Conv、MatMul等矩阵计算；==
-- =={green}**Vector**：执行Softmax、GELU和逐元素计算；==
-- =={green}**MTE**：负责**GM与片上存储之间**的数据搬运。==
+- =={green}**Cube**：执行Conv、MatMul等**矩阵计算**；==
+- =={green}**Vector**：执行Softmax、GELU和**逐元素向量计算**；==
+- =={green}**MTE**：负责**GM与片上存储之间**的**数据搬运**。==
 
-SPF模型的张量Shape较小，Cube完成计算很快，实际瓶颈更多来自：
+=={yellow}SPF模型的**张量Shape较小，Cube完成计算很快**，实际瓶颈更多来自==：
 
-- Cube和Vector之间频繁切换；
-- 不同存储格式之间的TransData；
-- 中间张量反复写回GM；
-- 细碎Kernel的启动和调度。
+- =={yellow}Cube和Vector之间**频繁切换**；==
+- =={yellow}不同存储格式之间的**TransData**；==
+- =={yellow}**中间张量反复写回GM**；==
+- =={yellow}**细碎Kernel**的**启动和调度**。==
 
-因此，第一个优化方向确定为：
+因此，=={pink}**第一个优化方向确定为：**==
 
-> 优先清理计算图、恢复ATC融合，而不是立即修改网络算法或降低数据精度。
+> =={yellow}优先**清理计算图**、**恢复ATC融合**，而不是立即修改网络算法或降低数据精度。==
 
 ---
 

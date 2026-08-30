@@ -130,11 +130,11 @@
 1. =={green}增加**Efuse寄存器地址**和**位域掩码**==；
 2. =={green}**读取两个32位Efuse寄存器**；==
 3. =={green}通过**移位**和**掩码解析三个字段**；==
-4. **封装**`CDD_Spad_EfuseChipIdType`功能结构体；
-5. 提供`CDD_Spad_GetEfuseChipId()`接口；
-6. 对空指针和寄存器读取失败进行检查。
+4. **=={green}封装==**`CDD_Spad_EfuseChipIdType`**=={green}功能结===={green}构体==**；
+5. **=={green}提供==**`CDD_Spad_GetEfuseChipId()`**=={green}接口==**；
+6. =={green}对**空指针**和**寄存器读取失败**进行检查==。
 
-CDD对上层返回：
+=={yellow}CDD对上层返回：==
 
 ```undefined
 waferId
@@ -142,7 +142,7 @@ dieCorX
 dieCorY
 ```
 
-遥测模块不直接访问寄存器，从而保持硬件访问和协议组包解耦。
+=={yellow}遥测模块**不直接访问寄存器**，从而保持硬件访问和协议组包解耦==。
 
 ### ASW遥测业务层
 

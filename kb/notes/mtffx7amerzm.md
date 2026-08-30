@@ -10,13 +10,13 @@
 
 ### =={pink}2. AUTOSAR和RTOS是什么关系？==
 
-=={yellow}AUTOSAR是一套**软件架构**和**接口标准**==，=={yellow}RTOS负责具体的任务调度==。项目使用AUTOSAR Classic架构，=={yellow}底层由RTA-OS负责**周期任务**、事件和优先级调度。==
+=={yellow}AUTOSAR是一套**软件架构**和**接口标准**==，=={yellow}RTOS负责具体的任务调度==。项目使用AUTOSAR Classic架构，=={yellow}底层由**RTA-OS**负责**周期任务**、**事件**和**优先级调度**。==
 
-### 3. ASW、RTE、BSW、MCAL和CDD分别是什么？
+### =={pink}3. ASW、RTE、BSW、MCAL和CDD分别是什么？==
 
 - ASW负责模式控制和故障诊断等业务逻辑；
 - RTE负责连接不同软件组件；
-- BSW提供通信、诊断、存储等通用服务；
+- BSW提供通信、诊断、存储等通用基础服务；
 - MCAL封装MCU内部外设；
 - CDD处理AUTOSAR标准驱动难以覆盖的定制硬件。
 

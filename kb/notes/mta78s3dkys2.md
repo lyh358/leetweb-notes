@@ -1036,7 +1036,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 =={green}原始ONNX中存在大量**动态Shape相关节点**==：
 
-- Shape；
+- =={yellow}Shape；==
 - Gather；
 - Unsqueeze；
 - Constant；

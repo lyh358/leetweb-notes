@@ -612,7 +612,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 
 | 项目 | 内容 |
 | --- | --- |
-| **网络结构** | 4层Transformer |
+| **网络结构** | =={yellow}4层Transformer== |
 | 每层结构 | Multi-Head Attention + FFN |
 | 输入Shape | `[1,4,32,32,1]` |
 | 输出Shape | `[1,4,32,32,1]` |

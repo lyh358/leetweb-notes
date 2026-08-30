@@ -172,7 +172,7 @@ WAIT_LOADED → CRC_RUN → DONE
 
 - 内部时钟；
 - BGR基准电压：带隙基准，芯片内部不受温度电源影响的稳定参考电压源。；
-- SRAM ECC；
+- SRAM ECC：**SRAM ECC**：静态随机存储器的错误校验纠错机制，检测并修复存储位错误；
 - Loopback；
 - LVDS通信链路等。
 

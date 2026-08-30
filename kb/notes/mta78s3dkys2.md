@@ -943,7 +943,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 > +
 > =={yellow}Kernel启动和调度开销==
 > +
-> =={yellow}GM与片上缓存的数据搬运==
+> =={yellow}GM与片上缓存的数据搬运开销==
 > +
 > TransData格式转换
 > +

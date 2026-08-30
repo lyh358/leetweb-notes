@@ -121,7 +121,7 @@
 
 这个功能分成=={green}**CDD硬件访问层**和**ASW遥测业务层**==。
 
-### =={pink}CDD_SPAD层：读==
+### =={pink}CDD_SPAD层：读EFuse寄存器并解析==
 
 =={yellow}CDD负责**读取PC1300的Efuse寄存器**，并向上层提供统一接口。==
 

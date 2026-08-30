@@ -264,7 +264,7 @@ flowchart LR
 ## =={pink}8. 最终形成的优化闭环==
 
 ```undefined
-模型转换（）
+模型转换（ONNX -> OM ）
    ↓
 板端推理建立基线
    ↓

@@ -94,7 +94,7 @@ SPF位于模型链路前端，负责=={green}**从SRS数据**中**提取子带�
 
 ### =={yellow}CVSA（Channel Vector Sparse Attention）：信道特征提取==
 
-**核心结构**：Transformer + LSTM，带状态传递
+**核心结构**：Transformer + LSTM，带zhuang状态传递
 
 CVSA通过注意力机制建模不同天线、频率和参考信号之间的相关性，增强信道特征。
 

@@ -121,7 +121,7 @@
 
 这个功能分成=={green}**CDD硬件访问层**和**ASW遥测业务层**==。
 
-### =={pink}CDD_SPAD层：读EFuse寄存器并解析==
+### =={pink}CDD_SPAD层：读EFuse寄存器并解析返回==
 
 =={yellow}CDD负责**读取PC1300的Efuse寄存器**，并向上层提供统一接口。==
 
@@ -152,9 +152,9 @@ dieCorY
 
 1. 将协议版本更新为v1.02；
 2. 增加Efuse字段的组包类型；
-3. 增加独立的Efuse打包函数；
-4. 从CDD接口获取芯片ID；
-5. 按照3字节顺序写入UDP包；
+3. =={green}增加独立的Efuse打包函数；==
+4. =={green}从CDD接口获取芯片ID；==
+5. =={green}按照3字节顺序写入UDP包；==
 6. 更新字段配置表及Reserved长度。
 
 完整链路是：

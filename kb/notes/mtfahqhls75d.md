@@ -41,19 +41,7 @@ RGBD项目已经从ETXP项目复用了入口电压诊断框架，但硬件平台
 入口电压并不是由诊断模块直接读取ADC寄存器，而是按照AUTOSAR分层逐级传递：
 
 ```markdown
-整车入口电压
-        ↓
-板级分压电路
-        ↓
-MCU B7 ADC通道
-        ↓
-CDD_AV采样、滤波和电压换算
-        ↓
-ReadRequest_PwrInVolt接口
-        ↓
-SWC_DIAG阈值判断
-        ↓
-DEM / DTC / 冻结帧
+
 ```
 
 这样，CDD_AV只负责硬件采集和物理量换算，SWC_DIAG只负责诊断策略，两部分能够独立适配和复用。

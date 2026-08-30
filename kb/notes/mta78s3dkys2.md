@@ -6,7 +6,7 @@
 
 这段实习面向的是 **=={yellow}5G基站物理层AI信道矩阵估计==**=={yellow}。==
 
-=={green}无线信号从手机传到基站==时，=={green}会受到==建筑物反射、遮挡、多径和噪声等=={green}各种==影=={green}响==。=={green}基站需要根据SRS（===={green}Sounding Reference Signal，==**=={green}探测参考信号==**=={green}）、DMRS（===={green}Demodulation Reference Signal，==**=={green}解调参考信号==**=={yellow}）等参考信号，**估计当前无线信道的状态**，也就是**信道矩阵 (H)**。==
+=={green}无线信号从手机传到基站==时，=={green}会受到==建筑物反射、遮挡、多径和噪声等=={green}各种==影=={green}响==。=={green}基站需要根据SRS（=={yellow}=={green}Sounding Reference Signal，==**=={green}探测参考信号==**=={green}）、DMRS（===={green}Demodulation Reference Signal，==**=={green}解调参考信号==**=={yellow}）等参考信号，**估计当前无线信道的状态**，也就是**信道矩阵 (H)**。==
 
 =={yellow}信道估计结果会直接用于==：
 
@@ -94,7 +94,7 @@ SPF位于模型链路前端，负责=={green}**从SRS数据**中**提取子带�
 
 ### =={yellow}CVSA（Channel Vector Sparse Attention）：信道特征提取==
 
-**核心结构**：
+**核心结构**：Transformer + LSTM，带状态传递
 
 CVSA通过注意力机制建模不同天线、频率和参考信号之间的相关性，增强信道特征。
 

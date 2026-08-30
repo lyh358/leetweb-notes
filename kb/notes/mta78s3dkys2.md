@@ -94,6 +94,7 @@ SPF位于模型链路前端，负责=={green}**从SRS数据**中**提取子带�
 
 > **SPF_27B_10RB** 是按照模型处理的频域规格命名的：- **27B**：表示模型输出包含 **=={green}27个子带（Band）==**，即输出频域被划分为27个子带级特征。
 > 
+> 
 > - **10RB**：表示输入对应 **=={green}10个资源块（Resource Block）==**。在5G NR中，=={green}1个RB包含12个子载波==，因此10RB对应 **120个子载波的频域带宽配置**。
 
 ### =={yellow}CVSA（Channel Vector Sparse Attention）：信道特征提取==
@@ -176,7 +177,7 @@ flowchart LR
 | 指标 | 基线结果 |
 | --- | --- |
 | =={yellow}ONNX节点数== | =={yellow}618== |
-| =={yellow}NPU稳态推理时延== | =={yellow}572 μs== |
+| =={yellow}NPU稳态推理时延== | =={yellow}**572 μs**== |
 | 端到端余弦相似度 | 0.999999 |
 | 端到端MSE | 约 (4.70\times10^{-7}) |
 

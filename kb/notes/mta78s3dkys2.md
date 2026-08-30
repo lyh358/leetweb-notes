@@ -158,7 +158,7 @@ flowchart LR
 - Python/PyACL脚本用于离线调试、时延测试和精度验证；
 - C++/ACL推理引擎用于正式集成，采用异步执行和Stream同步。
 
-CANN和ACL的关系
+#### CANN和ACL的关系
 
 ---
 

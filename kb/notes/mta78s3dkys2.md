@@ -82,21 +82,23 @@ flowchart LR
 
 ## =={pink}4. 整个AI模型链路有哪些组成部分==
 
+### =={green}整个信道矩阵估计模块由四个不同的网络组成==
+
 ### =={yellow}SPF：粗信道估计==
 
-SPF位于模型链路前端，负责从SRS数据中提取子带级信道信息，为后续模型提供基础特征。
+SPF位于模型链路前端，负责=={green}从SRS数据中提取子带级信道信息==，为后续模型提供基础特征。
 
 我实习期间重点优化的模型是内部型号为 **SPF_27B_10RB** 的Transformer模型。
 
-### CVSA：信道特征提取
+### =={yellow}CVSA：信道特征提取==
 
 CVSA通过注意力机制建模不同天线、频率和参考信号之间的相关性，增强信道特征。
 
-### Decoder：精细信道估计
+### =={yellow}Decoder：精细信道估计==
 
 Decoder结合Transformer和LSTM结构，按照时间步迭代推理，逐步恢复更精细的信道信息。
 
-### AdapterNet：场景适配
+### =={yellow}AdapterNet：场景适配==
 
 AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估计提供适配结果。
 

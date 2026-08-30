@@ -266,7 +266,7 @@ flowchart LR
 ```undefined
 模型转换（ONNX -> OM）
    ↓
-板端推理建立基线()
+板端推理建立基线(端到端时延)
    ↓
 msprof与计算图分析
    ↓

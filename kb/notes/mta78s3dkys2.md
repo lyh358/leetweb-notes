@@ -86,7 +86,7 @@ flowchart LR
 
 ### =={yellow}SPF：粗信道估计==
 
-核心结构：Transformer Block + Linear
+核心结构：Transformer 块 + Linear
 
 SPF位于模型链路前端，负责=={green}**从SRS数据**中**提取子带级信道信息**==，=={green}为后续模型**提供基础特征**==。
 

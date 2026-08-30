@@ -6,7 +6,7 @@
 
 这段实习面向的是 **=={yellow}5G基站物理层AI信道矩阵估计==**=={yellow}。==
 
-=={green}无线信号从手机传到基站==时，=={green}会受到==建筑物反射、遮挡、多径和噪声等=={green}各种==影=={green}响==。=={green}基站需要根据SRS（===={green}Sounding Reference Signal，==**=={green}探测参考信号==**=={green}）、DMRS（===={green}Demodulation Reference Signal，==**=={green}解调参考信号==**=={yellow}）等参考信号，估计当前无线信道的状态，也就是信道矩阵 (H)。==
+=={green}无线信号从手机传到基站==时，=={green}会受到==建筑物反射、遮挡、多径和噪声等=={green}各种==影=={green}响==。=={green}基站需要根据SRS（===={green}Sounding Reference Signal，==**=={green}探测参考信号==**=={green}）、DMRS（===={green}Demodulation Reference Signal，==**=={green}解调参考信号==**=={yellow}）等参考信号，**估计当前无线信道的状态**，也就是信道矩阵 (H)。==
 
 信道估计结果会直接用于：
 

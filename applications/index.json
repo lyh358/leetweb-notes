@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtg2wy1y9b4u",
+    "company": "恒玄科技",
+    "role": "嵌入式",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://bestechnic.zhiye.com/personal/deliveryRecord",
+    "created": 1788110653030,
+    "updated": 1788110653030
+  },
+  {
     "id": "mtg28761xdyl",
     "company": "小鹏汽车",
     "role": "具身智能Infra（部署）、嵌入式MCU、大模型Infra",

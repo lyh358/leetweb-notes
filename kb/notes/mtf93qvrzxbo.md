@@ -183,7 +183,7 @@ dieCorY
 
 > =={yellow}第一次成功读取Efuse==
 >         ↓
-> 解析waferId和die坐标
+> =={yellow}解析waferId和die坐标==
 >         ↓
 > 保存到MCU RAM
 >         ↓

@@ -192,7 +192,7 @@ flowchart LR
 | =={green}性能== | **=={green}端到端推理时延==** | 从**输入准备**到**获得输出**的**整体耗时**，通常是**=={green}最核心指标==** |
 | =={green}性能== | **=={green}模型执行时延==** | 只统计**NPU执行模型的时间**，用于**排除前后处理**和**数据传输**干扰 |
 | 性能 | **吞吐量** | 单位时间内处理的样本数，如FPS、samples/s |
-| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
+| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
 | =={yellow}精度== | **=={yellow}MSE（均方根误差）==** | 比较**=={yellow}具体元素的数值偏差==**，**补充余弦相似度**的不足 |
 | =={pink}资源== | **=={pink}内存占用==** | 包括**Host内存**、**Device内存**和**模型权重占用** |
 | =={pink}资源== | **=={pink}算力与利用率==** | **AI Core利用率**、**各类算子耗时**以及**数据搬运开销** |
@@ -955,7 +955,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 =={green}片上缓存==：靠近计算单元、速度更快的存储空间；=={green}TransData==：在不同数据排布格式之间转换；=={green}设备子图==：ATC将完整模型拆分后，交给设备执行的一段计算图。
 
-**=={green}对于大模型，矩阵乘法可能占据主要时延==**；**=={yellow}但SPF是一个小Shape、batch_size=1的轻量模型==**=={yellow}，单次矩阵计算规模不大，因此==**=={yellow}调度、格式转换和数据搬运==**=={yellow}的==**占比**==会=={yellow}**=={yellow}更加明显**===={yellow}。==
+**=={green}对于大模型，矩阵乘法可能占据主要时延==**；**=={yellow}但SPF是一个小Shape、batch_size=1的轻量模型==**=={yellow}，单次矩阵计算规模不大，因此==**=={yellow}调度、格式转换和数据搬运==**=={yellow}的**占比**==会=={yellow}**更加明显**===={yellow}。==
 
 ### =={pink}3.3.2== =={pink}分析工具==
 
@@ -1009,7 +1009,28 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 ---
 
-### 3.3.3 计算图层的问题
+### =={pink}3.3.3== =={pink}理论计算量分析==
+
+算力分析工具将模型的=={yellow}主要运算分为**Cube**和Vector两部分==：
+
+| 计算单元 | 典型算子 | 估算MACs | 理论计算时间 |
+| --- | --- | --- | --- |
+| Cube | Conv、MatMul | 约30.23M | 约6.96 μs |
+| Vector | Tanh、Pow、Softmax、Mul等 | 约18.67M | 约145.89 μs |
+| 合计 | — | 约48.91M | 约152.86 μs |
+
+估算公式为：
+
+```text
+理论计算时间 = 运算量 ÷ 假设的硬件计算吞吐率
+```
+
+该结果说明：
+
+1. SPF模型本身计算量不大；
+2. Conv和MatMul虽然运算量较高，但Cube处理矩阵计算的吞吐能力较强；
+3. GELU、Softmax和LayerNorm等Vector计算的理论效率相对较低；
+4. 理论计算时间只计算理想算术开销，没有完整包含调度、搬运和格式转换。
 
 ### 3.3.2 计算图层的问题
 

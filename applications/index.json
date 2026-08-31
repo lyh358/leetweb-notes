@@ -1,5 +1,16 @@
 [
   {
+    "id": "mthffhavet5i",
+    "company": "寒武纪",
+    "role": "芯片应用工程师",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://app.mokahr.com/campus-recruitment/cambricon/44201#/candidateHome/applications",
+    "created": 1788192139351,
+    "updated": 1788192139351
+  },
+  {
     "id": "mthf8jar79uq",
     "company": "联发科",
     "role": "嵌入式",

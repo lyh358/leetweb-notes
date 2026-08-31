@@ -39,7 +39,7 @@
 
 ## 2. ROS在机器人系统中扮演什么角色
 
-=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或====={yellow}**={yellow}Windows**=={yellow}=={yellow}的====={yellow}**={yellow}传统操作系统**=={yellow}=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的====={yellow}**={yellow}机器人软件框架**=={yellow}=={yellow}。==
+=={yellow}ROS==**=={yellow}不是==**=={yellow}类似==**=={yellow}Linux==**=={yellow}或===={yellow}**}Windows**=={yellow}=={yellow}的====={yellow}**={yellow}传统操作系统**=={yellow}=={yellow}，而是==**=={yellow}运行在Linux之上==**=={yellow}的====={yellow}**={yellow}机器人软件框架**=={yellow}=={yellow}。==
 
 可以把ROS理解成机器人=={yellow}各个软件模块之间的“**通信基础设施**”==。
 
@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -129,7 +129,7 @@ ROS Topic
 
 ## 5. Protobuf是什么
 
-=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的====={yellow}**={yellow}结构化数据定义**=={yellow}=={yellow}和====**={yellow}二进制序列化**=={yellow}=={yellow}框架===={yellow}。==
+=={yellow}Protobuf，也就是==**=={yellow}Protocol Buffers==**=={yellow}，是一种===={yellow}Google 开源，==**=={yellow}跨语言、跨平台==**=={yellow}的====={yellow}**={yellow}结构化数据定义**=={yellow}=={yellow}和====={yellow}**={yellow}二进制序列化**=={yellow}=={yellow}框架===={yellow}。==
 
 > **序列化**：内存中的=={green}结构体 / 对象== → =={green}二进制字节==；
 > **反序列化**：二进制字节 → 还原内存结构体 / 对象。
@@ -328,11 +328,15 @@ Qt监控界面
 
 > 这个项目面向的是自动驾驶机器人场景。一台机器人通常会把感知、定位、规划和控制拆成多个独立程序，ROS在这里相当于软件中间件，通过Node和Topic组织这些模块，并完成发布订阅通信。
 > 
+> 
 > ROS原生使用`.msg`文件定义消息，编译后会生成对应的消息类和二进制序列化代码。对于完全运行在ROS内部的系统，这套机制很好用。但是系统规模扩大以后，部分算法服务、gRPC服务或者其他平台可能已经使用Protobuf定义数据。如果接入ROS时再重新定义一份`.msg`，就需要同时维护`.proto`、`.msg`和两者之间的转换代码。
+> 
 > 
 > 所以我做的第一部分工作，是扩展ROS的Traits和Serialization机制，让ROS能够识别并序列化Protobuf消息。这样Protobuf对象可以直接使用ROS原有的`publish`和`subscribe`接口，同时原生ROS Msg仍然可以正常使用。它的主要价值是减少重复的数据定义和转换，并让同一份`.proto`更方便地复用到ROS和gRPC等不同系统中。
 > 
+> 
 > 在此基础上，我又考虑了多Linux计算节点的运行状态问题。ROS主要解决业务节点通信，但不能代替主机性能监控，所以系统增加了监控Agent，从`/proc`采集CPU、内存和网络数据，通过gRPC流式上报到中心端，并由Qt界面集中展示。
+> 
 > 
 > =={green}最终这个项目形成了两条链路==：=={yellow}一条是==**=={yellow}兼容ROS Msg和Protobuf的ROS业务通信链路==**=={yellow}，另一条是==**=={yellow}基于Protobuf和gRPC的分布式性能监控链路==**=={yellow}。==
 
@@ -509,7 +513,9 @@ publisher.publish(protobuf_message);
 
 > 在明确了项目背景以后，我给自己设定的任务主要有两部分。第一部分是扩展ROS的消息机制，让ROS在原生支持ROS Msg的基础上，也能直接识别和传输Protobuf消息，并且上层仍然使用原来的`publish`和`subscribe`接口。
 > 
+> 
 > 第二部分是搭建分布式性能监控链路。在每个Linux计算节点上采集CPU、内存和网络数据，通过Monitor Agent使用gRPC流式上报到中心端，再由中心端汇总并通过Qt界面展示。
+> 
 > 
 > 所以整个系统可以看成两条主线：一条负责机器人感知、规划和控制节点之间的业务通信；另一条负责多个Linux计算节点的运行状态监控。两条链路分别使用ROS Topic和gRPC传输，但都可以复用Protobuf的数据定义。这个项目是个人学习项目，从ROS通信扩展、性能采集到gRPC监控原型和工程环境，都由我完成整理和实现。
 

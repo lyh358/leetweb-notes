@@ -661,7 +661,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 > 
 >    |          ↓         └─Softmax：相关性系数转权重
 >    |          ↓         └─Softmax：相关性系数转权重
-> 
+>    |          ↓         └─Softmax：相关性系数转权重
 > 
 >    |          ↓
 >  │      =={pink}输出投影==

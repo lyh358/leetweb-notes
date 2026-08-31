@@ -192,7 +192,7 @@ flowchart LR
 | =={green}性能== | **=={green}端到端推理时延==** | 从**输入准备**到**获得输出**的**整体耗时**，通常是**=={green}最核心指标==** |
 | =={green}性能== | **=={green}模型执行时延==** | 只统计**NPU执行模型的时间**，用于**排除前后处理**和**数据传输**干扰 |
 | 性能 | **吞吐量** | 单位时间内处理的样本数，如FPS、samples/s |
-| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
+| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
 | =={yellow}精度== | **=={yellow}MSE（均方根误差）==** | 比较**=={yellow}具体元素的数值偏差==**，**补充余弦相似度**的不足 |
 | =={pink}资源== | **=={pink}内存占用==** | 包括**Host内存**、**Device内存**和**模型权重占用** |
 | =={pink}资源== | **=={pink}算力与利用率==** | **AI Core利用率**、**各类算子耗时**以及**数据搬运开销** |
@@ -1109,7 +1109,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 =={green}PyTorch 导出 ONNX 时，默认按==**=={green}通用情况==**=={green}处理==——**假设 shape 可能是动态**的。=={yellow}**因此会自动插入**==：
 
 > **=={green}Shape → Gather → Unsqueeze==**
-> =={green}（====**={green}取张量维度值 → 取某个具体维度 → 扩维拼接到目标 shape**=={yellow}=={green}）==
+> =={green}（====={green}**={green}取张量维度值 → 取某个具体维度 → 扩维拼接到目标 shape**=={yellow}=={green}）==
 
 =={green}这条链路在==**=={green}动态 shape==** =={green}下是必要的（运行时才能知道维度值）==。=={green}但在我们的部署场景中，ATC 编译要求固定== `input_shape="input:1,4,32,32,1"`=={green}，shape 永远不会变，所以这些运行时推导节点==**=={green}永远不会产生不同于编译时的值==**=={yellow}，纯粹**《浪费调度开销》**。==
 
@@ -1307,7 +1307,7 @@ Erf方案正式回退，保留原Tanh-GELU。
 
 ---
 
-## 3.6 第五阶段：混合精度与INT8量化评估
+## =={pink}3.6 第五阶段：混合精度与INT8量化评估==
 
 ### 3.6.1 优化假设
 

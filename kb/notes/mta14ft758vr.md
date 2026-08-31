@@ -721,6 +721,10 @@ ROS原来的模板
 
 =={yellow}项目中主要使用两个工具：==
 
+std::is_base_of<Base, T>
+
+std::enable_if<condition>
+
 其中：
 
 - `std::is_base_of`判断`T`是否继承某个基类；

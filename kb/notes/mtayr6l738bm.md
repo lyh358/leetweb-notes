@@ -259,9 +259,8 @@ GPS模块用于：
 
 ### =={pink}5.3 UART DMA 接收（ESP32 高性能方案）==
 
-**=={green}GPS 字节流入 UART 硬件==** =={green}FIFO，DMA 硬件自动把字节搬运到内存缓冲区，==**=={green}不需要 CPU 参与搬运==**=={green}。==DMA **完成 / 半满 / 超时**，才**产生**一次**中断通知 CPU**。=={yellow}CPU **一次拿到一大段** GPS 数据。==
+**=={green}GPS 字节流入 UART 硬件==** =={green}FIFO，DMA 硬件自动把字节搬运到内存缓冲区，==**=={green}不需要 CPU 参与搬运==**=={green}。==DMA **完成 / 半满 / 超时**，才**产生**一次**中断通知 CPU**。=={yellow}CPU **一次拿到一大段** GPS 数据。==ESP32 UART 支持 DMA，不需要 CPU 搬运字节。
 
-ESP32 UART 支持 DMA，不需要 CPU 搬运字节。
 **优势**：=={green}大量串口数据流的时候，**大大减少中断次数**，**减轻 CPU 负担**==，适合 GPS 这种持续输出数据流。 ESP‑IDF uart_driver_install() 底层可以开启 DMA。
 
 ### 5.4 流式解析

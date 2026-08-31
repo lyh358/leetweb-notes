@@ -232,7 +232,7 @@ void loop() {
 - **TCP/IP**和lwIP；
 - **MQTT**客户端；
 - **硬件UART、I²C和GPIO驱动**；
-- WebServer；
+- **WebServer**；
 - ArduinoOTA和HTTPUpdate；
 - NVS/Preferences。
 

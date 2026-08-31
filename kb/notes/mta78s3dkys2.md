@@ -1288,7 +1288,7 @@ x → Mul(0.5·x) ────────────────────�
 
 =={yellow}CANN 8.0.RC3对原**Tanh-GELU存在专用融合规则**，可以**将多个节点合并成一个融合Kernel**。==
 
-=={green}Erf版本没有对应的专用融合Pass==，Mul、Erf、Add被拆成多个Kernel，反而增加了：
+=={green}Erf版本没有对应的专用融合Pass==，Mul、Erf、Add被拆成多个Kernel，=={green}反而增加了==：
 
 - Kernel启动次数；
 - 中间张量写回GM；

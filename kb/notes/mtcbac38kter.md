@@ -296,27 +296,24 @@ Qt界面集中展示
 
 整个项目最终形成=={yellow}**两条链路**==。
 
-第一条：机器人业务通信
-
-感知/规划/控制节点
-        ↓
-ROS Msg或Protobuf消息
-        ↓
-ROS Topic
-        ↓
-其他业务节点
-
-第二条：Linux节点性能监控
-
-CPU/内存/网络等运行指标
-        ↓
-Monitor Agent
-        ↓
-gRPC流式上报
-        ↓
-Monitor Center
-        ↓
-Qt监控界面
+> 第一条：机器人业务通信
+> 感知/规划/控制节点
+>         ↓
+> ROS Msg或Protobuf消息
+>         ↓
+> ROS Topic
+>         ↓
+> 其他业务节点
+> 第二条：Linux节点性能监控
+> CPU/内存/网络等运行指标
+>         ↓
+> Monitor Agent
+>         ↓
+> gRPC流式上报
+>         ↓
+> Monitor Center
+>         ↓
+> Qt监控界面
 
 两部分的联系不是“所有数据都使用同一个通信协议”，而是：
 

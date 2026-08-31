@@ -374,7 +374,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C
 
 > 在RAM中**绘制完整一帧**
 >         ↓
-> 调用sendBuffer()
+> 调用**sendBuffer()**
 >         ↓
 > **一次性写入OLED**
 

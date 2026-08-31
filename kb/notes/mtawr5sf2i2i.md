@@ -233,7 +233,7 @@ void loop() {
 - **MQTT**客户端；
 - **硬件UART、I²C和GPIO驱动**；
 - **WebServer**；
-- ArduinoOTA和HTTPUpdate；
+- **ArduinoOT**A和HTTPUpdate；
 - NVS/Preferences。
 
 ### =={yellow}FreeRTOS内核层==

@@ -1106,7 +1106,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 ### =={pink}3.4.1 冗余节点的来源==
 
-PyTorch 导出 ONNX 时，默认按**通用情况**处理——假设 shape 可能是动态的。因此会自动插入：
+=={green}PyTorch 导出 ONNX 时，默认按==**=={green}通用情况==**=={green}处理==——假设 shape 可能是动态的。因此会自动插入：
 
 > Shape → Gather → Unsqueeze
 > （取张量维度值 → 取某个具体维度 → 扩维拼接到目标 shape）

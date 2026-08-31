@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、==`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、`NodeMetrics`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
 
 ### 面试回答
 

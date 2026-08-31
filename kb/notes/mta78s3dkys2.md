@@ -800,8 +800,8 @@ FFN解决的是：
 > =={yellow}16维特征==
 >     ↓ =={yellow}conv1==
 > =={yellow}扩展为32维==
->     ↓ GELU
-> 进行非线性变换
+>     ↓ =={yellow}GELU==
+> q
 >     ↓ conv2
 > 压缩回16维
 

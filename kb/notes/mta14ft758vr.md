@@ -721,7 +721,7 @@ ROS原来的模板
 
 =={yellow}项目中主要使用**两个工具**：==
 
-> std::=={yellow}**is_base_of<Base, T> value**==
+> std::=={yellow}**is_base_of<Base, T> ::value**==
 > std::=={yellow}**enable_if<condition>**==
 
 其中：

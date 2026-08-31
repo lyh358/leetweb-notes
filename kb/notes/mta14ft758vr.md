@@ -772,6 +772,8 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 如果T**不是Protobuf消息**，表达式**替换失败**，这个**候选实现被移除**，ROS继续选择原来的模板逻辑。
 
+IsMessage
+
 ---
 
 ### =={pink}4.3 为什么要使用SFINAE==

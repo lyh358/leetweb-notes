@@ -399,11 +399,11 @@ Protobuf统一数据定义
 │      │               │               │            │
 │  Monitor Agent   Monitor Agent   Monitor Agent    │
 │      └─────────── gRPC流式上报 ───────────┘          │
-│                         │                           │
-│                  Monitor Center                     │
-│                         │                           │
-│                    Qt监控界面                        │
-│                                                     │
+│                         │                         │
+│                  Monitor Center                   │
+│                         │                        │
+│                    Qt监控界面                    │
+│                                                 │
 └─────────────────────────────────────────────────────┘
 ```
 

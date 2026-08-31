@@ -689,9 +689,9 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 
 =={green}Q、K、V分别表示：==
 
-- **=={yellow}Q，Query，查询==**=={yellow}：当前位置想寻找什么；==
-- **=={yellow}K，Key，键==**=={yellow}：其他位置具有什么特征；==
-- **=={yellow}V，Value，值==**=={yellow}：其他位置真正携带的信息。==
+- **=={pink}Q，Query，查询==**=={pink}：当前位置想寻找什么；==
+- **=={pink}K，Key，键==**=={pink}：其他位置具有什么特征；==
+- **=={pink}V，Value，值==**=={pink}：其他位置真正携带的信息。==
 
 可以把它类比成查资料：
 

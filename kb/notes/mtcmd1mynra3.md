@@ -2,7 +2,7 @@
 
 ```php
 ┌─────────────────────────────────────────────────────────────┐
-│ 抽象接口基类：IMetricCollector（纯虚接口）               │
+│ 抽象接口基类：IMetricCollector（纯虚接口）                │
 │   virtual void Collect(NodeMetrics* out) = 0;          │
 │   virtual std::string Name() const = 0;                │
 └───────────┬───────────────┬───────────────┬─────────────────┘

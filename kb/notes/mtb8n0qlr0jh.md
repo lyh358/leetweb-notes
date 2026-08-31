@@ -465,7 +465,7 @@ TinyGPSPlus采用流式解析，不需要先保存完整NMEA字符串，适合�
 
 ## =={pink}11. 优化后的故障隔离关系==
 
-### 网络异常：bu
+### 网络异常：不影响core1ce
 
 ```markdown
 Wi-Fi/MQTT断开

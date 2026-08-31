@@ -798,8 +798,8 @@ FFN解决的是：
 在这个SPF模型中，FFN使用两个 `Conv1d`：
 
 > =={yellow}16维特征==
->     ↓ conv1
-> 扩展为32维
+>     ↓ =={yellow}conv1==
+> =={yellow}扩展为32维==
 >     ↓ GELU
 > 进行非线性变换
 >     ↓ conv2

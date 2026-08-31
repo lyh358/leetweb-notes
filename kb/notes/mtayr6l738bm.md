@@ -63,8 +63,8 @@ DHT22使用=={yellow}**厂商定义的单总线GPIO时序协议**==。它不是D
 =={yellow}基本过程为：==
 
 > =={yellow}ESP32拉低数据线发送起始信号==
->         =={yellow}↓====
-> ={yellow}DHT22返回响应信号
+>         =={yellow}↓==
+> DHT22返回响应信号
 >         =={yellow}↓==
 > 传输40位数据
 >         =={yellow}↓==

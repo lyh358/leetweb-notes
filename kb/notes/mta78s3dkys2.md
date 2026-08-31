@@ -650,7 +650,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 > 输入x：16维内部特征
 >  │
 >  ├─ =={yellow}第一部分：**多头自注意力**==
->  │      LayerNorm
+>  │      =={pink}LayerNorm==
 >  │         ↓ Conv1d
 >  │      生成Q、K、V
 >  │         ↓

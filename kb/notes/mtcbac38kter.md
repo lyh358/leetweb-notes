@@ -150,7 +150,7 @@ message Object {
 }
 ```
 
-**2）** 然后通过 **protoc 编译器**生成C++、Python、Java等**不同语言对应的代码**。
+**2）** =={green}然后通过== **=={green}protoc 编译器==**=={green}生成C++、Python、Java等==**=={green}不同语言对应的代码==**=={green}。==
 
 **3）程序调用生成的代码**：
 

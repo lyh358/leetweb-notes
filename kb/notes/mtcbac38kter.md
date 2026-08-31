@@ -304,7 +304,8 @@ Qt界面集中展示
 > ROS Topic
 >         ↓
 > 其他业务节点
-> 第二条：Linux节点性能监控
+
+> **第二条：Linux节点性能监控**
 > CPU/内存/网络等运行指标
 >         ↓
 > Monitor Agent

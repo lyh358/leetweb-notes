@@ -1169,8 +1169,8 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 - **Shape；**
 - **Gather；**
 - **Reshape；**
-- Unsqueeze；
-- Squeeze；
+- **Unsqueeze；**
+- **Squeeze；**
 - Transpose；
 - Add、Mul、Div；
 - Concat和Slice。

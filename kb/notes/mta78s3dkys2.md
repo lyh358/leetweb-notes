@@ -1229,7 +1229,7 @@ ONNX节点、ATC融合算子和最终设备Kernel并不是一一对应关系。
 
 | 近似方式 | 公式 | MACs/element | 节点数/层 | Ascend支持 |
 | --- | --- | --- | --- | --- |
-| **=={green}Tanh近似（）==** | `0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))` | ~11 | 5 | ATC内置GELU融合（ZGeluCustomFusionPass） |
+| **=={green}Tanh近似（原始）==** | `0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))` | ~11 | 5 | ATC内置GELU融合（ZGeluCustomFusionPass） |
 | **Erf近似（替换目标）** | `0.5x(1 + erf(x/√2))` | ~5 | 2 | Vector查找表实现 |
 
 替换逻辑：Erf是PyTorch `F.gelu()`的默认实现，数学上更精确，MACs减少55%。预期Vector MACs降低30%，理论总时间从152.86μs降至~110μs（-28%）。

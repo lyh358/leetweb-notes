@@ -372,7 +372,7 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C
 
 =={yellow}刷新过程为：==
 
-> 在RAM中**绘制完整一帧**
+> 在RAM中**=={green}绘制完整一帧==**
 >         ↓
 > 调用**sendBuffer()**
 >         ↓

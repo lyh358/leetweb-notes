@@ -1329,7 +1329,7 @@ x → Mul(0.5·x) ────────────────────�
 
 ### =={pink}3.6.3 FP16没有收益的原因==
 
-SPF模型包含大量Cube和Vector交替计算。
+=={green}SPF模型包含大量Cube和Vector交替计算。==
 
 如果Cube使用FP16，而Softmax、LayerNorm、Add等Vector算子保留FP32，编译器需要插入：
 

@@ -1167,8 +1167,8 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 =={green}对**输入已经确定的节点提前计算**，例如==：
 
 - **Shape；**
-- Gather；
-- Reshape；
+- **Gather；**
+- **Reshape；**
 - Unsqueeze；
 - Squeeze；
 - Transpose；

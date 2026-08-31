@@ -301,9 +301,9 @@ Qt界面集中展示
 >         ↓
 > =={yellow}ROS Msg或Protobuf消息==
 >         ↓
-> ROS Topic
+> =={yellow}ROS Topic==
 >         ↓
-> 其他业务节点
+> =={yellow}其他业务节点==
 
 > **第二条：Linux节点性能监控**
 > CPU/内存/网络等运行指标

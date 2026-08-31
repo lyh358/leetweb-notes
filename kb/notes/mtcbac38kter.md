@@ -299,7 +299,7 @@ Qt界面集中展示
 > **第一条：机器人业务通信**
 > 感知/规划/控制=={yellow}**节点**==
 >         ↓
-> =={yellow}**ROS Msg**或Protobuf消息==
+> =={yellow}ROS Msg或Protobuf消息==
 >         ↓
 > =={yellow}ROS Topic==
 >         ↓

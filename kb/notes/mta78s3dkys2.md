@@ -1331,7 +1331,7 @@ x → Mul(0.5·x) ────────────────────�
 
 =={green}SPF模型包含**大量Cube和Vector交替计算**。==
 
-=={green}如果Cube使用FP16，而Softmax、LayerNorm、Add等Vector算子保留FP32，编译器需要插入：==
+=={green}如果Cube使用FP16，而Softmax、LayerNorm、Add等Vector算子保留FP32，**编译器需要插入**：==
 
 ```sql
 FP32 → Cast → FP16 → Cube

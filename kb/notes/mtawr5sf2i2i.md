@@ -231,7 +231,7 @@ void loop() {
 - Wi-Fi协议栈；
 - TCP/IP和lwIP；
 - MQTT客户端；
--硬件UART、I²C和GPIO驱动；
+- 硬件UART、I²C和GPIO驱动；
 - WebServer；
 - ArduinoOTA和HTTPUpdate；
 - NVS/Preferences。

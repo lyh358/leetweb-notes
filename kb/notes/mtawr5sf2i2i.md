@@ -104,7 +104,7 @@
 | HX711 | =={yellow}DATA＋SCK**双线GPIO时序**== | HX711采用专用两线时序输出称重数据 |
 | NEO-6M | =={yellow}**UART**== | GPS持续输出NMEA数据，串口适合流式接收 |
 | OLED | =={yellow}**I2C**== | 占用引脚少，刷新带宽足以满足状态显示 |
-| ESP32-CAM | =={yellow}**DVP+I2S**+DMA== | 隔离图像采集、缓存和网络传输开销 |
+| ESP32-CAM | =={yellow}**DVP+I2S**+**DMA**== | 隔离图像采集、缓存和网络传输开销 |
 
 具体引脚在不同版本中有调整，因此面试主口径应重点说明**接口类型和资源分配原则**，除非面试官追问，不必主动背诵GPIO编号。
 
@@ -186,7 +186,7 @@
 - =={yellow}底层ESP-IDF组件==；
 - =={yellow}**FreeRTOS**实时操作系统内核==。
 
-=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
+=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
 
 ```scss
 void loop() {

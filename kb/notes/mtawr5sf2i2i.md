@@ -293,7 +293,7 @@ void loop() {
 `taskNetManager`负责维护整个网络生命周期：
 
 > **检查Wi-Fi**
->   ├─ 未连接：=={green}定期重连==
+>   ├─ **未连接**：=={green}定期重连==
 >   └─ 已连接：
 >        ├─ =={green}处理ArduinoOTA==
 >        ├─ =={green}检查URL OTA请求==

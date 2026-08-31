@@ -918,7 +918,6 @@ proto_md5
 > Protobuf消息对象
 >         ↓
 > ROS查询IsMessage
-> 
 >         ↓
 > ROS查询DataType和MD5Sum
 > 完成类型标识与连接校验

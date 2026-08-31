@@ -625,7 +625,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 
 > **=={green}原始SRS信道数据==**=={green}（原始4维特征）==
 >     ↓   
-> **输入嵌入层（Conv1d）**：把**原始特征**转换成**16维内部特征**
+> **=={yellow}输入嵌入层（Conv1d）==**=={yellow}：把==**=={yellow}原始特征==**=={yellow}转换成==**=={yellow}16维内部特征==**
 >     ↓
 > Transformer第1层
 >     ↓

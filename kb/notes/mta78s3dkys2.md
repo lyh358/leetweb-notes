@@ -801,7 +801,7 @@ FFN解决的是：
 >     ↓ =={yellow}conv1==
 > =={yellow}扩展为32维==
 >     ↓ =={yellow}GELU==
-> q
+> 去
 >     ↓ conv2
 > 压缩回16维
 

@@ -84,7 +84,7 @@ if(collector){
 
 **=={pink}新增磁盘采集器的时候：==**
 
-1. =={yellow}写`DiskCollector`===={yellow}**继承**==`IMetricCollector`=={yellow}，实现 Collect ()d==
+1. =={yellow}写`DiskCollector`===={yellow}**继承**==`IMetricCollector`=={yellow}，实现 Collect ()多态==
 2. =={yellow}在工厂**注册**== `"disk"` =={yellow}和它的构造函数==
 3. **=={yellow}Agent 完全不用改一行代码！==** =={yellow}配置传字符串==`"disk"`=={yellow}，工厂就生成对应的对象。==
 

@@ -639,6 +639,8 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 
 **=={yellow}4层结构相同的Transformer==：**=={green}每一层并**不是完成不同**的固定**任务**，而是**对上一层的结果继续提取和增强**==
 
+=={green}**convenience**==
+
 ### =={pink}每层Transformer里发生什么==
 
 =={green}每一层主要包含**两大部分**：==

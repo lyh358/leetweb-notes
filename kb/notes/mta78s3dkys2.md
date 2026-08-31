@@ -1333,7 +1333,7 @@ x → Mul(0.5·x) ────────────────────�
 
 =={green}如果Cube使用FP16，而Softmax、LayerNorm、Add等Vector算子保留FP32，**编译器需要插入**：==
 
-> FP32 → **Cast** → FP16 → Cube → Cast → FP32 → Vector
+> FP32 → **Cast** → FP16 → Cube → **Cast** → FP32 → Vector
 
 这些Cast节点会：
 

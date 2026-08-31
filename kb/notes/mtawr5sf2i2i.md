@@ -229,7 +229,7 @@ void loop() {
 由Arduino-ESP32和ESP-IDF提供：
 
 - **Wi-Fi协议**栈；
-- TCP/IP和lwIP；
+- **TCP/IP**和lwIP；
 - MQTT客户端；
 - 硬件UART、I²C和GPIO驱动；
 - WebServer；

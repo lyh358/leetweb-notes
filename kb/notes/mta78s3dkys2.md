@@ -192,7 +192,7 @@ flowchart LR
 | =={green}性能== | **=={green}端到端推理时延==** | 从**输入准备**到**获得输出**的**整体耗时**，通常是**=={green}最核心指标==** |
 | =={green}性能== | **=={green}模型执行时延==** | 只统计**NPU执行模型的时间**，用于**排除前后处理**和**数据传输**干扰 |
 | 性能 | **吞吐量** | 单位时间内处理的样本数，如FPS、samples/s |
-| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
+| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
 | =={yellow}精度== | **=={yellow}MSE（均方根误差）==** | 比较**=={yellow}具体元素的数值偏差==**，**补充余弦相似度**的不足 |
 | =={pink}资源== | **=={pink}内存占用==** | 包括**Host内存**、**Device内存**和**模型权重占用** |
 | =={pink}资源== | **=={pink}算力与利用率==** | **AI Core利用率**、**各类算子耗时**以及**数据搬运开销** |
@@ -639,7 +639,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 
 **=={yellow}4层结构相同的Transformer==：**=={green}每一层并**不是完成不同**的固定**任务**，而是**对上一层的结果继续提取和增强**==
 
-=={green}**conv1d是一维卷积层，有16个独立卷积核，每个核从原始4维特征中提取一种新特征，拼接得到16维。**==
+> =={green}**conv1d是一维卷积层，有16个独立卷积核，每个核从原始4维特征中提取一种新特征，拼接得到16维。**==
 
 ### =={pink}每层Transformer里发生什么==
 

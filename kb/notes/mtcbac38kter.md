@@ -310,7 +310,7 @@ Qt界面集中展示
 >         ↓
 > =={yellow}**Monitor Agent**==
 >         ↓
-> gRPC流式上报
+> =={yellow}**gRPC流式上报**==
 >         ↓
 > Monitor Center
 >         ↓

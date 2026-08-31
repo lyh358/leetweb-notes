@@ -312,7 +312,7 @@ Qt界面集中展示
 >         ↓
 > =={yellow}**gRPC流式上报**==
 >         ↓
-> Monitor Center
+> =={yellow}**Monitor Center**==
 >         ↓
 > Qt监控界面
 

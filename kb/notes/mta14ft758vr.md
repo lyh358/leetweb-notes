@@ -920,7 +920,6 @@ proto_md5
 > ROS查询IsMessage：判断它能否作为消息
 >         ↓
 > ROS查询DataType和MD5Sum
-> 
 >         ↓
 > ROS查询Definition等信息
 > 提供消息描述

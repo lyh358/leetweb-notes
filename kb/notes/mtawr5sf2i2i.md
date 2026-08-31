@@ -55,7 +55,7 @@
 | --- | --- | --- | --- |
 | 主控制器 | ESP32-S3-DevKitC-1 | 多传感器采集、数据处理和无线通信 | **=={yellow}集成Wi-Fi，支持双核和FreeRTOS==**，GPIO及UART、I2C等=={yellow}**接口丰富**==，开发=={yellow}**生态成熟**==，**=={yellow}成本低==** |
 | 图像节点 | ESP32-CAM＋OV2640 | 蜂箱出入口图像采集 | =={yellow}**集成摄像头和无线通信能力**==，体积和成本较低，支持JPEG输出，=={yellow}适合独立承担==图像采集和传输 |
-| 温湿度传感器 | DHT22 | 蜂箱内部温湿度监测 | 同时测量温度和湿度，数字输出、接线简单，单总线只占用一个数据引脚，测量范围能够覆盖蜂箱环境 |
+| 温湿度传感器 | **DHT22** | 蜂箱内部温湿度监测 | 同时测量温度和湿度，数字输出、接线简单，单总线只占用一个数据引脚，测量范围能够覆盖蜂箱环境 |
 | 称重模块 | HX711＋称重传感器 | 蜂箱重量和产蜜进度监测 | HX711是面向桥式称重传感器的24位ADC，能够放大并数字化微弱称重信号，成本低且便于与MCU连接 |
 | 定位模块 | NEO-6M | 蜂箱定位、导航和防盗 | 模块成熟、成本较低，通过UART输出标准NMEA数据，容易接入嵌入式系统 |
 | 本地显示 | SSD1306 OLED | 显示传感器和设备状态 | 使用I2C通信，占用引脚少，能够在不连接云端或电脑时查看终端是否正常工作 |
@@ -186,7 +186,7 @@
 - =={yellow}底层ESP-IDF组件==；
 - =={yellow}**FreeRTOS**实时操作系统内核==。
 
-=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
+=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
 
 ```scss
 void loop() {

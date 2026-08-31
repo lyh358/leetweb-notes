@@ -1142,7 +1142,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 因此，我最终采用：
 
-> =={yellow}**KNOWN_SHAPES(中间张量shape表)手动注入** + 迭代常量折叠 + 反向DCE==
+> =={yellow}**KNOWN_SHAPES(中间张量shape表)手动注入** + **迭代常量折叠** + 反向DCE==
 
 ### 3.4.4 中间Shape推导
 

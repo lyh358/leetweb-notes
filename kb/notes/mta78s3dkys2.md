@@ -1148,7 +1148,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 模型内部包含多次Squeeze、Transpose和Reshape，必须先把数据流推导准确。
 
-=={green}得到一个const_map，保存===={green}手动推导的完整中间张量 shape 表（12 种唯一 shape），涵盖从输入到输出的完整数据流。==
+=={green}得到一个**const_map**，保存===={green}手动推导的完整中间张量 shape 表（12 种唯一 shape），涵盖从输入到输出的完整数据流。==
 
 关键链路为：
 

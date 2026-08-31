@@ -308,7 +308,7 @@ Qt界面集中展示
 > **第二条：Linux节点性能监控**
 > =={yellow}**CPU/内存/网络**==等=={yellow}**运行指标**==
 >         ↓
-> Monitor Agent
+> =={yellow}**Monitor Agent**==
 >         ↓
 > gRPC流式上报
 >         ↓

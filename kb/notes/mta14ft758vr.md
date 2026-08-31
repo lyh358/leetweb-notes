@@ -774,7 +774,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 =={green}**IsMessage<T，typename X>：当T属于X的类型，返回TRUE**；==
 
-=={green}X：enable_if<true>::type得到的protobuf类型;==
+=={green}**X：enable_if<true>::type得到的protobuf类型;**==
 
 ---
 

@@ -1227,6 +1227,11 @@ ONNX节点、ATC融合算子和最终设备Kernel并不是一一对应关系。
 
 GELU激活函数有两种标准近似：
 
+| 近似方式 | 公式 | MACs/element | 节点数/层 | Ascend支持 |
+| --- | --- | --- | --- | --- |
+| **Tanh近似（当前）** | `0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))` | ~11 | 5 | ATC内置GELU融合（ZGeluCustomFusionPass） |
+| **Erf近似（替换目标）** | `0.5x(1 + erf(x/√2))` | ~5 | 2 | Vector查找表实现 |
+
 原模型使用Tanh近似实现GELU：
 
 ```undefined

@@ -257,7 +257,7 @@ GPS模块用于：
 - =={yellow}独立RX/TX引脚；==
 - RX缓冲区扩大到2048字节。
 
-## 5.3UART DMA 接收（ESP32 高性能方案）
+## 5.3 UART DMA 接收（ESP32 高性能方案）
 
 ### ESP32 UART 支持 DMA，不需要 CPU 搬运字节。
 GPS 字节流入 UART 硬件 FIFO，DMA 硬件自动把字节搬运到内存缓冲区，**不需要 CPU 参与搬运**。

@@ -314,7 +314,7 @@ void loop() {
 
 网络恢复后每轮最多补发4条，避免历史数据长期占用链路。
 
-### =={yellow}4.3 HTTP服务任务==
+### =={yellow}4.3 HTTP服务任务（）==
 
 `taskHttpServer`周期调用WebServer请求处理，提供：
 

@@ -1225,7 +1225,7 @@ ONNX节点、ATC融合算子和最终设备Kernel并不是一一对应关系。
 
 ### =={pink}3.5.1 优化假设==
 
-=={green}**GELU激活函数**有**两种标准近似**：Tanh（双曲正切）和==
+=={green}**GELU激活函数**有**两种标准近似**：Tanh（双曲正切）和Erf 误差函数 Error Function==
 
 | =={green}近似方式== | 公式 | MACs/element | =={green}节点数/层== | Ascend支持 |
 | --- | --- | --- | --- | --- |

@@ -1232,6 +1232,8 @@ GELU激活函数有两种标准近似：
 | **Tanh近似（当前）** | `0.5x(1 + tanh(√(2/π)(x + 0.044715x³)))` | ~11 | 5 | ATC内置GELU融合（ZGeluCustomFusionPass） |
 | **Erf近似（替换目标）** | `0.5x(1 + erf(x/√2))` | ~5 | 2 | Vector查找表实现 |
 
+替换逻辑：Erf是PyTorch `F.gelu()`的默认实现，数学上更精确，MACs减少55%。预期Vector MACs降低30%，理论总时间从152.86μs降至~110μs（-28%）。
+
 原模型使用Tanh近似实现GELU：
 
 ```undefined

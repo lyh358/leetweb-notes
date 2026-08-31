@@ -1111,7 +1111,7 @@ PyTorch 导出 ONNX 时，默认按**通用情况**处理——假设 shape 可�
 > Shape → Gather → Unsqueeze
 > （取张量维度值 → 取某个具体维度 → 扩维拼接到目标 shape）
 
-> 
+### 
 
 ### =={pink}3.4.1 优化思路==
 

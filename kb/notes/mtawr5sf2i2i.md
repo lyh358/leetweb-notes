@@ -264,7 +264,7 @@ void loop() {
 
 | 任务 | 优先级 | 主要职责 |
 | --- | --- | --- |
-| `taskNetManager` | =={yellow}4== | =={yellow}**Wi-Fi/MQTT连接维护**、**心跳**、**重连**==、**=={yellow}ArduinoOTA==**和**URL OTA** |
+| `taskNetManager` | =={yellow}4== | =={yellow}**Wi-Fi/MQTT连接维护**、**心跳**、**重连**==、**=={yellow}ArduinoOTA==**和**=={yellow}URL OTA==** |
 | `taskUploader` | =={yellow}3== | =={yellow}**消费遥测队列**、**MQTT发布**、**断网缓存**和**联网限速补发**== |
 | `taskHttpServer` | =={yellow}2== | =={yellow}**本地状态页**==、JSON API和=={yellow}**Web OTA**请求处理== |
 

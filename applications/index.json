@@ -4,11 +4,11 @@
     "company": "百度",
     "role": "AI Infra工程师",
     "location": "北京",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://talent.baidu.com/jobs/center",
     "created": 1788190478534,
-    "updated": 1788190478534
+    "updated": 1788190480812
   },
   {
     "id": "mthefh2zxetl",

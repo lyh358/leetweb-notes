@@ -4,11 +4,11 @@
     "company": "千里智驾",
     "role": "智驾软件开发",
     "location": "上海",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://app.mokahr.com/campus-recruitment/qianli1/147197?locale=zh-CN#/candidateHome/applications",
     "created": 1788196658846,
-    "updated": 1788196658846
+    "updated": 1788196661186
   },
   {
     "id": "mthhz3xl4kre",

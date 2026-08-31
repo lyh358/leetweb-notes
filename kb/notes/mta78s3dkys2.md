@@ -760,7 +760,7 @@ x_1=x+\operatorname{Attention}(x)
 ]
 $$
 
-这叫做 **Residual Connection，残差连接**。
+这叫做 **=={green}Residual Connection，残差连接==**=={green}。==
 
 可以理解为：
 

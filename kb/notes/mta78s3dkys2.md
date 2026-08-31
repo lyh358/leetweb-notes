@@ -668,7 +668,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 >  │      =={pink}**残差连接：**注意力输出与原输入相加， x2 = x1 + Attention(x1)==
 >  │
 >  └─ =={yellow}第二部分：**FFN**==
->         特征扩展：conv1d
+>         特征扩展：conv1d()
 >            ↓
 >         GELU激活
 >            ↓

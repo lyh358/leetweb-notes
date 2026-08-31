@@ -1209,7 +1209,7 @@ ROS Topic
 
 `/proc/net/dev`提供的是各网卡从=={yellow}系统**启动以来累计接收和发送的字节数**，不是每秒速率==。
 
-因此，`NetworkCollector`保存=={yellow}上一次的收发字节数===={yellow}**和**===={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数==**=={yellow}。==
+因此，`NetworkCollector`保存=={yellow}上一次的收发字节数===={yellow}**和**===={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数===={yellow}。==
 
 项目中会跳过`lo`回环接口，再对其他网卡的数据进行汇总。
 

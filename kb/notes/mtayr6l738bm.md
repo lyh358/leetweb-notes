@@ -261,7 +261,9 @@ GPS模块用于：
 
 ESP32 UART 支持 DMA，不需要 CPU 搬运字节。
 
-GPS 字节流入 UART 硬件 FIFO，DMA 硬件自动把字节搬运到内存缓冲区，不需要 CPU 参与搬运。DMA 完成 / 半满 / 超时，才产生一次中断通知 CPU。
+GPS 字节流入 UART 硬件 FIFO，DMA 硬件自动把字节搬运到内存缓冲区，不需要 CPU 参与搬运
+
+DMA 完成 / 半满 / 超时，才产生一次中断通知 CPU。
 
 CPU 一次拿到一大段 GPS 数据。
 

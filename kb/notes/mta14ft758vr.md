@@ -726,7 +726,7 @@ ROS原来的模板
 
 其中：
 
-- `std::is_base_of`判断`T`是否继承某个基类；
+- `std::is_base_of`判断是否继承某个基类；
 - `std::enable_if`只在条件成立时提供一个有效的`type`。
 
 #### =={pink}**以偏特化IsMessage为例**==

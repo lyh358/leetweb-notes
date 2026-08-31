@@ -1127,7 +1127,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 - 推导中间张量Shape；
 - 常量折叠；
 - 冗余Shape链消除；
-- 反向DCE（Dead Code Elimination）死代码清理；
+- 反向DCE（Dead Code Elimination）死代码消除；
 - 重新执行ATC编译；
 - 恢复被冗余节点打断的融合链路。
 

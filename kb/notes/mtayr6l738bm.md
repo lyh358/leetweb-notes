@@ -261,8 +261,6 @@ GPS模块用于：
 
 ESP32 UART 支持 DMA，不需要 CPU 搬运字节。
 优势：大量串口数据流的时候，大大减少中断次数，减轻 CPU 负担，适合 GPS 这种持续输出数据流。 ESP‑IDF uart_driver_install() 底层可以开启 DMA。
-### 
-
 ### 5.4 流式解析
 
 项目使用TinyGPSPlus解析NMEA：

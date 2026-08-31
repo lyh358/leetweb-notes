@@ -292,19 +292,13 @@ void loop() {
 
 `taskNetManager`负责维护整个网络生命周期：
 
-检查Wi-Fi
-
-  ├─ 未连接：定期重连
-
-  └─ 已连接：
-
-       ├─ 处理ArduinoOTA
-
-       ├─ 检查URL OTA请求
-
-       ├─ 检查MQTT
-
-       └─ 调用MQTT loop维持心跳
+> 检查Wi-Fi
+>   ├─ 未连接：定期重连
+>   └─ 已连接：
+>        ├─ 处理ArduinoOTA
+>        ├─ 检查URL OTA请求
+>        ├─ 检查MQTT
+>        └─ 调用MQTT loop维持心跳
 
 它不负责发送普通遥测，避免网络维护与数据上传耦合。
 

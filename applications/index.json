@@ -1,5 +1,16 @@
 [
   {
+    "id": "mthf8jar79uq",
+    "company": "联发科",
+    "role": "嵌入式",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://mediatek.zhiye.com/personal/deliveryRecord",
+    "created": 1788191815347,
+    "updated": 1788191815347
+  },
+  {
     "id": "mthexplbpwe5",
     "company": "大普微电子",
     "role": "系统软件开发",

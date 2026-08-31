@@ -1372,6 +1372,8 @@ P0已经取得主要收益，而P1、P2都表明继续修改标准图结构容�
 
 #### Davinci芯片架构
 
+昇腾310/910芯片主要包括：AICore、AICPU、L2 Buffer/Cache，Davinci架构指的是AICore。
+
 ### 3.7.1 为什么选择Attention融合
 
 原生Attention链路为：

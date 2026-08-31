@@ -1286,7 +1286,7 @@ x → Mul(0.5·x) ────────────────────�
 
 ### =={pink}3.5.4 性能退化原因==
 
-=={yellow}CANN 8.0.RC3对原Tanh-GELU存在专用融合规则，可以将多个节点合并成一个融合Kernel。==
+=={yellow}CANN 8.0.RC3对原**Tanh-GELU存在专用融合规则**，可以将多个节点合并成一个融合Kernel。==
 
 Erf版本没有对应的专用融合Pass，Mul、Erf、Add被拆成多个Kernel，增加了：
 

@@ -522,7 +522,7 @@ GET /capture HTTP/1.1
 
 ## =={pink}12. MJPEG视频流如何实现==
 
-MJPEG=={yellow}**不是复杂的视频编码格式**==，本质上是通过一个HTTP连接连续发送多张JPEG。
+MJPEG=={yellow}**不是复杂的视频编码格式**==，本质上是通过=={yellow}**一个HTTP连接连续发送多张JPEG**==。
 
 响应类型为：
 

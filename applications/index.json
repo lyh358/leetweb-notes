@@ -1,14 +1,25 @@
 [
   {
+    "id": "mthh1a85gqoj",
+    "company": "紫光国芯",
+    "role": "",
+    "location": "",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://young.yingjiesheng.com/xyzsuccess?ctmid=3301c7f1-2aac-41f6-a659-3d230ba7916e&resumeid=18740ec5-b4eb-484d-a387-dbd7491f6df0&aid=280233011&userfrom=yjs",
+    "created": 1788194836229,
+    "updated": 1788194836229
+  },
+  {
     "id": "mthgcgypick9",
     "company": "德赛西威",
     "role": "嵌入式",
     "location": "深圳、惠州",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://yesv-desaysv.jobs.feishu.cn/campus/position/application",
     "created": 1788193678561,
-    "updated": 1788193678561
+    "updated": 1788193681082
   },
   {
     "id": "mthg2cq8htkb",

@@ -801,8 +801,8 @@ FFN解决的是：
 >     ↓ =={yellow}**conv1**==
 > =={yellow}**扩展为32维**==
 >     ↓ =={yellow}**GELU**==
-> =={yellow}进行非线性变换==
->     ↓ =={yellow}conv2==
+> =={yellow}**进行非线性变换**==
+>     ↓ =={yellow}**conv2**==
 > =={yellow}压缩回16维==
 
 ---

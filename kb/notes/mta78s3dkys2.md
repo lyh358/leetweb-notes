@@ -1175,7 +1175,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 - Add、Mul、Div；
 - Concat和Slice。
 
-=={green}折叠成功的节点===={green}：输出写入== `graph.initializer`=={green}（变成常量张量），节点从图中删除。每轮结束后检查是否有新折叠，无则终止。==
+=={green}**折叠成功的节点**===={green}：输出写入== `graph.initializer`=={green}（变成常量张量），节点从图中删除。每轮结束后检查是否有新折叠，无则终止。==
 
 #### 第三步：反向DCE
 

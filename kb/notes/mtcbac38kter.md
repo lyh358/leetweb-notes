@@ -73,7 +73,7 @@
 时间戳
 ```
 
-=={yellow}ROS**原生**通过**.msg**===={yellow}**文件描述这种数据结构**，这套消息体系通常称为**ROS Msg**或rosmsg。==
+=={yellow}ROS**原生**通过.msg===={yellow}**文件描述这种数据结构**，这套消息体系通常称为**ROS Msg**或rosmsg。==
 
 =={green}1) 开发者**先编写**==**`.msg`=={green}文件==**
 

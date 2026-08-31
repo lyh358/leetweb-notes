@@ -753,7 +753,7 @@ std::is_base_of<google::protobuf::Message,T>::value
 
 它的含义是：
 
-> 判断类型`T`是不是一个Protobuf消息类。
+> =={yellow}判断类型==`T`=={yellow}是不是一个Protobuf消息类。==
 > 
 > 
 > `is_base_of<google::protobuf::Message,T>::value` //返回值是True或False

@@ -25,7 +25,7 @@
 1. **`IMetricCollector`**：=={yellow}抽象接口，定义所有采集器统一行为；==**=={yellow}没有实例，只做接口契约==**=={yellow}。==
 2. **CpuCollector/MemoryCollector…**：=={yellow}具体采集实现子类==，继承`IMetricCollector`；**对象在堆上 new 出来**。
 3. **CollectorFactory**：**=={yellow}静态简单工厂类，不持有任何采集器对象，只负责创建对象，不拥有对象所有权==**。工厂函数返回`std::unique_ptr<IMetricCollector>`，把堆对象的**=={yellow}独占所有权转移出去==**=={yellow}。==
-4. **MonitorAgent**：**=={yellow}采集器对象的唯一拥有者==**。Agent 内部`vector<unique_ptr<IMetricCollector>> collectors`接管全部采集器的所有权；Agent 析构的时候，vector 销毁，全部采集器自动释放，无内存泄漏。
+4. **MonitorAgent**：**=={yellow}采集器对象的唯一拥有者==**。Agent 内部`vector<unique_ptr<IMetricCollector>> collectors`=={yellow}接管全部采集器的所有权==；Agent 析构的时候，vector 销毁，全部采集器自动释放，无内存泄漏。
 
 > 关键：**工厂只生产，不持有；Agent 拥有全部采集器实例**
 

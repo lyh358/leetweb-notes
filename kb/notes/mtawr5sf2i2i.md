@@ -296,7 +296,7 @@ void loop() {
 >   ├─ 未连接：定期重连
 >   └─ 已连接：
 >        ├─ =={green}处理ArduinoOTA==
->        ├─ 检查URL OTA请求
+>        ├─ =={green}检查URL OTA请求==
 >        ├─ =={green}检查MQTT==
 >        └─ =={green}调用MQTT loop维持心跳==
 

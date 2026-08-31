@@ -6,7 +6,7 @@
 │   virtual void Collect(NodeMetrics* out) = 0;          │
 │   virtual std::string Name() const = 0;                │
 └───────────┬───────────────┬───────────────┬─────────────────┘
-           │              │              │
+           │              │              │                │
      ┌──────▼─────┐ ┌──────▼────┐ ┌────────▼─────┐ ┌──────────▼────┐
      │CpuCollector││MemoryCollector│NetworkCollector│IrqLoadCollector│
      │CPU采集子类 │ │内存采集子类 │ │网络采集子类  │ │负载中断采集子类│

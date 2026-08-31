@@ -119,7 +119,7 @@ ROS Topic
 
 这样会产生三个**工程问题**：
 
-1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
+1. =={yellow}**同一个数据结构**需要**维护**==`.proto`=={yellow}和==`.msg`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}**两份定义**；==
 2. **=={yellow}需要为不同消息编写重复的转换代码；==**
 3. =={yellow}字段修改时，**两套定义**和**转换逻辑**都要同步更新==。
 
@@ -644,7 +644,7 @@ struct TypeInfo<int> {
 
 ### =={pink}3.2 在项目中的作用==
 
-=={yellow}项目**为ROS的**==**`DataType`=={yellow}、`MD5Sum`===={yellow}、**=={yellow}**`Definition`**=={yellow}**和****`serializer`**==**等模板**增加了**Protobuf版本的偏特化。**
+=={yellow}项目**为ROS的**==**`DataType`=={yellow}、`MD5Sum`==、**=={yellow}**`Definition`****和****`serializer`**==**等模板**增加了**Protobuf版本的偏特化。**
 
 ---
 
@@ -686,7 +686,7 @@ ROS原来的模板
     └── Protobuf类型 → 使用新增处理规则
 ```
 
-=={green}这样，无论以后增加==`PublishInfo`=={green}、`NodeMetrics`===={yellow}还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。==
+=={green}这样，无论以后增加==`PublishInfo`=={green}、`NodeMetrics`==还是其他Protobuf消息，都**不需要为每种类型重新编写一套ROS适配代码**。
 
 ### 面试回答
 
@@ -774,7 +774,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 
 =={green}**IsMessage<T，typename X>：当T属于X的类型，返回TRUE**；==
 
-=={green}**X：enable_if<true>::type得到的protobuf类型;**==
+=={green}**X：enable_if::type得到的protobuf类型;**==
 
 ---
 
@@ -851,7 +851,7 @@ typename std::enable_if<std::is_base_of<google::protobuf::Message, T>::value>::t
 | `HasHeader` | 是否包含ROS标准Header |
 | `IsFixedSize` | 序列化长度是否固定 |
 
-=={green}ROS在**建立发布订阅关系和处理消息**时，会**使用这些信息**完成**《****类型识别**、**连接校验**和**序列化策略**==**》****选择**。
+=={green}ROS在**建立发布订阅关系和处理消息**时，会**使用这些信息**完成《_**类型识别**、**连接校验**和__序列化策略_==》**选择**。
 
 ---
 
@@ -915,15 +915,15 @@ proto_md5
 
 ### =={pink}5.3 Traits在链路中的位置==
 
-> Protobuf消息对象
+> **Protobuf消息对象**
 >         ↓
-> ROS查询IsMessage：判断它能否作为消息
+> =={yellow}ROS查询==**=={yellow}IsMessage==**=={yellow}：判断它能否作为消息==
 >         ↓
-> ROS查询DataType和MD5Sum：完成类型标识与连接校验
+> ROS查询**DataType**和**MD5Sum**：完成类型标识与连接校验
 >         ↓
-> ROS查询Definition等信息
+> ROS查询**Definition**等信息：提供消息描述
 >         ↓
-> 进入Serializer
+> **=={yellow}进入Serializer==**
 
 #### 面试回答
 
@@ -952,6 +952,8 @@ proto_md5
 ---
 
 ### =={pink}6.2 项目中的序列化流程==
+
+=={yellow}对于protobuf对象，**偏特化调用protobuf自己的序列化接口**==
 
 #### =={yellow}第一步：计算消息长度==
 
@@ -1044,8 +1046,7 @@ t.ParseFromString(pb_str);
 
 ```markdown
 模板偏特化
-负责：为一类Protobuf类型提供专门实现
-        ↓
+负责：为一类Protobuf类型提供专门实现（traits+serialization）        ↓
 SFINAE
 负责：判断当前类型是否属于Protobuf消息，选择合适的偏特化实现
         ↓
@@ -1083,13 +1084,13 @@ ROS Topic
 > ROS默认只能直接处理具备ROS消息特征和序列化规则的类型，而`.proto`生成的C++类只是继承自Protobuf的`Message`基类，所以直接调用`publish()`时，ROS既不知道它是不是合法消息，也不知道应该怎么进行序列化。
 > 
 > 
-> 我的实现主要分成两部分。**=={yellow}第一部分是Traits扩展，我通过模板偏特化和SFINAE==**，判断一个类型是否继承自`google::protobuf::Message`。如果满足条件，就为它提供`IsMessage`、`DataType`、`MD5Sum`、`Definition`等类型信息，让ROS能够识别它。对于普通ROS Msg，这些偏特化不会生效，仍然走原有逻辑。
+> 我的实现主要分成两部分。**=={yellow}第一部分是Traits扩展，我通过模板偏特化和SFINAE==**，判断一个类型是否继承自`google::protobuf::Message`。如果满足条件，就为它提供`IsMessage`、`DataType`、`MD5Sum`、`Definition`等类型信息，=={yellow}让ROS能够识别它==。对于普通ROS Msg，这些偏特化不会生效，仍然走原有逻辑。
 > 
 > 
 > **=={yellow}第二部分是Serialization扩展。我为Protobuf类型提供了专用的Serializer==**。发送时调用`SerializeToString()`将对象转换成二进制数据，写入4字节长度和消息体；接收时读取长度和数据，再调用`ParseFromString()`还原对象。
 > 
 > 
-> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和==`subscribe`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
+> 这样，=={green}上层节点不需要编写Protobuf到ROS Msg的转换代码，可以直接使用ROS原有的==`publish`=={green}和`subscribe`===={yellow}接口传输Protobuf消息，同时原生ROS Msg也不会受到影响。==
 
 ## 10. 高频追问速答
 
@@ -1157,9 +1158,9 @@ ROS Topic
 
 | =={yellow}文件== | =={yellow}项目中的用途== |
 | --- | --- |
-| `/proc/stat` | 获取各=={yellow}**CPU**==核心累计=={yellow}运行时间和中断次数== |
+| `/proc/stat` | 获取各=={yellow}**CPU**==核心**累计**=={yellow}**运行时间**和**中断次数**== |
 | `/proc/meminfo` | 获取=={yellow}总**内存**、可用内存和交换分区信息== |
-| `/proc/net/dev` | 获取不同=={yellow}**网卡**==累计=={yellow}收发字节数== |
+| `/proc/net/dev` | 获取不同=={yellow}**网卡**==**累计=={yellow}收发字节数==** |
 | `/proc/loadavg` | 获取=={yellow}**系统**==一分钟和五分钟平均=={yellow}负载== |
 
 =={green}**项目直接读取并解析这些文件**，**不需要**额外安装监控**工具**，也不需要编写**内核驱动**==。
@@ -1208,7 +1209,7 @@ ROS Topic
 
 `/proc/net/dev`提供的是各网卡从=={yellow}系统**启动以来累计接收和发送的字节数**，不是每秒速率==。
 
-因此，`NetworkCollector`保存**=={yellow}上一次的收发字节数===={yellow}**和==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数==**=={yellow}。==
+因此，`NetworkCollector`保存=={yellow}上一次的收发字节数===={yellow}**和**===={yellow}时间戳=={yellow}=={yellow}**，通过两次采样的**===={yellow}字节差除以时间差==**=={yellow}，得到==**=={yellow}每秒收发字节数==**=={yellow}。==
 
 项目中会跳过`lo`回环接口，再对其他网卡的数据进行汇总。
 

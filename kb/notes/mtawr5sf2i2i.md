@@ -75,7 +75,7 @@
 
 ## =={pink}5. 为什么单独使用ESP32-CAM==
 
-=={yellow}图像传输==**=={yellow}数据量大，占用的CPU，内存，网络资源多==**=={yellow}，和传感器功能==**=={yellow}耦合==**=={yellow}在一起会==**=={yellow}占用太多资源，===={yellow}降低系统稳定性==**=={yellow}，同时分离也便于==**=={yellow}单独调试==**=={yellow}和==**故障隔离**=={yellow}。==
+=={yellow}图像传输==**=={yellow}数据量大，占用的CPU，内存，网络资源多==**=={yellow}，和传感器功能==**=={yellow}耦合==**=={yellow}在一起会==**=={yellow}占用太多资源，===={yellow}降低系统稳定性==**=={yellow}，同时分离也便于==**=={yellow}单独调试==**=={yellow}和**故障隔离**=={yellow}。==
 
 摄像头图像和温湿度、重量、GPS等遥测数据有明显不同：
 
@@ -186,7 +186,7 @@
 - =={yellow}底层ESP-IDF组件==；
 - =={yellow}**FreeRTOS**实时操作系统内核==。
 
-=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
+=={yellow}Arduino框架并没有绕开FreeRTOS==。=={green}**系统启动后，Arduino会创建**==`loopTask`=={green}并在其中调用==`setup()`=={green}和==`loop()`===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={green}。项目把**主要业务拆成六个独立FreeRTOS任务**，因此=={yellow}`loop()`=={green}**只保留周期休眠**，不再承载业务逻辑。==
 
 ```scss
 void loop() {

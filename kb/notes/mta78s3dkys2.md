@@ -1335,7 +1335,7 @@ x → Mul(0.5·x) ────────────────────�
 
 > FP32 → **=={yellow}Cast==** → FP16 → Cube → **=={yellow}Cast==** → FP32 → Vector
 
-=={green}这些Cast节点会：==
+=={green}这些**Cast节点**会：==
 
 - =={green}**破坏原有算子融合**==；
 - =={green}**增加独立Kernel**；==

@@ -1144,7 +1144,7 @@ PyTorch 导出 ONNX 时，默认按**通用情况**处理——假设 shape 可�
 
 > `KNOWN_SHAPES`手动注入 + 迭代常量折叠 + 反向DCE
 
-### 3.4.3 中间Shape推导
+### 3.4.4 中间Shape推导
 
 模型内部包含多次Squeeze、Transpose和Reshape，必须先把数据流推导准确。
 
@@ -1164,7 +1164,7 @@ PyTorch 导出 ONNX 时，默认按**通用情况**处理——假设 shape 可�
 
 我重新追踪Transpose和Reshape前后的元素总数，最终确定正确维度为`[1,32,16,32]`。
 
-### 3.4.4 常量折叠与DCE
+### 3.4.5 常量折叠与DCE
 
 脚本主要执行三步。
 

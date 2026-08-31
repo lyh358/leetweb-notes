@@ -1,14 +1,25 @@
 [
   {
+    "id": "mthgcgypick9",
+    "company": "德赛西威",
+    "role": "嵌入式",
+    "location": "深圳、惠州",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://yesv-desaysv.jobs.feishu.cn/campus/position/application",
+    "created": 1788193678561,
+    "updated": 1788193678561
+  },
+  {
     "id": "mthg2cq8htkb",
     "company": "360",
     "role": "嵌入式",
     "location": "北京",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://360campus.zhiye.com/personal/deliveryRecord",
     "created": 1788193206512,
-    "updated": 1788193206512
+    "updated": 1788193208890
   },
   {
     "id": "mthfshnd75f9",

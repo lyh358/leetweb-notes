@@ -193,7 +193,7 @@ message Object {
 =={pink}**ROS**在**允许一种类型通过Topic传输**之前，**需要知道**：==
 
 - =={yellow}它是不是==**=={yellow}合法的ROS消息==**=={yellow}；==
-- =={yellow}它的==**=={yellow}消息类型名称==**=={yellow}是什么；==
+- =={yellow}它的===={yellow}消息**类型名称**===={yellow}是什么；==
 - =={yellow}它的===={yellow}**类型校验**信息===={yellow}是什么；==
 - =={yellow}它应该==**=={yellow}怎样计算序列化长度==**=={yellow}；==
 - =={yellow}它应该==**=={yellow}怎样序列化和反序列化==**=={yellow}。==

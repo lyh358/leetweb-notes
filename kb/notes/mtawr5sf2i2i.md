@@ -294,7 +294,7 @@ void loop() {
 
 > **检查Wi-Fi**
 >   ├─ **未连接**：=={green}定期重连==
->   └─ 已连接：
+>   └─ **已连接**：
 >        ├─ =={green}处理ArduinoOTA==
 >        ├─ =={green}检查URL OTA请求==
 >        ├─ =={green}检查MQTT==

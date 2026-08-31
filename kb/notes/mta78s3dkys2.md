@@ -797,7 +797,7 @@ FFN解决的是：
 
 在这个SPF模型中，FFN使用两个 `Conv1d`：
 
-> =={yellow}16维特征==
+> =={yellow}**16维特征**==
 >     ↓ =={yellow}conv1==
 > =={yellow}扩展为32维==
 >     ↓ =={yellow}GELU==

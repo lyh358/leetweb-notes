@@ -192,7 +192,7 @@ flowchart LR
 | =={green}性能== | **=={green}端到端推理时延==** | 从**输入准备**到**获得输出**的**整体耗时**，通常是**=={green}最核心指标==** |
 | =={green}性能== | **=={green}模型执行时延==** | 只统计**NPU执行模型的时间**，用于**排除前后处理**和**数据传输**干扰 |
 | 性能 | **吞吐量** | 单位时间内处理的样本数，如FPS、samples/s |
-| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
+| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
 | =={yellow}精度== | **=={yellow}MSE（均方根误差）==** | 比较**=={yellow}具体元素的数值偏差==**，**补充余弦相似度**的不足 |
 | =={pink}资源== | **=={pink}内存占用==** | 包括**Host内存**、**Device内存**和**模型权重占用** |
 | =={pink}资源== | **=={pink}算力与利用率==** | **AI Core利用率**、**各类算子耗时**以及**数据搬运开销** |
@@ -656,13 +656,14 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 >  │         ↓
 >  │      =={pink}计算注意力==
 > 
+> 
 >    |          ↓         └─拆分成两个头
 >    |          ↓         └─Q、K计算相关性
 >    |          ↓         └─Softmax：相关性系数转权重
 >    |          ↓         └─权重 × 各位置V信息->新特征
 >    |          ↓         └─两个注意力头的计算结果拼接
 >    |          ↓
->  │      =={pink}输出投影==
+>  │      =={pink}输出投影：==
 >  │         ↓
 >  │      =={pink}与原输入相加==
 >  │
@@ -771,10 +772,10 @@ $$
 可以理解为：
 
 > =={green}原来的特征==
->     =={green}+==
-> =={green}注意力提取的新信息==
->     =={green}↓==
-> =={green}更新后的特征==
+>     =={green}+====
+> ={green}注意力提取的新信息==
+>     =={green}↓====
+> ={green}更新后的特征==
 
 残差连接相当于：
 

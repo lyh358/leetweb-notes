@@ -152,7 +152,7 @@ message Object {
 
 **2）** =={green}然后通过== **=={green}protoc 编译器==**=={green}生成C++、Python、Java等==**=={green}不同语言对应的代码==**=={green}。==
 
-**3）程序调用生成的代码**：
+**3）=={green}程序调用生成的代码==**=={green}：==
 
 - **=={yellow}序列化==**=={yellow}：填充结构体 → 变成二进制字节数组；==
 - **=={yellow}发送==**=={yellow}：二进制字节通过 MQTT/TCP 发送出去；==

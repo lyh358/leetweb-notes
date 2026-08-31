@@ -194,7 +194,7 @@ message Object {
 
 - =={yellow}它是不是==**=={yellow}合法的ROS消息==**=={yellow}；==
 - =={yellow}它的==**=={yellow}消息类型名称==**=={yellow}是什么；==
-- =={yellow}它的==**=={yellow}类型校验信息==**=={yellow}是什么；==
+- =={yellow}它的===={yellow}**类型校验**信息===={yellow}是什么；==
 - =={yellow}它应该==**=={yellow}怎样计算序列化长度==**=={yellow}；==
 - =={yellow}它应该==**=={yellow}怎样序列化和反序列化==**=={yellow}。==
 

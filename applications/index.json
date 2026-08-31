@@ -1,5 +1,16 @@
 [
   {
+    "id": "mthefh2zxetl",
+    "company": "算能科技",
+    "role": "",
+    "location": "",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "",
+    "created": 1788190459451,
+    "updated": 1788190459451
+  },
+  {
     "id": "mtg3vj6e1hzm",
     "company": "比亚迪",
     "role": "嵌入式、边缘部署",

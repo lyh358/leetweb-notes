@@ -520,7 +520,7 @@ GET /capture HTTP/1.1
 
 ---
 
-## 12. MJPEG视频流如何实现
+## =={pink}12. MJPEG视频流如何实现==
 
 MJPEG不是复杂的视频编码格式，本质上是通过一个HTTP连接连续发送多张JPEG。
 

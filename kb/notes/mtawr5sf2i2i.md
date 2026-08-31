@@ -298,7 +298,7 @@ void loop() {
 >        ├─ 处理ArduinoOTA
 >        ├─ 检查URL OTA请求
 >        ├─ =={green}检查MQTT==
->        └─ 调用MQTT loop维持心跳
+>        └─ =={green}调用MQTT loop维持心跳==
 
 它不负责发送普通遥测，避免网络维护与数据上传耦合。
 

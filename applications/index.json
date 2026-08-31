@@ -1,5 +1,16 @@
 [
   {
+    "id": "mthi4cker4m2",
+    "company": "千里智驾",
+    "role": "智驾软件开发",
+    "location": "上海",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://app.mokahr.com/campus-recruitment/qianli1/147197?locale=zh-CN#/candidateHome/applications",
+    "created": 1788196658846,
+    "updated": 1788196658846
+  },
+  {
     "id": "mthhz3xl4kre",
     "company": "阿里巴巴",
     "role": "芯片软件工程师",

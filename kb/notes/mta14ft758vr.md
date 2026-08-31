@@ -917,10 +917,10 @@ proto_md5
 
 > Protobuf消息对象
 >         ↓
-> ROS查询IsMessage
+> ROS查询IsMessage：判断它能否作为消息
 >         ↓
 > ROS查询DataType和MD5Sum
-> 完成类型标识与连接校验
+> 
 >         ↓
 > ROS查询Definition等信息
 > 提供消息描述

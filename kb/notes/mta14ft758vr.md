@@ -915,21 +915,6 @@ proto_md5
 
 ### =={pink}5.3 Traits在链路中的位置==
 
-```markdown
-Protobuf消息对象
-        ↓
-ROS查询IsMessage
-判断它能否作为消息
-        ↓
-ROS查询DataType和MD5Sum
-完成类型标识与连接校验
-        ↓
-ROS查询Definition等信息
-提供消息描述
-        ↓
-进入Serializer
-```
-
 #### 面试回答
 
 > =={yellow}Traits可以理解为ROS的**编译期类型档案**。ROS**通过Traits判断**一个**类型是不是消息**==、类型名称是什么、长度是否固定、有没有Header，以及通信双方是否兼容。项目中我=={yellow}通过**偏特化**为所有**Protobuf**类型**补充了这些信息**，让ROS能够**把Protobuf类当作合法消息**处理==。

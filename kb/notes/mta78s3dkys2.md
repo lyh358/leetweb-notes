@@ -676,7 +676,7 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 >            ↓
 >         =={pink}**第二次残差连接**：FFN输出与输入相加， x2 = x1 + FFN(x1)==
 >            ↓
->       =={pink}得到本Transformer层输出（16维）==
+>       =={yellow}得到本Transformer层输出（16维）==
 
 #### =={yellow}第一步：LayerNorm（层归一化）——把特征调整到稳定范围==
 

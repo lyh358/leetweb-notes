@@ -477,7 +477,7 @@ Core 1传感器和GPS继续运行
 数据进入RAM缓存
 ```
 
-### GPS异常：不影响DHT22和
+### GPS异常：不影响DHT22和HX
 
 ```bash
 GPS未定位或数据无效

@@ -394,14 +394,14 @@ Protobuf统一数据定义
 ┌──────────────────── 性能监控链路 ────────────────────┐
 │                                                  │
 │  Linux节点A       Linux节点B       Linux节点C     │
-│      │               │               │            │
-│   /proc采集        /proc采集        /proc采集      │
-│      │               │               │            │
-│  Monitor Agent   Monitor Agent   Monitor Agent    │
-│      └─────────── gRPC流式上报 ───────────┘          │
-│                         │                         │
-│                  Monitor Center                   │
-│                         │                        │
+│      │               │               │           │
+│   /proc采集        /proc采集        /proc采集    │
+│      │               │               │          │
+│  Monitor Agent   Monitor Agent   Monitor Agent  │
+│      └─────────── gRPC流式上报 ───────────┘        │
+│                         │                       │
+│                  Monitor Center                 │
+│                         │                       │
 │                    Qt监控界面                    │
 │                                                 │
 └─────────────────────────────────────────────────────┘

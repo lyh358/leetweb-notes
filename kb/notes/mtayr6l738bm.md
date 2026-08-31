@@ -259,17 +259,6 @@ GPS模块用于：
 
 ### 5.3 流式解析
 
-## 2. UART DMA 接收（ESP32 高性能方案）
-
-ESP32 UART 支持 DMA，不需要 CPU 搬运字节。
-
-1. GPS 字节流入 UART 硬件 FIFO，DMA 硬件自动把字节搬运到内存缓冲区，**不需要 CPU 参与搬运**。
-2. DMA 完成 / 半满 / 超时，才产生一次中断通知 CPU。
-3. CPU 一次拿到一大段 GPS 数据。
-
-优势：大量串口数据流的时候，大大减少中断次数，减轻 CPU 负担，适合 GPS 这种持续输出数据流。
-ESP‑IDF `uart_driver_install()` 底层可以开启 DMA。
-
 项目使用TinyGPSPlus解析NMEA：
 
 ```markdown

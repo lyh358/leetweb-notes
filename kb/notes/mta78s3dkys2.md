@@ -1108,7 +1108,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 =={green}PyTorch 导出 ONNX 时，默认按==**=={green}通用情况==**=={green}处理==——**假设 shape 可能是动态**的。=={yellow}**因此会自动插入**==：
 
-> **Shape → Gather → Unsqueeze**
+> **=={green}Shape → Gather → Unsqueeze==**
 > （取张量维度值 → 取某个具体维度 → 扩维拼接到目标 shape）
 
 这条链路在**动态 shape** 下是必要的（运行时才能知道维度值）。但在我们的部署场景中，ATC 编译要求固定 `input_shape="input:1,4,32,32,1"`，shape 永远不会变，所以这些运行时推导节点**永远不会产生不同于编译时的值**，纯粹浪费调度开销。

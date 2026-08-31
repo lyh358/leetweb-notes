@@ -1,14 +1,25 @@
 [
   {
+    "id": "mthfshnd75f9",
+    "company": "TI",
+    "role": "嵌入式",
+    "location": "上海",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://careers.ti.com/en/sites/CX/my-profile",
+    "created": 1788192746329,
+    "updated": 1788192746329
+  },
+  {
     "id": "mthffhavet5i",
     "company": "寒武纪",
     "role": "芯片应用工程师",
     "location": "深圳",
-    "applied": false,
+    "applied": true,
     "stage": "简历筛选",
     "website": "https://app.mokahr.com/campus-recruitment/cambricon/44201#/candidateHome/applications",
     "created": 1788192139351,
-    "updated": 1788192140405
+    "updated": 1788192141417
   },
   {
     "id": "mthf8jar79uq",

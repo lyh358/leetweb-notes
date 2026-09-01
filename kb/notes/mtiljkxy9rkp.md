@@ -238,7 +238,7 @@ SDA   ──└─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─�
 > ❌ SCL 高时 SDA 跳变，会被识别成 Start / Stop，不是数据。
 
 **=={yellow}3. 数据位传输==**
-每 1bit：主机先把SCL拉低，允许发送方将，从机采样 SDA → SCL 拉低，切换下一位。
+每 1bit：主机先把SCL拉低，允许发送方将SDAdianp，从机采样 SDA → SCL 拉低，切换下一位。
 
 **=={pink}高位先行 MSB first！！！==（和 UART 相反！=={pink}UART 是低位先行 LSB==）面试高频对比点。**
 

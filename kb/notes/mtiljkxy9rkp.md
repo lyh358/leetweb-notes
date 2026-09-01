@@ -54,7 +54,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 - =={yellow}TX：发送，输出==
 - =={yellow}RX：接收，输入==
 
-> =={yellow}**GND 必须共地！**只接 TX/RX 不共地大概率通信异常。==
+> =={yellow}**GND 必须共地！**只接 TX/RX **不共地大概率通信异常**。==
 
 ### 2. 关键寄存器
 

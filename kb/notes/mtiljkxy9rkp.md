@@ -169,7 +169,7 @@ USART 支持 DMA 接收、DMA 发送。
 
 # I2C
 
-I2C：Inter‑Integrated Circuit，集成电路间总线.
+I2C：Inter‑Integrated Circuit，集成电路间总线。
 
 特点：**两线、半双工、同步串行总线**；SCL 时钟线，SDA 数据线。
 

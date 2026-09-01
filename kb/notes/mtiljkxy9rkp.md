@@ -52,7 +52,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 ### 1. 核心引脚
 
 - =={yellow}TX：发送，输出==
-- RX：接收，输入
+- =={yellow}RX：接收，输入==
 
 > GND 必须共地！只接 TX/RX 不共地大概率通信异常。
 

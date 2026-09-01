@@ -291,7 +291,7 @@ Softmax交给Vector
 | **Tiling与双缓冲** | 将K维切成两个Chunk，使用Ping-Pong Buffer交替搬运和计算 | 重叠MTE搬运与Cube计算 |
 | **格式转换内联** | 输入格式与Cube计算格式匹配，在搬运和Kernel内部完成转置及输出整理 | 减少独立TransData和Transpose Kernel |
 
-### 实施链路
+### 1.实施链路
 
 ```markdown
 第一步：识别原始Attention子图

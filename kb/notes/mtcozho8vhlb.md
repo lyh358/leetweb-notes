@@ -176,7 +176,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 - AUTOSAR接口和模块边界；
 - =={yellow}**ISO 26262功能安全要求**；==
 
-> ISO26262：道路车辆功能安全标准
+> =={green}ISO26262：道路车辆功能安全标准==
 > 核心概念：**ASIL 等级（A/B/C/D）**- ASIL‑D：最高安全等级（刹车、转向、动力）
 > 
 > - ASIL‑A：最低等级

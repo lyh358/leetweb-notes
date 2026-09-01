@@ -82,6 +82,8 @@
 - **`dieCorX`**=={yellow}**：芯片在晶圆上的X坐标**；==
 - **`dieCorY`**=={yellow}**：芯片在晶圆上的Y坐标**。==
 
+jingyuan
+
 =={green}**三者组合**可以**定位一颗具体芯片**，因此将它们作为**设备标识**==：
 
 > =={yellow}**设备标识 = waferId + dieCorX + dieCorY**==

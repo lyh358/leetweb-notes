@@ -183,7 +183,7 @@ USART 支持 DMA 接收、DMA 发送。
 
 ## =={pink}一、物理层基础（必背）==
 
-## **=={yellow}两根信号线==**
+## **=={yellow}1两根信号线==**
 
 - `SCL`：=={yellow}Serial Clock 时钟，由**主机产生**==
 - `SDA`：=={yellow}Serial Data 数据，**双向收发**数据==

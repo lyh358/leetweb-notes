@@ -237,7 +237,7 @@ TIM 控制寄存器 CR1 的第 0 位，定时器的总开关。
 
 - **底层实现原理**
 
-1. STM32 用**=={yellow}定时器==**=={yellow}产生固定频率的 PWM 波，核心参数是 ==`PSC`===={yellow}={yellow}={yellow}、=={yellow}`ARR`=={yellow}、==`CCR`。
+1. STM32 用**=={yellow}定时器==**=={yellow}产生固定频率的 PWM 波，核心参数是 ==`PSC`===={yellow}={yellow}={yellow}={yellow}、=={yellow}`ARR`=={yellow}、==`CCR`。
 2. 其中 `ARR`=={yellow}{yellow} 决定周期，==`CCR`=={yellow} 决定高电平时间，占空比 = ==`CCR / ARR`。
 3. 电机由于有电感和机械惯性，看到的不是快速翻转的高低电平，而是一个**平均电压**。
 4. 占空比越大，平均电压越高，电机转速通常越快。
@@ -293,7 +293,7 @@ CPU 寄存器是程序运行时最核心的硬件资源，用来**存数据、�
 
 1. Cortex‑M =={yellow}把一段 ====={yellow}**={yellow}位带区**=={yellow}=={yellow}{yellow} 的每一位，映射到 ====={yellow}**={yellow}位带别名区**=={yellow}=={yellow}{yellow} 的一个 32 位地址==。
 2. 这样=={green}访问别名区某个地址==，本质上就是在访=={green}问原地址中的某一位==。
-3. =={green}对别名地址写 ==`0/1`===={yellow}={yellow}={green}，就等价于把目标位清 0 或置 1==；读别名地址，就能直接得到该位的值。
+3. =={green}对别名地址写 ==`0/1`===={yellow}={yellow}={yellow}={green}，就等价于把目标位清 0 或置 1==；读别名地址，就能直接得到该位的值。
 4. 这样避免了传统 **读‑改‑写** 的按位操作，代码更直观，也更适合单独控制某一位。
 5. 所以位带本质就是：把 “按位访问” 转成 “按字访问”。
 
@@ -377,7 +377,7 @@ GPIOA->ODR &= ~(1 << 5);
 
 1. STM32 ADC=={yellow}{yellow} 常见分辨率有 ====={yellow}**={yellow}12 位**=={yellow}=={yellow}，部分型号还支持 ====={yellow}**={yellow}10/8/6 位**== 可配置，少数高端型号可到更高精度。
 2. 以=={yellow}{yellow} ====={yellow}**={yellow}12 位 ADC**=={yellow}=={yellow}{yellow} ==为例，表示=={yellow}可把输入电压范围分成 (2^{12}=4096) 个等级==，数字范围通常是 **0~4095**。
-3. 若=={yellow}参考电压是 ==`3.3V`===={yellow}={yellow}={yellow}，则 1 LSB 约等于 =={yellow}`3.3 / 4096 ≈ 0.8mV`=={yellow}，这叫=={yellow}**=={yellow}分辨率**===={yellow}。==
+3. 若=={yellow}参考电压是 ==`3.3V`===={yellow}={yellow}={yellow}={yellow}，则 1 LSB 约等于 =={yellow}`3.3 / 4096 ≈ 0.8mV`=={yellow}，这叫=={yellow}**=={yellow}分辨率**===={yellow}。==
 4. 但分辨率不等于实际精度，实际还受参考电压误差、噪声、采样时间、线性误差、量化误差影响。
 5. 所以面试里要区分：**=={pink}标称精度看位数，实际精度看系统误差和采样环境==。**
 
@@ -392,7 +392,7 @@ GPIOA->ODR &= ~(1 << 5);
 - **底层实现原理**
 
 1. =={pink}STM32 的时钟源一般有 ====={pink}**={pink}HSI、HSE、LSI、LSE**=={yellow}，=={green}高速时钟给系统和外设==，=={green}低速时钟常给 RTC、看门狗==。
-2. =={yellow}系统时钟 ==`SYSCLK`===={yellow}={yellow}={yellow}{yellow} 可以选择直接来自 HSI/HSE，也可以先经过 =={yellow}==**{yellow}PLL 倍频**=={yellow}=={yellow}{yellow} 后再作为主时钟==。
+2. =={yellow}系统时钟 ==`SYSCLK`===={yellow}={yellow}={yellow}={yellow}{yellow} 可以选择直接来自 HSI/HSE，也可以先经过 =={yellow}==**{yellow}PLL 倍频**=={yellow}=={yellow}{yellow} 后再作为主时钟==。
 3. `SYSCLK`=={yellow}{yellow} 再往下分成 ====={yellow}**={yellow}AHB、APB1、APB2**=={yellow}=={yellow}{yellow} 等总线时钟==，分别供内核、内存、不同外设使用。
 4. 不同外设再从总线时钟继续分频或单独选时钟源，比如 TIM、USART、ADC、RTC。
 5. 所以=={pink}时钟树本质就是：==**=={pink}时钟源选择 + 倍频 / 分频 + 分发到各模块。==**
@@ -501,7 +501,7 @@ ISA 是软件看到的"指令语法"（如 ADD、MOV 怎么写）；微架构 �
 
 1. `0x08000000` 是 STM32 片内=={yellow}{pink} Flash 在内存映射中的起始地址==，这是芯片硬件设计时就固定好的。
 2. ARM 内核访问代码和数据，看到的是一张统一的**存储器地址映射表**，Flash、SRAM、外设都会被映射到不同地址段。
-3. STM32=={yellow}{pink} 复位后虽然是从 ==`0x00000000`===={yellow}={yellow}={yellow}{pink} 开始取向量表，但芯片会把启动区域=={yellow}=={pink}**重映射**===={pink}到这个地址==。
+3. STM32=={yellow}{pink} 复位后虽然是从 ==`0x00000000`===={yellow}={yellow}={yellow}={yellow}{pink} 开始取向量表，但芯片会把启动区域=={yellow}=={pink}**重映射**===={pink}到这个地址==。
 4. 当选择 Flash 启动时，本质上就是把 `0x08000000` 这一段 Flash 映射到 `0x00000000` 给内核取指。
 5. 所以 `0x08000000` 是 Flash 的物理映射起始地址，而启动时 CPU 先访问的其实是被重映射后的启动地址空间。
 
@@ -523,9 +523,9 @@ ISA 是软件看到的"指令语法"（如 ADD、MOV 怎么写）；微架构 �
 本质区别在于：**=={pink}CPU 参与程度不同，实时性和效率也不同==**。
 - **底层实现原理**
 
-1. **=={green}轮询==**=={green}：CPU 一直检查接收标志位 ==`RXNE`===={yellow}={yellow}={green}，有数据就读寄存器==；实现简单，但 CPU 会一直空转，效率最低。
+1. **=={green}轮询==**=={green}：CPU 一直检查接收标志位 ==`RXNE`===={yellow}={yellow}={yellow}={green}，有数据就读寄存器==；实现简单，但 CPU 会一直空转，效率最低。
 2. **=={green}中断==**=={green}：收到数据后串口触发中断，CPU 跳到 ISR 里读 ==`DR`；比轮询省 CPU，适合低速或不连续数据。
-3. **=={green}DMA==**=={green}：串口收到数据后，由 DMA 自动把 ==`DR`===={yellow}={yellow}={yellow}{green} 搬到内存==，CPU 不用逐字节参与；适合高速、大量、连续接收。
+3. **=={green}DMA==**=={green}：串口收到数据后，由 DMA 自动把 ==`DR`===={yellow}={yellow}={yellow}={yellow}{green} 搬到内存==，CPU 不用逐字节参与；适合高速、大量、连续接收。
 4. 轮询最简单但最占 CPU；中断实时性较好但频繁进中断有开销；DMA 效率最高，但配置最复杂。
 5. 所以选型一般是：**少量数据用中断，连续大数据用 DMA，简单调试可用轮询**。
 
@@ -779,7 +779,7 @@ PWM 频率和占空比怎么计算
 
 1. HardFault 常见原因有空指针、越界访问、栈溢出、函数指针错误、未对齐访问、非法地址访问。
 2. 进入 HardFault 时，硬件会自动压栈 `R0‑R3、R12、LR、PC、xPSR`。
-3. 关键是=={pink}取出异常现场里的 ==`PC`===={yellow}={yellow}={pink}，它通常指向出错指令附近==。
+3. 关键是=={pink}取出异常现场里的 ==`PC`===={yellow}={yellow}={yellow}={pink}，它通常指向出错指令附近==。
 4. 再查看 `CFSR、HFSR、BFAR、MMFAR` 等 fault 寄存器，判断是总线错误、内存管理错误还是用法错误。
 5. 结合 `.map` 文件、反汇编或 IDE 的 call stack，把 PC 地址还原到具体函数和代码行。
 6. 如果栈已破坏，要检查任务栈溢出、数组越界、DMA 写越界。

@@ -16,7 +16,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 1. **=={yellow}空闲状态==**：=={green}总线默认高电平 (1)==
 2. **=={yellow}起始位==**：=={green}1 位，拉低电平 (0)，通知对方要开始传输==
 3. **=={yellow}数据位==**：=={green}5~8bit==，**=={yellow}低位先行 LSB first==**（=={green}非常重要！先发最低位==），一般 8bit
-4. **=={yellow}校验位==（可选）**：无校验 / 奇校验 / 偶校验
+4. **=={yellow}校验位==（可选）**：=={green}无校验 / 奇校验 / 偶校验==
 
 - =={green}偶校验：数据 + 校验位中 1 的总数为偶数==
 - =={green}奇校验：数据 + 校验位中 1 的总数为奇数==

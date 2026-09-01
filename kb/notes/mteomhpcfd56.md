@@ -2,7 +2,7 @@
 
 ---
 
-### 1. 功能标识
+### =={pink}1. 功能标识==
 
 - =={yellow}**诊断项ID**==：`DIAGID_FPGA_PARA1 = 0x1E00`
 - =={yellow}**故障事件ID**==：`EVTID_FPGA_PARA1_FAULT = 0x1E01-` `0x1E06`

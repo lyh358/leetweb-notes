@@ -9,7 +9,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 
 ---
 
-## 一、UART 帧格式（必考题，画帧）
+## =={pink}一、UART 帧格式（必考题，画帧）==
 
 一帧 = **起始位 + 数据位 + 校验位 (可选) + 停止位**
 

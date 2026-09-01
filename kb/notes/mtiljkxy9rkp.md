@@ -261,6 +261,13 @@ bit位：bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0
 
 #### ① I2C 写操作（主机写从机）
 
+```less
+S(START)  | 7bit地址+1bit写 | ACK | 8bit 数据 | ACK | P(STOP)
+SCL   ──┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ──
+SDA   ──└─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ ──
+       S      ADDR+W   ACK    DATA    ACK    P
+```
+
 #### ② I2C 读操作（主机读从机）
 
 > I2C 读之前，一般要先 “写寄存器地址”，告诉从机要读哪个寄存器，叫**重复起始信号 Repeated‑Start (Sr)**，不发 Stop。

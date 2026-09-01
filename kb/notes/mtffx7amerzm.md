@@ -26,7 +26,7 @@ SWC是AUTOSAR中的=={yellow}**软件组件**==，例如诊断、模式控制和
 
 ### =={pink}5. Runnable是什么？==
 
-Runnable是=={yellow}SWC内部**可以被调度**执行的**函数单元**==。它=={yellow}可以由**初始化事件**、**周期事件**或**数据到达事件**触发，最终会被**映射到具体OS Task**中运行==。
+Runnable是=={yellow}SWC内部**可以被调度****执行**的**函数单元**==。它=={yellow}可以由**初始化事件**、**周期事件**或**数据到达事件**触发，最终会被**映射到具体OS Task**中运行==。
 
 ### =={pink}6. Runnable和OS Task是什么关系？==
 
@@ -34,7 +34,7 @@ Runnable是=={yellow}SWC内部**可以被调度**执行的**函数单元**==。�
 
 ### =={pink}7. RTE接口是怎么使用的？==
 
-=={yellow}接口通常先**在ARXML中配置**==，再生成`Rte_Read`、`Rte_Write`或`Rte_Call`等代码。=={yellow}**应==**===={yellow}={yellow}**用层通过这些接口访问其他组件**，不直接依赖对方内部实现==。
+=={yellow}接口通常先**在ARXML中配置**==，再生成`Rte_Read`、`Rte_Write`或`Rte_Call`等代码。=={yellow}**应==**===={yellow}={yellow}={yellow}**用层通过这些接口访问其他组件**，不直接依赖对方内部实现==。
 
 ### =={pink}8. 为什么不直接从ASW操作底层寄存器？==
 

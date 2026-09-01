@@ -38,7 +38,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 
 ### =={pink}为什么会乱码？面试常问==
 
-1. 两端波特率不匹配（最常见）。
+1. =={yellow}两端波特率不匹配（最常见）。==
 2. 采样偏差，时钟误差过大；STM32 波特率来自外设时钟，时钟分频误差。
 3. TX/RX 交叉接反。
 4. 电平不匹配：TTL 3.3V 和 5V 互相通信；RS232 电平和 TTL 混淆。

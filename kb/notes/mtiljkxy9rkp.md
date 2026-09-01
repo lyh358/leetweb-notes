@@ -171,9 +171,7 @@ USART 支持 DMA 接收、DMA 发送。
 
 **I2C**：Inter‑Integrated Circuit，**集成电路间总线**。
 
-=={green}特点：**半双工**、**同步串行**总线；==
-
-=={green}**双线：SCL 时钟线**，**SDA 数据线**。==
+=={green}特点：**半双工**、**同步串行**总线；===={green}**双线：SCL 时钟线**，**SDA 数据线**。==
 
 =={green}多用于**板内短距离通信**==：EEPROM、OLED、传感器 (RTC、陀螺仪)。
 

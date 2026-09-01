@@ -22,7 +22,7 @@
 | =={yellow}**配置层**== | **规则定义**者 | =={green}CSV配置故障ID、等级、防抖==、=={green}函数绑定==；自动生成`diag_cfg.c`三表 | 项目必配，不可裁剪 |
 | =={yellow}**调度层**== | **平台调度**器 | =={green}上电自检周期调度==、=={green}DEM事件上报==、故障生命周期管理 | 平台通用，不可裁剪 |
 | =={yellow}**算法层**== | Feature**核心逻辑** | =={green}三态状态机==、=={green}CRC比对判定==、=={green}故障注入旁路==、=={green}KeyInfo快照输出== | 静态代码，跨项目可复用 |
-| =={yellow}**数据源层**== | **数据提供**，底层CDD | =={green}Flash参数加载==、实时CRC计算、双CRC读取接口、加载状态查询 | CDD基础组件，Feature强依赖 |
+| =={yellow}**数据源层**== | **数据提供**，底层CDD | =={green}Flash参数加载==、=={green}实时CRC计算==、双CRC读取接口、加载状态查询 | CDD基础组件，Feature强依赖 |
 | =={yellow}**工站层**== | 产**验收闭环**链路 | PTC命令故障注入/整机复位/故障查询、NVM注入参数持久化 | 仅Factory量产固件，Release可裁剪 |
 
 ## =={pink}二、算法层核心代码：diag_fpgapara1.c==

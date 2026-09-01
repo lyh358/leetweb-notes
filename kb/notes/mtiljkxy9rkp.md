@@ -81,7 +81,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 
 ### =={pink}3. 三种读写方式（面试必问）==
 
-#### ① 查询方式（轮询）
+#### =={yellow}① 查询方式（轮询）==
 
 循环判断 TXE / RXNE 标志；CPU 一直轮询，浪费 CPU 资源，简单，不适合大量数据。
 

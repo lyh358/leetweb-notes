@@ -738,13 +738,6 @@
       "created": 1788282372225
     },
     {
-      "id": "mtiy13a3uztd",
-      "name": "操作系统",
-      "parent": "mt09air4zzde",
-      "kind": "pdf",
-      "created": 1788283846875
-    },
-    {
       "id": "mtiy184cxncs",
       "name": "FreeRTOS",
       "parent": "mt09air4zzde",

@@ -44,3 +44,5 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 4. 电平不匹配：TTL 3.3V 和 5V 互相通信；RS232 电平和 TTL 混淆。
 5. 干扰，地线没共地。
 6. 出现帧错误、校验错误，软件没有处理错误标志。
+
+---

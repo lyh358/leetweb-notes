@@ -318,10 +318,8 @@ Softmax交给Vector
 优化后设计：
 1个FusedAttention Kernel
 + Score和Weight保留在片上
-+ Cube、Vector和MTE协同执行
++ Cube、Vector和MTE协同执行3.一句话总结
 ```
-
-## 一句话总结
 
 > 我把原来分散执行的Attention链融合成一个Cube和Vector协同的自定义Kernel，通过片上数据驻留减少GM往返，按Head进行多核并行，再利用Tiling、Ping-Pong双缓冲和格式转换内联进一步降低搬运、调度及转换开销。
 

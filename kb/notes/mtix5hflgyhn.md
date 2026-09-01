@@ -278,7 +278,7 @@ Softmax交给Vector
 
 ---
 
-## 二、FusedAttention的实施方法概设
+# 二、FusedAttention的实施方法概设
 
 针对优化前存在的**九个Kernel、中间结果反复写回GM、ND/NZ格式转换以及搬运计算串行**问题，我主要采用了以下六项方法。
 

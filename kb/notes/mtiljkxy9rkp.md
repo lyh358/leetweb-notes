@@ -47,7 +47,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 
 ---
 
-## 二、STM32 USART 硬件底层
+## =={pink}二、STM32 USART 硬件底层==
 
 ### 1. 核心引脚
 

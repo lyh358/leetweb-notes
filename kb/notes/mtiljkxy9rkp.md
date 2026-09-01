@@ -85,7 +85,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 
 循环判断 TXE / RXNE 标志；CPU 一直轮询，浪费 CPU 资源，简单，不适合大量数据。
 
-#### ② 中断方式
+#### =={yellow}② 中断方式==
 
 - TXEIE：发送数据寄存器空中断；当 TXE 置 1 触发中断，可以填充下一个字节
 - TCIE：发送完成中断

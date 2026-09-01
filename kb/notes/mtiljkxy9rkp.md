@@ -7,3 +7,5 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 - 常用别名：串口；TTL‑UART；RS232/RS485 是**电平标准**，不是 UART 协议。
 
 ---
+
+一、UART 帧格式（必考题，画帧）

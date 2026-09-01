@@ -185,7 +185,7 @@ USART 支持 DMA 接收、DMA 发送。
 
 1. **=={yellow}两根信号线==**
 
-- `SCL`：Serial Clock 时钟，由主机产生
+- `SCL`：=={yellow}Serial Clock 时钟，由主机产生==
 - `SDA`：Serial Data 数据，双向收发数据
 
 1. 电气特性：**开漏输出，线与逻辑**。器件只能拉低总线；高电平由外部上拉电阻拉上来。

@@ -202,7 +202,7 @@ USART 支持 DMA 接收、DMA 发送。
 =={yellow}**6. 速率**==：
 
 - =={green}标准模式：100Kbit/s==
-- =={green}快速模式：400Kbit/s（最常用）==
+- =={green}**快速模式：400Kbit/s**（最常用）==
 - =={green}快速模式 +：1Mbit/s==
 - =={green}高速模式：3.4Mbit/s（STM32 较少用）==
 

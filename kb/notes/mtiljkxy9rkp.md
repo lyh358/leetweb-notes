@@ -371,26 +371,26 @@ I2C SDA/SCL 是**开漏输出**：器件只能把总线拉低；高电平靠外�
   - =={green}CPHA=0：==**=={green}第一个边沿采样==**=={green}，第二个边沿移位==
   - =={green}CPHA=1：==**=={green}第二个边沿采样==**=={green}，第一个边沿移位==
 
-四种模式：
+=={pink}四种模式：==
 
 - =={yellow}Mode0：CPOL=0 CPHA=0 【最常用，传感器、Flash】==
 - =={yellow}Mode1：CPOL=0 CPHA=1==
 - =={yellow}Mode2：CPOL=1 CPHA=0==
 - =={yellow}Mode3：CPOL=1 CPHA=1==
 
-> 主从必须模式一致，否则乱码。
+> =={green}**主从必须模式一致，否则乱码。**==
 
-> 数据顺序：**默认 MSB 高位先行**，硬件可配置 LSB。
+> =={yellow}数据顺序：==**=={yellow}默认 MSB 高位先行==**，硬件可配置 LSB。
 
-## 3、时序逻辑（全双工核心）
+## =={pink}3、时序逻辑（全双工核心）==
 
-SCK 每来一个时钟：
+=={yellow}SCK 每来一个时钟：==
 
-1. MOSI 输出主机 bit；MISO 输出从机 bit
-2. 在采样沿读取 bit
-3. 移位寄存器移位。
+1. =={green}MOSI 输出主机 bit；MISO 输出从机 bit==
+2. =={green}在采样沿读取 bit==
+3. =={green}移位寄存器移位。==
 
-> SPI 本质：**两个移位寄存器互相交换数据**。写一个字节出去的同时，必然读到一个字节。哪怕你只发不想要接收，也要读 DR 寄存器清空。
+> =={yellow}SPI 本质：==**=={yellow}两个移位寄存器互相交换数据==**=={yellow}。写一个字节出去的同时，必然读到一个字节==。哪怕你只发不想要接收，也要读 DR 寄存器清空。
 
 ```markdown
 简略时序 Mode0 CPOL=0 CPHA=0

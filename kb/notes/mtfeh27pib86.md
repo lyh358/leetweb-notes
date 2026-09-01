@@ -28,7 +28,7 @@
 
 > =={yellow}FPGA==在FOV窗口内=={yellow}检测Start信号==
 >         ↓
-> =={yellow}统计前沿异常次数和丢失次数==
+> =={yellow}统计前沿异常次数和丢失次数存jcq==
 >         ↓
 > =={yellow}MCU每5 ms轮询诊断完成状态==
 >         ↓

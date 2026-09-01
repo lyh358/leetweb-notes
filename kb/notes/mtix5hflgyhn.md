@@ -318,10 +318,8 @@ Softmax交给Vector
 优化后设计：
 1个FusedAttention Kernel
 + Score和Weight保留在片上
-+ Cube、Vector和MTE协同执行
++ Cube、Vector和MTE协同执行3.一句话总结
 ```
-
-## 一句话总结
 
 > 我把原来分散执行的Attention链融合成一个Cube和Vector协同的自定义Kernel，通过片上数据驻留减少GM往返，按Head进行多核并行，再利用Tiling、Ping-Pong双缓冲和格式转换内联进一步降低搬运、调度及转换开销。
 
@@ -417,7 +415,7 @@ FusedAttentionCube_build/
 │	输入应该怎样分核、分块。
 ├── op_host/       Host侧：算子定义与Tiling配置
 │   ├── fused_attention_cube_op.cpp   Host侧的主要算子定义文件：1.定义算子接口；2.注册Shape推导函数；
-││														3.注册Tiling函数；4.绑定Device Kernel
+│	│														3.注册Tiling函数；4.绑定Device Kernel
 │   └── fused_attention_cube_tiling.h	Host侧和Device侧共享的Tiling参数定义文件。
 │	Host侧负责填写，Device Kernel负责读取。
 │	可以理解为：Host提前写好一张“施工图”，Device Kernel根据施工图执行分核、分块和内存访问。

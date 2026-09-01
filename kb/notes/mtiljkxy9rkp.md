@@ -368,15 +368,15 @@ I2C SDA/SCL 是**开漏输出**：器件只能把总线拉低；高电平靠外�
   - =={green}CPOL=0：空闲 SCK = 低==
   - =={green}CPOL=1：空闲 SCK = 高==
 - **=={yellow}CPHA 时钟相位==**=={yellow}：数据采样沿==
-  - CPHA=0：**第一个边沿采样**，第二个边沿移位
-  - CPHA=1：**第二个边沿采样**，第一个边沿移位
+  - =={green}CPHA=0：==**=={green}第一个边沿采样==**=={green}，第二个边沿移位==
+  - =={green}CPHA=1：==**=={green}第二个边沿采样==**=={green}，第一个边沿移位==
 
 四种模式：
 
-- Mode0：CPOL=0 CPHA=0 【最常用，传感器、Flash】
-- Mode1：CPOL=0 CPHA=1
-- Mode2：CPOL=1 CPHA=0
-- Mode3：CPOL=1 CPHA=1
+- =={yellow}Mode0：CPOL=0 CPHA=0 【最常用，传感器、Flash】==
+- =={yellow}Mode1：CPOL=0 CPHA=1==
+- =={yellow}Mode2：CPOL=1 CPHA=0==
+- =={yellow}Mode3：CPOL=1 CPHA=1==
 
 > 主从必须模式一致，否则乱码。
 

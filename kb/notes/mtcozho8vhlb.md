@@ -183,7 +183,8 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 
 - =={yellow}**MISRA C编码规范**；==
 
-车载可靠性 C 语言编码规则集，约束 C 语言危险特性。
+> 车载可靠性 C 语言编码规则集，约束 C 语言危险特性。
+
 - MemMap内存段管理；
 - APP、BOOT、Release和Factory版本；
 - 实机验证、故障注入和问题追溯；

@@ -347,7 +347,8 @@ I2C SDA/SCL 是**开漏输出**：器件只能把总线拉低；高电平靠外�
 
 # SPI
 
-> SPI：Serial Peripheral Interface，串行外设接口，**同步串行总线，全双工**。
+> SPI：Serial Peripheral Interface，=={yellow}串行外设接口==，**同步串行总线，全双工**。
+> 
 > 
 > 主机提供时钟 SCK，没有应答 ACK 机制，没有硬件地址，靠 NSS 片选区分从机。
 
@@ -391,7 +392,7 @@ SCK 每来一个时钟：
 
 > SPI 本质：**两个移位寄存器互相交换数据**。写一个字节出去的同时，必然读到一个字节。哪怕你只发不想要接收，也要读 DR 寄存器清空。
 
-```
+```markdown
 简略时序 Mode0 CPOL=0 CPHA=0
 空闲 SCK=低
 SCK   ──┐  ┌──┐  ┌──┐  ┌──┐

@@ -214,7 +214,7 @@ USART 支持 DMA 接收、DMA 发送。
 
 ### =={pink}写时序==
 
-### S(START)  | 7bit地址+1bitW | ACK | 数据字节 | ACK | P(STOP)
+### S(START)  | 7bit地址+1bit读 | ACK | 数据字节 | ACK | P(STOP)
 SCL   ──┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ──
 SDA   ──└─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ ──
        S      ADDR+W   ACK    DATA    ACK    P

@@ -243,7 +243,7 @@ SDA   ──└─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─�
 ```scss
 字节：  1   0   1   1   0   1   0   1
 bit位：bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0
-       MSB(最高位)                        LSB(最低位)
+      MSB(最高位)                        LSB(最低位)
 ```
 
 **=={yellow}4. 应答 ACK / NACK（应答位，第 9 个时钟）==**

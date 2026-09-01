@@ -94,7 +94,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 
 > 坑：中断里面不要做耗时操作；ORE 过载错误一定要清除标志，否则一直进中断。
 
-#### ③ DMA 方式（产品常用）
+#### =={yellow}③ DMA 方式（产品常用）==
 
 USART 支持 DMA 接收、DMA 发送。
 

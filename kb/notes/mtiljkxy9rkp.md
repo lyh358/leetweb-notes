@@ -239,10 +239,11 @@ SDA   ──└─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─�
 
 **=={yellow}3. 数据位传输==**
 每 1bit：主机把 SDA 置电平 → SCL 拉高，从机采样 SDA → SCL 拉低，切换下一位。**=={pink}高位先行 MSB first！！！==（和 UART 相反！=={pink}UART 是低位先行 LSB==）面试高频对比点。**
-```
+
+```scss
 字节：  1   0   1   1   0   1   0   1
 bit位：bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0
-       MSB(最高位)                LSB(最低位)
+       MSB(最高位)                        LSB(最低位)
 ```
 
 **=={yellow}4. 应答 ACK / NACK（应答位，第 9 个时钟）==**

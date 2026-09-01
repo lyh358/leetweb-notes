@@ -1,4 +1,4 @@
-# 一、UART
+# UART
 
 UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 - 异步：**没有共享时钟线**，收发双方预先约定波特率；

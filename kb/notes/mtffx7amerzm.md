@@ -198,7 +198,7 @@ FPGA适合处理高速并行时序、数据采集和计数；MCU负责模式控�
 
 ### =={pink}45. APP和Bootloader分别负责什么？==
 
-=={yellow}Bootloader负责**上电启动**、**镜像校验**、固件升级和跳转==；APP负责雷达正常运行时的业务功能。MCU复位后先运行Bootloader，再由它决定是否跳转到APP。
+=={yellow}Bootloader负责**上电启动**、**镜像校验**、**固件升级**和**跳转**==；APP负责雷达正常运行时的业务功能。MCU复位后先运行Bootloader，再由它决定是否跳转到APP。
 
 ### 46. Bootloader如何跳转到APP？
 

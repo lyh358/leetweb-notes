@@ -3,6 +3,7 @@
 ### 1. 为什么要分析优化前的计算图
 
 Attention在算法层面的公式并不复杂：
+
 $$
 Score=\frac{QK^T}{\sqrt{d}}
 $$
@@ -36,14 +37,14 @@ $$
 
 在昇腾推理环境中，可以把系统分为Host和Device两侧。
 
-| 部分       | 含义               | 主要职责                                       |
-| ---------- | ------------------ | ---------------------------------------------- |
-| **Host**   | 运行Linux的CPU侧   | 加载OM、准备输入、申请内存、发起推理并获取结果 |
-| **Device** | Ascend 310P3 NPU侧 | 执行模型中的矩阵乘、Softmax和数据搬运等操作    |
+| 部分 | 含义 | 主要职责 |
+| --- | --- | --- |
+| **Host** | 运行Linux的CPU侧 | 加载OM、准备输入、申请内存、发起推理并获取结果 |
+| **Device** | Ascend 310P3 NPU侧 | 执行模型中的矩阵乘、Softmax和数据搬运等操作 |
 
 整体关系可以简化为：
 
-```
+```markdown
 Host CPU
 准备输入、加载模型、发起推理
           ↓
@@ -72,7 +73,7 @@ GM是Device侧的全局内存，可以理解成NPU的“大容量外部工作区
 
 它容量较大，但访问速度和能耗通常不如L1、L0、UB等片上存储。AI Core执行计算时，通常需要先把数据从GM搬到片上，计算结束后再把结果写回GM。
 
-```
+```sql
 GM
 ↓ 搬入
 L1、L0或UB等片上存储
@@ -88,11 +89,11 @@ GM
 
 Ascend AI Core内部有不同类型的计算单元：
 
-| 单元       | 擅长的操作               | Attention中的任务        |
-| ---------- | ------------------------ | ------------------------ |
-| **Cube**   | 矩阵乘和卷积             | `QKᵀ`、`Weight×V`        |
-| **Vector** | 逐元素、规约和非线性计算 | Scale、Softmax           |
-| **MTE**    | 数据搬运                 | GM与片上存储之间传输数据 |
+| 单元 | 擅长的操作 | Attention中的任务 |
+| --- | --- | --- |
+| **Cube** | 矩阵乘和卷积 | `QKᵀ`、`Weight×V` |
+| **Vector** | 逐元素、规约和非线性计算 | Scale、Softmax |
+| **MTE** | 数据搬运 | GM与片上存储之间传输数据 |
 
 Attention需要先使用Cube计算矩阵乘，再使用Vector完成Softmax，最后重新回到Cube执行第二次矩阵乘。
 
@@ -105,14 +106,14 @@ ND和NZ是两种不同的数据存储格式。
 
 可以把它们简单理解为：
 
-```
+```sql
 ND：按照普通顺序摆放数据
 NZ：按照Cube喜欢的矩阵小块方式摆放数据
 ```
 
 两种格式表达的数据内容相同，但排列方式不同。格式转换通常由TransData Kernel完成：
 
-```
+```undefined
 ND → TransData → NZ
 NZ → TransData → ND
 ```
@@ -125,7 +126,7 @@ ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格�
 
 完整执行链路如下：
 
-```
+```css
 Q：ND ─→ Kernel 1：TransData，ND→NZ ─┐
 K：ND ─→ Kernel 2：TransData，ND→NZ ─┼→ Kernel 4：QKᵀ+Scale
 V：ND ─→ Kernel 3：TransData，ND→NZ ─┘           ↓
@@ -146,21 +147,21 @@ V：ND ─→ Kernel 3：TransData，ND→NZ ─┘           ↓
 
 九个Kernel分别负责：
 
-| Kernel | 执行单元     | 作用                                       |
-| ------ | ------------ | ------------------------------------------ |
-| 1      | MTE/格式转换 | 将Q从普通ND格式转换成Cube需要的NZ格式      |
-| 2      | MTE/格式转换 | 将K从ND格式转换成NZ格式                    |
-| 3      | MTE/格式转换 | 将V从ND格式转换成NZ格式                    |
-| 4      | Cube+Vector  | 计算`QKᵀ`，并完成缩放`1/√d`                |
-| 5      | MTE/格式转换 | 将Score从NZ转回ND，供Softmax使用           |
-| 6      | Vector       | 对Score执行Softmax，得到注意力权重         |
-| 7      | MTE/格式转换 | 将注意力权重从ND转成NZ，供第二次矩阵乘使用 |
-| 8      | Cube         | 计算`Weight×V`，得到Attention输出          |
-| 9      | MTE/格式转换 | 将输出从NZ恢复成业务侧需要的ND格式         |
+| Kernel | 执行单元 | 作用 |
+| --- | --- | --- |
+| 1 | MTE/格式转换 | 将Q从普通ND格式转换成Cube需要的NZ格式 |
+| 2 | MTE/格式转换 | 将K从ND格式转换成NZ格式 |
+| 3 | MTE/格式转换 | 将V从ND格式转换成NZ格式 |
+| 4 | Cube+Vector | 计算`QKᵀ`，并完成缩放`1/√d` |
+| 5 | MTE/格式转换 | 将Score从NZ转回ND，供Softmax使用 |
+| 6 | Vector | 对Score执行Softmax，得到注意力权重 |
+| 7 | MTE/格式转换 | 将注意力权重从ND转成NZ，供第二次矩阵乘使用 |
+| 8 | Cube | 计算`Weight×V`，得到Attention输出 |
+| 9 | MTE/格式转换 | 将输出从NZ恢复成业务侧需要的ND格式 |
 
 从九个Kernel可以看出，真正完成Attention数学计算的主要是：
 
-```
+```undefined
 Kernel 4：QKᵀ + Scale
 Kernel 6：Softmax
 Kernel 8：Weight × V
@@ -174,7 +175,7 @@ Kernel 8：Weight × V
 
 整个Attention子图包含九个Kernel。即使每个Kernel的计算量不大，也需要分别经历：
 
-```
+```undefined
 Kernel调度
 → 流水线启动
 → 数据读取
@@ -188,7 +189,7 @@ SPF属于小Shape、batch_size为1的轻量模型，矩阵乘本身执行得很�
 
 Kernel 4完成`QKᵀ+Scale`后，Score不能直接交给Softmax使用，而是需要写回GM。
 
-```
+```sql
 Cube计算Score
 → Score写回GM
 → Softmax Kernel重新从GM读取
@@ -196,7 +197,7 @@ Cube计算Score
 
 Softmax完成后，注意力权重又要写回GM，再由第二次MatMul重新读取：
 
-```
+```sql
 Vector完成Softmax
 → Weight写回GM
 → Cube重新从GM读取
@@ -208,7 +209,7 @@ Vector完成Softmax
 
 矩阵乘更适合NZ格式，Softmax更适合ND格式，因此链路中形成：
 
-```
+```sql
 Cube使用NZ
     ↓
 TransData：NZ→ND
@@ -228,7 +229,7 @@ Cube执行第二次MatMul
 
 因此执行过程更接近：
 
-```
+```undefined
 搬运 → 计算 → 写回
 搬运 → 计算 → 写回
 搬运 → 计算 → 写回
@@ -236,7 +237,7 @@ Cube执行第二次MatMul
 
 而不是：
 
-```
+```undefined
 数据搬入一次
 → 片上连续完成多个操作
 → 最终结果写回一次
@@ -252,7 +253,7 @@ Cube执行第二次MatMul
 
 因此，自定义算子的优化目标确定为：
 
-```
+```markdown
 把QKᵀ、Scale、Softmax和Weight×V
 融合到一个Kernel中
         ↓
@@ -271,7 +272,8 @@ Softmax交给Vector
 ### 面试口语化回答
 
 > 优化前，我先分析了Attention在310P3上的执行图。算法上它只有QK转置、Softmax和Weight乘V几个主要步骤，但ATC编译后按照完整统计口径形成了九个Kernel。其中三个负责Q、K、V从普通ND格式转成适合Cube矩阵计算的NZ格式，第四个完成QK转置和Scale，第五个把Score转回ND，第六个执行Softmax，第七个再把结果转成NZ，第八个执行第二次矩阵乘，最后一个恢复ND输出。
->
+> 
+> 
 > 这里Host是运行Linux的CPU侧，负责加载模型、准备数据和发起推理；Device是310P3 NPU侧，真正执行这些Kernel。ND是普通张量格式，NZ是适合Cube分块矩阵计算的格式，两者转换需要TransData。优化前最大的问题是Kernel数量多，而且Cube和Vector之间切换时，中间结果要反复写回Device侧的GM，再由下一个Kernel读取，同时还要进行ND和NZ转换。对于小Shape模型，矩阵乘本身很快，这些调度和搬运开销反而更加明显。所以我才考虑把整条Attention链融合成一个Cube和Vector协同的自定义Kernel，让中间结果尽量保留在片上。
 
 ---
@@ -280,18 +282,18 @@ Softmax交给Vector
 
 针对优化前存在的**九个Kernel、中间结果反复写回GM、ND/NZ格式转换以及搬运计算串行**问题，我主要采用了以下六项方法。
 
-| 方法                 | 怎么实现                                                     | 解决的问题                          |
-| -------------------- | ------------------------------------------------------------ | ----------------------------------- |
-| **单Kernel融合**     | 将`QKᵀ、Scale、Softmax、Weight×V`合并到一个FusedAttention Kernel | 减少Kernel启动、调度和同步          |
-| **Cube与Vector协同** | 两次矩阵乘使用Cube，Scale和Softmax使用Vector                 | 让不同计算交给最合适的硬件单元      |
-| **中间结果片上驻留** | Score和Weight在LOC、UB、L1之间传递，只读取Q/K/V并写回最终Output | 避免中间张量反复访问GM              |
-| **多核Head并行**     | 根据Head划分AI Core，每个Core独立处理一个Head                | 避免多个Head串行执行                |
-| **Tiling与双缓冲**   | 将K维切成两个Chunk，使用Ping-Pong Buffer交替搬运和计算       | 重叠MTE搬运与Cube计算               |
-| **格式转换内联**     | 输入格式与Cube计算格式匹配，在搬运和Kernel内部完成转置及输出整理 | 减少独立TransData和Transpose Kernel |
+| 方法 | 怎么实现 | 解决的问题 |
+| --- | --- | --- |
+| **单Kernel融合** | 将`QKᵀ、Scale、Softmax、Weight×V`合并到一个FusedAttention Kernel | 减少Kernel启动、调度和同步 |
+| **Cube与Vector协同** | 两次矩阵乘使用Cube，Scale和Softmax使用Vector | 让不同计算交给最合适的硬件单元 |
+| **中间结果片上驻留** | Score和Weight在LOC、UB、L1之间传递，只读取Q/K/V并写回最终Output | 避免中间张量反复访问GM |
+| **多核Head并行** | 根据Head划分AI Core，每个Core独立处理一个Head | 避免多个Head串行执行 |
+| **Tiling与双缓冲** | 将K维切成两个Chunk，使用Ping-Pong Buffer交替搬运和计算 | 重叠MTE搬运与Cube计算 |
+| **格式转换内联** | 输入格式与Cube计算格式匹配，在搬运和Kernel内部完成转置及输出整理 | 减少独立TransData和Transpose Kernel |
 
 ### 实施链路
 
-```
+```markdown
 第一步：识别原始Attention子图
         ↓
 第二步：替换为FusedAttention自定义节点
@@ -307,7 +309,7 @@ Softmax交给Vector
 
 ### 最核心的设计变化
 
-```
+```diff
 优化前：
 9个独立Kernel
 + Score和Weight反复写回GM
@@ -338,9 +340,7 @@ Softmax交给Vector
 
 ---
 
-
-
-# 三、FusedAttention关键优化方法详设
+## 三、FusedAttention关键优化方法详设
 
 ## 1. 单Kernel融合详设
 
@@ -348,7 +348,7 @@ Softmax交给Vector
 
 优化前，Attention被拆成多个独立Kernel：
 
-```
+```undefined
 TransData
 → QKᵀ+Scale
 → TransData
@@ -362,7 +362,7 @@ TransData
 
 单Kernel融合就是把：
 
-```
+```diff
 QKᵀ
 + Scale
 + Softmax
@@ -386,7 +386,7 @@ QKᵀ
 
 ATC可以融合部分线性计算，例如：
 
-```
+```undefined
 MatMul + Scale
 ```
 
@@ -442,14 +442,14 @@ FusedAttentionCube_build/
 
 整个工程编译后，主要形成：
 
-| 产物                | 作用                          |
-| ------------------- | ----------------------------- |
-| Host算子定义库      | 让CANN识别接口、Shape和Tiling |
-| Device Kernel二进制 | 在AI Core上执行实际计算       |
-| ONNX解析插件        | 让ATC识别ONNX自定义节点       |
-| 自定义OPP安装目录   | 保存算子配置、动态库和Kernel  |
-| 替换后的ONNX        | 包含FusedAttentionCube节点    |
-| 编译后的OM          | 最终由ACL加载执行的模型       |
+| 产物 | 作用 |
+| --- | --- |
+| Host算子定义库 | 让CANN识别接口、Shape和Tiling |
+| Device Kernel二进制 | 在AI Core上执行实际计算 |
+| ONNX解析插件 | 让ATC识别ONNX自定义节点 |
+| 自定义OPP安装目录 | 保存算子配置、动态库和Kernel |
+| 替换后的ONNX | 包含FusedAttentionCube节点 |
+| 编译后的OM | 最终由ACL加载执行的模型 |
 
 整体链路为：
 
@@ -495,8 +495,6 @@ test
 
 ---
 
-
-
 工程上分成四部分。
 
 #### 1.3.2 第一步：定义自定义算子接口
@@ -507,18 +505,18 @@ test
 
 当前FusedAttention原型接口为：
 
-```
+```scss
 FusedAttention(Q,K,V) → Output
 ```
 
 当前设计配置为：
 
-| 张量   | Shape         | 数据类型 | 数据格式   |
-| ------ | ------------- | -------- | ---------- |
-| Q      | `[1,8,64,64]` | FP16     | FRACTAL_NZ |
-| K      | `[1,8,64,64]` | FP16     | FRACTAL_NZ |
-| V      | `[1,8,64,64]` | FP16     | FRACTAL_NZ |
-| Output | `[1,8,64,64]` | FP16     | ND         |
+| 张量 | Shape | 数据类型 | 数据格式 |
+| --- | --- | --- | --- |
+| Q | `[1,8,64,64]` | FP16 | FRACTAL_NZ |
+| K | `[1,8,64,64]` | FP16 | FRACTAL_NZ |
+| V | `[1,8,64,64]` | FP16 | FRACTAL_NZ |
+| Output | `[1,8,64,64]` | FP16 | ND |
 
 每个维度分别表示：
 
@@ -530,11 +528,11 @@ FusedAttention(Q,K,V) → Output
 
 当前主要涉及：
 
-| 格式       | 含义                               | 使用位置                 |
-| ---------- | ---------------------------------- | ------------------------ |
-| ND         | 普通连续张量格式                   | 业务输入输出、Vector操作 |
-| FRACTAL_NZ | 按矩阵小块排列的分形格式           | Cube矩阵计算             |
-| ZZ、zN等   | Cube内部不同矩阵角色对应的片上排列 | L0和UB内部处理           |
+| 格式 | 含义 | 使用位置 |
+| --- | --- | --- |
+| ND | 普通连续张量格式 | 业务输入输出、Vector操作 |
+| FRACTAL_NZ | 按矩阵小块排列的分形格式 | Cube矩阵计算 |
+| ZZ、zN等 | Cube内部不同矩阵角色对应的片上排列 | L0和UB内部处理 |
 
 同一个FP16矩阵既可以使用ND格式，也可以使用NZ格式：
 
@@ -558,7 +556,7 @@ FusedAttention(Q,K,V) → Output
 
 在ONNX中识别：
 
-```
+```undefined
 MatMul
 → Mul/Scale
 → Softmax
@@ -567,7 +565,7 @@ MatMul
 
 确认这段子图没有其他外部分支依赖后，将其整体替换为：
 
-```
+```undefined
 FusedAttention
 ```
 
@@ -586,7 +584,7 @@ Host侧负责：
 
 #### 1.3.4 第四步：Device侧连续完成三阶段计算
 
-```
+```sql
 Phase 1：Cube计算QKᵀ
 Phase 2：Vector计算Scale和Softmax
 Phase 3：Cube计算Weight×V
@@ -596,11 +594,9 @@ Phase 3：Cube计算Weight×V
 
 ---
 
-
-
 ### 1.4 融合后的执行结构
 
-```
+```sql
 CopyIn Q/K/V
       ↓
 Cube：QKᵀ
@@ -615,8 +611,6 @@ CopyOut Output
 ```
 
 ---
-
-
 
 ### 1.5 怎样保证融合前后结果一致
 
@@ -639,15 +633,11 @@ CopyOut Output
 
 ---
 
-
-
 ### 1.6 面试回答
 
 > 单Kernel融合不是简单地把几段代码放在一起，而是重新划分Attention的设备执行边界。我在ONNX中识别QK转置、Scale、Softmax和Weight乘V子图，将其替换成FusedAttention节点，再通过Host侧注册与Tiling、Device侧Kernel实现完整计算。这样多个阶段可以共享片上数据，减少Kernel启动，并避免Score和Weight在阶段之间反复写回GM。
 
 ---
-
-
 
 ## 2. Cube与Vector异构协同详设：流水设计与并行策略
 
@@ -655,32 +645,30 @@ CopyOut Output
 
 Ascend AI Core内部包含不同的执行单元：
 
-| 单元   | 擅长的操作                 |
-| ------ | -------------------------- |
-| Cube   | 矩阵乘和卷积               |
-| Vector | 逐元素、规约和非线性计算   |
-| MTE    | 不同存储层级之间的数据搬运 |
-| Scalar | 地址、循环和控制逻辑       |
+| 单元 | 擅长的操作 |
+| --- | --- |
+| Cube | 矩阵乘和卷积 |
+| Vector | 逐元素、规约和非线性计算 |
+| MTE | 不同存储层级之间的数据搬运 |
+| Scalar | 地址、循环和控制逻辑 |
 
 Attention同时包含矩阵乘和非线性计算，因此不能只使用一种执行单元。
 
 ---
 
-
-
 ### 2.2 为什么这样分配
 
 本算子的分配方式是：
 
-| 操作        | 执行单元 |
-| ----------- | -------- |
-| `QKᵀ`       | Cube     |
-| Scale       | Vector   |
-| RowMax      | Vector   |
-| Sub和Exp    | Vector   |
-| RowSum和Div | Vector   |
-| `Weight×V`  | Cube     |
-| 数据搬运    | MTE      |
+| 操作 | 执行单元 |
+| --- | --- |
+| `QKᵀ` | Cube |
+| Scale | Vector |
+| RowMax | Vector |
+| Sub和Exp | Vector |
+| RowSum和Div | Vector |
+| `Weight×V` | Cube |
+| 数据搬运 | MTE |
 
 原因是：
 
@@ -699,19 +687,19 @@ Attention同时包含矩阵乘和非线性计算，因此不能只使用一种�
 
 #### 2.3.1 流水线：MTE2、MTE1、Cube、Vector和MTE3
 
-| 流水线        | 主要职责                   | 在本算子中的作用                 |
-| ------------- | -------------------------- | -------------------------------- |
-| **PIPE_MTE2** | GM到片上存储的数据搬运     | 将Q、K、V从GM搬到L1或UB          |
-| **PIPE_MTE1** | L1到L0的数据搬运和格式整理 | 将Q、K、Weight、V送入L0A/L0B     |
-| **PIPE_M**    | Cube矩阵计算               | 执行`QKᵀ`和`Weight×V`            |
-| **PIPE_V**    | Vector向量计算             | 执行Scale、Softmax和输出格式整理 |
-| **PIPE_MTE3** | 片上结果向外搬运           | UB到L1或GM的数据搬运             |
+| 流水线 | 主要职责 | 在本算子中的作用 |
+| --- | --- | --- |
+| **PIPE_MTE2** | GM到片上存储的数据搬运 | 将Q、K、V从GM搬到L1或UB |
+| **PIPE_MTE1** | L1到L0的数据搬运和格式整理 | 将Q、K、Weight、V送入L0A/L0B |
+| **PIPE_M** | Cube矩阵计算 | 执行`QKᵀ`和`Weight×V` |
+| **PIPE_V** | Vector向量计算 | 执行Scale、Softmax和输出格式整理 |
+| **PIPE_MTE3** | 片上结果向外搬运 | UB到L1或GM的数据搬运 |
 
 Scalar负责地址计算、循环和控制，也可以看成辅助控制流水线，但通常说“五条主要数据与计算流水线”即可。
 
 整体关系为：
 
-```
+```undefined
 GM
  │
  │ PIPE_MTE2
@@ -744,12 +732,14 @@ L1或GM
 ##### Phase 1：计算Score
 
 目标是：
+
 $$
-Score=QK^T 
+Score=QK^T
 $$
+
 执行链路为：
 
-```
+```css
 Q、K位于GM
       ↓ PIPE_MTE2
 Q、K进入L1
@@ -765,7 +755,7 @@ Score转换并进入UB
 
 流水线依赖关系是：
 
-```
+```undefined
 MTE2 → MTE1 → M → V
 ```
 
@@ -775,17 +765,19 @@ MTE2 → MTE1 → M → V
 - Cube必须等待MTE1完成；
 - Vector必须等待Cube产生Score。
 
-------
+---
 
 ##### Phase 2：计算Softmax
 
 目标是：
+
 $$
-Weight=\operatorname{Softmax} \left( \frac{Score}{\sqrt d} \right) 
+Weight=\operatorname{Softmax} \left( \frac{Score}{\sqrt d} \right)
 $$
+
 Score进入UB后，由Vector连续执行：
 
-```
+```vbnet
 Scale
 → RowMax
 → Sub
@@ -797,7 +789,7 @@ Scale
 
 这部分主要使用：
 
-```
+```undefined
 PIPE_V
 ```
 
@@ -805,7 +797,7 @@ Softmax完成后，Weight仍保留在UB中。
 
 为了让第二次矩阵乘使用Weight，需要将它送给Cube：
 
-```
+```markdown
 Weight位于UB
       ↓ PIPE_MTE3
 Weight进入L1
@@ -815,28 +807,30 @@ Weight进入L0A
 
 这里的依赖关系为：
 
-```
+```undefined
 V → MTE3 → MTE1
 ```
 
-------
+---
 
 ##### Phase 3：计算最终输出
 
 目标是：
+
 $$
-Output=Weight\times V 
+Output=Weight\times V
 $$
+
 Weight和V来自两条数据路径：
 
-```
+```undefined
 Weight：UB → L1 → L0A
 V：     GM → L1 → L0B
 ```
 
 两条路径分别使用：
 
-```
+```undefined
 Weight：
 PIPE_MTE3 → PIPE_MTE1
 
@@ -846,13 +840,13 @@ PIPE_MTE2 → PIPE_MTE1
 
 两侧数据都准备完成后，Cube才能执行：
 
-```
+```undefined
 PIPE_M：Weight × V
 ```
 
 计算结束后：
 
-```
+```markdown
 Output位于L0C
       ↓ PIPE_V
 完成内部格式到ND的整理
@@ -862,7 +856,7 @@ Output位于L0C
 
 完整依赖为：
 
-```
+```markdown
 MTE3和MTE2
       ↓
     MTE1
@@ -876,15 +870,11 @@ MTE3和MTE2
 
 ---
 
-
-
 ### 2.5 面试回答
 
 > Cube与Vector协同指的是根据计算特点分配AI Core内部流水线。两次矩阵乘使用Cube，Scale和Softmax使用Vector，数据搬运交给MTE。它们在同一个Kernel中通过L0、UB和L1传递中间数据，并使用Event保证生产者和消费者之间的同步。这样既发挥Cube的矩阵吞吐，也保留Vector处理非线性的能力。
 
 ---
-
-
 
 ## 3. 中间结果片上驻留详设
 
@@ -894,28 +884,28 @@ MTE3和MTE2
 
 优化前：
 
-```
+```undefined
 Score → GM → Softmax
 Weight → GM → 第二次MatMul
 ```
 
 优化后设计：
 
-```
+```swift
 Score → L0C/UB → Softmax
 Weight → UB/L1/L0A → 第二次MatMul
 ```
 
 ### 3.2 使用哪些存储
 
-| 存储    | 本算子中的作用                         |
-| ------- | -------------------------------------- |
-| GM      | 保存Q、K、V和最终Output                |
-| L1      | 缓存矩阵块，为Cube准备数据             |
-| L0A     | 保存Cube的矩阵A                        |
-| L0B     | 保存Cube的矩阵B                        |
-| L0C/LOC | 保存矩阵乘累加结果                     |
-| UB      | 保存Score、Weight、Softmax临时量和输出 |
+| 存储 | 本算子中的作用 |
+| --- | --- |
+| GM | 保存Q、K、V和最终Output |
+| L1 | 缓存矩阵块，为Cube准备数据 |
+| L0A | 保存Cube的矩阵A |
+| L0B | 保存Cube的矩阵B |
+| L0C/LOC | 保存矩阵乘累加结果 |
+| UB | 保存Score、Weight、Softmax临时量和输出 |
 
 基本原则是：
 
@@ -924,12 +914,14 @@ Weight → UB/L1/L0A → 第二次MatMul
 ### 3.3 Score怎样驻留
 
 第一阶段Cube完成：
+
 $$
 Score=QK^T
 $$
+
 结果首先保存在L0C中。随后将Score转换并搬入UB，Vector直接在UB中执行：
 
-```
+```vbnet
 Scale
 → RowMax
 → Sub
@@ -945,15 +937,17 @@ Softmax完成后，Weight仍然保存在UB中。
 
 Cube不能直接从UB执行矩阵乘，因此需要：
 
-```
+```undefined
 Weight：UB → L1 → L0A
 V：GM → L1 → L0B
 ```
 
 随后Cube执行：
+
 $$
 Output=Weight\times V
 $$
+
 虽然Weight仍然需要在片上层级之间搬运，但不必写回GM。
 
 ### 3.5 为什么片上存储能够放下
@@ -961,16 +955,18 @@ $$
 当前原型矩阵为64×64。
 
 FP16矩阵大小为：
+
 $$
 64\times64\times2=8192\ \text{Bytes}
 $$
+
 即一个矩阵约8 KB。
 
 因此Q、K、V、Score和Output可以通过分阶段使用与Buffer复用控制片上占用，而不需要同时为所有数据保留独立空间。
 
 方案中的总体片上占用约为：
 
-```
+```undefined
 L1：约16 KB
 UB：约32 KB
 L0：约32 KB
@@ -983,8 +979,6 @@ L0：约32 KB
 
 ---
 
-
-
 ## 4. 多核Head并行详设
 
 #### 4.1 什么是 Head
@@ -993,7 +987,7 @@ Multi-Head Attention会把特征拆成多个相互独立的注意力分支，每
 
 当前自定义算子原型的输入可以表示为：
 
-```
+```css
 Q、K、V：[Batch, Head, SeqLen, HeadDim]
          [  1,    8,      64,      64  ]
 ```
@@ -1007,7 +1001,7 @@ Q、K、V：[Batch, Head, SeqLen, HeadDim]
 
 每个 Head都独立执行完整的 Attention：
 
-```
+```css
 Head 0：Q₀K₀ᵀ → Scale → Softmax → Weight₀V₀
 Head 1：Q₁K₁ᵀ → Scale → Softmax → Weight₁V₁
 ...
@@ -1020,13 +1014,13 @@ Head 7：Q₇K₇ᵀ → Scale → Softmax → Weight₇V₇
 
 本算子采用：
 
-```
+```ini
 BlockDim = 8
 ```
 
 也就是启动8个 AI Core，每个核负责一个 Head：
 
-```
+```css
                       FusedAttention
                             │
     ┌──────────┬────────────┼──────────┬─────────┐
@@ -1049,7 +1043,7 @@ Weight₀V₀    Weight₁V₁    Weight₂V₂           Weight₇V₇
 
 > 8个 AI Core同时处理8个不同 Head，而不是让8个核共同计算同一个 Head。
 
-------
+---
 
 #### 4.3 为什么可以按 Head并行
 
@@ -1057,7 +1051,7 @@ Weight₀V₀    Weight₁V₁    Weight₂V₂           Weight₇V₇
 
 例如 Head 0只使用：
 
-```
+```css
 Q[0,0,:,:]
 K[0,0,:,:]
 V[0,0,:,:]
@@ -1065,7 +1059,7 @@ V[0,0,:,:]
 
 Head 1只使用：
 
-```
+```css
 Q[0,1,:,:]
 K[0,1,:,:]
 V[0,1,:,:]
@@ -1080,14 +1074,14 @@ V[0,1,:,:]
 
 因此可以自然地分配到不同 AI Core：
 
-```
+```undefined
 Head 0的结果不依赖Head 1
 Head 1的结果也不依赖Head 0
 ```
 
 这是一种非常适合并行的数据划分方式。
 
-------
+---
 
 #### 4.4 为什么要这么做
 
@@ -1095,21 +1089,25 @@ Head 1的结果也不依赖Head 0
 
 如果只使用一个 AI Core，就只能依次执行：
 
-```
+```undefined
 Head 0 → Head 1 → Head 2 → …… → Head 7
 ```
 
 总时间近似为：
+
 $$
-T_{\text{single-core}} \approx 8T_{\text{head}} 
+T_{\text{single-core}} \approx 8T_{\text{head}}
 $$
+
 使用8个 AI Core后，理想情况下8个 Head可以同时运行：
+
 $$
- T_{\text{multi-core}} \approx T_{\text{head}}+T_{\text{parallel-overhead}} 
+T_{\text{multi-core}} \approx T_{\text{head}}+T_{\text{parallel-overhead}}
 $$
+
 实际不会严格达到8倍加速，因为还会受到数据搬运、调度和带宽竞争等因素影响。
 
-------
+---
 
 ##### 原因二：Head是天然的独立任务
 
@@ -1117,7 +1115,7 @@ $$
 
 而不同 Head：
 
-```
+```undefined
 输入独立 → 中间结果独立 → 输出区域独立
 ```
 
@@ -1130,19 +1128,19 @@ $$
 
 相比于把一个 `64×64` 的小矩阵强行拆给多个核，按 Head分核更加自然。
 
-------
+---
 
 ##### 原因三：提高多核利用率
 
 如果8个 Head全部放在一个核上计算，其他 AI Core可能处于空闲状态。按 Head分配后：
 
-```
+```undefined
 一个Head → 一个AI Core
 ```
 
 可以让多个核同时工作，缩短整个 Attention算子的端到端执行时间。
 
-------
+---
 
 #### 4.5 本算子中是如何实现的
 
@@ -1150,24 +1148,24 @@ $$
 
 Host侧根据 Head数量设置，同时310P3也正好有8个AI core：
 
-```
+```ini
 headNum = 8
 blockDim = 8
 ```
 
 启动 Kernel时，告诉运行时使用8个逻辑 Block，也就是让8个 AI Core参与执行。
 
-------
+---
 
 ##### 第二步：每个核获得自己的编号
 
-------
+---
 
 ##### 第三步：根据Head编号计算地址偏移
 
 然后每个核读取自己的 Q、K、V：
 
-```
+```ini
 qHead = qBase + headOffset;
 kHead = kBase + headOffset;
 vHead = vBase + headOffset;
@@ -1175,11 +1173,11 @@ vHead = vBase + headOffset;
 
 并写入自己的输出区域：
 
-```
+```ini
 outputHead = outputBase + headOffset;
 ```
 
-------
+---
 
 ##### 第四步：每个核独立完成一个Head
 
@@ -1189,7 +1187,7 @@ outputHead = outputBase + headOffset;
 
 > Single Program, Multiple Data，即多个核运行同一份程序，处理不同的数据。
 
-------
+---
 
 #### 6. 多核之间需要同步吗
 
@@ -1201,7 +1199,7 @@ outputHead = outputBase + headOffset;
 
 所以在 Kernel内部，通常**不需要做 Head之间的核间同步**：
 
-```
+```python-repl
 Core 0完成Head 0 → 写自己的输出
 Core 1完成Head 1 → 写自己的输出
 ...
@@ -1212,7 +1210,7 @@ Kernel整体执行完成后，运行时保证所有 Block结束，Host或后续�
 
 这里需要区分两种同步：
 
-```
+```sql
 核内同步：
 MTE、Cube、Vector之间通过事件保证流水依赖
 
@@ -1220,13 +1218,13 @@ MTE、Cube、Vector之间通过事件保证流水依赖
 不同Head之间基本不需要，因为没有数据依赖
 ```
 
-------
+---
 
 #### 7. 多核Head并行和核内流水如何组合
 
 两种优化可以叠加：
 
-```
+```markdown
 核间：8个AI Core并行处理8个Head
                  ↓
 核内：每个AI Core内部再使用
@@ -1239,7 +1237,7 @@ MTE、Cube、Vector之间通过事件保证流水依赖
 
 整体结构如下：
 
-```
+```sql
 AI Core 0 → Head 0 → 核内MTE/Cube/Vector流水
 AI Core 1 → Head 1 → 核内MTE/Cube/Vector流水
 AI Core 2 → Head 2 → 核内MTE/Cube/Vector流水
@@ -1252,7 +1250,7 @@ AI Core 7 → Head 7 → 核内MTE/Cube/Vector流水
 - **多核 Head并行**提高核间并行度；
 - **Tiling双缓冲**提高单核内部的流水利用率。
 
-------
+---
 
 #### 8. 这种设计的限制
 
@@ -1279,7 +1277,7 @@ AI Core 7 → Head 7 → 核内MTE/Cube/Vector流水
 
 当前是：
 
-```
+```undefined
 8 Head = 8 Core
 ```
 
@@ -1287,7 +1285,7 @@ AI Core 7 → Head 7 → 核内MTE/Cube/Vector流水
 
 更通用的分配方式可以是：
 
-```
+```bash
 for (uint32_t head = blockIdx;
      head < headNum;
      head += blockDim) {
@@ -1297,7 +1295,7 @@ for (uint32_t head = blockIdx;
 
 例如4个核处理8个 Head：
 
-```
+```undefined
 Core 0 → Head 0、4
 Core 1 → Head 1、5
 Core 2 → Head 2、6
@@ -1306,7 +1304,7 @@ Core 3 → Head 3、7
 
 但当前原型采用的是更直接的8核对应8个 Head。
 
-------
+---
 
 #### 面试简答
 
@@ -1314,30 +1312,28 @@ Core 3 → Head 3、7
 
 ---
 
-
-
 ## 5. 单核内的流水线并行与同步机制：Tiling与Ping-Pong双缓冲
 
 一个 AI Core 负责一个 Head，在核内依次完成：
 
-```
+```undefined
 QKᵀ → Scale → Softmax → Weight×V → 输出
 ```
 
 主要由以下流水线协同：
 
-| 流水线     | 作用                                 |
-| ---------- | ------------------------------------ |
-| **MTE2**   | 将 Q、K、V 从 GM 搬入 L1 或 UB       |
-| **MTE1**   | 将数据从 L1 搬入 Cube 使用的 L0A/L0B |
-| **PIPE_M** | Cube 执行 `QKᵀ` 和 `Weight×V`        |
+| 流水线 | 作用 |
+| --- | --- |
+| **MTE2** | 将 Q、K、V 从 GM 搬入 L1 或 UB |
+| **MTE1** | 将数据从 L1 搬入 Cube 使用的 L0A/L0B |
+| **PIPE_M** | Cube 执行 `QKᵀ` 和 `Weight×V` |
 | **PIPE_V** | Vector 执行 Scale、Softmax及格式处理 |
-| **MTE3**   | 将最终结果从片上存储写回 GM          |
-| **Scalar** | 计算地址偏移、控制循环并下发指令     |
+| **MTE3** | 将最终结果从片上存储写回 GM |
+| **Scalar** | 计算地址偏移、控制循环并下发指令 |
 
 整体链路为：
 
-```
+```sql
 GM
  ↓ MTE2
 L1 / UB
@@ -1351,7 +1347,7 @@ UB
 GM
 ```
 
-------
+---
 
 ### 5.1 流水线并行是怎么实现的
 
@@ -1359,20 +1355,20 @@ GM
 
 先把一个 Head 内的大块数据沿 K 维切成多个 Chunk。例如原始 K 维为 64，可以切为两个 32：
 
-```
+```ini
 K = 64 → Chunk 0（32）+ Chunk 1（32）
 ```
 
 然后准备两组片上缓冲区：
 
-```
+```undefined
 Ping Buffer → 处理偶数 Chunk
 Pong Buffer → 处理奇数 Chunk
 ```
 
 不同流水线可以同时操作不同缓冲区：
 
-```
+```sql
 时间    MTE2/MTE1                  Cube
 T0      搬运 Chunk 0 到 Ping       等待
 T1      搬运 Chunk 1 到 Pong       计算 Ping 中的 Chunk 0
@@ -1396,18 +1392,16 @@ T2      等待/搬运下一块             计算 Pong 中的 Chunk 1
 
 > **生产者通知消费者“数据已经准备好”，消费者处理完成后再通知生产者“缓冲区可以复用”。**
 
-------
+---
 
 ### 5.3 如何进行同步
 
 主要使用事件机制：
 
-```
+```scss
 set_flag(生产者流水线, 消费者流水线, EVENT_ID);
 wait_flag(生产者流水线, 消费者流水线, EVENT_ID);
 ```
-
-
 
 ### 5.1 Tiling策略
 
@@ -1417,7 +1411,7 @@ wait_flag(生产者流水线, 消费者流水线, EVENT_ID);
 
 例如，把长度为 64 的数据切成两块：
 
-```
+```css
 完整数据： [0 ................................ 63]
 
 Chunk 0：  [0 ........ 31]       长度 32
@@ -1435,7 +1429,7 @@ Chunk 1：                  [32 ........ 63]  长度 32
 
 Tiling通常分成两部分：
 
-```
+```undefined
 Host侧：计算怎么切
 Device侧：按照参数执行
 ```
@@ -1444,14 +1438,14 @@ Device侧：按照参数执行
 
 **Chunk**就是 Tiling 后得到的一个“数据块”。
 
-```
+```undefined
 Tiling：切分这个动作或策略
 Chunk：切分后得到的每一个小块
 ```
 
 例如：
 
-```
+```undefined
 64 → 32 + 32
 ```
 
@@ -1461,13 +1455,13 @@ Chunk：切分后得到的每一个小块
 
 当前 FusedAttention 原型使用的单个 Head 形状可以理解为：
 
-```
+```css
 Q、K、V：[64, 64]
 ```
 
 两个 64 的含义不同：
 
-```
+```markdown
              特征维度 headDim = 64
                         ↓
 Q、K、V：        [64, 64]
@@ -1481,38 +1475,46 @@ Q、K、V：        [64, 64]
 - `headDim = 64`：每个 Token 在一个 Head 中由 64 个特征值表示。
 
 第一次矩阵乘为：
+
 $$
-Score=QK^T 
+Score=QK^T
 $$
+
 其 Shape 变化是：
+
 $$
-[64,64]\times[64,64]^T=[64,64] 
+[64,64]\times[64,64]^T=[64,64]
 $$
+
 这里进行 `64 → 32 + 32` 切分的，主要是矩阵乘法的**规约维 K**，也就是 `headDim=64` 这一维，而不是把 64 个 Head 切开。
 
 为了避免和输入矩阵 K 混淆，可以记成：
 
-```
+```vbnet
 矩阵 K：Attention 中的 Key
 
 K 维：矩阵乘法中需要相乘并累加的公共维度
 ```
 
-------
+---
 
 #### 5.1.4 为什么沿 K 维切成两个 32
 
 原始计算可以写成：
+
 $$
 Score_{ij}=\sum_{k=0}^{63}Q_{ik}K_{jk}
 $$
+
 把 K 维切成两块后：
+
 $$
 Score_{ij} = \sum_{k=0}^{31}Q_{ik}K_{jk} + \sum_{k=32}^{63}Q_{ik}K_{jk}
 $$
+
 因此执行过程是：
 
-```
+```markdown
 Chunk 0：计算 k=0～31
          ↓
          初始化部分结果 L0C
@@ -1526,31 +1528,23 @@ Chunk 1：计算 k=32～63
 
 数学结果没有改变，只是将一次长度为 64 的累加拆成了两次长度为 32 的累加。
 
-------
+---
 
 #### 5.1.5 为什么选择 32，而不是其他数字？
 
 选择 32 主要考虑三点：
 
 1. **适配 Cube 的分块计算**
-
-   Ascend Cube矩阵计算适合按照规则、对齐的数据块执行。32 是较规整的计算粒度，可以继续匹配底层的矩阵分块要求。
-
+Ascend Cube矩阵计算适合按照规则、对齐的数据块执行。32 是较规整的计算粒度，可以继续匹配底层的矩阵分块要求。
 2. **控制片上缓存占用**
-
-   一次只搬运和计算 32 个特征，L1、L0A、L0B 中每次需要保存的数据更少，更容易进行片上存储规划。
-
+一次只搬运和计算 32 个特征，L1、L0A、L0B 中每次需要保存的数据更少，更容易进行片上存储规划。
 3. **为双缓冲提供两个阶段**
+64 被切成两个 32 后，可以形成：
+Cube计算前32维
+          ║
+MTE提前搬运后32维
 
-   64 被切成两个 32 后，可以形成：
-
-   ```
-   Cube计算前32维
-             ║
-   MTE提前搬运后32维
-   ```
-
-   从而为后面的 Ping-Pong 双缓冲创造搬运与计算重叠的机会。
+从而为后面的 Ping-Pong 双缓冲创造搬运与计算重叠的机会。
 
 需要注意：**32 并不是普遍最优值**。它是当前 `64×64` 原型 Shape 下结合硬件计算粒度、缓存使用和流水设计选择的 Tiling 参数。实际工程中通常由 Host 侧 Tiling 根据 Shape 和片上存储容量计算或选择。
 
@@ -1559,14 +1553,6 @@ Chunk 1：计算 k=32～63
 > Tiling就是把一次较大的计算切成多个小块，切出来的每一块叫Chunk。在这个算子的单个Head中，Q、K、V的Shape是64×64，其中一个64是序列长度，另一个64是Head的特征维度。第一次QK转置矩阵乘时，我沿公共的规约K维把64切成两个32：第一块计算前32维并初始化L0C，第二块计算后32维并累加到L0C，最后得到完整Score。这样既能降低单次片上缓存占用，也能让Cube计算当前Chunk时，MTE提前搬运下一个Chunk，为后面的Ping-Pong双缓冲创造条件。
 
 ---
-
-
-
-
-
-
-
-
 
 ### 5.2 Ping-Pong双缓冲
 
@@ -1578,7 +1564,7 @@ Chunk 1：计算 k=32～63
 
 可以简单理解成：
 
-```
+```sql
 GM：仓库
 Buffer：工作台
 Cube：负责计算的工人
@@ -1586,19 +1572,19 @@ Cube：负责计算的工人
 
 数据先从仓库搬到工作台，Cube 再从工作台取数据进行矩阵计算。
 
-------
+---
 
 #### 5.2.2  为什么单缓冲会产生等待
 
 假设只有一套 Buffer：
 
-```
+```sql
 GM → Buffer → Cube
 ```
 
 两个 Chunk 只能依次处理：
 
-```
+```sql
 ① MTE把Chunk 0搬入Buffer
 ② Cube计算Chunk 0
 ③ MTE把Chunk 1搬入同一个Buffer
@@ -1607,7 +1593,7 @@ GM → Buffer → Cube
 
 对应时间轴是：
 
-```
+```css
 时间  ─────────────────────────────────────→
 
 MTE：  [搬Chunk 0]             [搬Chunk 1]
@@ -1621,27 +1607,27 @@ Cube：             [算Chunk 0]             [算Chunk 1]
 
 所以，搬运和计算基本只能串行进行。
 
-------
+---
 
 #### 5.2.3 什么是 Ping-Pong 双缓冲
 
 双缓冲就是准备两套相互独立的 Buffer：
 
-```
+```undefined
 Ping Buffer
 Pong Buffer
 ```
 
 在本算子的两个 Chunk 场景中：
 
-```
+```undefined
 Chunk 0 → Ping Buffer
 Chunk 1 → Pong Buffer
 ```
 
 这样，Cube读取 Ping时，MTE可以同时写入 Pong：
 
-```
+```markdown
                  ┌──────────────┐
 Chunk 0 ───────→ │ Ping Buffer  │ ───────→ Cube计算Chunk 0
                  └──────────────┘
@@ -1653,7 +1639,7 @@ Chunk 1 ───────→ │ Pong Buffer  │ ←─────── M
 
 因为 Cube 和 MTE访问的是不同 Buffer，所以不会发生数据覆盖。
 
-------
+---
 
 #### 5.2.4 两个 Chunk 是怎么执行的
 
@@ -1661,7 +1647,7 @@ Chunk 1 ───────→ │ Pong Buffer  │ ←─────── M
 
 首先把 Chunk 0 搬到 Ping：
 
-```
+```sql
 MTE：GM → Ping，搬运Chunk 0
 Cube：等待
 ```
@@ -1672,14 +1658,14 @@ Cube：等待
 
 Chunk 0准备好后：
 
-```
+```sql
 Cube：从Ping读取并计算Chunk 0
 MTE ：同时把Chunk 1搬入Pong
 ```
 
 这是双缓冲真正产生并行的阶段：
 
-```
+```css
 时间  ─────────────────────────────────────────→
 
 MTE：  [Chunk 0 → Ping][Chunk 1 → Pong]
@@ -1691,14 +1677,14 @@ Cube：                 [计算Ping中的Chunk 0][计算Pong中的Chunk 1]
 
 Chunk 0计算完成、Chunk 1搬运完成后：
 
-```
+```sql
 Cube：读取Pong并计算Chunk 1
 MTE：没有更多Chunk，暂时空闲
 ```
 
 这是**流水排空阶段**。
 
-------
+---
 
 #### 5. 为什么叫 Ping-Pong
 
@@ -1706,7 +1692,7 @@ MTE：没有更多Chunk，暂时空闲
 
 如果以后有更多 Chunk，轮换关系是：
 
-```
+```undefined
 Chunk 0 → Ping
 Chunk 1 → Pong
 Chunk 2 → Ping
@@ -1716,7 +1702,7 @@ Chunk 3 → Pong
 
 执行过程则是：
 
-```
+```sql
 Cube计算Ping中的Chunk 0
 MTE搬运Chunk 1到Pong
               ↓
@@ -1729,13 +1715,13 @@ MTE搬运Chunk 3到Pong
 
 两套 Buffer就像乒乓球一样来回切换，所以称为 Ping-Pong 双缓冲。
 
-------
+---
 
 #### 5.2.6 它与 Tiling 的关系
 
 两者解决的问题不同：
 
-```
+```undefined
 Tiling
   ↓
 把K维64切成两个32
@@ -1755,7 +1741,7 @@ Ping-Pong双缓冲
 
 如果没有 Tiling，就没有多个 Chunk 可供轮换；如果只有 Tiling、没有双缓冲，多个 Chunk仍可能只能串行搬运和计算。
 
-------
+---
 
 #### 5.2.7 双缓冲并不能消除所有时间
 
@@ -1774,15 +1760,13 @@ Ping-Pong双缓冲
 
 ---
 
-
-
 ### 5.3 算子中的并行机制
 
 #### 5.3.1 并行在哪生效
 
 算子中的流水线并行主要发生在MTE和CUBE之间
 
-```
+```sql
 MTE：GM → 片上Buffer
 Cube：读取Buffer → 执行矩阵乘法
 ```
@@ -1793,13 +1777,13 @@ Cube：读取Buffer → 执行矩阵乘法
 
 如果不做流水并行，执行顺序是：
 
-```
+```undefined
 搬Chunk 0 → 算Chunk 0 → 搬Chunk 1 → 算Chunk 1
 ```
 
 时间轴如下：
 
-```
+```css
 时间  ─────────────────────────────────────────────→
 
 MTE：  [搬运Chunk 0]            [搬运Chunk 1]
@@ -1814,15 +1798,16 @@ MTE工作时，Cube在等待；Cube工作时，MTE也没有提前准备下一块
 - 每个 Chunk计算需要 `Tcompute`；
 
 那么串行总时间约为：
+
 $$
-T_{\text{serial}} = 2T_{\text{move}}+2T_{\text{compute}} 
+T_{\text{serial}} = 2T_{\text{move}}+2T_{\text{compute}}
 $$
 
 #### 5.3.3 MTE与CUBE的流水线并行
 
 双缓冲提供 Ping 和 Pong 两套独立空间后，可以让两个硬件单元同时处理不同 Chunk：
 
-```
+```sql
 Cube：使用Ping计算当前Chunk 0
 MTE ：使用Pong搬运下一Chunk 1
 ```
@@ -1837,7 +1822,7 @@ MTE ：使用Pong搬运下一Chunk 1
 
 首先需要将 Chunk 0 搬到 Ping：
 
-```
+```css
 MTE：搬运Chunk 0 → Ping
 Cube：等待数据
 时间段 T0：
@@ -1848,13 +1833,13 @@ Cube  [      等待      ]
 
 Cube不能提前计算，因为 Chunk 0还没有准备完成。
 
-------
+---
 
 ##### 第二阶段：搬运与计算重叠
 
 Chunk 0搬运完成后：
 
-```
+```css
 Cube：读取Ping，计算Chunk 0
 MTE ：同时把Chunk 1搬到Pong
 时间段 T1：
@@ -1867,7 +1852,7 @@ Cube  [计算Ping中的Chunk 0]
 
 两个硬件单元做不同工作：
 
-```
+```markdown
              ┌──────────────┐
 MTE ───────→ │ Pong：Chunk 1 │
              └──────────────┘
@@ -1877,20 +1862,20 @@ Cube ←────── │ Ping：Chunk 0 │
              └──────────────┘
 ```
 
-------
+---
 
 ##### 第三阶段：流水排空
 
 当下面两个条件都满足时：
 
-```
+```sql
 Cube完成Chunk 0计算
 MTE完成Chunk 1搬运
 ```
 
 Cube才能开始计算 Chunk 1：
 
-```
+```css
 MTE：没有下一个Chunk，空闲
 Cube：读取Pong，计算Chunk 1
 时间段 T2：
@@ -1901,11 +1886,11 @@ Cube  [计算Pong中的Chunk 1]
 
 这就是流水排空阶段。
 
-------
+---
 
 ##### 完整时间轴
 
-```
+```css
 时间 ─────────────────────────────────────────────────────→
 
 阶段：       流水填充             并行执行              流水排空
@@ -1918,7 +1903,7 @@ Cube：   [     等待      ]    [计算Ping中的Chunk 0]     [计算Pong中的
 
 用流程表示就是：
 
-```
+```sql
 MTE搬Chunk 0到Ping
          ↓
 ┌───────────────────────────────┐
@@ -1939,32 +1924,38 @@ Cube计算Pong中的Chunk 1
 这里沿矩阵乘法的规约 K 维进行切分。
 
 Chunk 0计算：
+
 $$
-Score^{(0)} = Q[:,0:32]K[:,0:32]^T 
+Score^{(0)} = Q[:,0:32]K[:,0:32]^T
 $$
+
 这一步用于**初始化 L0C**：
 
-```
+```ini
 L0C = Score⁽⁰⁾
 ```
 
 Chunk 1计算：
+
 $$
 Score^{(1)} = Q[:,32:64]K[:,32:64]^T
 $$
+
 这一步需要累加到前面的结果：
 
-```
+```makefile
 L0C += Score⁽¹⁾
 ```
 
 最终得到：
+
 $$
-Score=Score^{(0)}+Score^{(1)} 
+Score=Score^{(0)}+Score^{(1)}
 $$
+
 因此：
 
-```
+```sql
 Cube计算Chunk 0 → 初始化L0C
                          ↓
 Cube计算Chunk 1 → 累加L0C
@@ -1974,29 +1965,33 @@ Cube计算Chunk 1 → 累加L0C
 
 两次 Cube计算本身存在累加依赖，所以不能互相并行；能够并行的是：
 
-```
+```markdown
 计算Chunk 0
       ║
 搬运Chunk 1
 ```
 
-------
+---
 
 #### 5.3.5 流水并行节省了哪部分时间
 
 串行执行：
+
 $$
- T_{\text{serial}} = T_{\text{move0}}+ T_{\text{compute0}}+ T_{\text{move1}}+ T_{\text{compute1}} 
+T_{\text{serial}} = T_{\text{move0}}+ T_{\text{compute0}}+ T_{\text{move1}}+ T_{\text{compute1}}
 $$
+
 流水执行：
+
 $$
- T_{\text{pipeline}} = T_{\text{move0}}+ \max \left( T_{\text{compute0}}, T_{\text{move1}} \right) + T_{\text{compute1}} 
+T_{\text{pipeline}} = T_{\text{move0}}+ \max \left( T_{\text{compute0}}, T_{\text{move1}} \right) + T_{\text{compute1}}
 $$
+
 因为 `compute0` 和 `move1` 同时进行，所以这两部分不再简单相加，而是主要由耗时较长的一方决定。
 
 例如：
 
-```
+```undefined
 计算Chunk 0：10 μs
 搬运Chunk 1：6 μs
 ```
@@ -2008,30 +2003,15 @@ $$
 要让二者安全并行，必须满足：
 
 1. **访问不同 Buffer**
-
-   ```
-   Cube读取Ping
-   MTE写入Pong
-   ```
-
+Cube读取Ping
+MTE写入Pong
 2. **Cube计算前，当前 Chunk必须搬运完成**
-
-   ```
-   Chunk 0搬完 → Cube才能计算Chunk 0
-   ```
-
+Chunk 0搬完 → Cube才能计算Chunk 0
 3. **Buffer再次写入前，上一次读取必须结束**
-
-   ```
-   Cube用完Ping → MTE才能覆盖Ping
-   ```
-
+Cube用完Ping → MTE才能覆盖Ping
 4. **部分结果必须按顺序累加**
-
-   ```
-   Chunk 0初始化L0C
-   Chunk 1累加L0C
-   ```
+Chunk 0初始化L0C
+Chunk 1累加L0C
 
 这些先后关系不能依靠默认执行顺序来猜测，需要通过事件明确表达——这就是下一部分的 **`set_flag` / `wait_flag`同步机制**。
 
@@ -2045,7 +2025,7 @@ $$
 
 ##### （1）数据还没搬完，Cube就开始计算
 
-```
+```markdown
 MTE正在写入Ping
         ║
 Cube已经读取Ping  ✕
@@ -2057,7 +2037,7 @@ Cube可能读到不完整或旧的数据。
 
 如果后面还有 Chunk 2，需要重新使用 Ping：
 
-```
+```markdown
 Cube仍在读取Ping中的Chunk 0
              ║
 MTE把Chunk 2写入Ping  ✕
@@ -2067,7 +2047,7 @@ Chunk 0会被提前覆盖。
 
 ##### （3）部分结果还没完成，就进入下一阶段
 
-```
+```markdown
 Chunk 1尚未累加完成
           ║
 Vector开始计算Softmax  ✕
@@ -2079,20 +2059,20 @@ Softmax必须基于完整 Score，不能只处理部分结果。
 
 > **消费者必须等待数据就绪，生产者必须等待缓冲区释放，后续阶段必须等待前置结果完整。**
 
-------
+---
 
 #### 5.4.2 同步的基本工具
 
 在较底层的昇腾算子编程中，可以使用事件同步：
 
-```
+```scss
 set_flag(生产者流水线, 消费者流水线, EVENT_ID);
 wait_flag(生产者流水线, 消费者流水线, EVENT_ID);
 ```
 
 可以把它理解成“发信号”和“等信号”：
 
-```
+```markdown
 生产者完成工作
       ↓
 set_flag：发送完成事件
@@ -2106,13 +2086,13 @@ set_flag：发送完成事件
 
 > 上面的代码用于表达同步关系，具体接口参数和封装形式需要以实际使用的 Ascend C/CANN 版本为准。
 
-------
+---
 
 #### 5.4.3 第一道同步：数据搬完，Cube才能计算
 
 以 Chunk 0和 Ping为例：
 
-```
+```sql
 MTE将Chunk 0搬入Ping
            ↓
 MTE发出“Ping数据就绪”事件
@@ -2124,7 +2104,7 @@ Cube读取Ping并计算Chunk 0
 
 概念代码如下：
 
-```
+```scss
 // MTE：把Chunk 0搬入Ping
 copy_chunk_to_ping(chunk0);
 
@@ -2140,7 +2120,7 @@ cube_compute(pingBuffer);
 
 如果省略这一步，Cube可能在搬运完成前就开始读取 Ping。
 
-------
+---
 
 #### 5.4.4 第二道同步：Buffer用完，MTE才能复用
 
@@ -2148,7 +2128,7 @@ cube_compute(pingBuffer);
 
 此时 Cube计算完 Chunk 0后，需要通知 MTE：
 
-```
+```sql
 Cube完成对Ping的读取
           ↓
 Cube发出“Ping可以复用”事件
@@ -2160,7 +2140,7 @@ MTE把Chunk 2搬入Ping
 
 概念代码：
 
-```
+```scss
 // Cube使用完Ping
 cube_compute(pingBuffer);
 
@@ -2176,7 +2156,7 @@ copy_chunk_to_ping(chunk2);
 
 因此，每套 Buffer都存在一个生产者—消费者闭环：
 
-```
+```markdown
 MTE写入Buffer
       ↓ 数据就绪
 Cube读取并计算
@@ -2186,27 +2166,27 @@ MTE下一轮才能覆盖
 
 当前算子只有两个 Chunk时，Ping在本轮不一定需要再次复用；但双缓冲结构通常仍按这个完整闭环设计，方便支持更多 Chunk。
 
-------
+---
 
 #### 5.4.5 Ping和Pong为什么需要不同事件
 
 两套 Buffer需要分别维护自己的状态：
 
-```
+```undefined
 Ping Buffer ↔ EVENT_ID0
 Pong Buffer ↔ EVENT_ID1
 ```
 
 执行关系为：
 
-```
+```sql
 MTE搬完Ping  ── EVENT_ID0 ──→ Cube读取Ping
 MTE搬完Pong  ── EVENT_ID1 ──→ Cube读取Pong
 ```
 
 如果 Ping和 Pong错误地共用同一个事件，就可能发生：
 
-```
+```markdown
 Pong的搬运完成事件
         ↓
 被误认为Ping已经准备完成
@@ -2216,7 +2196,7 @@ Cube读取错误的Buffer
 
 所以每套缓冲必须使用可区分的事件，事件编号通常可以根据 Ping/Pong索引选择：
 
-```
+```cpp
 int bufferId = chunkIndex % 2;
 
 if (bufferId == 0) {
@@ -2226,20 +2206,20 @@ if (bufferId == 0) {
 }
 ```
 
-------
+---
 
 #### 5.4.6 第三道同步：完整Score生成后才能做Softmax
 
 两个 Chunk对应的是同一次矩阵乘法的部分结果：
 
-```
+```undefined
 Chunk 0：初始化L0C
 Chunk 1：累加L0C
 ```
 
 执行顺序必须是：
 
-```
+```sql
 Cube计算Chunk 0
       ↓ 初始化L0C
 Cube计算Chunk 1
@@ -2253,7 +2233,7 @@ Scale + Softmax
 
 也就是：
 
-```
+```vbnet
 PIPE_M：完整Score计算完成
               ↓ Event
 PIPE_V：开始Scale和Softmax
@@ -2261,13 +2241,13 @@ PIPE_V：开始Scale和Softmax
 
 Softmax不能与尚未完成的 Score累加并行，因为 Softmax需要使用一整行完整的 Score计算最大值和归一化分母。
 
-------
+---
 
 #### 5.4.7 后续阶段也有同步边界
 
 整个 Attention链路中的主要同步关系是：
 
-```
+```sql
 MTE完成Q/K搬运
         ↓
 Cube执行QKᵀ
@@ -2291,29 +2271,29 @@ MTE3写回GM
 
 ##### MTE → Cube
 
-```
+```sql
 输入数据搬运完成 → Cube才能开始矩阵乘
 ```
 
 ##### Cube → Vector
 
-```
+```undefined
 完整Score生成 → Vector才能执行Softmax
 ```
 
 ##### Vector → Cube
 
-```
+```sql
 完整Weight生成 → Cube才能执行Weight×V
 ```
 
 ##### Cube/Vector → MTE3
 
-```
+```undefined
 最终结果及格式处理完成 → MTE3才能写回GM
 ```
 
-------
+---
 
 #### 5.4.8 同步和并行的关系
 
@@ -2332,7 +2312,7 @@ MTE3写回GM
 
 例如每条指令后都等待：
 
-```
+```undefined
 搬一点 → 等待 → 算一点 → 等待 → 再搬一点
 ```
 
@@ -2342,11 +2322,11 @@ MTE3写回GM
 
 > **只在真实的数据依赖和Buffer复用位置同步，其余阶段尽量异步下发，让硬件流水线重叠执行。**
 
-------
+---
 
 #### 5.4.9 一张简化的同步流程图
 
-```
+```markdown
 MTE流水线                         Cube流水线
 
 搬运Chunk 0 → Ping
@@ -2371,7 +2351,7 @@ MTE流水线                         Cube流水线
 
 从时间上看：
 
-```
+```css
 时间 ───────────────────────────────────────────────→
 
 MTE：  [搬Ping] ─发ID0─ [搬Pong] ─发ID1─────────────
@@ -2382,15 +2362,13 @@ Cube：          等ID0→[计算Ping]→等ID1→[计算Pong]
 Vector：                                  等完整Score→[Softmax]
 ```
 
-------
+---
 
 #### 面试简答
 
 > MTE和Cube是异步流水线，所以双缓冲还需要事件同步保证正确性。同步主要有两个方向：MTE把数据搬进Ping或Pong后，通过事件通知Cube数据已经就绪；Cube使用完某个Buffer后，再通知MTE该Buffer可以复用。Ping和Pong使用不同的Event ID，避免把两套缓冲的状态混淆。此外，两个K维Chunk必须先在L0C中完成初始化和累加，生成完整Score后，才能通知Vector执行Softmax。我的原则是只在数据就绪、Buffer复用和算法强依赖位置同步，避免过度同步破坏流水并行。
 
 ---
-
-
 
 ### 5.5 为什么当前收益可能有限
 
@@ -2403,7 +2381,7 @@ Vector：                                  等完整Score→[Softmax]
 
 理论分析中：
 
-```
+```undefined
 单缓冲：约7.8 μs
 双缓冲：约7.6 μs
 ```
@@ -2416,8 +2394,6 @@ Vector：                                  等完整Score→[Softmax]
 
 ---
 
-
-
 ## 6. 格式转换内联详设
 
 ### 6.1 什么是数据格式（layout布局）
@@ -2428,13 +2404,13 @@ Vector：                                  等完整Score→[Softmax]
 
 ND可以理解成普通的连续矩阵布局：
 
-```
+```undefined
 一行接一行保存
 ```
 
 例如：
 
-```
+```undefined
 a00 a01 a02 a03
 a10 a11 a12 a13
 a20 a21 a22 a23
@@ -2446,7 +2422,7 @@ a20 a21 a22 a23
 
 Cube矩阵计算单元不是逐个元素计算，而是以小矩阵块为单位计算。NZ会把矩阵拆成硬件适合处理的 Tile，再按特定顺序排列：
 
-```
+```sql
 普通矩阵
    ↓ 切成多个Tile
 Tile 0、Tile 1、Tile 2……
@@ -2456,15 +2432,13 @@ FRACTAL_NZ
 
 它更适合 Cube执行矩阵乘法，但不一定适合 Vector直接按行执行 Softmax。
 
-
-
 ### 6.2 原始图中的layout冲突
 
 普通业务张量通常使用ND格式，而Cube为了提高矩阵计算效率，通常使用NZ等分形格式，最终输出又需要ND格式。
 
 优化前：
 
-```
+```css
 Q、K
  ↓ ND→NZ
 QKᵀ
@@ -2504,7 +2478,7 @@ Output
 
 逻辑上是：
 
-```
+```markdown
 模型上游输出
       ↓
 ATC根据算子接口选择或插入布局转换
@@ -2517,18 +2491,22 @@ ATC根据算子接口选择或插入布局转换
 #### 6.3.2 第一次矩阵乘：在L1→L0装载时表达K转置
 
 第一次矩阵乘需要计算：
+
 $$
-Score=QK^T 
+Score=QK^T
 $$
+
 `mad`本身执行的是：
+
 $$
-C=A\times B 
+C=A\times B
 $$
+
 它不会在计算过程中临时调用一个转置 Kernel。因此，本方案通过 **L0B中的Tile排列方式**让 Cube看到逻辑上的 $K^T$。
 
 数据路径为：
 
-```
+```scss
 Q：GM(NZ) → L1 → L0A
 K：GM(NZ) → L1 → L0B
                          ↓
@@ -2540,13 +2518,12 @@ K：GM(NZ) → L1 → L0B
 实现思想是：
 
 - Q在 `L1 → L0A`装载时，通过 `load_cbuf_to_ca`组织成 Cube需要的布局；
-
 - K在 `L1 → L0B`装载时保留对应的 NZ Tile顺序；
-
 - Cube按照 L0B的分形布局读取时，逻辑上看到的是
-  $$
-  K^T
-  $$
+
+$$
+K^T
+$$
 
 也就是：
 
@@ -2556,7 +2533,7 @@ K：GM(NZ) → L1 → L0B
 
 第一次 Cube计算完成后：
 
-```
+```markdown
 L0C中的Score
       ↓
 转换为FP16并搬到UB
@@ -2568,7 +2545,7 @@ Weight继续保留在UB
 
 完整链路是：
 
-```
+```sql
 Cube：QKᵀ
    ↓
 L0C
@@ -2584,7 +2561,7 @@ UB中的Weight
 
 这里不再执行：
 
-```
+```undefined
 Score写回GM
 → NZ→ND TransData
 → Softmax
@@ -2597,19 +2574,21 @@ Score写回GM
 
 这是格式转换内联最主要的收益来源。
 
-------
+---
 
 #### 6.3.4 第二次矩阵乘：装载时适配Score和V
 
 第二次矩阵乘为：
+
 $$
-Output=Weight\times V 
+Output=Weight\times V
 $$
+
 Weight目前在 UB中，V输入在 GM的 NZ布局中。
 
 数据路径为：
 
-```
+```markdown
 Weight：UB → L1 → L0A
 V：     GM → L1 → L0B
                     ↓
@@ -2619,17 +2598,16 @@ V：     GM → L1 → L0B
 在 MTE1从 L1装载到 L0A/L0B时：
 
 - Weight按照 L0A需要的布局组织；
-
 - V通过 `load_cbuf_to_cb(..., transpose=1)`调整 Tile读取方式；
-
 - Cube最终看到的是正常方向的 V，而不是
-  $$
-  V^T
-  $$
+
+$$
+V^T
+$$
 
 因此，V的方向适配也被吸收到了 L1→L0B的数据装载过程。
 
-------
+---
 
 #### 6.3.5 输出端：在UB内完成zN→ND
 
@@ -2637,7 +2615,7 @@ V：     GM → L1 → L0B
 
 原始做法是：
 
-```
+```markdown
 输出zN写入GM
       ↓
 启动TransData Kernel
@@ -2649,7 +2627,7 @@ V：     GM → L1 → L0B
 
 本方案直接在 UB中使用 Vector指令完成重排：
 
-```
+```undefined
 L0C
  ↓
 UB中的zN结果
@@ -2665,11 +2643,11 @@ GM中的ND Output
 
 > 输出格式转换不再是独立TransData Kernel，而是FusedAttention内部最后一个Vector处理步骤。
 
-------
+---
 
 #### 6.3.6 完整格式处理链路
 
-```
+```css
 输入Q/K/V
     │
     │ OpDef声明FRACTAL_NZ
@@ -2708,7 +2686,7 @@ UB中的ND输出
 GM中的ND Output
 ```
 
-------
+---
 
 #### 6.3.7 为什么这样做能提升性能
 
@@ -2716,7 +2694,7 @@ GM中的ND Output
 
 ##### （1）减少独立Kernel启动
 
-```
+```undefined
 多个TransData Kernel → 融合Kernel内部处理
 ```
 
@@ -2726,7 +2704,7 @@ GM中的ND Output
 
 Score和 Weight保留在 UB，不再为了格式转换反复：
 
-```
+```undefined
 写GM → 读GM → 转换 → 再写GM
 ```
 
@@ -2738,7 +2716,7 @@ K和 V的方向适配融合在 MTE1装载过程中，不额外执行完整的转
 
 内联并不强迫所有硬件使用同一种格式，而是在片内边界进行适配：
 
-```
+```sql
 Cube使用分形布局
 Vector处理Softmax
 最终输出转换为ND
@@ -2750,13 +2728,11 @@ Vector处理Softmax
 
 ---
 
-
-
 ## 7. 六项方法之间的关系
 
 这六项方法不是相互独立的，而是一条完整主线：
 
-```
+```sql
 单Kernel融合
 解决Kernel过多
         ↓
@@ -2780,37 +2756,30 @@ Tiling与双缓冲
 
 > 这几项技术其实是一层一层推进的。首先通过单Kernel融合重新划分Attention执行边界；然后使用Cube完成矩阵乘、Vector完成Softmax；为了让两个单元协同，将Score和Weight保留在L0、UB和L1中，不再写回GM；再利用Head独立性进行多核并行；单核内部通过Host Tiling将K维分块，并使用Ping-Pong和Event同步重叠搬运与计算；最后把必要的转置和格式整理融入MTE加载及Kernel内部，减少独立TransData。这样就形成了从计算融合、存储优化到并行流水的完整自定义算子设计。
 
-
-
 ## 8. 自定义算子性能对比与理论收益
 
 #### 四种方案总体对比
 
-| 指标           | 原始非融合 | ATC自动融合 | 自定义单缓冲 | 自定义双缓冲 |
-| -------------- | ---------- | ----------- | ------------ | ------------ |
-| Kernel数量     | 10个       | 9个         | 1个          | 1个          |
-| 中间结果GM往返 | 3次        | 3次         | 0次          | 0次          |
-| GM搬运量       | 约205 KB   | 约197 KB    | 约32 KB      | 约32 KB      |
-| 总搬运量       | 约350 KB   | 约342 KB    | 约80 KB      | 约80 KB      |
-| 独立TransData  | 3个        | 3个         | 0个          | 0个          |
-| 最大流水并行度 | 1          | 1           | 2            | 3            |
-| 理论时延       | 约58 μs    | 约53 μs     | 约7.8 μs     | 约7.6 μs     |
-| 实测时延       | 1470 μs    | 99.9 μs     | 待验证       | 待验证       |
+| 指标 | 原始非融合 | ATC自动融合 | 自定义单缓冲 | 自定义双缓冲 |
+| --- | --- | --- | --- | --- |
+| Kernel数量 | 10个 | 9个 | 1个 | 1个 |
+| 中间结果GM往返 | 3次 | 3次 | 0次 | 0次 |
+| GM搬运量 | 约205 KB | 约197 KB | 约32 KB | 约32 KB |
+| 总搬运量 | 约350 KB | 约342 KB | 约80 KB | 约80 KB |
+| 独立TransData | 3个 | 3个 | 0个 | 0个 |
+| 最大流水并行度 | 1 | 1 | 2 | 3 |
+| 理论时延 | 约58 μs | 约53 μs | 约7.8 μs | 约7.6 μs |
+| 实测时延 | 1470 μs | 99.9 μs | 待验证 | 待验证 |
 
 #### 自定义算子核心成果：
 
 在Attention计算图中：
 
 1. 将kernel数量从9个压缩到1个
-
 2. 消除了三次中间结果GM往返(3->0)、三个TransData(3->0)
-
 3. 最大流水并行度（1->3）
-
 4. GM搬运数据量降低了84%
-
 5. 总搬运数据量降低了77%
-
 6. 理论时延降低了86%（53μs->7.6μs）
 
-   >最大并行度为3主要出现在第二次Weight乘V阶段。Cube计算当前Chunk时，MTE2可以从GM预取下一Chunk的V，MTE3同时把UB中的下一Chunk Weight搬到L1，三者使用不同流水线和不同Ping-Pong Buffer，因此可以形成MTE2、MTE3和Cube三路并行。这里的3是局部峰值流水并行度，不是3个AI Core，也不代表性能提升3倍。
+最大并行度为3主要出现在第二次Weight乘V阶段。Cube计算当前Chunk时，MTE2可以从GM预取下一Chunk的V，MTE3同时把UB中的下一Chunk Weight搬到L1，三者使用不同流水线和不同Ping-Pong Buffer，因此可以形成MTE2、MTE3和Cube三路并行。这里的3是局部峰值流水并行度，不是3个AI Core，也不代表性能提升3倍。

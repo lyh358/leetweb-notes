@@ -263,7 +263,7 @@ bit位：bit7 bit6 bit5 bit4 bit3 bit2 bit1 bit0
 
 ```less
 S(START)  | 7bit地址+1bit写 | ACK | 8bit 数据 | ACK | P(STOP)
-SCL   ──┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ──
+SCL   ──┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ──┐
 SDA   ──└─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └──       S      ADDR+W   ACK    DATA    ACK    P
 ```
 

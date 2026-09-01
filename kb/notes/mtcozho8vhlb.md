@@ -182,6 +182,8 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 > - ASIL‑A：最低等级
 
 - =={yellow}**MISRA C编码规范**；==
+
+C 语言编码规则集
 - MemMap内存段管理；
 - APP、BOOT、Release和Factory版本；
 - 实机验证、故障注入和问题追溯；

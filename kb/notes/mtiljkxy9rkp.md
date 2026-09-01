@@ -130,7 +130,7 @@ USART 支持 DMA 接收、DMA 发送。
 
 ---
 
-## 四、UART、USART、TTL‑UART、RS232、RS485 区别【超级高频】
+## =={pink}四、UART、USART、TTL‑UART、RS232、RS485 区别【超级高频】==
 
 1. **UART**：异步通信协议逻辑（无时钟）
 2. **USART**：UART + 同步模式；硬件外设，可以异步 UART，也可以同步时钟通信。STM32 叫 USART 外设。

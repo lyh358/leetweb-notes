@@ -2020,7 +2020,7 @@ Cube已经读取Ping  ✕
 
 Cube可能读到不完整或旧的数据。
 
-##### （2）Buffer还没用完，MTE就提前覆盖
+##### =={yellow}（2）Buffer还没用完，MTE就提前覆盖==
 
 如果后面还有 Chunk 2，需要重新使用 Ping：
 

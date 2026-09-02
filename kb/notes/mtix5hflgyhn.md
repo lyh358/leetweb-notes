@@ -124,7 +124,7 @@ ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格�
 
 完整执行链路如下：
 
-> Q：ND ─→ Kernel 1：TransData，ND→NZ ─┐
+> Q：ND ─→ =={yellow}Kernel 1：TransData==，ND→NZ ─┐
 > K：ND ─→ Kernel 2：TransData，ND→NZ ─┼→ Kernel 4：QKᵀ+Scale
 > V：ND ─→ Kernel 3：TransData，ND→NZ ─┘           ↓
 >                                                                                                      Score_NZ

@@ -100,7 +100,7 @@ UART：**Universal Asynchronous Receiver/Transmitter 通用异步收发器**
 USART 支持 DMA 接收、DMA 发送。
 
 - =={yellow}**DMA 发送**==：内存数据 → DMA → USART_DR，CPU 不用干预；
-- DMA 接收：两种模式：普通模式 / 循环模式；
+- =={yellow}**DMA 接收**==：两种模式：普通模式 / 循环模式；
 - IDLE 空闲中断：非常常用！**=={green}DMA+IDLE 空闲中断==**=={green}，**不定长串口接收**（车载产品高频考点）==
 
 > **IDLE：检测到总线空闲，代表一整包数据结束。实现不定长帧接收。**

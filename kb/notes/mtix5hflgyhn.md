@@ -2573,7 +2573,7 @@ $$
 Output=Weight\times V
 $$
 
-Weight目前在 UB中，V输入在 GM的 NZ布局中。
+=={yellow}Weight目前在 UB中，V输入在 GM的 NZ布局中。==
 
 数据路径为：
 

@@ -872,18 +872,15 @@ MTE3和MTE2
 
 片上驻留是指Score和Weight计算完成后，不立即写回GM，而是保存在靠近计算单元的片上存储中，直接供下一阶段使用。
 
-优化前：
+=={yellow}**优化前**：==
 
-Score → GM → Softmax
+> =={green}**Score → GM → Softmax**==
+> =={green}**Weight → GM → 第二次MatMul**==
 
-Weight → GM → 第二次MatMul
+=={yellow}**优化后**设计：==
 
-优化后设计：
-
-```swift
-Score → L0C/UB → Softmax
-Weight → UB/L1/L0A → 第二次MatMul
-```
+> =={green}**Score → L0C/UB → Softmax**==
+> =={green}**Weight → UB->L1/L0A → 第二次MatMul**==
 
 ### 3.2 使用哪些存储
 

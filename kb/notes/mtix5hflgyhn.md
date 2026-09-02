@@ -50,7 +50,7 @@ $$
 > =={green}Device NPU==
 > 执行各个Kernel
 >           ↓
-> Host CPU
+> =={green}Host CPU==
 > 接收并处理推理结果
 
 这里分析的九个Kernel，主要是Device侧执行Attention子图时产生的Kernel，不是Host上运行的九个普通函数。

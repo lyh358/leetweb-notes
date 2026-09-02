@@ -2107,7 +2107,7 @@ cube_compute(pingBuffer);
 
 ---
 
-#### 5.4.4 第二道同步：Buffer用完，MTE才能复用
+#### =={pink}5.4.4 第二道同步：Buffer用完，MTE才能复用==
 
 如果存在 Chunk 2，就要再次使用 Ping。
 
@@ -2153,7 +2153,7 @@ MTE下一轮才能覆盖
 
 ---
 
-#### 5.4.5 Ping和Pong为什么需要不同事件
+#### =={pink}5.4.5 Ping和Pong为什么需要不同事件==
 
 两套 Buffer需要分别维护自己的状态：
 

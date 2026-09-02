@@ -2766,7 +2766,7 @@ Tiling与双缓冲
 2. =={yellow}**消除了三次中间结果GM往返(3->0)**、**三个TransData(3->0)**==
 3. =={yellow}最大流水并行度（1->3）==
 4. =={yellow}GM搬运数据量降低了84%==
-5. =={yellow}总搬运数据量降低了77%==
+5. =={yellow}**总搬运数据量降低了77%**==
 6. =={yellow}**理论时延降低了86%（53μs->7.6μs）**==
 
 最大并行度为3主要出现在第二次Weight乘V阶段。Cube计算当前Chunk时，MTE2可以从GM预取下一Chunk的V，MTE3同时把UB中的下一Chunk Weight搬到L1，三者使用不同流水线和不同Ping-Pong Buffer，因此可以形成MTE2、MTE3和Cube三路并行。这里的3是局部峰值流水并行度，不是3个AI Core，也不代表性能提升3倍。

@@ -129,7 +129,7 @@ ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格�
 > V：ND ─→ Kernel 3：TransData，ND→NZ ─┘           ↓
 >                                                                                                      Score_NZ
 >                                                                                                              ↓
->                                                                                           Kernel 5：TransData，NZ→ND
+>                                                                                      Kernel 5：TransData，NZ→ND
 >                                                     ↓
 >                                       Kernel 6：Softmax
 >                                                     ↓

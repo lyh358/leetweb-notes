@@ -88,7 +88,7 @@
 
 ## 三、AI‑Core 内部存储结构
 
-> =={yellow}存储层级（由外→内）==：**GM 全局内存 (LPDDR4) → L2 (片上二级缓存，AI‑Core 集群共享) → AI‑Core 私有：L1 Buffer → L0A/L0B/L0C、UB (Unified Buffer)**
+> =={yellow}**存储层级**（由外→内）==：**GM 全局内存 (LPDDR4) → L2 (片上二级缓存，AI‑Core 集群共享) → AI‑Core 私有：L1 Buffer → L0A/L0B/L0C、UB (Unified Buffer)**
 > 
 > **=={yellow}MTE 搬运引擎：==**
 > 

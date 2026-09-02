@@ -1210,7 +1210,7 @@ MTE、Cube、Vector之间通过事件保证流水依赖
 
 #### =={pink}7. 多核Head并行和核内流水如何组合==
 
-两种优化可以叠加：
+=={yellow}两种优化可以叠加：==
 
 ```markdown
 核间：8个AI Core并行处理8个Head

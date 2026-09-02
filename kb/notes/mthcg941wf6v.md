@@ -82,3 +82,5 @@
 4. **DMA(MTE2/MTE3)**：内存搬运引擎；Global Memory 和 Local Memory 之间搬数据；计算和数据搬运可以**流水线并行（计算访存重叠）**。
 5. **Local Memory**：AI‑Core 私有的高速片上存储（L0A/L0B/L0C 给 Cube；L1 通用）；速度远高于 Global Memory；算子优化核心就是尽量把数据放在 Local Memory，减少 DDR 访问。
 6. **Scoreboard / 指令队列**：指令乱序、同步，三条流水线并行、同步。
+
+---

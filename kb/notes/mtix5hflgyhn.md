@@ -2638,7 +2638,7 @@ GM中的ND Output
 
 > 输入Q/K/V
 >     │
->     │ =={yellow}**OpDef声明FRACTAL_NZ：消除kernel1**==
+>     │ =={yellow}**OpDef声明FRACTAL_NZ：消除kernel1/2/3**==
 >     ▼
 > GM中的NZ输入
 >     │

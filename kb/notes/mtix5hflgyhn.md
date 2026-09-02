@@ -2567,7 +2567,7 @@ Score写回GM
 
 #### =={yellow}6.3.4 第二次矩阵乘：装载时适配Score和V==
 
-第二次矩阵乘为：
+=={yellow}第二次矩阵乘为：==
 
 $$
 Output=Weight\times V

@@ -2636,42 +2636,77 @@ GM中的ND Output
 
 #### 6.3.6 完整格式处理链路
 
-输入Q/K/V
-    │
-    │ OpDef声明FRACTAL_NZ
-    ▼
-GM中的NZ输入
-    │
-    │ MTE2：GM→L1
-    ▼
-L1
-    │
-    │ MTE1装载时调整Tile布局
-    ▼
-L0A / L0B
-    │
-    │ Cube看到需要的矩阵方向
-    ▼
-QKᵀ
-    │
-    │ L0C→UB，中间结果不落GM
-    ▼
-UB：Scale + Softmax
-    │
-    │ UB→L1→L0，装载时适配Weight和V
-    ▼
-Weight×V
-    │
-    ▼
-UB中的zN输出
-    │
-    │ Vector vmuls十参数模式重排
-    ▼
-UB中的ND输出
-    │
-    │ MTE3
-    ▼
-GM中的ND Output
+> 输入Q/K/V
+>     │
+>     │ OpDef声明FRACTAL_NZ
+>     ▼
+> GM中的NZ输入
+>     │
+>     │ MTE2：GM→L1
+>     ▼
+> L1
+>     │
+>     │ MTE1装载时调整Tile布局
+>     ▼
+> L0A / L0B
+>     │
+>     │ Cube看到需要的矩阵方向
+>     ▼
+> QKᵀ
+>     │
+>     │ L0C→UB，中间结果不落GM
+>     ▼
+> UB：Scale + Softmax
+>     │
+>     │ UB→L1→L0，装载时适配Weight和V
+>     ▼
+> Weight×V
+>     │
+>     ▼
+> UB中的zN输出
+>     │
+>     │ Vector vmuls十参数模式重排
+>     ▼
+> UB中的ND输出
+>     │
+>     │ MTE3
+>     ▼
+> GM中的ND Output
+>     │
+>     │ OpDef声明FRACTAL_NZ
+>     ▼
+> GM中的NZ输入
+>     │
+>     │ MTE2：GM→L1
+>     ▼
+> L1
+>     │
+>     │ MTE1装载时调整Tile布局
+>     ▼
+> L0A / L0B
+>     │
+>     │ Cube看到需要的矩阵方向
+>     ▼
+> QKᵀ
+>     │
+>     │ L0C→UB，中间结果不落GM
+>     ▼
+> UB：Scale + Softmax
+>     │
+>     │ UB→L1→L0，装载时适配Weight和V
+>     ▼
+> Weight×V
+>     │
+>     ▼
+> UB中的zN输出
+>     │
+>     │ Vector vmuls十参数模式重排
+>     ▼
+> UB中的ND输出
+>     │
+>     │ MTE3
+>     ▼
+> GM中的ND Output
 
 ---
 

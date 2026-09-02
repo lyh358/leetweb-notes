@@ -679,11 +679,11 @@ Attention同时包含矩阵乘和非线性计算，因此不能只使用一种�
 
 | 流水线 | 主要职责 | 在本算子中的作用 |
 | --- | --- | --- |
-| **=={yellow}PIPE_MTE2==** | =={yellow}GM到片上存储==的数据搬运 | 将Q、K、V从GM搬到L1或UB |
-| **=={yellow}PIPE_MTE1==** | =={yellow}片内（L）的数据搬运==和格式整理 | 将Q、K、Weight、V送入L0A/L0B |
-| **PIPE_M** | Cube矩阵计算 | 执行`QKᵀ`和`Weight×V` |
-| **PIPE_V** | Vector向量计算 | 执行Scale、Softmax和输出格式整理 |
-| **PIPE_MTE3** | 片上结果向外搬运 | UB到L1或GM的数据搬运 |
+| **=={yellow}PIPE_MTE2==** | =={yellow}**GM到片上存储**==的数据搬运 | 将Q、K、V从GM搬到L1或UB |
+| **=={yellow}PIPE_MTE1==** | =={yellow}**片内（L0/L1/UB）的数据搬运**==和格式整理 | 将Q、K、Weight、V送入L0A/L0B |
+| **=={yellow}PIPE_M==** | Cube矩阵计算 | 执行`QKᵀ`和`Weight×V` |
+| **=={yellow}PIPE_V==** | Vector向量计算 | 执行Scale、Softmax和输出格式整理 |
+| **=={yellow}PIPE_MTE3==** | =={yellow}**片上结果向外搬运**== | =={yellow}**UB到L1或GM的数据搬运**== |
 
 Scalar负责地址计算、循环和控制，也可以看成辅助控制流水线，但通常说“五条主要数据与计算流水线”即可。
 

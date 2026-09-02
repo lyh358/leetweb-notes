@@ -121,9 +121,9 @@ USART 支持 DMA 接收、DMA 发送。
 
 ## =={pink}三、UART 常见错误标志与故障分析（面试高频）==
 
-1. **=={yellow}PE （Parity error**=={yellow}）==** 奇偶校验错误==**：收到数据校验不对；波特率偏差、干扰。
-2. **=={yellow}FE （Frame error**=={yellow}）==** 帧错误==**：没有检测到停止位；波特率错误、干扰、起始位采样错误。
-3. **=={yellow}ORE （Overrun error **=={yellow}）==**过载错误==**：接收寄存器数据还没读取，新数据又来了，丢数据。
+1. =={yellow}**PE （Parity error**=={yellow}）=={yellow}** 奇偶校验错误==**：收到数据校验不对；波特率偏差、干扰。
+2. =={yellow}**FE （Frame error**=={yellow}）=={yellow}** 帧错误==**：没有检测到停止位；波特率错误、干扰、起始位采样错误。
+3. **=={yellow}ORE （Overrun error **=={yellow}）=={yellow}**过载错误**==：接收寄存器数据还没读取，新数据又来了，丢数据。
 
 > 发生 ORE：RXNE 不会清零，后续数据全部无法接收，必须软件清除错误标志。
 
@@ -212,17 +212,6 @@ USART 支持 DMA 接收、DMA 发送。
 ---
 
 ## =={pink}二、I2C 协议时序==（必考，要脑子里能画出波形）
-
-### =={pink}写时序==
-
-### 
-
-```less
-S(START)  | 7bit地址+1bit写 | ACK | 8bit 数据 | ACK | P(STOP)
-SCL   ──┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ──
-SDA   ──└─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ ──
-       S      ADDR+W   ACK    DATA    ACK    P
-```
 
 ### =={pink}4 个核心信号==
 

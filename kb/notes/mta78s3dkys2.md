@@ -1012,7 +1012,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 #### =={pink}4. msprof性能分析工具==
 
-=={green}msprof 是 **RT‑Thread 采样式性能剖析器**，靠**定时器中断采样 PC** + 栈回溯实现。==
+=={green}msprof 是 **RT‑Thread 采样式性能剖析器**，靠**定时器中断采样 PC** + **栈回溯**实现。==
 
 使用CANN提供的msprof采集模型执行过程，重点关注：
 

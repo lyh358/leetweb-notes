@@ -2660,7 +2660,7 @@ GM中的ND Output
 >     │
 >     │ =={yellow}**UB→L1→L0，装载时适配Weight和V**==
 >     ▼
-> Weight×V
+> **Weight×V**
 >     │
 >     ▼
 > =={green}**UB中的zN输出**==

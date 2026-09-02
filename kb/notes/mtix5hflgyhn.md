@@ -2559,7 +2559,7 @@ Score写回GM
 → Weight×V
 ```
 
-因此，=={yellow}**中间格式适配是在同一个 Kernel的片上数据路径中完成**的，所以Score和 Weight不需要通过独立 TransData Kernel在 GM中来回中转。==
+因此，=={yellow}**中间格式适配是在同一个 Kernel的片上数据路径中完成**的，所以**Score和 Weight不需要通过独立 TransData Kernel在 GM中来回中转**。==
 
 这是格式转换内联最主要的收益来源。
 

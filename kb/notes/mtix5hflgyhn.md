@@ -109,7 +109,7 @@ ND：按照普通顺序摆放数据
 NZ：按照Cube喜欢的矩阵小块方式摆放数据
 ```
 
-两种格式表达的=={green}数据内容相同==，但=={green}排列方式不同==。=={green}格式转换通常由TransData Kernel完成==：
+两种格式表达的=={green}**数据内容相同**==，但=={green}排列方式不同==。=={green}格式转换通常由TransData Kernel完成==：
 
 ```undefined
 ND → TransData → NZ

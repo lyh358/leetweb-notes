@@ -1500,7 +1500,7 @@ $$
 Score_{ij} = \sum_{k=0}^{31}Q_{ik}K_{jk} + \sum_{k=32}^{63}Q_{ik}K_{jk}
 $$
 
-因此执行过程是：
+因此=={yellow}**执行过程是**==：
 
 ```markdown
 Chunk 0：计算 k=0～31

@@ -2654,7 +2654,7 @@ GM中的ND Output
 >     ▼
 >    QKᵀ
 >     │
->     │ =={pink}L0C→UB，中间结果不落GM==
+>     │ =={pink}**L0C→UB，中间结果不落GM**==
 >     ▼
 > UB：Scale + Softmax
 >     │

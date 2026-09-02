@@ -75,7 +75,7 @@
             └──────────────────────┘
 ```
 
-AI‑Core 内部组件
+**AI‑Core 内部组件**
 1. **Scalar Unit（标量单元）**：AI‑Core 内部小 CPU；做循环、分支、地址计算，向 Cube、Vector、DMA 发射指令；**控制整个 AI Core 运行**。
 2. **Cube Unit（矩阵单元，脉动阵列）**：深度学习卷积 / 矩阵乘核心；FP16/INT8 矩阵乘；算力大头。
 3. **Vector Unit（向量单元）**：向量运算；激活函数、归一化、Pooling 等；SIMD 向量计算。

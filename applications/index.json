@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtkbyp2armhj",
+    "company": "影石",
+    "role": "",
+    "location": "",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://arashivision.jobs.feishu.cn/campus/position/application",
+    "created": 1788367715938,
+    "updated": 1788367715938
+  },
+  {
     "id": "mtkbwa6aa1jz",
     "company": "Sharpa Robotics",
     "role": "嵌入式，部署",

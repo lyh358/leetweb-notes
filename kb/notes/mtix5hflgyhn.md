@@ -576,7 +576,11 @@ FusedAttention
 
 #### =={pink}1.3.4 第四步：Device侧连续完成三阶段计算==
 
-中间结果通过片上存储传递，不在Phase之间退出Kernel。
+> =={yellow}Phase 1：**Cube**计算**QKᵀ**==
+> =={yellow}Phase 2：**Vector**计算**Scale**和**Softmax**==
+> =={yellow}Phase 3：**Cube**计算**Weight×V**==
+
+=={yellow}中间结果通过片上存储传递，不在Phase之间退出Kernel==。
 
 ---
 
@@ -625,7 +629,7 @@ CopyOut Output
 
 ---
 
-## 2. Cube与Vector异构协同详设：流水设计与并行策略
+## =={pink}2. Cube与Vector异构协同详设：流水设计与并行策略==
 
 ### 2.1 什么是Cube与Vector
 

@@ -2642,7 +2642,7 @@ GM中的ND Output
 >     ▼
 > =={green}GM中的NZ输入==
 >     │
->     │ MTE2：GM→L1
+>     │ =={pink}MTE2：GM→L1==
 >     ▼
 >    L1
 >     │

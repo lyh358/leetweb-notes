@@ -2506,7 +2506,7 @@ K：GM(NZ) → L1 → L0B
 
 实现思想是：
 
-- Q在 `L1 → L0A`装载时，通过 `load_cbuf_to_ca`组织成 Cube需要的布局；
+- =={green}Q在== `L1 → L0A`=={green}装载时，通过== `load_cbuf_to_ca`=={green}组织成 Cube需要的布局；==
 - K在 `L1 → L0B`装载时保留对应的 NZ Tile顺序；
 - Cube按照 L0B的分形布局读取时，逻辑上看到的是
 

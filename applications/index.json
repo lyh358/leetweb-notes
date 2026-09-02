@@ -3,12 +3,12 @@
     "id": "mtkcqwrtdwyc",
     "company": "它石智航",
     "role": "机器人嵌软",
-    "location": "深圳",
-    "applied": false,
-    "stage": "准备投递",
+    "location": "上海",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://tarsrobot.jobs.feishu.cn/021343/position/application",
     "created": 1788369032297,
-    "updated": 1788369032297
+    "updated": 1788369040318
   },
   {
     "id": "mtkcgkhyq2lz",

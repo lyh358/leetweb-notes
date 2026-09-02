@@ -2671,7 +2671,7 @@ GM中的ND Output
 >     │
 >     │ =={pink}**MTE3**==
 >     ▼
-> GM中的ND Output
+> =={green}**GM中的ND Output**==
 
 ---
 

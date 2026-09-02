@@ -880,9 +880,8 @@ MTE3和MTE2
 =={yellow}**优化后**设计：==
 
 > =={green}**Score → L0C** **→** **UB → Softmax**==
-> =={green}**Weight → UB** **→** **L1** **→** **L0A → 第二次MatMul**==
-
-> 
+> =={green}**Weight → UB** **→** **L1** **→** **L0A → 第二次MatMul
+> V**==
 
 ### 3.2 使用哪些存储
 

@@ -104,7 +104,7 @@
 > 2. **Vector 只能直接访问 UB**，向量运算必须把数据放进 UB。Vector 不能直接读写 L1/L0 系列 BufferCSDN博...。
 > 3. L0C 是 Cube 输出结果缓存；L0C 不能被 MTE 直接读，L0C 结果走 FixPipe 输出到 UB 或者 L1
 
-## MTE 分工背诵
+## MTE 分工
 
 1. **MTE1**：只做 L1 → L0A / L0B；给 Cube 准备输入矩阵数据；**不能直接访问 GM**。
 2. **MTE2**：读通路：GM/L2 → L1 / UB；把外部数据搬进 AI‑Core 内部存储；支持 ND↔NZ 格式转换。

@@ -875,9 +875,8 @@ MTE3和MTE2
 =={yellow}**优化前**：==
 
 > =={green}**Score → GM → Softmax**==
-> =={green}**Weight → GM → 第二次MatMul**==
-
-> 
+> =={green}**Weight → GM → 第二次MatMul**
+> =={green}**V**== **=={green}→GM==** **=={green}→ L1==** **=={green}→ L0B==**==
 
 =={yellow}**优化后**设计：==
 
@@ -939,7 +938,7 @@ $$
 
 虽然Weight仍然需要在片上层级之间搬运，但不必写回GM。
 
-### 3.5 为什么片上存储能够放下
+### =={pink}3.5 为什么片上存储能够放下==
 
 当前原型矩阵为64×64。
 

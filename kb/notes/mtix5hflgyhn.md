@@ -2516,7 +2516,7 @@ $$
 
 也就是：
 
-> K的转置被吸收到MTE1的装载布局中，没有额外启动Transpose Kernel。
+> =={yellow}**K的转置被吸收到MTE1的装载布局中**==，没有额外启动Transpose Kernel。
 
 #### 6.3.3 中间过程：Score和Weight留在UB中
 

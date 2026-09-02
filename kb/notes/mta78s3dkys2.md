@@ -6,7 +6,7 @@
 
 这段实习面向的是 **=={yellow}5G基站物理层AI信道矩阵估计==**=={yellow}。==
 
-=={green}无线信号从手机传到基站==时，=={green}会受到==建筑物反射、遮挡、多径和噪声等=={green}各种==影=={green}响==。=={green}基站需要根据SRS（=={yellow}=={green}Sounding Reference Signal，==**=={green}探测参考信号==**=={green}）、DMRS（===={green}Demodulation Reference Signal，==**=={green}解调参考信号==**=={yellow}）等参考信号，**估计当前无线信道的状态**，也就是**信道矩阵 (H)**。==
+=={green}无线信号从手机传到基站==时，=={green}会受到==建筑物反射、遮挡、多径和噪声等=={green}各种==影=={green}响==。=={green}基站需要根据SRS（=={yellow}Sounding Reference Signal，==**=={green}探测参考信号==**=={green}）、DMRS（===={green}Demodulation Reference Signal，==**=={green}解调参考信号==**=={yellow}）等参考信号，**估计当前无线信道的状态**，也就是**信道矩阵 (H)**。==
 
 =={yellow}信道估计结果会直接用于==：
 
@@ -192,7 +192,7 @@ flowchart LR
 | =={green}性能== | **=={green}端到端推理时延==** | 从**输入准备**到**获得输出**的**整体耗时**，通常是**=={green}最核心指标==** |
 | =={green}性能== | **=={green}模型执行时延==** | 只统计**NPU执行模型的时间**，用于**排除前后处理**和**数据传输**干扰 |
 | 性能 | **吞吐量** | 单位时间内处理的样本数，如FPS、samples/s |
-| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
+| =={yellow}精度== | **=={yellow}余弦相似度==** | **优化模型**与**基准模型 输出方向**和**=={yellow}整体分布===={yellow}**的==**===={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}={yellow}一致性==** |
 | =={yellow}精度== | **=={yellow}MSE（均方根误差）==** | 比较**=={yellow}具体元素的数值偏差==**，**补充余弦相似度**的不足 |
 | =={pink}资源== | **=={pink}内存占用==** | 包括**Host内存**、**Device内存**和**模型权重占用** |
 | =={pink}资源== | **=={pink}算力与利用率==** | **AI Core利用率**、**各类算子耗时**以及**数据搬运开销** |

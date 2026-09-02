@@ -1614,7 +1614,7 @@ Chunk 0 → Ping Buffer
 Chunk 1 → Pong Buffer
 ```
 
-这样，Cube读取 Ping时，MTE可以同时写入 Pong：
+这样，=={yellow}**Cube读取 Ping时，MTE可以同时写入 Pong**==：
 
 ```markdown
                  ┌──────────────┐

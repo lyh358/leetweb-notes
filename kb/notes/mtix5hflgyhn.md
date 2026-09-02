@@ -568,19 +568,13 @@ FusedAttention
 =={yellow}Host侧负责：==
 
 - =={yellow}**注册算子**名称；==
-- =={yellow}**检查输入Shape**和数据类型；==
-- =={yellow}推导输出Shape；==
-- =={yellow}根据Head数量和矩阵规模生成Tiling参数；==
+- =={yellow}**检查输入Shape**和**数据类型**；==
+- =={yellow}**推导输出Shape**；==
+- =={yellow}根据Head数量和矩阵规模**生成Tiling参数**；==
 - 确定BlockDim和各Core的数据范围；
-- =={yellow}将Tiling数据传递给Device Kernel。==
+- =={yellow}**将Tiling数据传递**给**Device Kernel**。==
 
-#### 1.3.4 第四步：Device侧连续完成三阶段计算
-
-```sql
-Phase 1：Cube计算QKᵀ
-Phase 2：Vector计算Scale和Softmax
-Phase 3：Cube计算Weight×V
-```
+#### =={pink}1.3.4 第四步：Device侧连续完成三阶段计算==
 
 中间结果通过片上存储传递，不在Phase之间退出Kernel。
 

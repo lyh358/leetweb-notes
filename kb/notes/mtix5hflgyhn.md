@@ -2491,7 +2491,7 @@ $$
 C=A\times B
 $$
 
-它不会在计算过程中临时调用一个转置 Kernel。因此，=={yellow}本方案通过== **=={yellow}L0B中的Tile排列方式==**=={yellow}让 Cube看到逻辑上的== $K^T$。
+=={yellow}它不会在计算过程中临时调用一个转置 Kernel。==因此，=={yellow}本方案通过== **=={yellow}L0B中的Tile排列方式==**=={yellow}让 Cube看到逻辑上的== $K^T$。
 
 数据路径为：
 

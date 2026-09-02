@@ -183,7 +183,7 @@ SPF属于小Shape、batch_size为1的轻量模型，矩阵乘本身执行得很�
 
 #### =={pink}问题二：中间结果反复访问GM==
 
-=={yellow}Kernel 4完成==`QKᵀ+Scale`=={yellow}后==，Score不能直接交给Softmax使用，而是需要写回GM。
+=={yellow}Kernel 4完成==`QKᵀ+Scale`=={yellow}后==，Score不能直接交给Softmax使用，而是需要=={yellow}写回GM==。
 
 ```sql
 Cube计算Score

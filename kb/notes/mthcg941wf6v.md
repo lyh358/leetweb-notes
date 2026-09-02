@@ -94,21 +94,23 @@
 1. **=={yellow}Scalar Unit（标量单元）==**：AI‑Core 内部小 CPU；做循环、分支、地址计算，向 Cube、Vector、DMA 发射指令；**控制整个 AI Core 运行**。
 2. **=={yellow}Cube Unit（矩阵单元，脉动阵列）==**：深度学习卷积 / 矩阵乘核心；FP16/INT8 矩阵乘；算力大头。
 3. **=={yellow}Vector Unit（向量单元）==**：向量运算；激活函数、归一化、Pooling 等；SIMD 向量计算。
-4. **=={yellow}DMA(MTE2/MTE3)==**：内存搬运引擎；Global Memory 和 Local Memory 之间搬数据；计算和数据搬运可以**流水线并行（计算访存重叠）**。
+4. **=={yellow}DMA(MTE1/MTE2/MTE3)==**：内存搬运引擎；Global Memory 和 Local Memory 之间搬数据；计算和数据搬运可以**流水线并行（计算访存重叠）**。
 5. **=={yellow}Local Memory==**=={yellow}：==AI‑Core 私有的高速片上存储（L0A/L0B/L0C 给 Cube；L1 通用）；速度远高于 Global Memory；算子优化核心就是尽量把数据放在 Local Memory，减少 DDR 访问。
 
 ---
 
 **=={green}存储层级（由外→内）：==**
 
-**GM 全局内存 (LPDDR4) →**
+**=={yellow}GM 全局内存 (LPDDR4)==**
 
-**L2 (片上二级缓存，AI‑Core 集群共享) →**
+**→** **=={yellow}L2== (片上二级缓存，AI‑Core 集群共享)**
 
- **AI‑Core 私有：L1 Buffer → L0A/L0B/L0C、UB (Unified Buffer)**
+**→****=={yellow}L1 Buffer== ：****AI‑Core 私有**
 
- **MTE 搬运引擎：**
+**→ =={yellow}L0A/L0B/L0C、UB== (Unified Buffer)**
 
-- **MTE2：读方向：GM/L2 → AI‑Core 内部 (L1/UB)**
-- **MTE1：内核搬运：L1 → L0A / L0B（Cube 输入）**
-- **MTE3：写方向：UB → L1 / L2 / GM**
+ **=={green}MTE 搬运引擎：==**
+
+- **=={yellow}MTE2：读方向：GM/L2 → AI‑Core 内部 (L1/UB)==**
+- **=={yellow}MTE1：内核搬运：L1 → L0A / L0B（Cube 输入）==**
+- **=={yellow}MTE3：写方向：UB → L1 / L2 / GM==**

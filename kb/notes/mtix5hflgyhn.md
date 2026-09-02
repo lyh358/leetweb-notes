@@ -95,7 +95,7 @@ Ascend AI Core内部有不同类型的计算单元：
 
 Attention需要先使用Cube计算矩阵乘，再使用Vector完成Softmax，最后重新回到Cube执行第二次矩阵乘。
 
-#### ND和NZ是什么
+#### =={pink}ND和NZ是什么==
 
 ND和NZ是两种不同的数据存储格式。
 

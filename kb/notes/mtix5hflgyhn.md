@@ -188,10 +188,8 @@ SPF属于小Shape、batch_size为1的轻量模型，矩阵乘本身执行得很�
 ```sql
 Cube计算Score
 → Score写回GM
-→ Softmax Kernel重新从GM读取
+→ Softmax Kernel重新从GM读取kke'roftmax完成后，注意力权重又要写回GM，再由第二次MatMul重新读取：
 ```
-
-Softmax完成后，注意力权重又要写回GM，再由第二次MatMul重新读取：
 
 ```sql
 Vector完成Softmax

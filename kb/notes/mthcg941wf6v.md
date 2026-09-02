@@ -88,16 +88,6 @@
 
 ## 三、AI‑Core 内部存储结构
 
-## 
-
-## 
-
-## 
-
-## 
-
-# Ascend310P3 AI‑Core 内部存储完整框图（面试手写文本版）
-
 > 存储层级（由外→内）：**GM 全局内存 (LPDDR4) → L2 (片上二级缓存，AI‑Core 集群共享) → AI‑Core 私有：L1 Buffer → L0A/L0B/L0C、UB (Unified Buffer)**CSDN博...
 > MTE 搬运引擎：
 > 

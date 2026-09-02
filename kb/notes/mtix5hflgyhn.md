@@ -874,6 +874,10 @@ MTE3和MTE2
 
 优化前：
 
+Score → GM → Softmax
+
+Weight → GM → 第二次MatMul
+
 优化后设计：
 
 ```swift

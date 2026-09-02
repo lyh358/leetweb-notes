@@ -568,7 +568,7 @@ FusedAttention
 =={yellow}Host侧负责：==
 
 - =={yellow}**注册算子**名称；==
-- =={yellow}检查输入Shape和数据类型；==
+- =={yellow}**检查输入Shape**和数据类型；==
 - =={yellow}推导输出Shape；==
 - =={yellow}根据Head数量和矩阵规模生成Tiling参数；==
 - 确定BlockDim和各Core的数据范围；

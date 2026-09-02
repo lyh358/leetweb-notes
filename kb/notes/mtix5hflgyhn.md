@@ -1240,7 +1240,7 @@ AI Core 7 → Head 7 → 核内MTE/Cube/Vector流水
 
 ---
 
-#### 8. 这种设计的限制
+#### =={pink}8. 这种设计的限制==
 
 ##### （1）Head和AI core数量限制并行度
 

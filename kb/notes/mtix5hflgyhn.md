@@ -2052,8 +2052,8 @@ Softmax必须基于完整 Score，不能只处理部分结果。
 
 在较底层的昇腾算子编程中，可以使用事件同步：
 
-> =={yellow}set_flag===={yellow}(生产者流水线, 消费者流水线, EVENT_ID);==
-> wait_flag(生产者流水线, 消费者流水线, EVENT_ID);
+> =={yellow}**set_flag**===={yellow}(**生产者流水线, 消费者流水线, EVENT_ID**);==
+> =={yellow}**wait_flag**===={yellow}(生产者流水线, 消费者流水线, EVENT_ID);==
 
 可以把它理解成“发信号”和“等信号”：
 
@@ -2073,7 +2073,7 @@ set_flag：发送完成事件
 
 ---
 
-#### 5.4.3 第一道同步：数据搬完，Cube才能计算
+#### =={pink}5.4.3 第一道同步：数据搬完，Cube才能计算==
 
 以 Chunk 0和 Ping为例：
 

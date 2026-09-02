@@ -33,7 +33,7 @@ $$
 
 ## =={pink}2. 先理解几个基本概念==
 
-#### Host和Device是什么
+#### =={green}Host和Device是什么==
 
 在昇腾推理环境中，可以把系统分为Host和Device两侧。
 

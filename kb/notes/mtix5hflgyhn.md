@@ -1300,9 +1300,9 @@ Core 3 → Head 3、7
 
 ---
 
-## 5. =={pink}单核内==的=={pink}流水线并行==与同步机制：Tiling与Ping-Pong双缓冲
+## 5. =={pink}单核内==的=={pink}流水线并行==与=={pink}同步==机制：=={yellow}Tiling==与=={yellow}Ping-Pong双缓冲==
 
-一个 AI Core 负责一个 Head，在核内依次完成：
+=={green}一个 AI Core 负责一个 Head，在核内依次完成：==
 
 ```undefined
 QKᵀ → Scale → Softmax → Weight×V → 输出

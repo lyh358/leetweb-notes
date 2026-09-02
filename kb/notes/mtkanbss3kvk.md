@@ -103,7 +103,7 @@
 
 **→** **=={yellow}L2== (片上二级缓存，AI‑Core 集群共享)**
 
-**→****=={yellow}L1 Buffer== ：****AI‑Core 私有**
+**→=={yellow}L1 Buffer== ：****AI‑Core 私有**
 
 **→ =={yellow}L0A/L0B/L0C、UB== (Unified Buffer)**
 

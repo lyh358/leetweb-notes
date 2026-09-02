@@ -1645,7 +1645,7 @@ Cube：等待
 
 ##### =={pink}第二阶段：计算与搬运重叠==
 
-=={yellow}Chunk 0准备好后，cube：==
+=={yellow}**Chunk 0准备好**后，**Cube计算Chunk 0**，**MTE搬运Chunk 1**：==
 
 ```sql
 Cube：从Ping读取并计算Chunk 0
@@ -1664,7 +1664,7 @@ Cube：                 [计算Ping中的Chunk 0][计算Pong中的Chunk 1]
 
 ##### =={pink}第三阶段：计算 Pong==
 
-=={yellow}Chunk 0计算完成、Chunk 1搬运完成后：==
+=={yellow}**Chunk 0计算完成**、**Chunk 1搬运完成**后，**MTE空闲**，**Cube计算Chunk 1**：==
 
 ```sql
 Cube：读取Pong并计算Chunk 1

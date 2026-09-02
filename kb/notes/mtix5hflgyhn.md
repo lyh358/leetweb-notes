@@ -1571,7 +1571,7 @@ Cube：负责计算的工人
 GM → Buffer → Cube
 ```
 
-两个 Chunk 只能依次处理：
+=={yellow}两个 Chunk 只能依次处理：==
 
 ```sql
 ① MTE把Chunk 0搬入Buffer

@@ -249,17 +249,15 @@ Cube执行第二次MatMul
 
 因此，=={yellow}**自定义算子的优化目标**==确定为：
 
-```markdown
-把QKᵀ、Scale、Softmax和Weight×V
-融合到一个Kernel中
-        ↓
-矩阵乘交给Cube
-Softmax交给Vector
-        ↓
-中间Score和Weight尽量保留在片上
-        ↓
-减少Kernel启动、GM往返和TransData
-```
+> 把QKᵀ、Scale、Softmax和Weight×V
+> =={yellow}**融合到一个Kernel**中==
+>         ↓
+> =={yellow}**矩阵乘**交给**Cube**==
+> =={yellow}**Softmax**交给**Vector**==
+>         ↓
+> =={yellow}**中间**Score和Weight尽量**保留在片上**==
+>         ↓
+> =={yellow}**减少Kernel启动**、**GM往返**和**TransData**==
 
 一句话总结：
 
@@ -274,7 +272,7 @@ Softmax交给Vector
 
 ---
 
-# 二、FusedAttention的实施方法概设
+# =={pink}二、FusedAttention的实施方法概设==
 
 针对优化前存在的**九个Kernel、中间结果反复写回GM、ND/NZ格式转换以及搬运计算串行**问题，我主要采用了以下六项方法。
 

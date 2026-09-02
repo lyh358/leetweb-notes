@@ -101,7 +101,7 @@
 > 
 > 
 > 1. **Cube 只能直接访问 L0A、L0B、L0C**；不能直接访问 L1、UB。L1 的数据必须 MTE1 搬到 L0A/L0B 才能给 Cube 计算。
-> 2. **Vector 只能直接访问 UB**，向量运算必须把数据放进 UB。Vector 不能直接读写 L1/L0 系列 BufferCSDN博...。
+> 2. **Vector 只能直接访问 UB**，向量运算必须把数据放进 UB。Vector 不能直接读写 L1/L0 系列 Buffer.。
 > 3. L0C 是 Cube 输出结果缓存；L0C 不能被 MTE 直接读，L0C 结果走 FixPipe 输出到 UB 或者 L1
 
 ## MTE 分工

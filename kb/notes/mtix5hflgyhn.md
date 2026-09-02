@@ -2658,7 +2658,7 @@ GM中的ND Output
 >     ▼
 > UB：Scale + Softmax
 >     │
->     │ UB→L1→L0，装载时适配Weight和V
+>     │ =={yellow}**UB→L1→L0，装载时适配Weight和V**==
 >     ▼
 > Weight×V
 >     │

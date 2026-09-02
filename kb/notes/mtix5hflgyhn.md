@@ -2652,15 +2652,15 @@ GM中的ND Output
 >     │
 >     │ =={yellow}**Cube看到需要的矩阵方向**==
 >     ▼
->    QKᵀ
+>    =={green}**QKᵀ**==
 >     │
 >     │ =={pink}**L0C→UB，中间结果不落GM**==
 >     ▼
-> **UB：Scale + Softmax**
+> =={green}**UB：Scale + Softmax**==
 >     │
 >     │ =={yellow}**UB→L1→L0，装载时适配Weight和V**==
 >     ▼
-> **Weight×V**
+> =={green}**Weight×V**==
 >     │
 >     ▼
 > =={green}**UB中的zN输出**==
@@ -2675,11 +2675,11 @@ GM中的ND Output
 
 ---
 
-#### 6.3.7 为什么这样做能提升性能
+#### =={pink}6.3.7 为什么这样做能提升性能==
 
 格式转换内联主要带来四方面收益。
 
-##### （1）减少独立Kernel启动
+##### =={yellow}（1）减少独立Kernel启动==
 
 ```undefined
 多个TransData Kernel → 融合Kernel内部处理
@@ -2687,7 +2687,7 @@ GM中的ND Output
 
 小 Shape下 Kernel启动开销可能比实际计算时间更突出。
 
-##### （2）减少GM往返
+##### =={yellow}（2）减少GM往返==
 
 Score和 Weight保留在 UB，不再为了格式转换反复：
 
@@ -2695,7 +2695,7 @@ Score和 Weight保留在 UB，不再为了格式转换反复：
 写GM → 读GM → 转换 → 再写GM
 ```
 
-##### （3）利用现有搬运顺便调整布局
+##### =={yellow}（3）利用现有搬运顺便调整布局==
 
 K和 V的方向适配融合在 MTE1装载过程中，不额外执行完整的转置操作。
 
@@ -2715,7 +2715,7 @@ Vector处理Softmax
 
 ---
 
-## 7. 六项方法之间的关系
+## =={pink}7. 六项方法之间的关系==
 
 这六项方法不是相互独立的，而是一条完整主线：
 

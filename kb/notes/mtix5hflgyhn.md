@@ -570,7 +570,7 @@ FusedAttention
 - =={yellow}注册算子名称；==
 - =={yellow}检查输入Shape和数据类型；==
 - =={yellow}推导输出Shape；==
-- 根据Head数量和矩阵规模生成Tiling参数；
+- =={yellow}根据Head数量和矩阵规模生成Tiling参数；==
 - 确定BlockDim和各Core的数据范围；
 - 将Tiling数据传递给Device Kernel。
 

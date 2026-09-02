@@ -2640,7 +2640,7 @@ GM中的ND Output
 >     │
 >     │ =={yellow}**OpDef声明FRACTAL_NZ：消除kernel 1/2/3**==
 >     ▼
-> =={green}GM中的NZ输入==
+> =={green}**GM中的NZ输入**==
 >     │
 >     │ =={pink}**MTE2：GM→L1**==
 >     ▼

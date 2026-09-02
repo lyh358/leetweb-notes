@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtjhpci0k19m",
+    "company": "国电南自",
+    "role": "嵌入式",
+    "location": "南京",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "",
+    "created": 1788316891272,
+    "updated": 1788316891272
+  },
+  {
     "id": "mthj98g7iygy",
     "company": "海能达",
     "role": "嵌入式",

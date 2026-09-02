@@ -282,8 +282,8 @@ Cube执行第二次MatMul
 | **=={yellow}2.Cube与Vector协同==** | 两次矩阵乘使用Cube，Scale和Softmax使用Vector | 让不同计算交给最合适的硬件单元 |
 | **=={yellow}3.中间结果片上驻留==** | Score和Weight在**L0C、UB、L1之间传递**，只读取Q/K/V并写回最终Output | 避免中间张量反复访问GM |
 | **=={yellow}4.多核Head并行==** | **根据Head划分AI Core**，每个Core独立处理一个Head | 避免多个Head串行执行 |
-| **=={yellow}5.Tiling与双缓冲==** | 将K维切成两个Chunk，使用Ping-Pong Buffer交替搬运和计算 | 重叠MTE搬运与Cube计算 |
-| **=={yellow}6.格式转换内联==** | 输入格式与Cube计算格式匹配，在搬运和Kernel内部完成转置及输出整理 | 减少独立TransData和Transpose Kernel |
+| **=={yellow}5.Tiling与双缓冲==** | **将K维切成两个Chunk**，使用**Ping-Pong Buffer交替搬运和计算** | 重叠MTE搬运与Cube计算 |
+| **=={yellow}6.格式转换内联==** | 输入格式与Cube计算格式匹配，**在搬运和Kernel内部完成转置**及输出整理 | 减少独立TransData和Transpose Kernel |
 
 ## 1.实施链路
 
@@ -332,9 +332,9 @@ Cube执行第二次MatMul
 
 ---
 
-# 三、FusedAttention关键优化方法详设
+# =={pink}三、FusedAttention关键优化方法详设==
 
-## 1. 单Kernel融合详设
+## =={pink}1. 单Kernel融合详设==
 
 ### 1.1 什么是单Kernel融合
 

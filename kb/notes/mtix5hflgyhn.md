@@ -565,9 +565,9 @@ FusedAttention
 
 #### =={pink}1.3.3 第三步：Host侧完成注册和Tiling==
 
-Host侧负责：
+=={yellow}Host侧负责：==
 
-- 注册算子名称；
+- =={yellow}注册算子名称；==
 - 检查输入Shape和数据类型；
 - 推导输出Shape；
 - 根据Head数量和矩阵规模生成Tiling参数；

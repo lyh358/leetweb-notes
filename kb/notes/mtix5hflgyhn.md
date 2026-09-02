@@ -1645,7 +1645,7 @@ Cube：等待
 
 ##### =={pink}第二阶段：计算与搬运重叠==
 
-=={yellow}Chunk 0准备好后：==
+=={yellow}Chunk 0准备好后，cu'be：==
 
 ```sql
 Cube：从Ping读取并计算Chunk 0

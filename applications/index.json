@@ -4,11 +4,11 @@
     "company": "影石",
     "role": "",
     "location": "",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://arashivision.jobs.feishu.cn/campus/position/application",
     "created": 1788367715938,
-    "updated": 1788367715938
+    "updated": 1788367718726
   },
   {
     "id": "mtkbwa6aa1jz",

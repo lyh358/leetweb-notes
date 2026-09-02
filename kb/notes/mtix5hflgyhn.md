@@ -1634,7 +1634,7 @@ Chunk 1 ───────→ │ Pong Buffer  │ ←─────── M
 
 ##### =={pink}第一阶段：填充 Ping==
 
-=={yellow}首先把 Chunk 0 搬到 Ping==：
+=={yellow}**首先把 Chunk 0 搬到 Ping**==：
 
 ```sql
 MTE：GM → Ping，搬运Chunk 0

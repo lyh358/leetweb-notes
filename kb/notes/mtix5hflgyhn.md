@@ -118,7 +118,7 @@ NZ → TransData → ND
 
 格式转换基本不产生新的业务信息，却需要读取、重新排列并写入整块数据，因此会带来额外的搬运和调度开销。
 
-## =={pink}3. 优化前的九个Kernel==
+## =={pink}3. 优化前的Atten九个Kernel==
 
 ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格式转换仍然保持独立。
 

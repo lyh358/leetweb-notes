@@ -2508,7 +2508,7 @@ K：GM(NZ) → L1 → L0B
 
 - =={green}Q在== `L1 → L0A`=={green}装载时，通过== `load_cbuf_to_ca`=={green}组织成 Cube需要的布局；==
 - =={green}K在== `L1 → L0B`=={green}装载时保留对应的 NZ Tile顺序；==
-- =={green}Cube按照 **L0B的分形布局读取**时，逻辑上看到的是==
+- =={green}Cube按照 **L0B的分形布局读取**时，**逻辑上看到**的是==
 
 $$
 K^T

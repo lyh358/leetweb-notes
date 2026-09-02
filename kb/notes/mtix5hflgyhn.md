@@ -2518,7 +2518,7 @@ $$
 
 > =={yellow}**K的转置被吸收到MTE1的装载布局中**==，没有额外启动Transpose Kernel。
 
-#### 6.3.3 中间过程：Score和Weight留在UB中
+#### =={yellow}6.3.3 中间过程：Score和Weight留在UB中==
 
 第一次 Cube计算完成后：
 

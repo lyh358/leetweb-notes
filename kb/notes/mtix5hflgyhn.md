@@ -969,9 +969,9 @@ L0：约32 KB
 
 ## =={pink}4. 多核Head并行详设==
 
-#### 4.1 什么是 Head
+#### =={pink}4.1 什么是 Head==
 
-Multi-Head Attention会把特征拆成多个相互独立的注意力分支，每个分支称为一个 **Head**。
+=={yellow}**Multi-Head Attention**会把特征拆成**多个相互独立的注意力分支**，每个分支称为一个== **=={yellow}Head==**=={yellow}。==
 
 当前自定义算子原型的输入可以表示为：
 
@@ -983,9 +983,9 @@ Q、K、V：[Batch, Head, SeqLen, HeadDim]
 其中：
 
 - `Batch=1`：一次处理一组输入；
-- `Head=8`：共有8个注意力头；
-- `SeqLen=64`：序列包含64个Token；
-- `HeadDim=64`：每个Token在一个Head中有64维特征。
+- `Head=8`：=={yellow}**共有8个注意力头；**==
+- `SeqLen=64`：=={yellow}**序列包含64个Token**==；
+- `HeadDim=64`：=={yellow}**每个Token在一个Head中有64维特征。**==
 
 每个 Head都独立执行完整的 Attention：
 
@@ -996,9 +996,9 @@ Head 1：Q₁K₁ᵀ → Scale → Softmax → Weight₁V₁
 Head 7：Q₇K₇ᵀ → Scale → Softmax → Weight₇V₇
 ```
 
-#### 4.2 什么是多核 Head 并行
+#### =={pink}4.2 什么是多核 Head 并行==
 
-多核 Head并行就是把不同 Head分配给不同的 AI Core，让多个 Head同时计算。
+多核 Head并行就是=={yellow}**把不同 Head分配给不同的 AI Core，让多个 Head同时计算。**==
 
 本算子采用：
 
@@ -1027,15 +1027,15 @@ Weight₀V₀    Weight₁V₁    Weight₂V₂           Weight₇V₇
                      按Head位置写入Output
 ```
 
-它属于**核间并行**：
+=={yellow}它属于==**=={yellow}核间并行==**=={yellow}：==
 
-> 8个 AI Core同时处理8个不同 Head，而不是让8个核共同计算同一个 Head。
+> =={yellow}**8个 AI Core同时处理8个不同 Head**==，而不是让8个核共同计算同一个 Head。
 
 ---
 
-#### 4.3 为什么可以按 Head并行
+#### =={pink}4.3 为什么可以按 Head并行==
 
-不同 Head之间没有直接的数据依赖。
+=={yellow}不同 Head之间**没有直接的数据依赖**。==
 
 例如 Head 0只使用：
 
@@ -1071,7 +1071,7 @@ Head 1的结果也不依赖Head 0
 
 ---
 
-#### 4.4 为什么要这么做
+#### =={pink}4.4 为什么要这么做==
 
 ##### 原因一：避免单核串行计算8个Head
 

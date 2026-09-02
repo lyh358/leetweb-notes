@@ -2679,7 +2679,7 @@ GM中的ND Output
 >     │
 >     │ MTE2：GM→L1
 >     ▼
-> L1
+>     L1
 >     │
 >     │ MTE1装载时调整Tile布局
 >     ▼
@@ -2687,7 +2687,7 @@ GM中的ND Output
 >     │
 >     │ Cube看到需要的矩阵方向
 >     ▼
-> QKᵀ
+>    QKᵀ
 >     │
 >     │ L0C→UB，中间结果不落GM
 >     ▼

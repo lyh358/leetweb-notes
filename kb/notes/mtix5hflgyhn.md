@@ -44,17 +44,6 @@ $$
 
 整体关系可以简化为：
 
-```markdown
-Host CPU
-准备输入、加载模型、发起推理
-          ↓
-Device NPU
-执行各个Kernel
-          ↓
-Host CPU
-接收并处理推理结果
-```
-
 这里分析的九个Kernel，主要是Device侧执行Attention子图时产生的Kernel，不是Host上运行的九个普通函数。
 
 #### Kernel是什么

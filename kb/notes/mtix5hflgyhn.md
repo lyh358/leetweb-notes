@@ -2461,7 +2461,7 @@ Output
 
 ### =={pink}6.3 具体实现==
 
-#### =={yellow}6.3.1 输入端：通过算子接口声明NZ格式==
+#### =={pink}6.3.1 输入端：通过算子接口声明NZ格式==
 
 在 OpDef中把输入格式声明为 `FORMAT_FRACTAL_NZ`，让 ATC在编译阶段完成格式协商。
 
@@ -2477,7 +2477,7 @@ ATC根据算子接口选择或插入布局转换
 
 =={green}这样 Kernel内部**不需要先启动三个独立的 ND→NZ转换**过程，而是直接按照 NZ地址读取 Q、K、V。==
 
-#### =={yellow}6.3.2 第一次矩阵乘：在L1→L0装载时表达K转置==
+#### =={pink}6.3.2 第一次矩阵乘：在L1→L0装载时表达K转置==
 
 第一次矩阵乘需要计算：
 
@@ -2518,7 +2518,7 @@ $$
 
 > =={yellow}**K的转置被吸收到MTE1的装载布局中**==，没有额外启动Transpose Kernel。
 
-#### =={yellow}6.3.3 中间过程：Score和Weight留在UB中==
+#### =={pink}6.3.3 中间过程：Score和Weight留在UB中==
 
 第一次 Cube计算完成后：
 
@@ -2565,7 +2565,7 @@ Score写回GM
 
 ---
 
-#### =={yellow}6.3.4 第二次矩阵乘：装载时适配Score和V==
+#### =={pink}6.3.4 第二次矩阵乘：装载时适配Score和V==
 
 =={yellow}第二次矩阵乘为：==
 
@@ -2598,7 +2598,7 @@ $$
 
 ---
 
-#### 6.3.5 输出端：在UB内完成zN→ND
+#### =={pink}6.3.5 输出端：在UB内完成zN→ND==
 
 第二次 Cube矩阵乘后，结果从 L0C搬到 UB时仍然是 Cube友好的 `zN`分形排列，而算子对外输出要求是 ND格式。
 
@@ -2630,7 +2630,7 @@ GM中的ND Output
 
 因此：
 
-> 输出格式转换不再是独立TransData Kernel，而是FusedAttention内部最后一个Vector处理步骤。
+> =={yellow}**输出格式转换**不再是独立TransData Kernel，而是FusedAttention内部**最后一个Vector处理步骤。**==
 
 ---
 

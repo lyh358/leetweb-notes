@@ -47,7 +47,7 @@ $$
 > =={green}Host CPU==
 > 准备输入、加载模型、发起推理
 >           ↓
-> Device NPU
+> =={green}Device NPU==
 > 执行各个Kernel
 >           ↓
 > Host CPU

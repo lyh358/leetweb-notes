@@ -388,7 +388,7 @@ MatMul + Scale
 
 ### =={pink}1.3 在项目中怎么实现==
 
-#### 1.3.1 FusedAttention自定义算子工程目录
+#### =={yellow}1.3.1 FusedAttention自定义算子工程目录==
 
 ```text
 FusedAttentionCube_build/

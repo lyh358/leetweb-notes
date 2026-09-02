@@ -191,7 +191,7 @@ Cube计算Score
 → Softmax Kernel重新从GM读取
 ```
 
-Softmax完成后，注意力权重又要写回GM，再由第二次MatMul重新读取：
+dSoftmax完成后，注意力权重又要写回GM，再由第二次MatMul重新读取：
 
 ```sql
 Vector完成Softmax

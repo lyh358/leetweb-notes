@@ -2642,7 +2642,7 @@ GM中的ND Output
 >     ▼
 > =={green}GM中的NZ输入==
 >     │
->     │ =={pink}MTE2：GM→L1==
+>     │ =={pink}**MTE2：GM→L1**==
 >     ▼
 >    L1
 >     │
@@ -2650,7 +2650,7 @@ GM中的ND Output
 >     ▼
 > L0A / L0B
 >     │
->     │ Cube看到需要的矩阵方向
+>     │ =={yellow}**Cube看到需要的矩阵方向：消除transpose**==
 >     ▼
 >    QKᵀ
 >     │

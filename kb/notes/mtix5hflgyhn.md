@@ -2656,7 +2656,7 @@ GM中的ND Output
 >     │
 >     │ =={pink}**L0C→UB，中间结果不落GM**==
 >     ▼
-> UB：Scale + Softmax
+> **UB：Scale + Softmax**
 >     │
 >     │ =={yellow}**UB→L1→L0，装载时适配Weight和V**==
 >     ▼

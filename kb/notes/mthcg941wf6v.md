@@ -14,7 +14,7 @@
 │                                                         │
 │  ┌────────────┐    ┌────────────┐    ┌────────────────┐     │
 │  │ DVPP      │    │ 任务调度TS │    │ LPDDR4 内存控制器│   │
-│  │图像编解码  │    │Task Scheduler│  │ Global Memory  │   │
+│  │图像编解码  │    │Task Scheduler│  │ Global Memory │   │
 │  │JPEG/VDEC/VENC│ └────────────┘    └────────────────┘    │
 │  └────────────┘                                             │
 │                                                             │

@@ -436,12 +436,12 @@ FusedAttentionCube_build/
 
 | 产物 | 作用 |
 | --- | --- |
-| =={yellow}Host算子定义库== | 让CANN识别接口、Shape和Tiling |
-| Device Kernel二进制 | 在AI Core上执行实际计算 |
-| ONNX解析插件 | 让ATC识别ONNX自定义节点 |
-| 自定义OPP安装目录 | 保存算子配置、动态库和Kernel |
-| 替换后的ONNX | 包含FusedAttentionCube节点 |
-| 编译后的OM | 最终由ACL加载执行的模型 |
+| **=={yellow}Host算子定义库==** | **让CANN识别接口、Shape和Tiling** |
+| **=={yellow}Device Kernel二进制==** | **在AI Core上执行实际计算** |
+| =={yellow}**ONNX解析插件**== | **让ATC识别ONNX自定义节点** |
+| =={yellow}**自定义OPP安装目录**== | **保存算子配置、动态库和Kernel** |
+| =={yellow}替换后的ONNX== | 包含FusedAttentionCube节点 |
+| =={yellow}编译后的OM== | 最终由ACL加载执行的模型 |
 
 整体链路为：
 

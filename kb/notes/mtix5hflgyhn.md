@@ -390,10 +390,6 @@ MatMul + Scale
 
 #### =={yellow}1.3.1 FusedAttention自定义算子工程目录==
 
-```text
-
-```
-
 ##### 编译后产物
 
 整个工程编译后，主要形成：

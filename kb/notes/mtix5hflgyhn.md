@@ -1415,16 +1415,16 @@ Chunk 1：                  [32 ........ 63]  长度 32
 - =={green}**需要搬运与计算重叠**；==
 - 需要处理不同Shape和尾块。
 
-=={yellow}Tiling通常分成**两部分**：==
+=={yellow}**Tiling**通常分成**两部分**：==
 
 ```undefined
 Host侧：计算怎么切
 Device侧：按照参数执行
 ```
 
-#### 5.1.2 什么是Chunk？
+#### =={pink}5.1.2 什么是Chunk？==
 
-**Chunk**就是 Tiling 后得到的一个“数据块”。
+**=={green}Chunk==**=={green}就是 **Tiling 后**得到的一个“**数据块**”。==
 
 ```undefined
 Tiling：切分这个动作或策略
@@ -1439,15 +1439,15 @@ Chunk：切分后得到的每一个小块
 
 表示沿某个维度进行了 Tiling，得到了两个 Chunk，每个 Chunk 的长度为 32。
 
-#### 5.1.3 算子中对什么进行了Tiling？
+#### =={pink}5.1.3 算子中对什么进行了Tiling？==
 
-当前 FusedAttention 原型使用的单个 Head 形状可以理解为：
+当前 FusedAttention 原型使用的=={green}单个 Head 形状可以理解为：==
 
 ```css
 Q、K、V：[64, 64]
 ```
 
-两个 64 的含义不同：
+=={green}两个 64 的含义不同==：
 
 ```markdown
              特征维度 headDim = 64
@@ -1459,8 +1459,8 @@ Q、K、V：        [64, 64]
 
 也就是说：
 
-- `seqLen = 64`：一个序列包含 64 个 Token；
-- `headDim = 64`：每个 Token 在一个 Head 中由 64 个特征值表示。
+- `seqLen = 64`：=={green}一个序列包含 64 个 Token；==
+- `headDim = 64`：=={green}每个 Token 在一个 Head 中由 64 个特征值表示。==
 
 第一次矩阵乘为：
 
@@ -1486,7 +1486,7 @@ K 维：矩阵乘法中需要相乘并累加的公共维度
 
 ---
 
-#### 5.1.4 为什么沿 K 维切成两个 32
+#### =={pink}5.1.4 为什么沿 K 维切成两个 32==
 
 原始计算可以写成：
 

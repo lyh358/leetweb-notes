@@ -274,16 +274,16 @@ Cube执行第二次MatMul
 
 # =={pink}二、FusedAttention的实施方法概设==
 
-针对优化前存在的**=={yellow}九个Kernel、中间结果反复写回GM、ND/NZ格式转换以及搬运计算串行==**=={yellow}问题==，我主要采用了以下=={green}六项方法==。
+针对优化前存在的**=={yellow}九个Kernel、中间结果反复写回GM、ND/NZ格式转换以及搬运计算串行==**=={yellow}问题==，我主要采用了以下=={green}**六项方法**==。
 
 | 方法 | 怎么实现 | 解决的问题 |
 | --- | --- | --- |
-| **单Kernel融合** | 将`QKᵀ、Scale、Softmax、Weight×V`合并到一个FusedAttention Kernel | 减少Kernel启动、调度和同步 |
-| **Cube与Vector协同** | 两次矩阵乘使用Cube，Scale和Softmax使用Vector | 让不同计算交给最合适的硬件单元 |
-| **中间结果片上驻留** | Score和Weight在LOC、UB、L1之间传递，只读取Q/K/V并写回最终Output | 避免中间张量反复访问GM |
-| **多核Head并行** | 根据Head划分AI Core，每个Core独立处理一个Head | 避免多个Head串行执行 |
-| **Tiling与双缓冲** | 将K维切成两个Chunk，使用Ping-Pong Buffer交替搬运和计算 | 重叠MTE搬运与Cube计算 |
-| **格式转换内联** | 输入格式与Cube计算格式匹配，在搬运和Kernel内部完成转置及输出整理 | 减少独立TransData和Transpose Kernel |
+| **=={yellow}1.单Kernel融合==** | 将`QKᵀ、Scale、Softmax、Weight×V`合并到一个FusedAttention Kernel | 减少Kernel启动、调度和同步 |
+| **=={yellow}2.Cube与Vector协同==** | 两次矩阵乘使用Cube，Scale和Softmax使用Vector | 让不同计算交给最合适的硬件单元 |
+| **=={yellow}3.中间结果片上驻留==** | Score和Weight在**L0C、UB、L1之间传递**，只读取Q/K/V并写回最终Output | 避免中间张量反复访问GM |
+| **=={yellow}4.多核Head并行==** | **根据Head划分AI Core**，每个Core独立处理一个Head | 避免多个Head串行执行 |
+| **=={yellow}5.Tiling与双缓冲==** | 将K维切成两个Chunk，使用Ping-Pong Buffer交替搬运和计算 | 重叠MTE搬运与Cube计算 |
+| **=={yellow}6.格式转换内联==** | 输入格式与Cube计算格式匹配，在搬运和Kernel内部完成转置及输出整理 | 减少独立TransData和Transpose Kernel |
 
 ## 1.实施链路
 

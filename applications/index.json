@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtkcyhet97cf",
+    "company": "小马智行",
+    "role": "研发混合",
+    "location": "广州",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://ponyai.jobs.feishu.cn/ponycampus/position/application",
+    "created": 1788369385637,
+    "updated": 1788369385637
+  },
+  {
     "id": "mtkcqwrtdwyc",
     "company": "它石智航",
     "role": "机器人嵌软",

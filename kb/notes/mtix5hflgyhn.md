@@ -191,7 +191,7 @@ Cube计算Score
 → Softmax Kernel重新从GM读取
 ```
 
-kernel Softmax完成后，注意力权重又要写回GM，再由第二次MatMul重新读取：
+=={yellow}kernel 6 Softmax完成后==，注意力权重又要=={yellow}写回GM==，=={yellow}再==由第二次MatMul=={yellow}重新读取==：
 
 ```sql
 Vector完成Softmax
@@ -199,11 +199,11 @@ Vector完成Softmax
 → Cube重新从GM读取
 ```
 
-这使中间结果在不同Kernel之间反复搬运，而不是一直保留在高速片上存储中。
+=={yellow}这使中间结果在不同Kernel之间反复搬运，而不是一直保留在高速片上存储中。==
 
-#### 问题三：Cube和Vector之间频繁转换格式
+#### =={pink}问题三：Cube和Vector之间频繁转换格式==
 
-矩阵乘更适合NZ格式，Softmax更适合ND格式，因此链路中形成：
+=={yellow}矩阵乘更适合NZ格式，Softmax更适合ND格式==，因此链路中形成：
 
 ```sql
 Cube使用NZ
@@ -219,7 +219,7 @@ Cube执行第二次MatMul
 
 这些TransData没有改变Attention的计算结果，但增加了数据读取、重新排列、写入和Kernel调度。
 
-#### 问题四：计算与搬运没有形成连续流水
+#### =={pink}问题四：计算与搬运没有形成连续流水==
 
 优化前的多个Kernel彼此独立。前一个Kernel结束后，中间结果通常需要写回GM，下一个Kernel才能继续处理。
 

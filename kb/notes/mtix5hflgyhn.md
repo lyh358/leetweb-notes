@@ -97,7 +97,7 @@ Attention需要先使用Cube计算矩阵乘，再使用Vector完成Softmax，最
 
 #### =={pink}ND和NZ是什么==
 
-=={green}ND和NZ是两种不同的数据存储格式。==
+=={green}ND和NZ是两种**不同的数据存储格式**。==
 
 - **ND格式**：普通的连续张量格式，便于Softmax等Vector操作处理；
 - **NZ格式**：按照固定小块重新排列的分形格式，更适合Cube高效执行矩阵乘。

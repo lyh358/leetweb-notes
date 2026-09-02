@@ -1632,7 +1632,7 @@ Chunk 1 ───────→ │ Pong Buffer  │ ←─────── M
 
 #### =={pink}5.2.4 两个 Chunk 是怎么执行的==
 
-##### 第一阶段：填充 Ping
+##### =={pink}第一阶段：填充 Ping==
 
 首先把 Chunk 0 搬到 Ping：
 

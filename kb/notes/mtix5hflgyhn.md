@@ -2636,6 +2636,7 @@ GM中的ND Output
 
 #### 6.3.6 完整格式处理链路
 
+```css
 输入Q/K/V
     │
     │ OpDef声明FRACTAL_NZ
@@ -2672,6 +2673,7 @@ UB中的ND输出
     │ MTE3
     ▼
 GM中的ND Output
+```
 
 ---
 

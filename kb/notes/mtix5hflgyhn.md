@@ -1571,7 +1571,7 @@ Cube：负责计算的工人
 GM → Buffer → Cube
 ```
 
-=={yellow}两个 Chunk 只能依次处理：==
+=={yellow}**两个 Chunk 只能串行处理**：==
 
 ```sql
 ① MTE把Chunk 0搬入Buffer
@@ -1589,10 +1589,10 @@ MTE：  [搬Chunk 0]             [搬Chunk 1]
 Cube：             [算Chunk 0]             [算Chunk 1]
 ```
 
-这里存在两个问题：
+=={yellow}这里存在两个问题==：
 
-- MTE搬运 Chunk 0 时，Cube没有数据可算；
-- Cube计算 Chunk 0 时，MTE不能把 Chunk 1 写入同一块 Buffer，否则会覆盖 Cube正在读取的数据。
+- =={yellow}MTE搬运 Chunk 0 时，Cube没有数据可算；==
+- =={yellow}Cube计算 Chunk 0 时，MTE不能把 Chunk 1 写入同一块 Buffer，否则会覆盖 Cube正在读取的数据。==
 
 所以，搬运和计算基本只能串行进行。
 

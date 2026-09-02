@@ -125,19 +125,19 @@ ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格�
 完整执行链路如下：
 
 > Q：ND ─→ =={yellow}**Kernel 1：TransData**==，=={yellow}**ND→NZ**== ─┐
-> K：ND ─→ =={yellow}**Kernel 2**：TransData==，ND→NZ ─┼→ =={yellow}**Kernel 4：QKᵀ+Scale**==
+> K：ND ─→ =={yellow}**Kernel 2**：TransData==，ND→NZ ─┼→ =={pink}**Kernel 4：QKᵀ+Scale**==
 > V：ND ─→ =={yellow}**Kernel 3：**TransData==，ND→NZ ─┘           ↓
 >                                                                                                      Score_NZ
 >                                                                                                              ↓
->                                                                                            =={yellow}Kernel 5：TransData，NZ→ND==
+>                                                                                            =={yellow}**Kernel 5：TransData，NZ→ND**==
 >                                                                                                              ↓
->                                                                                            =={yellow}Kernel 6：Softmax==
+>                                                                                            =={pink}**Kernel 6：Softmax**==
 >                                                                                                              ↓
->                                                                                            =={yellow}Kernel 7：TransData，ND→NZ==
+>                                                                                            =={yellow}**Kernel 7：TransData，ND→NZ**==
 >                                                                                                              ↓
->                                                                                            =={yellow}Kernel 8：Weight×V==
+>                                                                                            =={pink}**Kernel 8：Weight×V**==
 >                                                                                                              ↓
->                                                                                            q
+>                                                                                            =={yellow}**Kernel 9：TransData，NZ→ND**==
 >                                                                                                              ↓
 >                                                                                                       最终输出
 
@@ -155,7 +155,7 @@ ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格�
 | 8 | Cube | 计算`Weight×V`，得到Attention输出 |
 | 9 | MTE/格式转换 | 将输出从NZ恢复成业务侧需要的ND格式 |
 
-从九个Kernel可以看出，真正完成Attention数学计算的主要是：
+从九个Kernel可以看出，=={green}真正完成Attention数学计算的主要是==：
 
 ```undefined
 Kernel 4：QKᵀ + Scale
@@ -163,13 +163,13 @@ Kernel 6：Softmax
 Kernel 8：Weight × V
 ```
 
-其余大部分Kernel都在处理数据格式和数据流转。
+=={green}其余大部分Kernel都在**处理数据格式和数据流转**。==
 
-## 4. 优化前为什么性能不理想
+## =={pink}4. 优化前为什么性能不理想==
 
-#### 问题一：Kernel数量较多
+#### =={yellow}问题一：Kernel数量较多==
 
-整个Attention子图包含九个Kernel。即使每个Kernel的计算量不大，也需要分别经历：
+整个Attention子图=={green}包含九个Kernel。即使每个Kernel的计算量不大==，也需要分别经历：
 
 ```undefined
 Kernel调度
@@ -179,7 +179,7 @@ Kernel调度
 → 同步结束
 ```
 
-SPF属于小Shape、batch_size为1的轻量模型，矩阵乘本身执行得很快，因此Kernel启动和调度开销会显得更加突出。
+SPF属于小Shape、batch_size为1的轻量模型，矩阵乘本身执行得很快，因此=={green}**Kernel启动和调度开销**==会显得更加突出。
 
 #### 问题二：中间结果反复访问GM
 

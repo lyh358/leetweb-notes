@@ -1415,7 +1415,7 @@ Chunk 1：                  [32 ........ 63]  长度 32
 - =={green}**需要搬运与计算重叠**；==
 - 需要处理不同Shape和尾块。
 
-=={yellow}Tiling通常分成两部分：==
+=={yellow}Tiling通常分成**两部分**：==
 
 ```undefined
 Host侧：计算怎么切

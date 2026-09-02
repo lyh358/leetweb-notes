@@ -107,7 +107,7 @@
 
  **AI‑Core 私有：L1 Buffer → L0A/L0B/L0C、UB (Unified Buffer)**
 
- MTE 搬运引擎：
+ **MTE 搬运引擎：**
 
 - **MTE2：读方向：GM/L2 → AI‑Core 内部 (L1/UB)**
 - **MTE1：内核搬运：L1 → L0A / L0B（Cube 输入）**

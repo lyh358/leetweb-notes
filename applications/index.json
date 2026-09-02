@@ -4,11 +4,11 @@
     "company": "理想",
     "role": "端侧AI部署",
     "location": "北京",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://www.lixiang.com/employ/archives.html?fromJob=1",
     "created": 1788355308270,
-    "updated": 1788355308270
+    "updated": 1788355310971
   },
   {
     "id": "mtjuhemrhqvn",

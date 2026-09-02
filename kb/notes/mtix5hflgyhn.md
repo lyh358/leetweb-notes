@@ -505,12 +505,12 @@ FusedAttention(Q,K,V) → Output
 
 | 张量 | Shape | 数据类型 | 数据格式 |
 | --- | --- | --- | --- |
-| Q | `[1,8,64,64]` | FP16 | FRACTAL_NZ |
-| K | `[1,8,64,64]` | FP16 | FRACTAL_NZ |
-| V | `[1,8,64,64]` | FP16 | **FRACTAL_NZ** |
-| Output | `[1,8,64,64]` | FP16 | ND |
+| Q | `[1,8,64,64]` | FP16 | **=={yellow}FRACTAL_NZ==** |
+| K | `[1,8,64,64]` | FP16 | **=={yellow}FRACTAL_NZ==** |
+| V | `[1,8,64,64]` | FP16 | **=={yellow}FRACTAL_NZ==** |
+| Output | `[1,8,64,64]` | FP16 | =={yellow}**ND**== |
 
-每个维度分别表示：
+=={yellow}每个维度分别表示==：
 
 ```text
 [batch, headNum, seqLen, headDim]
@@ -539,12 +539,12 @@ FusedAttention(Q,K,V) → Output
 - FP16/FP32回答“一个元素是什么”；
 - ND/NZ回答“这些元素怎样排列”。
 
-同时声明：
+=={yellow}同时声明：==
 
-- Host侧Tiling入口；
-- Device侧Kernel入口。
+- =={yellow}**Host侧Tiling入口；**==
+- =={yellow}**Device侧Kernel入口。**==
 
-#### 1.3.3 第二步：识别原始Attention子图
+#### =={pink}1.3.3 第二步：识别原始Attention子图==
 
 在ONNX中识别：
 
@@ -555,7 +555,7 @@ MatMul
 → MatMul
 ```
 
-确认这段子图没有其他外部分支依赖后，将其整体替换为：
+确认这段子图没有其他外部分支依赖后，=={yellow}**将其整体替换**==为：
 
 ```undefined
 FusedAttention
@@ -563,7 +563,7 @@ FusedAttention
 
 如果Score还被其他节点使用，就不能直接删除原子图，否则会改变模型语义。
 
-#### 1.3.3 第三步：Host侧完成注册和Tiling
+#### =={pink}1.3.3 第三步：Host侧完成注册和Tiling==
 
 Host侧负责：
 

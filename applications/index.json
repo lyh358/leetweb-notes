@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtkde8l1isi1",
+    "company": "安克创新",
+    "role": "嵌入式",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "",
+    "created": 1788370120693,
+    "updated": 1788370120693
+  },
+  {
     "id": "mtkcyhet97cf",
     "company": "小马智行",
     "role": "研发混合",

@@ -978,7 +978,7 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 **=={green}对于大模型，矩阵乘法可能占据主要时延==**；**=={yellow}但SPF是一个小Shape、batch_size=1的轻量模型==**=={yellow}，单次矩阵计算规模不大，因此==**=={yellow}调度、格式转换和数据搬运==**=={yellow}的**占比**==会=={yellow}**更加明显**===={yellow}。==
 
-### =={pink}3.3.2== =={pink}分析工具（Netron、ATC、msprof、）==
+### =={pink}3.3.2== =={pink}分析工具（Netron、ATC、msprof、推理程序）==
 
 #### =={pink}1. ONNX计算图检查工具Netron==
 

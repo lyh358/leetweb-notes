@@ -390,7 +390,43 @@ MatMul + Scale
 
 #### =={yellow}1.3.1 FusedAttention自定义算子工程目录==
 
-> 
+> FusedAttentionCube_build/
+> │
+> ├── CMakeLists.txt：负责整个自定义算子工程的编译：告诉编译系统整个工程由哪些源码组成，分别需要编译成什么产物。
+> ├── build.sh：负责执行完整构建流程：1.创建build目录  2.执行CMake  3.编译Host和Device代码  4.生成算子安装包  5.安装算子
+> │
+> ├── cmake/ 			cmake目录负责管理CANN依赖、芯片配置以及Host、Kernel和插件三部分的构建规则。
+> │   ├── config.cmake：配置CANN安装路径、目标芯片、编译模式、自定义算子的vendor名称、输出和安装目录。
+> │   ├── func.cmake：封装重复使用的CMake函数
+> │   └── intf.cmake：处理不同模块之间的编译接口
+> │	
+> │	Host侧代码运行在CPU侧，负责告诉CANN：
+> │	这个算子是什么；
+> │	接收什么输入；
+> │	产生什么输出；
+> │	支持什么数据类型和格式；
+> │	输入应该怎样分核、分块。
+> ├── op_host/       Host侧：算子定义与Tiling配置
+> │   ├── fused_attention_cube_op.cpp   Host侧的主要算子定义文件：1.定义算子接口；2.注册Shape推导函数；
+> │	│														3.注册Tiling函数；4.绑定Device Kernel
+> │   └── fused_attention_cube_tiling.h	Host侧和Device侧共享的Tiling参数定义文件。
+> │	Host侧负责填写，Device Kernel负责读取。
+> │	可以理解为：Host提前写好一张“施工图”，Device Kernel根据施工图执行分核、分块和内存访问。
+> │
+> ├── op_kernel/	   Device侧：计算实现
+> │   └── fused_attention_cube_pingpong.cpp
+> │
+> ├── framework/	
+> │   └── onnx_plugin/	ONNX解析插件
+> │       └── fused_attention_cube_plugin.cpp		负责连接ONNX与CANN自定义算子，相当于自定义节点与ATC之间的“翻译器”。
+> │		编译后通常生成类似：libcust_onnx_parsers.so
+> ├── tools/	ONNX计算图处理工具
+> │   └── fused_attention_replace.py	该脚本负责在原始ONNX模型中识别原Attention子图并替换为自定义算子
+> │
+> └── test/	验证工具
+>     ├── generate_golden.py	生成自定义算子的Golden基准数据。
+>     ├── compare_output.py	比较自定义算子输出与Golden输出，计算：余弦相似度、MSE、最大绝对误差、平均绝对误差
+>     └── run_test.sh		组织完整验证流程
 
 ##### 编译后产物
 

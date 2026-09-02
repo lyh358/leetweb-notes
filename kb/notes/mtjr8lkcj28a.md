@@ -2,4 +2,4 @@
 
 ## =={pink}3.1 优化目标与约束==
 
-=={pink}bu==
+=={pink}buxigai==

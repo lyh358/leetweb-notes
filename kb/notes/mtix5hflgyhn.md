@@ -219,7 +219,7 @@ Cube执行第二次MatMul
 
 这些TransData没有改变Attention的计算结果，但增加了数据读取、重新排列、写入和Kernel调度。
 
-#### =={pink}问题四：计算与搬运没有形成连续流水==
+#### 问题四：计算与搬运没有形成连续流水
 
 优化前的多个Kernel彼此独立。前一个Kernel结束后，中间结果通常需要写回GM，下一个Kernel才能继续处理。
 
@@ -241,13 +241,13 @@ Cube执行第二次MatMul
 
 对于小矩阵Attention，真正的Cube计算时间很短，无法掩盖这些搬运和调度开销。
 
-## 5. 最终瓶颈判断
+## =={pink}5. 最终瓶颈判断==
 
 优化前Attention的主要矛盾不是计算公式太复杂，也不是Cube执行矩阵乘不够快，而是：
 
-> 多个Kernel将Attention链路切得过碎，使中间结果反复写回GM，并在Cube和Vector之间产生多次格式转换与调度。
+> =={yellow}**多个Kernel**将Attention链路切得**过碎**，使**中间结果反复写回GM**，并在Cube和Vector之间产生**多次格式转换**与**kernel调度**。==
 
-因此，自定义算子的优化目标确定为：
+因此，=={yellow}**自定义算子的优化目标**==确定为：
 
 ```markdown
 把QKᵀ、Scale、Softmax和Weight×V

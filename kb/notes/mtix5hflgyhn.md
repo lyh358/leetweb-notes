@@ -1946,9 +1946,9 @@ $$
 
 > **=={yellow}Cube===={yellow}计算Chunk== =={yellow}0== =={yellow}→ 初始化L0C==**
 >                          ↓
-> **Cube计算Chunk 1 → 累加L0C**
+> **=={yellow}Cube===={yellow}计算Chunk== =={yellow}1== =={yellow}→ 累加L0C==**
 >                          ↓
->                  **得到完整Score**
+>                  **=={yellow}得到完整Score==**
 
 两次 Cube计算本身存在累加依赖，所以不能互相并行；能够并行的是：
 

@@ -629,7 +629,7 @@ CopyOut Output
 
 ---
 
-## =={pink}2. Cube与Vector异构协同详设：流水设计与并行策略==
+## =={pink}2. Cube与Vector异构协同详设：流水设计与内存搬运==
 
 ### 2.1 什么是Cube与Vector
 

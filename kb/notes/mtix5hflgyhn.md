@@ -2626,7 +2626,7 @@ UB中的ND结果
 GM中的ND Output
 ```
 
-=={yellow}从而让 Vector按 zN顺序读取、按 ND顺序写入，实现片上重排。==
+=={yellow}从而**让 Vector按 zN顺序读取、按 ND顺序写入**，实现片上重排。==
 
 因此：
 

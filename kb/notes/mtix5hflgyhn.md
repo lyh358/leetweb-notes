@@ -2573,7 +2573,7 @@ $$
 Output=Weight\times V
 $$
 
-=={yellow}Weight目前在 UB中，V输入在 GM的 NZ布局中。==
+=={yellow}**Weight目前在 UB**中，**V输入在 GM的 NZ布局**中。==
 
 数据路径为：
 
@@ -2584,17 +2584,17 @@ V：     GM → L1 → L0B
              Cube计算Weight×V
 ```
 
-在 MTE1从 L1装载到 L0A/L0B时：
+=={green}在 MTE1从 L1装载到 L0A/L0B时：==
 
-- Weight按照 L0A需要的布局组织；
-- V通过 `load_cbuf_to_cb(..., transpose=1)`调整 Tile读取方式；
-- Cube最终看到的是正常方向的 V，而不是
+- =={yellow}**Weight按照 L0A需要的布局组织**；==
+- =={yellow}**V通过**== `load_cbuf_to_cb(..., transpose=1)`=={yellow}**调整 Tile读取方式**；==
+- =={yellow}Cube最终看到的是正常方向的 V，而不是==
 
 $$
 V^T
 $$
 
-因此，V的方向适配也被吸收到了 L1→L0B的数据装载过程。
+因此，=={yellow}V的**方向适配**也被**吸收到了 L1→L0B的数据装载**过程。==
 
 ---
 

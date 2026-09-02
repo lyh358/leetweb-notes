@@ -4,11 +4,11 @@
     "company": "和利时",
     "role": "软件开发",
     "location": "北京",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "",
     "created": 1788331249115,
-    "updated": 1788331249115
+    "updated": 1788331251616
   },
   {
     "id": "mtjq8s3vcn3t",

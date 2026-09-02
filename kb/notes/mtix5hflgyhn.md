@@ -2636,7 +2636,7 @@ GM中的ND Output
 
 #### 6.3.6 完整格式处理链路
 
-> 输入Q/K/V
+> =={green}输入===={green}Q===={green}/K/V==
 >     │
 >     │ =={yellow}**OpDef声明FRACTAL_NZ：消除kernel 1/2/3**==
 >     ▼

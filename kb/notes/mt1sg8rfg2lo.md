@@ -6,7 +6,7 @@
 
 | 特性 | select | poll | epoll |
 | --- | --- | --- | --- |
-| FD 管理 | =={yellow}**数组**==，最大 FD 受限（默认 =={yellow}1024==） | =={yellow}链表==（pollfd 数组），=={yellow}无 FD 数量限制== | =={yellow}红黑树 + 就绪链表==，=={yellow}无 FD 数量限制== |
+| FD 管理 | =={yellow}**数组**==，最大 FD 受限（默认 =={yellow}1024==） | =={yellow}**链表**==（pollfd 数组），=={yellow}无 FD 数量限制== | =={yellow}红黑树 + 就绪链表==，=={yellow}无 FD 数量限制== |
 | 效率 | =={yellow}轮询==所有 FD，=={yellow}O (n)==，FD 越多越慢 | =={yellow}轮询==所有 FD，=={yellow}O (n)==，仅解决数量限制 | =={yellow}仅遍历就绪 FD，O (1)==，高性能 |
 | 触发方式 | =={yellow}仅水平触发（LT）== | =={yellow}仅水平触发（LT）== | =={yellow}支持 **LT** / **边缘触发（ET**，更高效）== |
 | 内存拷贝 | =={yellow}**每次调用拷贝**整个 FD 集合==到内核 | =={yellow}**每次调用拷贝** pollfd 数组==到内核 | =={yellow}**仅初始化时拷贝**==，后续共享内存 |

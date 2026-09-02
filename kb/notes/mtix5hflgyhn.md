@@ -673,14 +673,14 @@ Attention同时包含矩阵乘和非线性计算，因此不能只使用一种�
 
 ### =={pink}2.3 在算子中如何协同==
 
-=={yellow}算子有**三个计算阶段**和五条流水线。==
+=={yellow}算子有**三个计算阶段**和**五条流水线**。==
 
-#### 2.3.1 流水线：MTE2、MTE1、Cube、Vector和MTE3
+#### =={pink}2.3.1 流水线：MTE2、MTE1、Cube、Vector和MTE3==
 
 | 流水线 | 主要职责 | 在本算子中的作用 |
 | --- | --- | --- |
-| **PIPE_MTE2** | GM到片上存储的数据搬运 | 将Q、K、V从GM搬到L1或UB |
-| **PIPE_MTE1** | L1到L0的数据搬运和格式整理 | 将Q、K、Weight、V送入L0A/L0B |
+| **=={yellow}PIPE_MTE2==** | =={yellow}GM到片上存储==的数据搬运 | 将Q、K、V从GM搬到L1或UB |
+| **=={yellow}PIPE_MTE1==** | L1到L0的数据搬运和格式整理 | 将Q、K、Weight、V送入L0A/L0B |
 | **PIPE_M** | Cube矩阵计算 | 执行`QKᵀ`和`Weight×V` |
 | **PIPE_V** | Vector向量计算 | 执行Scale、Softmax和输出格式整理 |
 | **PIPE_MTE3** | 片上结果向外搬运 | UB到L1或GM的数据搬运 |

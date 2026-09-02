@@ -1591,23 +1591,23 @@ Cube：             [算Chunk 0]             [算Chunk 1]
 
 =={yellow}这里存在两个问题==：
 
-- =={yellow}MTE搬运 Chunk 0 时，Cube没有数据可算；==
-- =={yellow}Cube计算 Chunk 0 时，MTE不能把 Chunk 1 写入同一块 Buffer，否则会覆盖 Cube正在读取的数据。==
+- =={yellow}MTE**搬运 Chunk 0 时**，Cube**没有数据可算**；==
+- =={yellow}Cube**计算 Chunk 0 时**，MTE**不能把 Chunk 1 写入同一块 Buffer**，否则会覆盖 Cube正在读取的数据。==
 
-所以，搬运和计算基本只能串行进行。
+所以，=={yellow}**搬运和计算**基本**只能串行进行**。==
 
 ---
 
-#### 5.2.3 什么是 Ping-Pong 双缓冲
+#### =={pink}5.2.3 什么是 Ping-Pong 双缓冲==
 
-双缓冲就是准备两套相互独立的 Buffer：
+双缓冲就是=={yellow}准备**两套相互独立的 Buffer**==：
 
 ```undefined
 Ping Buffer
 Pong Buffer
 ```
 
-在本算子的两个 Chunk 场景中：
+=={green}在本算子的两个 Chunk 场景中==：
 
 ```undefined
 Chunk 0 → Ping Buffer

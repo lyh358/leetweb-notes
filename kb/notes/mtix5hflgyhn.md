@@ -1662,7 +1662,7 @@ Cube：                 [计算Ping中的Chunk 0][计算Pong中的Chunk 1]
                        ╰──── 与搬Chunk 1重叠 ────╯
 ```
 
-##### 第三阶段：计算 Pong
+##### =={pink}第三阶段：计算 Pong==
 
 Chunk 0计算完成、Chunk 1搬运完成后：
 

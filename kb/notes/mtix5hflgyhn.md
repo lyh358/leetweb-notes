@@ -336,7 +336,7 @@ Cube执行第二次MatMul
 
 ## =={pink}1. 单Kernel融合详设==
 
-### 1.1 什么是单Kernel融合
+### =={yellow}1.1 什么是单Kernel融合==
 
 优化前，Attention被拆成多个独立Kernel：
 

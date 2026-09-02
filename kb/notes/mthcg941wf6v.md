@@ -84,3 +84,33 @@
 6. **Scoreboard / 指令队列**：指令乱序、同步，三条流水线并行、同步。
 
 ---
+
+## 三、面试高频问答
+
+### Q1：AI‑Core 三条流水线是什么？
+
+Scalar 标量流水线、Cube 矩阵流水线、Vector 向量流水线，三条相互独立，可以并行执行，提升算子吞吐。
+
+### Q2：Local Memory 和 Global Memory 区别
+
+- Local Memory：每个 AI‑Core 私有片上 SRAM，带宽极高，容量小；算子中间数据、权重分片。
+- Global Memory：LPDDR4，芯片全局内存，所有核共享，容量大，延迟带宽比 Local 差。
+
+> 昇腾算子优化关键点：**尽量复用 Local Memory，减少 DDR 访问**。
+
+### Q3：DMA MTE2/MTE3 作用？
+
+MTE2：Global→Local（搬入）；MTE3：Local→Global（搬出）；实现**计算与数据搬运并行重叠**，掩盖访存延迟。
+
+### Q4：DVPP 是做什么，为什么不交给 AI‑Core？
+
+硬件图像预处理，图像缩放、色域转换、编解码；专用硬件，比 AI‑Core 做预处理效率高，解放 AI‑Core 算力做推理。
+
+### Q5：AI‑CPU 和 AI‑Core 区别
+
+- AI‑Core：专用加速器，擅长矩阵、张量；算力极高；
+- AI‑CPU (A55)：ARM 通用核，跑复杂逻辑、少量非张量算子；算力低。
+
+### Q6：310P3 中 TS 任务调度器作用？
+
+硬件 TS，把算子任务调度分发到 8 个 AI‑Core，实现多核并行推理。

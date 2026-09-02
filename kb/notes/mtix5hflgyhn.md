@@ -875,8 +875,8 @@ MTE3和MTE2
 =={yellow}**优化前**：==
 
 > =={green}**Score → GM → Softmax**==
-> =={green}**Weight → GM → 第二次MatMul**
-> =={green}**V**== **=={green}→GM==** **=={green}→ L1==** **=={green}→ L0B==**==
+> =={green}**Weight → GM → 第二次MatMul**==
+> {green}**V**== **=={green}→GM==** **=={green}→ L1==** **=={green}→ L0B==**==
 
 =={yellow}**优化后**设计：==
 
@@ -940,15 +940,15 @@ $$
 
 ### =={pink}3.5 为什么片上存储能够放下==
 
-当前原型矩阵为64×64。
+=={yellow}当前原型矩阵为64×64。==
 
-FP16矩阵大小为：
+=={yellow}FP16矩阵大小为：==
 
 $$
 64\times64\times2=8192\ \text{Bytes}
 $$
 
-即一个矩阵约8 KB。
+=={yellow}即一个矩阵约8 KB。==
 
 因此Q、K、V、Score和Output可以通过分阶段使用与Buffer复用控制片上占用，而不需要同时为所有数据保留独立空间。
 
@@ -967,7 +967,7 @@ L0：约32 KB
 
 ---
 
-## 4. 多核Head并行详设
+## =={pink}4. 多核Head并行详设==
 
 #### 4.1 什么是 Head
 

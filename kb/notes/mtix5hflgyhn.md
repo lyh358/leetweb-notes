@@ -879,8 +879,8 @@ MTE3和MTE2
 
 =={yellow}**优化后**设计：==
 
-> =={green}**Score → L0C/UB → Softmax**==
-> =={green}**Weight → UB->L1/L0A → 第二次MatMul**==
+> =={green}**Score → L0C** **→** **UB → Softmax**==
+> =={green}**Weight → UB** **→** **L1** **→** **L0A/B → 第二次MatMul**==
 
 ### 3.2 使用哪些存储
 
@@ -895,7 +895,7 @@ MTE3和MTE2
 
 基本原则是：
 
-> GM负责输入和最终输出，片上存储负责计算过程中的中间数据。
+> =={yellow}GM负责**输入和最终输出**，片上存储负责计算**过程中的中间数据**。==
 
 ### 3.3 Score怎样驻留
 

@@ -2646,7 +2646,7 @@ GM中的ND Output
 >     ▼
 >    L1
 >     │
->     │ =={yellow}**MTE1装载时调整Tile布局**==**：消除transpose**
+>     │ =={yellow}**MTE1装载时调整Tile布局**==**=={yellow}：消除transpose==**
 >     ▼
 > L0A / L0B
 >     │

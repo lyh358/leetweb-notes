@@ -124,9 +124,37 @@ ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格�
 
 完整执行链路如下：
 
-```css
+Q：ND ─→ Kernel 1：TransData，ND→NZ ─┐
 
-```
+K：ND ─→ Kernel 2：TransData，ND→NZ ─┼→ Kernel 4：QKᵀ+Scale
+
+V：ND ─→ Kernel 3：TransData，ND→NZ ─┘           ↓
+
+                                                Score_NZ
+
+                                                    ↓
+
+                              Kernel 5：TransData，NZ→ND
+
+                                                    ↓
+
+                                      Kernel 6：Softmax
+
+                                                    ↓
+
+                              Kernel 7：TransData，ND→NZ
+
+                                                    ↓
+
+                                   Kernel 8：Weight×V
+
+                                                    ↓
+
+                              Kernel 9：TransData，NZ→ND
+
+                                                    ↓
+
+                                              最终输出
 
 九个Kernel分别负责：
 

@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtkc0pckbi0u",
+    "company": "拓竹",
+    "role": "嵌入式系统软件工程师",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://bambulab.jobs.feishu.cn/campus/position/application",
+    "created": 1788367809620,
+    "updated": 1788367809620
+  },
+  {
     "id": "mtkbyp2armhj",
     "company": "影石",
     "role": "嵌入式软件工程师-RTOS",

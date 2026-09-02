@@ -2646,11 +2646,11 @@ GM中的ND Output
 >     ▼
 >    L1
 >     │
->     │ =={yellow}**MTE1装载时调整Tile布局**==
+>     │ =={yellow}**MTE1装载时调整Tile布局**==**：消除transpose**
 >     ▼
 > L0A / L0B
 >     │
->     │ =={yellow}**Cube看到需要的矩阵方向：消除transpose**==
+>     │ =={yellow}**Cube看到需要的矩阵方向**==
 >     ▼
 >    QKᵀ
 >     │

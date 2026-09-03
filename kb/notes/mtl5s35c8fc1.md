@@ -118,7 +118,7 @@ WiFi 连接成功后，获取 ESP32 本机 IP 地址，串口打印 IP，浏览�
 伪代码定义WebServer对象，端口80
 
 ```csharp
-//注册路由
+setup(){初始化串口WiFi.begin(ssid,密码)等待WiFi连接完成打印本机IP//注册路由
 server.on("/", 首页回调);
 server.on("/led", led控制回调);
 
@@ -139,3 +139,7 @@ server.send(200,"text/plain","执行完成")
 
 }
 ```
+
+---
+
+二、千heng

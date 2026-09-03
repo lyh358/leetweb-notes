@@ -52,3 +52,23 @@ packed = 等价于 `aligned(1)`，按 1 字节对齐，不填充。
 ## 3. 裸机实现临界区、原子操作
 
 裸机没有 OS，临界区本质：**关闭全局中断**，防止中断打断共享变量读写。
+### 3. 原子操作两种方案
+
+1. **临界区包裹**：非原子的运算，包进临界区，裸机最通用。
+
+```
+ENTER_CRITICAL();
+g_val++;
+EXIT_CRITICAL();
+```
+
+1. **硬件原子指令**：Cortex‑M3/M4/M7 支持 LDREX/STREX 独占指令，实现无锁原子加减，CMSIS 提供：
+
+```
+#include "cmsis_gcc.h"
+uint32_t val = __LDREXW(&g_var);
+val++;
+__STREXW(val, &g_var);
+```
+
+> 裸机一般简单场景直接关中断临界区就够用。

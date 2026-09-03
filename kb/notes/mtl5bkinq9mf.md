@@ -90,10 +90,9 @@ __STREXW(val, &g_var);
 
 ---
 
-## =={pink}4. ESP32 WebServer服务==
+## =={pink}4. ESP32 WebServer服务==整体流程：**初始化 WiFi → 连接 WiFi → 创建 WebServer 实例 → 注册 URL 路由处理函数 → 启动服务器 → 循环调用处理客户端请求**
 
-=={pink}整体流程：**初始化 WiFi → 连接 WiFi → 创建 WebServer 实例 → 注册 URL 路由处理函数 → 启动服务器 → 循环调用处理客户端请求**
-**创建 WebServer 对象**，指定监听端口，一般用 80 端口。
+=={pink}**创建 WebServer 对象**，指定监听端口，一般用 80 端口。
 **初始化串口（可选）**，用于打印 IP、调试信息。
 **启动 WiFi 连接**，填入 WiFi 名称密码，调用 WiFi.begin ()，循环等待 WiFi 连接成功。
 WiFi 连接成功后，获取 ESP32 本机 IP 地址，串口打印 IP，浏览器后续就访问这个 IP。

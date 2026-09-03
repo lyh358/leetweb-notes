@@ -92,56 +92,24 @@ __STREXW(val, &g_var);
 
 ## =={pink}4. ESP32 WebServer服务==
 
+整体流程：**连接 WiFi 获取 IP → 创建 HTTP 服务实例 → 注册 URI 路由回调 → 浏览器请求进来执行对应回调返回网页内容**
 ```
-整体流程：初始化 WiFi → 连接 WiFi → 创建 WebServer 实例 → 注册 URL 路由处理函数 → 启动服务器 → 循环调用处理客户端请求
-创建 WebServer 对象，指定监听端口，一般用 80 端口。
-初始化串口（可选），用于打印 IP、调试信息。
-启动 WiFi 连接，填入 WiFi 名称密码，调用 WiFi.begin ()，循环等待 WiFi 连接成功。
-WiFi 连接成功后，获取 ESP32 本机 IP 地址，串口打印 IP，浏览器后续就访问这个 IP。
-注册路由：使用server.on(路径, 回调函数)。
+// wifi事件：连上wifi拿到IP后执行
+函数启动网页服务():
+    初始化http服务配置
+    启动http服务器
+    注册路由: 路径"/" 绑定 首页回调函数
 
-当浏览器访问对应 URL 路径时，就会触发绑定的回调函数。
-可以注册首页/、控制 IO 的/led_on等多个不同路径。
+函数首页回调(请求):
+    组装网页字符串
+    将网页字符串发送给客户端
+    返回
 
-调用server.begin()，正式启动 Web 服务器，开始监听 80 端口的网络请求。
-在loop()主循环里，反复调用server.handleClient()。
-
-这个函数负责检测有没有浏览器客户端发来 HTTP 请求；
-有请求到来就匹配注册好的路由，执行对应的回调函数。
-
-回调函数内部逻辑：
-
-组装要返回给浏览器的内容（文本、HTML 网页）；
-使用server.send(状态码,数据类型,内容)把数据发回浏览器。
-
-浏览器访问 ESP32 的 IP + 路径，就能看到返回的网页，触发对应的业务逻辑。
-伪代码定义WebServer对象，端口80
-
-setup(){
-    初始化串口
-    WiFi.begin(ssid,密码)
-    等待WiFi连接完成
-    打印本机IP
-
-    //注册路由
-    server.on("/", 首页回调);
-    server.on("/led", led控制回调);
-
-    server.begin() //开启web服务
-}
-
-loop(){
-    server.handleClient() //持续处理客户端请求
-}
-
-首页回调(){
-    server.send(200,"text/html","网页内容")
-}
-
-led控制回调(){
-    执行IO操作
-    server.send(200,"text/plain","执行完成")
-}
+app_main():
+    初始化nvs、网络
+    配置wifi，启动wifi连接
+    等待wifi连上，获取IP
+    启动网页服务
 ```
 
 ---

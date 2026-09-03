@@ -38,20 +38,6 @@ typedef struct {
 
 ### 风险点：非对齐访问！
 
-```
-my_pkt_t pkt;
-uint32_t *p = &pkt.b;   // pkt.b 起始地址是偏移1，不是4字节对齐！
-*p = 0x1234;            // ✖ ARM Cortex‑M / ESP32 Xtensa 这里会异常！
-```
-
-> 结构体内部字段被 pack 之后，成员可能**地址不对齐**。
-> ✅正确做法：不要直接指针强转访问内部成员，用 memcpy 拷贝出来。
-
-```
-uint32_t val;
-memcpy(&val, &pkt.b, sizeof(val)); // 安全，内存拷贝处理非对齐
-```
-
 ### 方式 2：修改对齐字节 `__attribute__((aligned(N)))`
 
 `aligned(N)` 是设置**整个结构体的起始对齐要求**，不是消除 padding；

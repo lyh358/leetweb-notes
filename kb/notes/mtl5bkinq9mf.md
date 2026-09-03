@@ -24,7 +24,7 @@ typedef struct __attribute__((packed)) {
 // 总大小 = 1+4+2 =7字节，没有padding
 ```
 
-也可以写在结构体后面：
+=={yellow}也可以写在结构体后面==：
 
 ```
 typedef struct {

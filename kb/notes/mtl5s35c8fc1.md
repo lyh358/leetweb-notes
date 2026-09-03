@@ -129,5 +129,4 @@ server.on("/", 首页回调);
 server.on("/led", led控制回调);
 
 server.begin() //开启web服务
-}loop(){server.handleClient() //持续处理客户端请求}首页回调(){server.send(200,"text/html","网页内容")}led控制回调(){执行IO操作server.send(200,"text/plain","执行完成")}
 ```

@@ -42,5 +42,3 @@ typedef struct {
 
 `aligned(N)` 是设置**整个结构体的起始对齐要求**，不是消除 padding；
 packed = 等价于 `aligned(1)`，按 1 字节对齐，不填充。
-
---

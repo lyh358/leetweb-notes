@@ -117,12 +117,6 @@ WiFi 连接成功后，获取 ESP32 本机 IP 地址，串口打印 IP，浏览�
 浏览器访问 ESP32 的 IP + 路径，就能看到返回的网页，触发对应的业务逻辑。
 伪代码定义WebServer对象，端口80
 
-setup(){
-    初始化串口
-    WiFi.begin(ssid,密码)
-    等待WiFi连接完成
-    打印本机IP
-
 ```csharp
 //注册路由
 server.on("/", 首页回调);

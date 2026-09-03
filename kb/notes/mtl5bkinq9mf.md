@@ -62,7 +62,7 @@ g_val++;
 EXIT_CRITICAL();
 ```
 
-1. **硬件原子指令**：Cortex‑M3/M4/M7 支持 LDREX/STREX 独占指令，实现无锁原子加减，CMSIS 提供：
+1. **=={yellow}硬件原子指令==**：Cortex‑M3/M4/M7 支持 LDREX/STREX 独占指令，实现无锁原子加减，CMSIS 提供：
 
 ```
 #include "cmsis_gcc.h"

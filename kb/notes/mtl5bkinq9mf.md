@@ -38,9 +38,11 @@ typedef struct {
 
 ### 风险点：非对齐访问！
 
-### 方式 2：修改对齐字节 `__attribute__((aligned(N)))`
+### =={yellow}方式 2：修改对齐字节== `__attribute__((aligned(N)))`
 
 `aligned(N)` 是设置**整个结构体的起始对齐要求**，不是消除 padding；
 packed = 等价于 `aligned(1)`，按 1 字节对齐，不填充。
 
 ---
+
+2.

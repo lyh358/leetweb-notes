@@ -14,7 +14,7 @@ CPU 默认会按照**自然对齐**给结构体插入填充字节，提升内存
 
 ### =={yellow}方式 1：==`__attribute__((packed))` =={yellow}压缩属性==
 
-```
+```cpp
 // 整个结构体取消填充，紧凑排列
 typedef struct __attribute__((packed)) {
     uint8_t  a;   // 1字节
@@ -26,7 +26,7 @@ typedef struct __attribute__((packed)) {
 
 =={yellow}也可以写在结构体后面==：
 
-```
+```cpp
 typedef struct {
     uint8_t  a;
     uint32_t b;
@@ -67,11 +67,12 @@ packed = 等价于 `aligned(1)`，按 1 字节对齐，不填充。
 ## =={pink}3. 裸机实现临界区、原子操作==
 
 裸机没有 OS，=={yellow}临界区本质：==**=={yellow}关闭全局中断==**=={yellow}，防止中断打断共享变量读写==。
+
 ### 原子操作两种方案
 
 1. **=={yellow}临界区包裹==**=={yellow}：非原子的运算，包进临界区，裸机最通用。==
 
-```
+```scss
 ENTER_CRITICAL();
 g_val++;
 EXIT_CRITICAL();
@@ -79,7 +80,7 @@ EXIT_CRITICAL();
 
 1. **=={yellow}硬件原子指令==**：Cortex‑M3/M4/M7 支持 LDREX/STREX 独占指令，实现无锁原子加减，CMSIS 提供：
 
-```
+```cpp
 #include "cmsis_gcc.h"
 uint32_t val = __LDREXW(&g_var);
 val++;
@@ -122,11 +123,14 @@ setup(){
     等待WiFi连接完成
     打印本机IP
 
-    //注册路由
-    server.on("/", 首页回调);
-    server.on("/led", led控制回调);
-    
-    server.begin() //开启web服务
+```csharp
+//注册路由
+server.on("/", 首页回调);
+server.on("/led", led控制回调);
+
+server.begin() //开启web服务
+```
+
 }
 
 loop(){
@@ -141,4 +145,4 @@ led控制回调(){
     执行IO操作
     server.send(200,"text/plain","执行完成")
 
-}==
+}

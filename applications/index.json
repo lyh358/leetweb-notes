@@ -4,11 +4,11 @@
     "company": "智元机器人",
     "role": "",
     "location": "",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://agirobot.jobs.feishu.cn/campusrecruitment/position/application",
     "created": 1788445359216,
-    "updated": 1788445359216
+    "updated": 1788445361927
   },
   {
     "id": "mtkdf5djl2qm",

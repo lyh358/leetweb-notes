@@ -34,7 +34,7 @@ typedef struct {
 } __attribute__((packed)) my_pkt_t;
 ```
 
-> `__attribute__((packed))`：告诉编译器**不要插入任何填充字节**。
+> `__attribute__((packed))`=={yellow}：告诉编译器==**=={yellow}不要插入任何填充字节==**=={yellow}。==
 
 ### 风险点：非对齐访问！
 

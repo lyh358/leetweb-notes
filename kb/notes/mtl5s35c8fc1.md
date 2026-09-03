@@ -181,46 +181,24 @@ server.send(200,"text/plain","执行完成")
 ```
 /**
  * @brief 检测系统大小端
- * @retval 1：小端模式； 0：大端模式
+ * @retval 1 小端模式；0 大端模式
  */
 int check_endian(void)
 {
-    // 4字节无符号整数，值为1，二进制：0x00000001
+    // int占多字节，值为1，二进制最低字节为0x01
     unsigned int val = 1;
-
-    // 取val的起始地址，强转为char*
-    // char*指向变量的内存最低地址，解引用只读取1个字节
+    // 强转为char*，只取内存最低地址的1字节
     unsigned char *p = (unsigned char *)&val;
 
     if (*p == 1)
     {
-        // 低地址存放低字节0x01 → 小端
-        return 1;
+        return 1;  // 低地址存低字节：小端
     }
     else
     {
-        // 低地址存放高字节0x00 → 大端
-        return 0;
+        return 0;  // 低地址存高字节：大端
     }
 }
-
-// 简单测试，打开#if 0可以编译运行测试
-#if 0
-#include <stdio.h>
-int main(void)
-{
-    int ret = check_endian();
-    if(ret == 1)
-    {
-        printf("小端模式\n");
-    }
-    else
-    {
-        printf("大端模式\n");
-    }
-    return 0;
-}
-#endif
 ```
 
 ### 易错点提醒

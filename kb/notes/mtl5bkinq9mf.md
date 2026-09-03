@@ -90,7 +90,7 @@ __STREXW(val, &g_var);
 
 ---
 
-## =={pink}4. ESP32 WebServer==
+## =={pink}4. ESP32 WebServerf==
 
 整体流程：**连接 WiFi 获取 IP → 创建 HTTP 服务实例 → 注册 URI 路由回调 → 浏览器请求进来执行对应回调返回网页内容**
 ```

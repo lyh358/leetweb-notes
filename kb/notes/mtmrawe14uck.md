@@ -6,7 +6,7 @@
 - **=={yellow}DEM(Diagnostic Event Manager)==**=={yellow}：**BSW** 模块==，=={green}**事件去抖、确认、Event‑DTC 映射、存储冻结帧**、NvM 持久化；==**=={green}DTC 真正的管家==**
 - **=={yellow}DCM(Diagnostic Communication Manager)==**=={yellow}：**BSW** 诊断通信==，=={green}**生成UDS 协议报文**；===={green}不和 ASW 直接打交道，只和 DEM 交互==
 - **=={yellow}CanTp==**=={yellow}**（CAN‑Transport Protocol）**：**BSW 模块**==，CAN 总线诊断传输层 / 网络层；**=={green}DCM 往下调用 CanTp，Tp 输出 CAN 报文给CAN总线==**
-- =={yellow}**上位机 ：CAN 总线上位机**==，发 UDS 0x19 读 DTC，0x14 清 DTC
+- =={yellow}**上位机 ：CAN 总线上位机**==，发 UDS报文 0x19 读 DTC，0x14 清 DTC
 
 > 重要概念区分
 

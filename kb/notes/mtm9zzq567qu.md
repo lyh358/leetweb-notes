@@ -31,7 +31,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 
 ### =={pink}2. 序列化：Protobuf==
 
-- =={yellow}定义== `.proto` =={yellow}描述==**=={yellow}service务、接口、message数据结构==**
+- =={yellow}定义== `.proto` =={yellow}描述==**=={yellow}service服务、接口、message数据结构==**
 - 编译器 `protoc` 根据 proto 文件，自动生成客户端、服务端桩代码 (stub)
 - 数据转紧凑二进制，对比 JSON：体积更小、序列化反序列化速度更快；缺点是可读性差。
 

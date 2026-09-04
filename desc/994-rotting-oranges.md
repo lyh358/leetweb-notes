@@ -75,6 +75,6 @@ while（！q.empty()）
 
 while(当q不为空)
 {
-  //获取dang'c
+  //获取dang'ceng
 }
 ```

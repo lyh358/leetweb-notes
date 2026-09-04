@@ -18,10 +18,27 @@
 
 ### 阶段 1：ASW 检测到故障，上报给 DEM（故障发生路径，**主动上报**）
 
+1. **ASW‑SWC 内部监控逻辑**
+应用组件运行，检测传感器 / 执行器 / 算法异常，得到监控结果。
+
+```
+// ASW组件内部
+if(SensorVoltage > Limit)
+{
+    // 检测到故障，上报事件失败
+    Dem_SetEventStatus(EVENTID_SENSOR_OVERVOLT, DEM_EVENT_STATUS_FAILED);
+}
+else
+{
+    Dem_SetEventStatus(EVENTID_SENSOR_OVERVOLT, DEM_EVENT_STATUS_PASSED);
+}
+```
+
 `Dem_SetEventStatus()`：**ASW 上报诊断事件的标准 API，通过 RTE 调用 DEM**。
 
-1. **DEM 内部处理（最关键）**
+> 参数：EventId（配置好的事件 ID） + 事件状态（FAILED/PASSED/PREFAILED/PREPASSED）
 
+1. **DEM 内部处理（最关键）**
 DEM 收到 EventId + 状态，执行：
 ① 检查**使能条件 EnableCondition**：该监控是否允许运行（如点火档位、温度条件），不满足直接丢弃事件CSDN博...。
 ② **Debounce 去抖**（计数器去抖 / 时间去抖）：过滤瞬时毛刺，避免误报 DTC。不是上报一次 FAILED 就直接报 DTC。

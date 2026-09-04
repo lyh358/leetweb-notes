@@ -49,7 +49,7 @@
 
 ---
 
-## 数组zhan
+## 数组栈
 
 ```cpp
 class Solution {

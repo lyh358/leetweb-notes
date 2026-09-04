@@ -100,25 +100,6 @@ service Greeter {
 
 =={green}**通过 Stub 调用本地风格函数**，底层走网络。==
 
-```cpp
-int main(){
-  auto channel = grpc::CreateChannel("127.0.0.1:50051", grpc::InsecureChannelCredentials());
-  auto stub = helloworld::Greeter::NewStub(channel);
-
-  helloworld::HelloRequest req;
-  req.set_name("test");
-  helloworld::HelloReply rsp;
-
-  grpc::ClientContext ctx;
-  // 发起RPC调用，看起来像本地函数，实际网络通信
-  auto status = stub->SayHello(&ctx, req, &rsp);
-  if(status.ok()){
-    std::cout << rsp.message() << std::endl;
-  }
-  return 0;
-}
-```
-
 ---
 
 ## =={yellow}gRPC 的多路复用==

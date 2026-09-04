@@ -44,7 +44,7 @@ DEM 收到 EventId + 状态，执行：
 报文交互时序：
 
 1. **=={yellow}上位机发送 CAN 报文 (UDS 请求)==**：SID=0x19，子功能 0x02 reportDTCByStatusMask，带上状态掩码。
-2. **=={yellow}CanTp==**=={yellow}（ISO‑TP 网络层）==**=={yellow}接收 CAN 帧==**=={yellow}，====**={yellow}重组完整 UDS 请求**=={yellow}=={yellow}，==**=={yellow}传给 DCM==**=={yellow}。==
+2. **=={yellow}CanTp==**=={yellow}（ISO‑TP 网络层）==**=={yellow}接收 CAN 帧==**=={yellow}，==**重组完整 UDS 请求**=={yellow}=={yellow}，==**=={yellow}传给 DCM==**=={yellow}。==
 3. **=={yellow}DCM 模块处理==**
 
 - **=={green}解析 UDS 请求==**：SID、子功能、掩码参数；

@@ -27,7 +27,7 @@
 DEM 收到 EventId + 状态，执行：
 
 ① =={green}检查==**=={green}使能条件 EnableCondition==**：该监控是否允许运行（如点火档位、温度条件），不满足直接丢弃事件CSDN博...。 ② **=={green}Debounce 去抖==**（计数器去抖 / 时间去抖）：过滤瞬时毛刺，避免误报 DTC。不是上报一次 FAILED 就直接报 DTC。
-③ 去抖到达失败阈值 → **Event 确认失败**，DEM 把 Event 映射到配置好的 DTC。
+③ 去抖到达失败阈值 → **=={green}Event 确认==失败**，DEM 把 Event 映射到配置好的 DTC。
 ④ 更新**DTC 状态字节 (ISO‑15031 状态位)**：confirmedDTC、testFailed 等 bit 置位。
 ⑤ 抓取**冻结帧 Snapshot / 扩展数据 ExtData**（故障时刻的车速、电压、温度）。
 ⑥ 调用 NvM，把 DTC、冻结帧存入 Flash/EEPROM 持久化，下电不丢失CSDN博...。

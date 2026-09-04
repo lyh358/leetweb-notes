@@ -71,5 +71,5 @@ while（！q.empty()）
 ## 二维网格BFS：一层while，两层for
 
 ```
-//c'j初始化queue首层元素
+//创建并初始化queue首层元素
 ```

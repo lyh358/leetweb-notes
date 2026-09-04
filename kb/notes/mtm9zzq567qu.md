@@ -29,7 +29,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 
 > gRPC 的请求是封装在 HTTP/2 的 data‑frame 里面，不是普通 JSON http body。
 
-### 2. 序列化：Protobuf
+### =={pink}2. 序列化：Protobuf==
 
 - 定义 `.proto` 描述**服务、接口、数据结构**
 - 编译器 `protoc` 根据 proto 文件，自动生成客户端、服务端桩代码 (stub)

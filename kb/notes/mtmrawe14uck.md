@@ -4,7 +4,7 @@
 
 - **ASW/SWC**：应用软件组件，做故障监控，只上报**EventId**，**不直接操作 DTC 码**
 - **DEM(Diagnostic Event Manager)**：BSW 模块，事件去抖、确认、Event‑DTC 映射、存储冻结帧、NvM 持久化；**DTC 真正的管家**
-- **DCM(Diagnostic Communication Manager)**：BSW 诊断通信，UDS 协议解析；**不和 ASW 直接打交道，只和 DEM 交互**CSDN博...
+- **DCM(Diagnostic Communication Manager)**：BSW 诊断通信，UDS 协议解析；**不和 ASW 直接打交道，只和 DEM 交互**
 - **Tp/CanTp**：网络层，ISO‑TP 分包重组；**DCM 往下调用 Tp，Tp 输出 CAN 报文给总线**
 - 上位机 (Tester / 诊断仪)：CAN 总线上位机，发 UDS 0x19 读 DTC，0x14 清 DTC
 

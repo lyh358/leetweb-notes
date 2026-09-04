@@ -61,7 +61,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 ### =={yellow}步骤 1：编写 hello.proto==
 
 1.定义结构体
-2.定义返回结构体
+2.定义message结构体
 3.定义服务与方法
 ```
 syntax = "proto3";

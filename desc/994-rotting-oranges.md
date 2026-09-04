@@ -68,4 +68,4 @@ while（！q.empty()）
 }
 ```
 
-二维网格BFS：一层w'hie'l
+二维网格BFS：一层while

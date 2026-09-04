@@ -53,5 +53,3 @@
 一层while里面一层for
 
 queue<T> q;
-
-w

@@ -62,7 +62,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 
 =={green}1.定义**接口**==
 =={green}2.定义**message结构体**==
-=={green}3.定义service与方法==
+=={green}3.定义**service与方法**==
 ```
 syntax = "proto3";
 

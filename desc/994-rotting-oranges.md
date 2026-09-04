@@ -60,7 +60,7 @@ queue<T> q;
 while（！q.empty()）
 {
   int size = q.size();
-  for(int )
+  for()
  
 }
 ```

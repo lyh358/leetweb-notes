@@ -60,7 +60,7 @@ gRPC 自带标准状态码：OK、NOT_FOUND、DEADLINE_EXCEEDED、UNAVAILABLE �
 
 ### 步骤 1：编写 hello.proto
 
-1.d'yi
+1.定义
 ```
 syntax = "proto3";
 

@@ -8,7 +8,7 @@ gRPC 是谷歌=={green}开源 RPC 框架==，**=={yellow}底层基于 HTTP/2 传
 
 ## 一、整体架构分层（由上到下）
 
-1. **=={yellow}Stub 层（桩代码）==**：=={green}根据== `.proto` =={green}文件生成，客户端直接调用本地函数，屏蔽网络细节==
+1. **=={yellow}Stub 层（桩代码）==**：=={green}根据== `.proto` =={green}**文件生成**，客户端直接调用本地函数，屏蔽网络细节==
 2. **=={yellow}Protobuf 序列化层==**：**对象 ↔ 二进制字节流**，体积小、编解码快
 3. **=={yellow}HTTP/2 传输层==**：=={green}底层通信依靠 HTTP/2，TCP 为基础==
 4. **=={yellow}TCP 网络层==**：=={green}操作系统 Socket==

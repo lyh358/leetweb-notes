@@ -97,7 +97,7 @@ service Greeter {
 
 ### =={yellow}步骤 4：客户端 C++==
 
-通过 Stub 调用本地风格函数，底层走网络。
+=={green}通过 Stub 调用本地风格函数，底层走网络。==
 
 ```
 int main(){

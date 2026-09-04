@@ -91,7 +91,7 @@ service Greeter {
 - `hello.pb.h / hello.pb.cc`：=={green}protobuf 消息编解码==
 - `hello.grpc.pb.h / hello.grpc.pb.cc`：=={green}gRPC 服务、Stub 桩代码==
 
-### 步骤 3：服务端 C++
+### =={yellow}步骤 3：服务端 C++==
 
 继承生成 Service 类，重写接口方法，注册到 ServerBuilder 启动服务；启动 gRPC Server 监听端口。
 

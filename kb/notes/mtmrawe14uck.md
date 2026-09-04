@@ -11,7 +11,7 @@
 > 重要概念区分
 
 1. **EventId**：ASW 层内部事件 ID，SWC 调用 Dem_SetEventStatus 使用
-2. **DTC**：对外给诊断仪看的故障码 (P/U/C 码)，在 DEM 配置中把 EventId 绑定到 DTC；**ASW 不知道 DTC 编号，只知道 EventId**AUTOSAR
+2. **DTC**：对外给诊断仪看的故障码 (P/U/C 码)，在 DEM 配置中把 EventId 绑定到 DTC；**ASW 不知道 DTC 编号，只知道 EventId**
 
 ## 完整链路分两大阶段
 

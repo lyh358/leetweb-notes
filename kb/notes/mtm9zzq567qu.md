@@ -95,7 +95,7 @@ service Greeter {
 
 =={green}**继承生成 Service 类**，**重写接口方法**，**注册**到 ServerBuilder **启动服务**===={green}；**启动** gRPC Server **监听端口。**==
 
-### 步骤 4：客户端 C++
+### =={yellow}步骤 4：客户端 C++==
 
 通过 Stub 调用本地风格函数，底层走网络。
 

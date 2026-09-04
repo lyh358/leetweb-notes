@@ -86,7 +86,7 @@ service Greeter {
 
 ### 步骤 2：编译 proto 生成代码
 
-=={yellow}使用== `protoc` =={yellow}+ grpc‑cpp 插件，生成：==
+=={yellow}使用== **`protoc`** =={yellow}**+ grpc‑cpp 插件**，生成：==
 
 - `hello.pb.h / hello.pb.cc`：protobuf 消息编解码
 - `hello.grpc.pb.h / hello.grpc.pb.cc`：gRPC 服务、Stub 桩代码

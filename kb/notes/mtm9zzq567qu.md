@@ -122,7 +122,7 @@ int main(){
 
 ## =={yellow}gRPC 的多路复用==
 
-**HTTP/2 的流（Stream）多路复用：单条 TCP 连接上跑多个逻辑 Stream**
+**=={green}HTTP/2 的流（Stream）多路复用：单条 TCP 连接上跑多个逻辑 Stream==**
 
 1. **TCP 连接：物理连接，一条**
 一条 TCP，只做一次三次握手。

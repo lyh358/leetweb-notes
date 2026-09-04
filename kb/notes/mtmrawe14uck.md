@@ -62,5 +62,4 @@ DEM 收到 EventId + 状态，执行：
 
 ## UDS 是什么 & 在 AUTOSAR‑CP 故障上报链路中的角色
 
-**UDS：Unified Diagnostic Services，统一诊断服务**。
- 它是**汽车诊断的应用层协议**，定义一套标准化服务命令
+**UDS：Unified Diagnostic Services，统一诊断服务**。它是**汽车诊断的应用层协议**，定义一套标准化服务命令

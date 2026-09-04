@@ -17,7 +17,7 @@ gRPC 是谷歌=={green}开源 RPC 框架==，**=={yellow}底层基于 HTTP/2 传
 
 ## 二、底层核心实现
 
-### 1. 传输：HTTP/2（gRPC 核心）
+### =={pink}1. 传输：HTTP/2（gRPC 核心）==
 
 gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC：
 

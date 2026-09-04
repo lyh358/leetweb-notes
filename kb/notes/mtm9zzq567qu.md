@@ -58,7 +58,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 
 ## =={pink}三、简单使用示例（C++，贴合你的技术栈）==
 
-### 步骤 1：编写 hello.proto
+### =={yellow}步骤 1：编写 hello.proto==
 
 1.定义请求结构体
 2.定义返回结构体

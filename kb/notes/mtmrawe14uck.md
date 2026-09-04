@@ -57,7 +57,7 @@ DEM 收到 EventId + 状态，执行：
 
 1. =={yellow}**DEM 返回** DTC 列表、DTC 码、DTC 状态字节、冻结帧 / 扩展**数据给 DCM**===={yellow}。==
 2. **=={yellow}DCM 组装 UDS 肯定响应报文==**：SID+0x40=0x59，把 DTC、状态、冻结帧按 UDS 协议格式打包。
-3. **=={yellow}DCM 把完整 UDS 响应交给 CanTp==**=={yellow}，==**CanTp 做分包，输出 CAN 报文到总线。==**
+3. **=={yellow}DCM 把完整 UDS 响应交给 CanTp==**=={yellow}，==**CanTp 做分包，输出 CAN 报文到总线。**
 4. **=={yellow}CAN 总线 → 上位机==**收到 UDS 响应，**=={yellow}解析==**=={yellow}得到== **=={yellow}DTC 故障码、冻结帧==**。
 
 ---

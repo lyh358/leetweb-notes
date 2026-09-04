@@ -84,7 +84,7 @@ service Greeter {
 }
 ```
 
-### 步骤 2：编译 proto 生成代码
+### =={yellow}步骤 2：编译 proto 生成代码==
 
 =={yellow}使用== **`protoc`** =={yellow}**+ grpc‑cpp 插件**，生成：==
 

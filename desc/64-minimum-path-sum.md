@@ -39,7 +39,7 @@ public:
 
         vector<vector<int>> dp(m,vector<int>(n));
                 //必须先初始化左上角的点
-        dp[0][0]=grid[0][0];        //第一行和第一列的初始化
+        dp[0][0]=grid[0][0];        //第一行和第一列的初始化需要从=1
         for(int i=1;i<m;i++)
         {
             dp[i][0]=dp[i-1][0]+grid[i][0];

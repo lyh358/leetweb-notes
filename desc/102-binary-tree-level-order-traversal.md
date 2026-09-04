@@ -6,21 +6,21 @@
 
 ![img](https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg)
 
-```
+```lua
 输入：root = [3,9,20,null,null,15,7]
 输出：[[3],[9,20],[15,7]]
 ```
 
 **示例 2：**
 
-```
+```lua
 输入：root = [1]
 输出：[[1]]
 ```
 
 **示例 3：**
 
-```
+```undefined
 输入：root = []
 输出：[]
 ```
@@ -33,36 +33,9 @@
 ---
 
 # 核心方法：二叉树的数据结构、BFS
+
+```cpp
+class Solution {public:    vector<vector<int>> levelOrder(TreeNode* root) {        //层序遍历：简单的单层BFS        queue<TreeNode*> q;        vector<vector<int>> ans;        //防空树！！！        if(!root) return ans;        //BFS之初始化        q.push(root);        //单层BFS：一层while+一层for        while(!q.empty())         {            int size = q.size();            vector<int> level;            for(int i=0;i<size;i++)            {                TreeNode* temp = q.front();                q.pop();                level.push_back(temp->val);                if(temp->left) q.push(temp->left);                if(temp->right) q.push(temp->right);            }            ans.push_back(level);        }        return ans;    }};
 ```
-class Solution {
-public:
-    //二叉树的层序遍历：BFS
-    vector<vector<int>> ans;
 
-    vector<vector<int>> levelOrder(TreeNode* root) {
-       if(!root) return ans;
-       
-        queue<TreeNode*> qu;
-        qu.push(root);
-
-        while(!qu.empty())
-        {
-            int levelsize = qu.size();
-            vector<int> levelTemp;
-            for(int i=0;i<levelsize;i++)
-            {
-                TreeNode* tempNode = qu.front();
-                qu.pop();
-                levelTemp.push_back(tempNode->val);
-
-                if(tempNode->left) qu.push(tempNode->left);
-                if(tempNode->right) qu.push(tempNode->right);
-            }
-            ans.push_back(levelTemp);
-        }
-        return ans;
-    }
-};
-```
 ---
-

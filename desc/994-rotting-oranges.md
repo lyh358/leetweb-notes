@@ -52,6 +52,7 @@
 
 一层while里面一层for
 
+```
 queue<T> q;
 
 初始化q内容；
@@ -60,4 +61,7 @@ while（！q.empty()）
 
 {
 
+ 
+
 }
+```

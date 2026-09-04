@@ -31,7 +31,7 @@ DEM 收到 EventId + 状态，执行：
  ④ 更新**DTC 状态字节 (ISO‑15031 状态位)**：confirmedDTC、testFailed 等 bit 置位。
 ⑤ 抓取**冻结帧 Snapshot / 扩展数据 ExtData**（故障时刻的车速、电压、温度）。
  ⑥ 调用 NvM，把 DTC、冻结帧存入 Flash/EEPROM 持久化，下电不丢失CSDN博...。
-⑦ 通知 FIM 模块：故障发生，可做功能抑制（关闭某些功能）。
+ ⑦ 通知 FIM 模块：故障发生，可做功能抑制（关闭某些功能）。
 
 > ⚠️这里：**DEM 完成 DTC 生成、存储；DCM 此时完全没参与，没有报文发出**。故障存在 ECU 内部，**只有上位机主动读 UDS 才会把 DTC 发出去**，不是故障一发生就自动上送 CAN 报文。
 

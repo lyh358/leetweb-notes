@@ -53,7 +53,7 @@ DEM 收到 EventId + 状态，执行：
     - `Dem_GetNextDTC()`：遍历筛选出来的 DTC
     - `Dem_GetDTCStatus()`：获取 DTC 状态字节
     - `Dem_GetNextFreezeFrameData()`：拿冻结帧数据CSDN博...
-4. =={green}**DEM 返回** DTC 列表、DTC 码、DTC 状态字节、冻结帧 / 扩展**数据给 DCM**===={green}。==
+4. =={yellow}**DEM 返回** DTC 列表、DTC 码、DTC 状态字节、冻结帧 / 扩展**数据给 DCM**===={yellow}。==
 5. **=={yellow}DCM 组装 UDS 肯定响应报文==**：SID+0x40=0x59，把 DTC、状态、冻结帧按 UDS 协议格式打包。
 6. **DCM 把完整 UDS 响应交给 CanTp**，**CanTp 做分包，输出 CAN 报文到总线。**
 7. **CAN 总线 → 上位机**收到 UDS 响应，解析得到 DTC 故障码、冻结帧。

@@ -93,7 +93,7 @@ service Greeter {
 
 ### =={yellow}步骤 3：服务端 C++==
 
-=={green}**继承生成 Service 类**，**重写接口方法**，注册到 ServerBuilder 启动服务===={green}；启动 gRPC Server 监听端口。==
+=={green}**继承生成 Service 类**，**重写接口方法**，**注册**到 ServerBuilder 启动服务===={green}；启动 gRPC Server 监听端口。==
 
 ### 步骤 4：客户端 C++
 

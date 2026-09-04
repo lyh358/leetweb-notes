@@ -88,7 +88,7 @@ service Greeter {
 
 =={yellow}使用== **`protoc`** =={yellow}**+ grpc‑cpp 插件**，生成：==
 
-- `hello.pb.h / hello.pb.cc`：protobuf 消息编解码
+- `hello.pb.h / hello.pb.cc`：=={green}protobuf 消息编解码==
 - `hello.grpc.pb.h / hello.grpc.pb.cc`：gRPC 服务、Stub 桩代码
 
 ### 步骤 3：服务端 C++

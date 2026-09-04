@@ -5,7 +5,7 @@
 - **ASW/SWC**：应用软件组件，做故障监控，只上报**EventId**，**不直接操作 DTC 码**
 - **=={yellow}DEM(Diagnostic Event Manager)==**=={yellow}：**BSW** 模块==，=={green}**事件去抖、确认、Event‑DTC 映射、存储冻结帧**、NvM 持久化；==**=={green}DTC 真正的管家==**
 - **=={yellow}DCM(Diagnostic Communication Manager)==**=={yellow}：**BSW** 诊断通信==，=={green}**生成UDS 协议报文**；===={green}不和 ASW 直接打交道，只和 DEM 交互==
-- **=={yellow}CanTp==**=={yellow}：**BSW 模块**==，CAN 总线诊断传输层 / 网络层；**DCM 往下调用 CANTp，Tp 输出 CAN 报文给总线**
+- **=={yellow}CanTp==**=={yellow}：**BSW 模块**==，CAN 总线诊断传输层 / 网络层；**DCM 往下调用 CanTp，Tp 输出 CAN 报文给总线**
 - 上位机 (Tester / 诊断仪)：CAN 总线上位机，发 UDS 0x19 读 DTC，0x14 清 DTC
 
 > 重要概念区分

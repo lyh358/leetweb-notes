@@ -1,6 +1,4 @@
-
-
-```
+```cpp
 class Solution {
 public:
     vector<vector> merge(vector<vector>& intervals) {
@@ -23,3 +21,5 @@ public:
     }
 };
 ```
+
+---

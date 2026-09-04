@@ -50,7 +50,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 
 ### =={pink}5. 超时与状态码==
 
-=={yellow}gRPC 自带标准状态码==：OK、NOT_FOUND、DEADLINE_EXCEEDED、UNAVAILABLE 等；**=={yellow}客户端必须设置超时 deadline==**=={yellow}，否则请求可能无限阻塞。==
+=={yellow}gRPC **自带标准状态码**==：OK、NOT_FOUND、DEADLINE_EXCEEDED、UNAVAILABLE 等；**=={yellow}客户端必须设置超时 deadline==**=={yellow}，否则请求可能无限阻塞。==
 
 > ❗注意：gRPC 底层**不是自定义私有 TCP 协议**，是标准 HTTP/2 协议，可以抓包看到 http2 帧
 

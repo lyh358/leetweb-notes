@@ -75,6 +75,6 @@ while（！q.empty()）
 
 while(当q不为空)
 {
-  //huo'q
+  //获取dang'c
 }
 ```

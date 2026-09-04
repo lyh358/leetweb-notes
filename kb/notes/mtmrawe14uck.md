@@ -12,7 +12,7 @@
 
 1. **EventId**：ASW 层内部事件 ID，SWC 调用 Dem_SetEventStatus 使用
 2. **DTC**：对外给诊断仪看的故障码 (P/U/C 码)，在 DEM 配置中把 EventId 绑定到 DTC；**ASW 不知道 DTC 编号，只知道 EventId**
-3. UDS是**应用层服务**（0x10、0x19、0x22…）；CanTp 是**下层运输工具**，负责把 UDS 字节包搬上 CAN 总线。
+3. =={green}UDS是==**=={green}应用层服务==**=={green}（0x10、0x19、0x22…）；CanTp 是==**=={green}下层运输工具==**=={green}，负责把 UDS 字节包搬上 CAN 总线。==
 
 ## 完整链路分两大阶段
 

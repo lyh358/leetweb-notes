@@ -1,6 +1,5 @@
 ```cpp
-class Solution {
-public:
+class Solution {public:
     int maxProfit(vector<int>& prices) {
         int max_sell=0;
         if(prices.size()<2)

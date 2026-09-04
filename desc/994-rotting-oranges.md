@@ -52,4 +52,6 @@
 
 一层while里面一层for
 
-queue<T>
+queue<T> q;
+
+w

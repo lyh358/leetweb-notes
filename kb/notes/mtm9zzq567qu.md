@@ -48,7 +48,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 - gRPC 内置负载均衡策略：round_robin 轮询、pick_first 选第一个可用节点；支持 name resolver 域名解析。
 - 支持拦截器 Interceptor：做日志、鉴权、超时、重试。
 
-### 5. 超时与状态码
+### =={pink}5. 超时与状态码==
 
 gRPC 自带标准状态码：OK、NOT_FOUND、DEADLINE_EXCEEDED、UNAVAILABLE 等；**客户端必须设置超时 deadline**，否则请求可能无限阻塞。
 

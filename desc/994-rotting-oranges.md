@@ -73,5 +73,5 @@ while（！q.empty()）
 ```
 //创建并初始化queue首层元素
 
-while（）
+while()
 ```

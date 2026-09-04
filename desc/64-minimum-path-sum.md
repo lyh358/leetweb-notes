@@ -8,7 +8,7 @@
 
 ![img](https://assets.leetcode.com/uploads/2020/11/05/minpath.jpg)
 
-```
+```lua
 输入：grid = [[1,3,1],[1,5,1],[4,2,1]]
 输出：7
 解释：因为路径 1→3→1→1→1 的总和最小。
@@ -16,7 +16,7 @@
 
 **示例 2：**
 
-```
+```lua
 输入：grid = [[1,2,3],[4,5,6]]
 输出：12
 ```
@@ -29,7 +29,8 @@
 - `0 <= grid[i][j] <= 200`
 
 ---
-```
+
+```cpp
 class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {

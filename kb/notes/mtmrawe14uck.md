@@ -62,6 +62,6 @@ DEM 收到 EventId + 状态，执行：
 
 ## UDS 是什么 & 在 AUTOSAR‑CP 故障上报链路中的角色
 
-**UDS：Unified Diagnostic Services，统一诊断服务**。它是**汽车诊断的应用层协议**，定义一套标准化服务命令
+**=={green}UDS：Unified Diagnostic Services，统一诊断服务==**=={green}。===={green}它是==**=={green}汽车诊断的应用层协议==**=={green}，定义一套标准化服务命令==
 =={yellow}**UDS 报文** === `[SID] + （可选）子功能 + 业务参数`
 `字段说明SID 1 字节服务 ID，如0x19读 DTC、0x14清 DTC、0x10会话控制Subfunction 1 字节子功能，部分服务需要，例如0x19‑02读匹配状态 DTC；bit7 = 抑制正响应位参数各个服务自定义参数，DTC 掩码、DID 号等`

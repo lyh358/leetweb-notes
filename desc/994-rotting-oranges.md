@@ -63,7 +63,7 @@ while（！q.empty()）
   for(i:0-size)
   {
     任务逻辑；
-    新元素入队q.push
+    新元素入队q.push();
   }
  
 }

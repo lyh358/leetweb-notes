@@ -60,7 +60,7 @@ queue<T> q;
 while（！q.empty()）
 
 {
-
+  
  
 
 }

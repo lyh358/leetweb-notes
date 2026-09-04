@@ -30,6 +30,8 @@
 
 ---
 
+---
+
 ```cpp
 class Solution {
 public:

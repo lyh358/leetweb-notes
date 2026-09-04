@@ -59,7 +59,11 @@ queue<T> q;
 
 while（！q.empty()）
 {
-  int size
+  int size = q.size();
+```
+
+```
+
  
 }
 ```

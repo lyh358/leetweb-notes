@@ -49,7 +49,7 @@
 
 ---
 
-## 数zi栈+
+## 数字栈+
 
 ```cpp
 class Solution {

@@ -44,24 +44,26 @@ DEM 收到 EventId + 状态，执行：
 报文交互时序：
 
 1. **=={yellow}上位机发送 CAN 报文 (UDS 请求)==**：SID=0x19，子功能 0x02 reportDTCByStatusMask，带上状态掩码。
-2. **=={yellow}CanTp==**=={yellow}（ISO‑TP 网络层）==**=={yellow}接收 CAN 帧==**=={yellow}，==**=={yellow}重组完整 UDS 请求==**=={yellow}，==**=={yellow}传给 DCM==**=={yellow}。==
+2. **=={yellow}CanTp==**=={yellow}（ISO‑TP 网络层）==**=={yellow}接收 CAN 帧==**=={yellow}，====**={yellow}重组完整 UDS 请求**=={yellow}=={yellow}，==**=={yellow}传给 DCM==**=={yellow}。==
 3. **=={yellow}DCM 模块处理==**
-  - **=={green}解析 UDS 请求==**：SID、子功能、掩码参数；
-  - 会话 / 权限校验：0x19 大部分子功能默认会话就允许；
-  - **=={green}DCM 调用 DEM 提供的一组 API，向 DEM 查询 DTC 数据==**（DCM 不会自己存 DTC）：
-    - `Dem_SelectDTCByStatusMask()`：按掩码筛选 DTC
-    - `Dem_GetNextDTC()`：遍历筛选出来的 DTC
-    - `Dem_GetDTCStatus()`：获取 DTC 状态字节
-    - `Dem_GetNextFreezeFrameData()`：拿冻结帧数据CSDN博...
-4. =={yellow}**DEM 返回** DTC 列表、DTC 码、DTC 状态字节、冻结帧 / 扩展**数据给 DCM**===={yellow}。==
-5. **=={yellow}DCM 组装 UDS 肯定响应报文==**：SID+0x40=0x59，把 DTC、状态、冻结帧按 UDS 协议格式打包。
-6. **=={yellow}DCM 把完整 UDS 响应交给 CanTp==**=={yellow}，==**=={yellow}CanTp 做分包，输出 CAN 报文到总线。==**
-7. **=={yellow}CAN 总线 → 上位机==**收到 UDS 响应，**=={yellow}解析==**=={yellow}得到== **=={yellow}DTC 故障码、冻结帧==**。
+
+- **=={green}解析 UDS 请求==**：SID、子功能、掩码参数；
+- 会话 / 权限校验：0x19 大部分子功能默认会话就允许；
+- **=={green}DCM 调用 DEM 提供的一组 API，向 DEM 查询 DTC 数据==**（DCM 不会自己存 DTC）：
+  - `Dem_SelectDTCByStatusMask()`：按掩码筛选 DTC
+  - `Dem_GetNextDTC()`：遍历筛选出来的 DTC
+  - `Dem_GetDTCStatus()`：获取 DTC 状态字节
+  - `Dem_GetNextFreezeFrameData()`：拿冻结帧数据CSDN博...
+
+1. =={yellow}**DEM 返回** DTC 列表、DTC 码、DTC 状态字节、冻结帧 / 扩展**数据给 DCM**===={yellow}。==
+2. **=={yellow}DCM 组装 UDS 肯定响应报文==**：SID+0x40=0x59，把 DTC、状态、冻结帧按 UDS 协议格式打包。
+3. **=={yellow}DCM 把完整 UDS 响应交给 CanTp==**=={yellow}，==**CanTp 做分包，输出 CAN 报文到总线。==**
+4. **=={yellow}CAN 总线 → 上位机==**收到 UDS 响应，**=={yellow}解析==**=={yellow}得到== **=={yellow}DTC 故障码、冻结帧==**。
 
 ---
 
 ## UDS 是什么 & 在 AUTOSAR‑CP 故障上报链路中的角色
 
-**=={green}UDS：Unified Diagnostic Services，统一诊断服务==**=={green}。===={green}它是==**=={green}汽车诊断的应用层协议==**=={green}，**定义一套标准化服务命令**==
+**=={green}UDS：Unified Diagnostic Services，统一诊断服务==**=={green}。===={green}它是=={yellow}**=={green}汽车诊断的应用层协议**===={green}，**定义一套标准化服务命令**==
 =={yellow}**UDS 报文** === `[SID] + （可选）子功能 + 业务参数`
 `字段说明SID 1 字节服务 ID，如0x19读 DTC、0x14清 DTC、0x10会话控制Subfunction 1 字节子功能，部分服务需要，例如0x19‑02读匹配状态 DTC；bit7 = 抑制正响应位参数各个服务自定义参数，DTC 掩码、DID 号等`

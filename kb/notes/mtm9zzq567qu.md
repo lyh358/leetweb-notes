@@ -33,7 +33,7 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 
 - =={yellow}定义== `.proto` =={yellow}描述==**=={yellow}service服务、接口、message数据结构==**
 - **=={yellow}编译器== `protoc`** =={yellow}根据 proto 文件，自动生成**客户端、服务端桩代码 (stub)**==
-- 数据转紧凑二进制，对比 JSON：体积更小、序列化反序列化速度更快；缺点是可读性差。
+- =={yellow}数据转紧凑二进制==，对比 JSON：体积更小、序列化反序列化速度更快；缺点是可读性差。
 
 ### 3. 四种调用模式
 

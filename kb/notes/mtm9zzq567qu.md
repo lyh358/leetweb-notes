@@ -1,6 +1,6 @@
 # gRPC 底层实现 + 使用
 
-gRPC 是谷歌开源 RPC 框架，**底层基于 HTTP/2 传输，默认 Protobuf 序列化**。
+gRPC 是谷歌=={green}开源 RPC 框架==，**底层基于 HTTP/2 传输，默认 Protobuf 序列化**。
 
 > =={yellow}**RPC：远程过程调用**==，=={yellow}像调用**本地函数一样**调用**另一台机器上的服务**方法。==
 

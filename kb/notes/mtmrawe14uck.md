@@ -48,7 +48,7 @@ DEM 收到 EventId + 状态，执行：
 3. **=={yellow}DCM 模块处理==**
   - **=={green}解析 UDS 请求==**：SID、子功能、掩码参数；
   - 会话 / 权限校验：0x19 大部分子功能默认会话就允许；
-  - **DCM 调用 DEM 提供的一组 API，向 DEM 查询 DTC 数据**（DCM 不会自己存 DTC）：
+  - **=={green}DCM 调用 DEM 提供的一组 API，向 DEM 查询 DTC 数据==**（DCM 不会自己存 DTC）：
     - `Dem_SelectDTCByStatusMask()`：按掩码筛选 DTC
     - `Dem_GetNextDTC()`：遍历筛选出来的 DTC
     - `Dem_GetDTCStatus()`：获取 DTC 状态字节

@@ -22,7 +22,7 @@ gRPC 是谷歌=={green}开源 RPC 框架==，**=={yellow}底层基于 HTTP/2 传
 gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC：
 
 1. **=={yellow}二进制帧==**：=={green}把数据切分成二进制 frame==，不再是文本 http，解析高效
-2. **=={yellow}多路复用==**：=={green}**一条 TCP 连接**上，可以**并发跑多个请求流 (stream)**，**不用频繁建连**；请求**互不阻塞**==
+2. **=={yellow}TX多路复用==**：=={green}**一条 TCP 连接**上，可以**并发跑多个请求流 (stream)**，**不用频繁建连**；请求**互不阻塞**==
 3. **=={yellow}双向流==**：=={green}支持**四种调用模式**（**一元**、**服务端流**、**客户端流**、**双向流**）==，HTTP1.1 做不到双向流
 4. **头部压缩 HPACK**：压缩 http header，减少开销
 5. **=={yellow}长连接==**：默认=={green}复用 TCP 连接，减少三次握手开销==
@@ -63,7 +63,8 @@ gRPC **不使用 HTTP1.1，强制 HTTP/2**，HTTP/2 的关键特性支撑 gRPC�
 =={green}1.定义**接口**==
 =={green}2.定义**message结构体**==
 =={green}3.定义**service与方法**==
-```
+
+```java
 syntax = "proto3";
 
 package helloworld;
@@ -99,7 +100,7 @@ service Greeter {
 
 =={green}**通过 Stub 调用本地风格函数**，底层走网络。==
 
-```
+```cpp
 int main(){
   auto channel = grpc::CreateChannel("127.0.0.1:50051", grpc::InsecureChannelCredentials());
   auto stub = helloworld::Greeter::NewStub(channel);

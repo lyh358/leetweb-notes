@@ -1,4 +1,4 @@
-# Autosar‑CP：ASW (SWC) 上报故障，从应用层 → DEM → DCM → UDS 上位机完整流程
+# =={pink}Autosar‑CP：ASW (SWC) 上报故障，从应用层 → DEM → DCM → UDS 上位机完整流程==
 
 > 核心角色
 

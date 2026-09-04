@@ -56,7 +56,7 @@ public:
             {
                 dp[i][j]=min(dp[i-1][j],dp[i][j-1])+grid[i][j];
             }
-        }
+        }        //这里注意
         return dp[m-1][n-1];
     }
 };

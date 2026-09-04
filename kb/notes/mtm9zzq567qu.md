@@ -55,3 +55,84 @@ gRPC 自带标准状态码：OK、NOT_FOUND、DEADLINE_EXCEEDED、UNAVAILABLE �
 > ❗注意：gRPC 底层**不是自定义私有 TCP 协议**，是标准 HTTP/2 协议，可以抓包看到 http2 帧
 
 ---
+
+## 三、简单使用示例（C++，贴合你的技术栈）
+
+### 步骤 1：编写 hello.proto
+
+```
+syntax = "proto3";
+
+package helloworld;
+
+// 请求结构体
+message HelloRequest {
+  string name = 1;
+}
+// 返回结构体
+message HelloReply {
+  string message = 1;
+}
+
+// 定义服务与方法
+service Greeter {
+  // 一元RPC
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+```
+
+### 步骤 2：编译 proto 生成代码
+
+使用 `protoc` + grpc‑cpp 插件，生成：
+
+- `hello.pb.h / hello.pb.cc`：protobuf 消息编解码
+- `hello.grpc.pb.h / hello.grpc.pb.cc`：gRPC 服务、Stub 桩代码
+
+### 步骤 3：服务端 C++
+
+继承生成的 `Greeter::Service`，重写 `SayHello` 接口；启动 gRPC Server 监听端口。
+
+```
+class GreeterServiceImpl : public helloworld::Greeter::Service {
+public:
+  grpc::Status SayHello(grpc::ServerContext* ctx,
+                         const helloworld::HelloRequest* req,
+                         helloworld::HelloReply* rsp) override {
+    rsp->set_message("Hello " + req->name());
+    return grpc::Status::OK;
+  }
+};
+
+int main(){
+  GreeterServiceImpl service;
+  grpc::ServerBuilder builder;
+  builder.AddListeningPort("0.0.0.0:50051", grpc::InsecureServerCredentials());
+  builder.RegisterService(&service);
+  auto server = builder.BuildAndStart();
+  server->Wait();
+  return 0;
+}
+```
+
+### 步骤 4：客户端 C++
+
+通过 Stub 调用本地风格函数，底层走网络。
+
+```
+int main(){
+  auto channel = grpc::CreateChannel("127.0.0.1:50051", grpc::InsecureChannelCredentials());
+  auto stub = helloworld::Greeter::NewStub(channel);
+
+  helloworld::HelloRequest req;
+  req.set_name("test");
+  helloworld::HelloReply rsp;
+
+  grpc::ClientContext ctx;
+  // 发起RPC调用，看起来像本地函数，实际网络通信
+  auto status = stub->SayHello(&ctx, req, &rsp);
+  if(status.ok()){
+    std::cout << rsp.message() << std::endl;
+  }
+  return 0;
+}
+```

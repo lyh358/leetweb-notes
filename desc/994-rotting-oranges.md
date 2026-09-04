@@ -56,4 +56,4 @@ queue<T> q;
 
 初始化q内容；
 
-while（）
+while（！去。empty）

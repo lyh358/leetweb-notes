@@ -95,28 +95,6 @@ service Greeter {
 
 继承生成的 `Greeter::Service`，重写 `SayHello` 接口；启动 gRPC Server 监听端口。
 
-```
-class GreeterServiceImpl : public helloworld::Greeter::Service {
-public:
-  grpc::Status SayHello(grpc::ServerContext* ctx,
-                         const helloworld::HelloRequest* req,
-                         helloworld::HelloReply* rsp) override {
-    rsp->set_message("Hello " + req->name());
-    return grpc::Status::OK;
-  }
-};
-
-int main(){
-  GreeterServiceImpl service;
-  grpc::ServerBuilder builder;
-  builder.AddListeningPort("0.0.0.0:50051", grpc::InsecureServerCredentials());
-  builder.RegisterService(&service);
-  auto server = builder.BuildAndStart();
-  server->Wait();
-  return 0;
-}
-```
-
 ### 步骤 4：客户端 C++
 
 通过 Stub 调用本地风格函数，底层走网络。

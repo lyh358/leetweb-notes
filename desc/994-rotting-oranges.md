@@ -58,7 +58,6 @@ queue<T> q;
 初始化q内容；
 
 while（！q.empty()）
-
 {
   
  

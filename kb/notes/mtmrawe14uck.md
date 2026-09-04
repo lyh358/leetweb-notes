@@ -23,8 +23,6 @@
 
 `Dem_SetEventStatus()`：**ASW 上报诊断事件的标准 API，通过 RTE 调用 DEM**。
 
-> 参数：EventId（配置好的事件 ID） + 事件状态（FAILED/PASSED/PREFAILED/PREPASSED）
-
 1. **DEM 内部处理（最关键）**
 DEM 收到 EventId + 状态，执行：
 ① 检查**使能条件 EnableCondition**：该监控是否允许运行（如点火档位、温度条件），不满足直接丢弃事件CSDN博...。

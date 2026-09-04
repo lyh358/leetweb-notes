@@ -52,4 +52,4 @@
 
 一层while里面一层for
 
-queue<int>
+queue<T>

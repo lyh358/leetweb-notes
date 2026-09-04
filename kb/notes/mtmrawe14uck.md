@@ -37,7 +37,7 @@ DEM 收到 EventId + 状态，执行：
 
 ---
 
-### 阶段 2：上位机（诊断仪）UDS 读取 DTC，DCM 查询 DEM，组装 UDS 响应返回（查询路径）
+### =={pink}阶段 2：上位机（诊断仪）UDS 读取 DTC，DCM 查询 DEM，组装 UDS 响应返回（查询路径）==
 
 > 上位机主动发 UDS `0x19 ReadDTCInformation` 请求，DCM 接收解析，向 DEM 拿数据，组装报文回复上位机CSDN博...。
 

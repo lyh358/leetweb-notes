@@ -62,7 +62,8 @@ while（！q.empty()）
   int size = q.size();
   for(i:0-size)
   {
-    任务逻辑
+    任务逻辑；
+    xzin
   }
  
 }

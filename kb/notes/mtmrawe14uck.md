@@ -21,7 +21,7 @@
 1. **ASW‑SWC 内部监控逻辑**
 应用组件运行，检测传感器 / 执行器 / 算法异常，得到监控结果。
 
-`Dem_SetEventStatus()`：**ASW 上报诊断事件的标准 API，通过 RTE 调用 DEM**。
+`Dem_SetEventStatus()`：**=={green}ASW 上报诊断事件的标准 API，通过 RTE 调用 DEM==**=={green}。==
 
 1. **DEM 内部处理（最关键）**
 DEM 收到 EventId + 状态，执行：

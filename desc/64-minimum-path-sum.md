@@ -38,7 +38,7 @@ public:
         int n=grid[0].size();
 
         vector<vector<int>> dp(m,vector<int>(n));
-                //
+                //先初始化左上角的
         dp[0][0]=grid[0][0];
         for(int i=1;i<m;i++)
         {

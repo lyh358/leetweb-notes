@@ -50,4 +50,4 @@
 
 初始化queue
 
-一层while
+一层while里面一层for

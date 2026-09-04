@@ -21,7 +21,7 @@
 `Dem_SetEventStatus()`：**ASW 上报诊断事件的标准 API，通过 RTE 调用 DEM**。
 
 1. **DEM 内部处理（最关键）**
-DEM 收到 EventId + 状态，执行：
+2. DEM 收到 EventId + 状态，执行：
 ① 检查**使能条件 EnableCondition**：该监控是否允许运行（如点火档位、温度条件），不满足直接丢弃事件CSDN博...。
 ② **Debounce 去抖**（计数器去抖 / 时间去抖）：过滤瞬时毛刺，避免误报 DTC。不是上报一次 FAILED 就直接报 DTC。
 ③ 去抖到达失败阈值 → **Event 确认失败**，DEM 把 Event 映射到配置好的 DTC。

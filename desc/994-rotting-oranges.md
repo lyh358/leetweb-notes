@@ -76,6 +76,6 @@ while（！q.empty()）
 while(当q不为空)
 {
   //获取当前层q的元素个数
-  fo'r
+  for()
 }
 ```

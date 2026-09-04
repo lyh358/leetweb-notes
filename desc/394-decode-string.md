@@ -14,28 +14,28 @@
 
 **示例 1：**
 
-```
+```bash
 输入：s = "3[a]2[bc]"
 输出："aaabcbc"
 ```
 
 **示例 2：**
 
-```
+```bash
 输入：s = "3[a2[c]]"
 输出："accaccacc"
 ```
 
 **示例 3：**
 
-```
+```bash
 输入：s = "2[abc]3[cd]ef"
 输出："abcabccdcdcdef"
 ```
 
 **示例 4：**
 
-```
+```bash
 输入：s = "abc3[cd]xyz"
 输出："abccdcdcdxyz"
 ```
@@ -45,51 +45,61 @@
 - `1 <= s.length <= 30`
 - `s` 由小写英文字母、数字和方括号 `'[]'` 组成
 - `s` 保证是一个 **有效** 的输入。
-- `s` 中所有整数的取值范围为 `[1, 300]` 
+- `s` 中所有整数的取值范围为 `[1, 300]`
 
 ---
+
 ## 双栈处理嵌套：'[' 时压栈保存之前的串和重复次数，']' 时弹出把当前串重复后拼回上层，像剥洋葱一样层层解码。
 
-```
+```cpp
 class Solution {
 public:
     string decodeString(string s) {
-        int len = s.size();
+        //做两个stack从左到右存数字和字符串
         stack<int> nums;
         stack<string> strs;
-        int num = 0;
-        string res = "";
+        //做两个临时变量用于存stack前组装任意长度的数字和字符串
+        int tempNum = 0;
+        string tempStr ="";
+        //结果数组
 
-        for(int i=0;i<len;i++)
+        //for循环编列解码
+        for(int i = 0;i<s.size();i++)
         {
+            //四种情况
+            //遇到数字（但是是字符）
             if(s[i]>='0' && s[i]<='9')
             {
-                num = num*10 + s[i]-'0';
+                tempNum = tempNum*10 + s[i] - '0';
             }
-            else if(s[i]>='a' && s[i]<='z' || s[i] >= 'A' && s[i]<='Z')
+            //2.遇到字母
+            else if((s[i]>='a' && s[i]<='z' )||(s[i]>='A' && s[i]<='Z'))
             {
-                res+=s[i];
+                tempStr += s[i];
             }
-            else if(s[i]=='[')
+            //3.遇到左‘[’  入栈并重置缓存
+            else if(s[i] == '[')
             {
-                nums.push(num);
-                strs.push(res);
-                num=0;
-                res="";
+                strs.push(tempStr);
+                nums.push(tempNum);
+                tempNum = 0;
+                tempStr = "";
             }
+            //4.遇到右括号,进行解码，此时最内层的字符串还没入stack，直接获取stack中的次数，对栈顶的字符串加times次，然后把它输出为当前字符串并出栈，就算解完一层码了
             else
             {
                 int times = nums.top();
                 nums.pop();
+
                 for(int j=0;j<times;j++)
                 {
-                    strs.top()+=res;
+                    strs.top()+=tempStr;
                 }
-                res = strs.top();
+                tempStr = strs.top();
                 strs.pop();
             }
         }
-        return res;
+        return tempStr;
     }
 };
 ```

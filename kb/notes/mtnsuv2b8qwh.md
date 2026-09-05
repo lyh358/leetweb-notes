@@ -28,3 +28,6 @@
 ---
 
 ## push_back 与 emplace_back 区别
+
+- `push_back`：先构造对象，再拷贝 / 移动到容器。
+- `emplace_back`：**原地直接在容器内存构造对象**，省去拷贝 / 移动，效率更高。

@@ -134,7 +134,7 @@ union {int a; char b;} u; u.a = 1; 若u.b==1小端，否则大端。
 
 =={yellow}网络统一使用==**=={yellow}大端序（网络字节序）==**，主机小端需要 htonl/htons 转换。
 
-## 进程间通信 IPC
+## =={pink}进程间通信 IPC==
 
 管道、命名管道 FIFO、共享内存、消息队列、信号量、Socket、信号。
 

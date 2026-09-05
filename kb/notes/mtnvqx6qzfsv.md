@@ -105,7 +105,7 @@
 
 1. `malloc`是 =={yellow}**C 库函数**==；`new`是 =={yellow}**C++ 运算符**==。
 2. malloc =={yellow}只分配原始内存==，**=={yellow}不调用构造函数==**；=={yellow}new 分配**内存 + 调用构造函数**==。
-3. malloc 返回`void*`需要强转；new 返回对应类型指针。
+3. malloc 返回`void*`=={yellow}**需要强转**==；new 返回对应类型指针。
 4. 失败：malloc 返回 NULL；new 默认抛异常。
 5. 释放：malloc 配 free；new 配 delete，delete 调用析构。
 

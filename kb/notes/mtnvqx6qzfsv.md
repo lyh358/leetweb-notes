@@ -136,7 +136,7 @@ union {int a; char b;} u; u.a = 1; 若u.b==1小端，否则大端。
 
 ## =={pink}进程间通信 IPC==
 
-=={yellow}管道**PIPE**、命名管道 FIFO、共享内存、消息队列、===={yellow}信号、===={yellow}信号量、Socket。==
+=={yellow}管道**PIPE**、命名管道 **FIFO**、共享内存、消息队列、===={yellow}信号、===={yellow}信号量、Socket。==
 
 ## 线程间通信方式
 

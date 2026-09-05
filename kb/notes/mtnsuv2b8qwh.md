@@ -32,7 +32,7 @@
 - `push_back`：=={yellow}**先构造**==对象，=={yellow}**再拷贝**== / 移动到容器。
 - `emplace_back`：**=={yellow}原地直接在容器内存构造对象==**，=={yellow}**省去拷贝** / 移动==，效率更高。
 
-## 如何限定 vector 大小
+## =={pink}如何限定 vector 大小==
 
 1. `reserve(n)`：=={yellow}**分配容量 capacity**，不改变元素 size，**只预分配内存**==。
 2. `resize(n)`：=={yellow}**改变有效元素数量 size**，多删少补==。

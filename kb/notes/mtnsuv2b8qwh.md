@@ -32,4 +32,4 @@
 - `push_back`：=={yellow}**先构造**==对象，=={yellow}**再拷贝**== / 移动到容器。
 - `emplace_back`：**=={yellow}原地直接在容器内存构造对象==**，=={yellow}**省去拷贝** / 移动==，效率更高。
 
-# 如何限定 vector 大小
+## 如何限定 vector 大小

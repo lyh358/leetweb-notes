@@ -22,6 +22,6 @@
 2. **=={yellow}erase 删除元素==**：=={green}从**被删除位置到后面所有**迭代器全部失效。==
 3. =={yellow}**insert 插入**==：=={green}**扩容全部失效**==；=={green}**不扩容**，**插入点之后**迭代器失效。==
 
-## vector 添加元素接口
+## =={pink}vector 添加元素接口==
 
-`push_back()、`emplace_back()`、`insert()`、`emplace()`
+**`push_back()`、`emplace_back()`、`insert()`、`emplace()`**

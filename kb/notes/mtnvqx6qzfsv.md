@@ -120,7 +120,7 @@
 
 ## =={pink}大小端 32 位相关==
 
-=={yellow}**(1) 判断大小端**==：联合体 union，int 与 char 共用内存，读取低字节判断。
+=={yellow}**(1) 判断大小端**==：=={green}联合体 union，int 与 char 共用内存，读取低字节判断==。
 
 ```
 union {int a; char b;} u; u.a = 1; 若u.b==1小端，否则大端。

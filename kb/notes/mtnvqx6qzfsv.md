@@ -6,12 +6,14 @@
 
 - **=={yellow}list==**=={yellow}：底层为==**=={yellow}双向循环链表==**，=={green}内存不连续==，=={green}**每个节点存数据 + 前后指针**==；=={green}**不支持随机访问，任意位置插入删除只改指针，O (1)，不会造成迭代器失效**==；=={green}**遍历需要顺着指针走**==。
 
-       适用：频繁在任意位置插入删除，很少随机访问。## =={pink}STL 常用迭代器分类，vector和list用什么迭代器==
+       适用：频繁在任意位置插入删除，很少随机访问。##
+
+=={pink}STL 常用迭代器分类，vector和list用什么迭代器==
 
 1. **=={yellow}输入迭代器==**=={yellow}：只读，只能单向 ++==，如`istream_iterator`
 2. **=={yellow}输出迭代器==**=={yellow}：只写，只能单向 ++，==如`ostream_iterator`
 3. **=={yellow}前向迭代器==**=={yellow}：可读写，只能单向==`++`，=={green}单向链表==`forward_list`
-4. **=={yellow}双向迭代器==**=={yellow}：支持==`++`=={yellow}、==`--`===={yellow}={yellow}={yellow}，=={yellow}=={yellow}**{yellow}list 的迭代器就是双向迭代器**==，可以前进后退，但不能直接加减数字偏移。
+4. **=={yellow}双向迭代器==**=={yellow}：支持==`++`=={yellow}、==`--`===={yellow}={yellow}={yellow}={yellow}，=={yellow}=={yellow}**{yellow}list 的迭代器就是双向迭代器**==，可以前进后退，但不能直接加减数字偏移。
 5. **=={yellow}随机访问迭代器==**：`++ -- + - []`=={yellow}都支持==，可以像指针一样偏移，**vector 迭代器属于随机访问迭代器**。
 
 - =={green}vector：==**=={green}随机访问迭代器==**，支持`+ - []`等运算。

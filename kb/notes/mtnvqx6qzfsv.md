@@ -109,7 +109,7 @@
 4. 失败：=={yellow}malloc **返回 NULL**；new 默认**抛异常**==。
 5. 释放：=={yellow}malloc 配 **free**==；=={yellow}new 配 **delete**，delete **调用析构**==。
 
-## 大小端
+## =={pink}大小端==
 
 多字节数据在内存的字节存储顺序。
 

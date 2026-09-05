@@ -23,3 +23,5 @@
 3. =={yellow}**insert 插入**==：=={green}**扩容全部失效**==；=={green}**不扩容**，**插入点之后**迭代器失效。==
 
 ## vector 添加元素接口
+
+`push_back()`、`emplace_back()`、`insert()`、`emplace()`

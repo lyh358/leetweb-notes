@@ -8,7 +8,7 @@
 
        适用：频繁在任意位置插入删除，很少随机访问。
 
-=={pink}STL 常用迭代器分类，vector和list用什么迭代器==
+## =={pink}STL 常用迭代器分类，vector和list用什么迭代器==
 
 1. **=={yellow}输入迭代器==**=={yellow}：只读，只能单向 ++==，如`istream_iterator`
 2. **=={yellow}输出迭代器==**=={yellow}：只写，只能单向 ++，==如`ostream_iterator`

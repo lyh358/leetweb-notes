@@ -11,7 +11,7 @@
 1. **=={yellow}输入迭代器==**=={yellow}：只读，只能单向 ++==，如`istream_iterator`
 2. **=={yellow}输出迭代器==**=={yellow}：只写，只能单向 ++，==如`ostream_iterator`
 3. **=={yellow}前向迭代器==**=={yellow}：可读写，只能单向==`++`，=={green}单向链表==`forward_list`
-4. **=={yellow}双向迭代器==**=={yellow}：支持==`++`=={yellow}、==`--`===={yellow}，=={yellow}==**{yellow}list 的迭代器就是双向迭代器**==，可以前进后退，但不能直接加减数字偏移。
+4. **=={yellow}双向迭代器==**=={yellow}：支持==`++`=={yellow}、==`--`===={yellow}={yellow}，=={yellow}=={yellow}**{yellow}list 的迭代器就是双向迭代器**==，可以前进后退，但不能直接加减数字偏移。
 5. **=={yellow}随机访问迭代器==**：`++ -- + - []`=={yellow}都支持==，可以像指针一样偏移，**vector 迭代器属于随机访问迭代器**。
 
 - =={green}vector：==**=={green}随机访问迭代器==**，支持`+ - []`等运算。
@@ -122,7 +122,7 @@
 
 =={yellow}**(1) 判断大小端**==：=={green}**联合体 union，int 与 char 共用内存**，读取低字节判断==。
 
-```
+```cpp
 union {int a; char b;} u; u.a = 1; 若u.b==1小端，否则大端。
 ```
 
@@ -148,7 +148,7 @@ union {int a; char b;} u; u.a = 1; 若u.b==1小端，否则大端。
 
 `0x01`：由两个十六进制符号：`0` 和 `1`
 
-```
+```ini
 0x01  =  0000 0001  (二进制，一共8bit)
 ```
 
@@ -158,7 +158,7 @@ union {int a; char b;} u; u.a = 1; 若u.b==1小端，否则大端。
 
 把`0x12345678`，大小端翻转得到`0x78563412`
 
-```
+```cpp
 //32位无符号整数大小端转换
 uint32_t swap32(uint32_t num)
 {
@@ -188,7 +188,7 @@ uint32_t swap32(uint32_t num)
 
 =={green}多线程共享进程虚拟地址空间：==
 
-1. **=={yellow}全局 / 堆共享变量==**=={yellow}（==**=={yellow}必须加锁保护：mutex 互斥锁==**=={yellow}）==
+1. **=={yellow}全局 / 堆共享变量==****必须加锁保护：mutex 互斥锁**=={yellow}=={yellow}）==
 2. **=={yellow}条件变量==**
 3. **=={yellow}读写锁、自旋锁==**
 4. **=={yellow}线程消息队列==**

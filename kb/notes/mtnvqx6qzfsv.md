@@ -107,6 +107,6 @@
 2. malloc =={yellow}只分配原始内存==，**=={yellow}不调用构造函数==**；=={yellow}new 分配**内存 + 调用构造函数**==。
 3. malloc 返回`void*`=={yellow}**需要强转**==；new =={yellow}**返回对应类型指针**==。
 4. 失败：=={yellow}malloc **返回 NULL**；new 默认**抛异常**==。
-5. 释放：malloc 配 free；new 配 delete，delete 调用析构。
+5. 释放：=={yellow}malloc 配 free==；new 配 delete，delete 调用析构。
 
 ---

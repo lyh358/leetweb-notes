@@ -36,3 +36,5 @@
 
 1. `reserve(n)`：=={yellow}**分配容量 capacity**，不改变元素 size，**只预分配内存**==。
 2. `resize(n)`：=={yellow}**改变有效元素数量 size**，多删少补==。
+
+C++ 设计模式

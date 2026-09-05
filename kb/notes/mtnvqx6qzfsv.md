@@ -13,7 +13,7 @@
 1. **=={yellow}输入迭代器==**=={yellow}：只读，只能单向 ++==，如`istream_iterator`
 2. **=={yellow}输出迭代器==**=={yellow}：只写，只能单向 ++，==如`ostream_iterator`
 3. **=={yellow}前向迭代器==**=={yellow}：可读写，只能单向==`++`，=={green}单向链表==`forward_list`
-4. **=={yellow}双向迭代器==**=={yellow}：支持==`++`=={yellow}、`--`===={yellow}，=={yellow}=={yellow}**{yellow}list 的迭代器就是双向迭代器**==，可以前进后退，但不能直接加减数字偏移。
+4. **=={yellow}双向迭代器==**=={yellow}：支持==`++`=={yellow}、`--`===={yellow}**list 的迭代器就是双向迭代器**==，可以前进后退，但不能直接加减数字偏移。
 5. **=={yellow}随机访问迭代器==**：`++ -- + - []`=={yellow}都支持==，可以像指针一样偏移，**vector 迭代器属于随机访问迭代器**。
 
 - =={green}vector：==**=={green}随机访问迭代器==**，支持`+ - []`等运算。

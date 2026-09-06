@@ -297,7 +297,7 @@ __STREXW(val, &g_var);
 2. **=={yellow}创建==`WebServer`=={yellow}对象==**，指定=={yellow}**端口80**==；
 3. =={yellow}**注册 URL 路由**==：=={green}**浏览器访问某个路径**，就**执行**对应的**回调函数**==；=={green}**回调函数**里**组装 HTML 字符**串，调用==`server.send()`=={green}把网页**内容返回给浏览器**==；
 4. **=={yellow}调用==`server.begin()`=={yellow}启动 web 服务==**；
-5. 在 =={yellow}**loop 循环**中必须调用==`server.handleClient()`=={yellow}，处理浏览器的 http 请求==；
+5. 在 =={yellow}**loop 循环**中必须调用==`server.handleClient()`=={yellow}，**处理浏览器的 http 请求**==；
 6. 浏览器输入 ESP32 的 IP，就可以看到网页输出。
 
 ## =={pink}互斥锁 (mutex) 底层原理（FreeRTOS 视角，面试口述版）==

@@ -313,29 +313,6 @@ WiFi 连接成功后，获取 ESP32 本机 IP 地址，串口打印 IP，浏览�
 浏览器访问 ESP32 的 IP + 路径，就能看到返回的网页，触发对应的业务逻辑。
 伪代码定义WebServer对象，端口80
 
-```csharp
-setup(){初始化串口WiFi.begin(ssid,密码)等待WiFi连接完成打印本机IP//注册路由
-server.on("/", 首页回调);
-server.on("/led", led控制回调);
-
-server.begin() //开启web服务
-}
-
-loop(){
-server.handleClient() //持续处理客户端请求
-}
-
-首页回调(){
-server.send(200,"text/html","网页内容")
-}
-
-led控制回调(){
-执行IO操作
-server.send(200,"text/plain","执行完成")
-
-}
-```
-
 ## =={pink}互斥锁 (mutex) 底层原理（FreeRTOS 视角，面试口述版）==
 
 互斥锁属于 RTOS **=={yellow}内核对象==**，专门=={yellow}用于保护多任务之间保护共享资源==；

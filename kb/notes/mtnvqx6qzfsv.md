@@ -379,7 +379,7 @@ __STREXW(val, &g_var);
 
 =={green}主要用于==**=={green}一个 / 多个事件的条件等待==**，支持逻辑或（任意一个事件到来）、逻辑与（全部指定事件都到来）。
 
-可以任务置位，也可以中断中使用`xEventGroupSetBitsFromISR`置位。
+=={green}可以任务置位，也可以中断中使用==`xEventGroupSetBitsFromISR`=={green}置位。==
 
 ❗事件组**不能做互斥保护**，没有所有权，多个任务都可以读到同一个标志，无法实现资源独占。
 

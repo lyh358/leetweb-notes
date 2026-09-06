@@ -271,8 +271,11 @@ packed = 等价于 `aligned(1)`，按 1 字节对齐，不填充。
 ```scss
 ENTER_CRITICAL();
 g_val++;
-EXIT_CRITICAL();2硬件原子指令：Cortex‑M3/M4/M7 支持 LDREX/STREX 独占指令，实现无锁原子加减，CMSIS 提供：
+EXIT_CRITICAL();
 ```
+
+1. 
+2. **=={yellow}硬件原子指令==**：Cortex‑M3/M4/M7 支持 LDREX/STREX 独占指令，实现无锁原子加减，CMSIS 提供：
 
 ```cpp
 #include "cmsis_gcc.h"

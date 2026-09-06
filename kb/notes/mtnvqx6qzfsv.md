@@ -337,7 +337,7 @@ server.send(200,"text/plain","执行完成")
 }
 ```
 
-# =={pink}互斥锁 (mutex) 底层原理（FreeRTOS 视角，面试口述版）==
+## =={pink}互斥锁 (mutex) 底层原理（FreeRTOS 视角，面试口述版）==
 
 互斥锁属于 RTOS **=={yellow}内核对象==**，专门=={yellow}用于保护多任务之间保护共享资源==；
 

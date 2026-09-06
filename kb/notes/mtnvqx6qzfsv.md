@@ -289,16 +289,9 @@ __STREXW(val, &g_var);
 
 ## =={pink}ESP32 WebServer服务==
 
-=={pink}ESP32 WebServer 网页输出（Arduino‑ESP32）
-最常用，校招 / 调试高频，**启动 web 服务器，浏览器访问 IP，网页打印输出内容**。
-依赖库：`WebServer.h`，ESP32 Arduino 核心自带，不需要额外安装。
-🗣口述思路（面试讲）
-ESP32 先连接 WiFi，拿到局域网 IP 地址；
-创建`WebServer`对象，指定端口一般 80；
-注册 URL 路由：浏览器访问某个路径，就执行对应的回调函数；回调函数里组装 HTML 字符串，调用`server.send()`把网页内容返回给浏览器；
-调用`server.begin()`启动 web 服务；
-在 loop 循环中必须调用`server.handleClient()`，处理浏览器的 http 请求；
-浏览器输入 ESP32 的 IP，就可以看到网页输出。==
+```csharp
+
+```
 
 ## =={pink}互斥锁 (mutex) 底层原理（FreeRTOS 视角，面试口述版）==
 

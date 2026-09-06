@@ -587,11 +587,11 @@
     "company": "赛力斯",
     "role": "还没开",
     "location": "",
-    "applied": false,
+    "applied": true,
     "stage": "测评",
     "website": "",
     "created": 1787587274299,
-    "updated": 1788698615454
+    "updated": 1788698616543
   },
   {
     "id": "mt7f57w09vdc",

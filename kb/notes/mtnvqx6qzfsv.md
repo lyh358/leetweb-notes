@@ -287,7 +287,7 @@ __STREXW(val, &g_var);
 
 ---
 
-## =={pink}4. ESP32 WebServer服务==
+## =={pink}ESP32 WebServer服务==
 
 =={pink}整体流程：**初始化 WiFi → 连接 WiFi → 创建 WebServer 实例 → 注册 URL 路由处理函数 → 启动服务器 → 循环调用处理客户端请求**
 **创建 WebServer 对象**，指定监听端口，一般用 80 端口。

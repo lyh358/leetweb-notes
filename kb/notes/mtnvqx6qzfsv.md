@@ -293,7 +293,7 @@ __STREXW(val, &g_var);
 
 ## 🗣口述思路（面试讲）
 
-1. ESP32 先连接 WiFi，拿到局域网 IP 地址；
+1. ESP32 =={yellow}先连接 WiFi==，拿到局域网 IP 地址；
 2. 创建`WebServer`对象，指定端口一般 80；
 3. 注册 URL 路由：浏览器访问某个路径，就执行对应的回调函数；回调函数里组装 HTML 字符串，调用`server.send()`把网页内容返回给浏览器；
 4. 调用`server.begin()`启动 web 服务；

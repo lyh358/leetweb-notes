@@ -285,7 +285,7 @@ __STREXW(val, &g_var);
 
 > =={green}裸机一般简单场景直接关中断临界区就够用。==
 
-## 
+## ESP32 WebServer 网页输出（Arduino‑ESP32）
 
 > 最常用，校招 / 调试高频，**启动 web 服务器，浏览器访问 IP，网页打印输出内容**。
 > 依赖库：`WebServer.h`，ESP32 Arduino 核心自带，不需要额外安装。

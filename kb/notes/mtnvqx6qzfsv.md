@@ -295,7 +295,7 @@ __STREXW(val, &g_var);
 
 1. ESP32 =={yellow}先**连接 WiFi**==，拿到=={yellow}**局域网 IP** 地址==；
 2. **=={yellow}创建==`WebServer`=={yellow}对象==**，指定=={yellow}**端口80**==；
-3. =={yellow}**注册 URL 路由**==：=={green}**浏览器访问某个路径**，就**执行**对应的**回调函数**==；=={green}回调函数里组装 HTML 字符串，调用==`server.send()`=={green}把网页内容返回给浏览器==；
+3. =={yellow}**注册 URL 路由**==：=={green}**浏览器访问某个路径**，就**执行**对应的**回调函数**==；=={green}**回调函数**里组装 HTML 字符串，调用==`server.send()`=={green}把网页内容返回给浏览器==；
 4. 调用`server.begin()`启动 web 服务；
 5. 在 loop 循环中必须调用`server.handleClient()`，处理浏览器的 http 请求；
 6. 浏览器输入 ESP32 的 IP，就可以看到网页输出。

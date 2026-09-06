@@ -367,7 +367,9 @@ __STREXW(val, &g_var);
 
 ## =={pink}FreeRTOS 事件组 面试八股（口述版，校招嵌入式）==
 
-> =={yellow}核心：事件组 = 一个整数，每一位代表一个事件标志==；头文件 `event_groups.h`
+> =={yellow}核心：事件组 = 一个整数，每一位代表一个事件标志==；
+> 
+> 头文件 `event_groups.h`
 
 ## 🗣基础概念口述
 

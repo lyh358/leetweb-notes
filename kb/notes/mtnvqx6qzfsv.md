@@ -285,9 +285,7 @@ __STREXW(val, &g_var);
 
 > =={green}裸机一般简单场景直接关中断临界区就够用。==
 
----
-
-## =={pink}ESP32 WebServer服务==
+## 
 
 # ESP32 WebServer 网页输出（Arduino‑ESP32）
 

@@ -76,7 +76,7 @@ uint8_t ringbuf_count(ringbuf_t *rb)
 #### ⚠️核心坑点小结（脑子里记住）
 
 1. `volatile`=={yellow}**不能丢**；==
-2. =={yellow}牺牲一个空位，最多存放==`BUF_SIZE‑1`=={yellow}个字节==；
+2. **=={yellow}牺牲一个空位，最多存放==`BUF_SIZE‑1`=={yellow}个字节==**；
 3. =={yellow}**索引必须取模，防止越界；**==
 4. 单生产单消费不用锁；多生产者必须临界区保护 head。
 

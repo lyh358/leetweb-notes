@@ -11,7 +11,7 @@
 一条诊断链路通常会包含这些模块：
 - **=={yellow}CDD、FPGA或MCAL==**=={yellow}：提供原始硬件数据；==
 - **=={yellow}SWC_DIAG==**=={yellow}：判断数据是否异常；==
-- 
+- **=={yellow}DEM==**=={yellow}：统一管理故障事件状态；==
 - **=={yellow}DTC==**=={yellow}：给故障分配可以被外部读取的故障码；==
 - **=={yellow}冻结帧==**=={yellow}：保存故障发生时的关键数据；==
 - **=={yellow}DCM和UDS==**=={yellow}：响应整车或上位机的诊断请求；==

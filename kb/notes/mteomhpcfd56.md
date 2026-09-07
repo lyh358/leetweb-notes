@@ -209,6 +209,19 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 - `0`通常表示尚=={green}**未初始化**或**没有获取到有效结果**==；
 - `0xFFFFFFFF`是=={green}**读取失败**后主动填入的**哨兵值**==。
 
+因此=={yellow}**完整真值表**==是：
+
+| `storageCrc` | `calcCrc` | 结果 |
+| --- | --- | --- |
+| **有效** | **相同且有效** | =={yellow}Pass== |
+| **有效** | **不同且有效** | =={yellow}Fail== |
+| **`0`或`0xFFFFFFFF`** | **任意值** | =={yellow}不报CRC故障== |
+| **任意值** | **`0`或`0xFFFFFFFF`** | =={yellow}不报CRC故障== |
+
+=={yellow}这里**要注意**==**：**
+
+> =={green}**CRC读取失败**并不会被当成CRC不一致故障，而是**屏蔽本次故障上报**，避免**底层接口异常**被**误判成参数损坏**。==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

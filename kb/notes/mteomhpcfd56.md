@@ -8,8 +8,6 @@
 
 因此，系统需要在=={yellow}上电阶段通过CRC校验==关键Flash数据的完整性。
 
-=={green}外设参数（Para1）从Flash加载完成后，对比==**=={green}Flash原始存储CRC (storage Crc)==** =={green}和**加载实时计算CRC (calc Crc)**==；=={yellow}二者==**=={yellow}不一致则上报DEM故障==**=={yellow}，标识参数被篡改/加载损坏；同时==**=={yellow}支持产线故障注入==**=={yellow}校验、==**=={yellow}故障快照冻结帧输出==**=={yellow}。==
-
 ---
 
 ### =={pink}1. 功能标识==

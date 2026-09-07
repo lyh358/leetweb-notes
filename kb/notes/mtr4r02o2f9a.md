@@ -8,6 +8,8 @@
 
 ## I have two intern experiences.
 
+## First, I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.
+
 ## Then, I interned at Huawei Company. I was responsible for =={yellow}edged‑AI model deployment== and =={yellow}performance optimization.==
 
 ## Besides internships, I finished several personal projects.

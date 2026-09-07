@@ -126,6 +126,11 @@
 - `CDD_PERIPARA_STATE_LOADED`：**加载完成**（成功/损坏）
 - `CDD_PERIPARA_STATE_LOADED_FAIL`：**加载失败**
 
+配套读取API
+
+- `CddPeriPara_GetParaCrcGet()`：获取Flash原始CRC
+- `CddPeriPara_GetParaCrcCal()`：获取加载实时CRC
+
 ---
 
 ### =={pink}1. 功能标识==

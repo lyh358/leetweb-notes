@@ -24,7 +24,7 @@
 
 ## Besides, I have plenty of =={yellow}student‑work experience==. I worked as =={yellow}class monitor== in both my undergraduate and postgraduate years. I also served as =={yellow}minister of the Culture and Sports Department== in the student union.
 
-## I'm here applying for =={yellow}the position of embedded software development engineering== . I really enjoy solving real‑world engineering problems.  I am good at team work and willing to learn new things quickly.
+## I'm here applying for =={yellow}the position of embedded software development engineering== . I really enjoy solving real‑world engineering problems.  agood at team work and willing to learn new things quickly.
 
 ## That’s all about me. Thank you.
 

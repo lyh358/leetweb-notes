@@ -16,7 +16,14 @@
 
 ## Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects. I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
 My main skills are C and C++. I also know Python, Shell. I have experience on RTOS, Linux embedded and edge AI inference.
-I am applying for embedded software development position. I enjoy solving real‑world engineering problems. I am a careful team player and willing to learn new things quickly.
+
+## 
+
+## 
+
+## 
+
+## I am applying for embedded software development position. I enjoy solving real‑world engineering problems. I am a careful team player and willing to learn new things quickly.
 That’s all about me. Thank you.
 
 ## 中文对照（方便理解含义）

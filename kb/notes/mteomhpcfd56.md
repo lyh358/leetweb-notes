@@ -193,6 +193,8 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 =={green}**没有注入命令时，才比较两个CRC**：==
 
+**=={pink}时序流程==**=={pink}：**上电Init** → **周期轮询等待参数** → **参数就绪刷新CRC快照** → **单次比对判定** → **永久完成不再运行**。==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

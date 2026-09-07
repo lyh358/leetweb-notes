@@ -25,6 +25,7 @@
 - `diag_configAutoGen.py`=={yellow}自动脚本==，修改CSV后执行`update_diag_config.bat`=={yellow}生成==`diag_cfg.c`=={yellow}**三张核心配置表**：==
 
 **=={yellow}维护CSV → 运行生成脚本 → 得到diag_cfg.c三张配置表 → 编译进固件 →== `DiagInit`=={yellow}初始化加载==**
+可以把它们理解成：**=={yellow}诊断项表决定“怎么运行”==，=={yellow}事件表决定“怎么报故障”==，=={yellow}任务表决定“运行哪段代码”==。**
 
 ---
 

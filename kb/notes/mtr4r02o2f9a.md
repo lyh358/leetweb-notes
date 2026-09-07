@@ -14,9 +14,7 @@
 
 ## First, I interned at Huawei. I worked on edge‑AI deployment and optimization for 5G base station cases.
 
-## I deployed and tuned Transformer models on Ascend NPU. I cut inference delay a lot, and kept the model accuracy stable. I got hands‑on experience with CANN, operator optimization and performance profiling.
-Then I worked at Hesai Technology as an embedded software engineer. I joined the automotive LiDAR MCU project. I used C language for firmware development under the AUTOSAR and functional‑safety standards. I took part in real mass‑production car projects. I learned MCU debugging, fault diagnosis and whole software release workflow.
-Besides internships, I finished several personal projects. I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
+## First, I interned at Huawei. I was responsible for edge‑AI model deployment and performance optimization.Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects. I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
 My main skills are C and C++. I also know Python, Shell. I have experience on RTOS, Linux embedded and edge AI inference.
 I am applying for embedded software development position. I enjoy solving real‑world engineering problems. I am a careful team player and willing to learn new things quickly.
 That’s all about me. Thank you.

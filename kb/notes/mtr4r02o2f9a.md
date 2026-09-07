@@ -4,7 +4,9 @@
 
 ## Good morning/afternoon/evening interviewer.
 
-## My name is Liu Yuhang. And I'm 24 years old. I am a master student at Harbin Institute of Technology, majoring in Information and Communication Engineering. I got my bachelor’s degree here as well.
+## My name is Liu Yuhang. And I'm 24 years old.
+
+## I am a master student at Harbin Institute of Technology, majoring in Information and Communication Engineering. I got my bachelor’s degree here as well.
 I have two key intern experiences.
 First, I interned at Huawei. I worked on edge‑AI deployment and optimization for 5G base station scenarios. I deployed and tuned Transformer models on Ascend NPU. I cut inference delay a lot, and kept the model accuracy stable. I got hands‑on experience with CANN, operator optimization and performance profiling.
 Then I worked at Hesai Technology as an embedded software engineer. I joined the automotive LiDAR MCU project. I used C language for firmware development under the AUTOSAR and functional‑safety standards. I took part in real mass‑production car projects. I learned MCU debugging, fault diagnosis and whole software release workflow.

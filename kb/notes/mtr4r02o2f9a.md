@@ -14,7 +14,13 @@
 
 ## First, I interned at Huawei. I was responsible for edge‑AI model deployment and performance optimization.
 
-## Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects. I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
+## Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects.
+
+## 
+
+## 
+
+## I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
 My main skills are C and C++. I also know Python, Shell. I have experience on RTOS, Linux embedded and edge AI inference.
 
 ## I have won many competition awards, such as the first prize at the National University IoT Competition, third prize at the National College Innovation and Entrepreneurship Competition, and provincial silver award in the Internet‑Plus Competition.

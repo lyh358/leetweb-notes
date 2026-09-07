@@ -151,6 +151,8 @@
   - =={yellow}前4字节==：`storageCrc`
   - =={yellow}后4字节==：`calcCrc`
 
+一般来说，
+
 ---
 
 ### =={pink}1. 功能标识==

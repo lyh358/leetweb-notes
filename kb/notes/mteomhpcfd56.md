@@ -4,10 +4,6 @@
 
 激光雷达的Flash中不仅存放MCU程序，还保存了**FPGA Bitstream、****各种软硬件模块的参数与配置。**
 
-**F**
-
-**lash数据可能****损坏**
-
 ### =={pink}1. 功能标识==
 
 - =={yellow}**诊断项ID**==：`DIAGID_FPGA_PARA1 = 0x1E00`

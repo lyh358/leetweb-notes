@@ -506,7 +506,7 @@ void list_remove(node_t *del_node)
 
 ### =={yellow}关键问题：为什么嵌入式优先用这套，不直接用== `int`、`short`、`long`？
 
-#### 1️⃣ `int` 的字节宽度**是不标准的，平台会变**
+#### 1️⃣ `int` =={green}的字节宽度==**=={green}是不标准的，平台会变==**
 
 如果你写 `uint16_t a;`，**无论什么 MCU，一定占 2 个字节**。
 

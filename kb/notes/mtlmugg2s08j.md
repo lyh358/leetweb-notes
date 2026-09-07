@@ -604,7 +604,7 @@ void list_remove(node_t *del_node)
 
 > VTOR 是向量表偏移寄存器，用来=={yellow}设置**中断向量表**在 Flash 或者 RAM 中的**起始地址**==。 默认向量表从 0x0 地址开始。做**OTA 固件升级、bootloader 引导 App**的时候，App 的向量表不在 0 地址，启动 App 之后必须配置 VTOR，把向量表偏移到 App 自己的向量表起始地址，否则中断会跳转到 Bootloader 的中断服务函数，中断异常。
 
-记忆点：改变中断向量表基地址；Bootloader‑App 场景必须配置。
+记忆点：=={yellow}**改变中断向量表基地址；Bootloader‑App 场景必须配置**==。
 
 ---
 

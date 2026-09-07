@@ -608,7 +608,7 @@ void list_remove(node_t *del_node)
 
 ---
 
-### 2. PendSV 异常用途
+### =={pink}2. PendSV 异常用途==
 
 **常见提问**：PendSV 是用来干嘛的？为什么任务切换要用 PendSV，不用普通 SysTick 中断做任务切换？ ✅口述回答：
 

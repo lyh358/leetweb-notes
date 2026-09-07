@@ -23,10 +23,6 @@ I also designed distributed communication middleware for robots based on ROS 、
 In research, I have published three EI conference papers as the first author and obtained two patents as the first inventor.
 Besides, I have plenty of student‑work experience. I worked as class monitor in both my undergraduate and postgraduate years. I also served as minister of the Culture and Sports Department in the student union.
 
-## 
-
-## 
-
 ## I'm here applying for the position of embedded software development engineering . I enjoy solving real‑world engineering problems.  I am good at team work and willing to learn new things quickly.
 That’s all about me. Thank you.
 

@@ -16,9 +16,7 @@
 
 ## Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects.
 
-## I developed firmware for a smart beehive terminal with FreeRTOS and ESP32 develop kit.
-
-## And also I have built an edged‑AI system for battery life prediction. I also designed distributed communication middleware for robots based on ROS 、protobuf and gRPC .
+## I developed firmware for a smart beehive terminal with FreeRTOS and ESP32 develop kit. And also I have built an edged‑AI system for battery life prediction. I also designed distributed communication middleware for robots based on ROS 、protobuf and gRPC .
 
 ## I have won several competition awards, such as the first prize at the National University IoT Competition, third prize at the National College Innovation and Entrepreneurship Competition, and provincial silver award in the Internet‑Plus Competition.
 In research, I have published three EI conference papers as the first author and obtained two patents as the first inventor.

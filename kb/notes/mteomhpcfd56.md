@@ -172,6 +172,13 @@
 
 =={green}如果状态已经达到== `LOADED`=={green}，就**读取双CRC快照**：==
 
+```scss
+CddPeriPara_GetParaCrcGet(..., &storageCrc);
+CddPeriPara_GetParaCrcCal(..., &calcCrc);
+```
+
+=={green}然后进入== `CRC_RUN`=={green}。==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

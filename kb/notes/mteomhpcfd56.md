@@ -366,17 +366,6 @@ CRC算法读取注入结果
 - 跨复位持久化；
 - FHTI时间要求。
 
-## **关键时序与流程图说明**
-
-### 6.1 CRC校验功能全链路流程图
-
-1. `DiagInit`调用`DiagFpgaPara1Init`重置状态机至WAIT
-2. 每5ms `DiagSelftestTask`调度`DiagFpgaPara1MainTask`
-3. 状态WAIT：轮询CDD加载状态，未就绪返回UNFINISHED
-4. 参数LOADED：调用接口读取双CRC快照，切换至CRC_RUN
-5. CRC_RUN：执行注入判定+原生CRC比对，上报DEM故障
-6. 状态切换DONE，清除自检标志，后续周期不再执行
-
 ---
 
 ### =={pink}1. 功能标识==

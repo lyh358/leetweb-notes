@@ -23,9 +23,6 @@
 - `CATALOG.csv`：全系统=={yellow}诊断功能的==**=={yellow}总目录==，包括**全局故障等级、防抖、抑制参数
 - `0x1E.csv`：本=={yellow}诊断项的===={yellow}专项明细表==，专属注入阈值、FHTI时长、故障码映射
 - `diag_configAutoGen.py`=={yellow}自动脚本==，修改CSV后执行`update_diag_config.bat`=={yellow}生成==`diag_cfg.c`=={yellow}**三张核心配置表**：==
-  1. `g_diagTaskTable`：**诊断任务表**，绑定=={yellow}**Init/MainTask/GetKeyInfo函数**==
-  2. `g_eventTableCfg`：**故障事件表**，绑定=={yellow}**故障事件ID、防抖、故障等级FTL7**==
-  3. `g_diagItemTableCfg`：**诊断项配置表**，绑定=={yellow}**诊断ID、上电自检周期、故障抑制条件**==
 
 ---
 

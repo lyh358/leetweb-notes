@@ -8,6 +8,8 @@
 
 因此，系统需要在=={yellow}上电阶段通过CRC校验==关键Flash数据的完整性。
 
+---
+
 ### =={pink}1. 功能标识==
 
 - =={yellow}**诊断项ID**==：`DIAGID_FPGA_PARA1 = 0x1E00`

@@ -27,6 +27,8 @@
 **=={yellow}维护CSV → 运行生成脚本 → 得到diag_cfg.c三张配置表 → 编译进固件 →== `DiagInit`=={yellow}初始化加载==**
 ---
 
+---
+
 ### =={pink}1. 功能标识==
 
 - =={yellow}**诊断项ID**==：`DIAGID_FPGA_PARA1 = 0x1E00`

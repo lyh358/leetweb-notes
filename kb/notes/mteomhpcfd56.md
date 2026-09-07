@@ -251,6 +251,9 @@ DIAG_FPGAPARA1_DONE
 
 =={yellow}此后不再重复校验==
 
+**=={yellow}判定优先级==**：故障注入FAIL > 故障注入PASS > 原生CRC一致性比对
+**=={yellow}容错规则==**：CRC读取失败填充哨兵值时，强制无故障，规避误报
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

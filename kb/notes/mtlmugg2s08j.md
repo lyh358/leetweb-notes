@@ -90,7 +90,7 @@ uint8_t ringbuf_count(ringbuf_t *rb)
 
 1. =={yellow}**先判空指针**，如果 dest 或者 src 为 NULL，直接返回 dest。==
 2. =={yellow}把 **dest、src 强制转换**成==`char* / const char*`，=={yellow}**按字节进行处理**==。
-3. 分两种拷贝方向：
+3. =={yellow}**分两种拷贝方向**==：
 
 - 如果`dest <= src`：目标地址在源前面或者重合，**从前向后拷贝**，不会覆盖还没读取的源数据。
 - 如果`dest > src`：目标地址落在源内存的后方，存在内存重叠，**必须从后往前拷贝**，避免还未读取的源字节被提前覆盖。

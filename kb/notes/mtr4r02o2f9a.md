@@ -1,8 +1,6 @@
 # 2‑minute English Self‑introduction（口语版，时长约 110‑130 秒，短句为主，面试场景，适配嵌入式 /embedded software 岗位）
 
 > 朗读小提示：语速放缓，停顿在换行处；避免背诵感；重点突出教育、两段核心实习、核心技能、求职意向。
-> Good morning/afternoon. My name is Liu Yuhang. I’m 24 years old.
-> I am a master student at Harbin Institute of Technology, majoring in Information and Communication Engineering. I got my bachelor’s degree here as well.
 
 I have two key intern experiences.
 First, I interned at Huawei. I worked on edge‑AI deployment and optimization for 5G base station scenarios. I deployed and tuned Transformer models on Ascend NPU. I cut inference delay a lot, and kept the model accuracy stable. I got hands‑on experience with CANN, operator optimization and performance profiling.

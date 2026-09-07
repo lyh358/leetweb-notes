@@ -2,7 +2,7 @@
 
 > 朗读小提示：语速放缓，停顿在换行处；避免背诵感；重点突出教育、两段核心实习、核心技能、求职意向。
 
-## Good morning/afternoon/evening interviewer.
+## =={yellow}Good== morning/afternoon/evening interviewer.
 
 ## My name is Liu Yuhang. I'm a 24 years old  master student at Harbin Institute of Technology, majoring in Information and Communication Engineering.And I also finished my bachelor’s degree at HIT too.
 

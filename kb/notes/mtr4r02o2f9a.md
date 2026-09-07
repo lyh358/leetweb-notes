@@ -14,7 +14,7 @@
 
 ## Besides internships, I finished =={yellow}several personal projects.==
 
-## I developed firmware for a =={yellow}smart beehive terminal using FreeRTOS and the ESP32 develop kit==. Other work includes an =={yellow}edged‑AI system for battery life prediction==, as well as =={yellow}distributed communication middleware for robots== built upon ROS, Protobuffer and gRPC.
+## Such as firmware for a =={yellow}smart beehive terminal using FreeRTOS and the ESP32 develop kit==. Other work includes an =={yellow}edged‑AI system for battery life prediction==, as well as =={yellow}distributed communication middleware for robots== built upon ROS, Protobuffer and gRPC.
 
 ## On the competition side, I’ve received multiple honors.
 

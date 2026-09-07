@@ -12,7 +12,7 @@
 
 ## Then, I interned at Huawei Company. I was responsible for =={yellow}edged‑AI model deployment== and =={yellow}performance optimization.==
 
-## Besides internships, I finished several personal projects.
+## Besides internships, I finished =={yellow}several personal projects.==
 
 ## I developed firmware for a smart beehive terminal using FreeRTOS and the ESP32 develop kit. Other work includes an edged‑AI system for battery life prediction, as well as distributed communication middleware for robots built upon ROS, Protobuf and gRPC.
 

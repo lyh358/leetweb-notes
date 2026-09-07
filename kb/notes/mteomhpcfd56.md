@@ -187,6 +187,8 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 ##### =={yellow}第二优先级：注入强制正常==
 
+这两条分支用于**产线FHTI验收**，不代表修改实际Flash数据。
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

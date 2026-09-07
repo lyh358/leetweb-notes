@@ -179,7 +179,7 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 =={green}然后进入== `CRC_RUN`=={green}。==
 
-#### =={pink}2. CRC_RUN：执行核心判定==
+#### =={yellow}2. CRC_RUN：执行核心判定==
 
 ### =={pink}GetKeyInfo冻结帧快照接口==
 

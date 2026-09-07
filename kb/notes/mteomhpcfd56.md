@@ -189,6 +189,10 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 这两条分支用于**产线FHTI验收**，不代表修改实际Flash数据。
 
+##### =={yellow}第三优先级：真实CRC比较==
+
+=={green}**没有注入命令时，才比较两个CRC**：==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

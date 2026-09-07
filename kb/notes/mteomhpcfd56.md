@@ -160,6 +160,8 @@
 
 ### 由`DiagSelftestTask`=={yellow}每**5ms周期调度**，**三状态流转**==逻辑：
 
+#### =={yellow}1. WAIT：等待参数加载完成==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

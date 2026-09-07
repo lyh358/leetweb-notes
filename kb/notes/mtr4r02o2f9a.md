@@ -4,7 +4,7 @@
 
 ## Good morning/afternoon/evening interviewer.
 
-## My name is Liu Yuhang. I'm 24 years old  master student at Harbin Institute of Technology, majoring in Information and Communication Engineering.And I also finished my bachelor’s degree at HIT too.
+## My name is Liu Yuhang. I'm a 24 years old  master student at Harbin Institute of Technology, majoring in Information and Communication Engineering.And I also finished my bachelor’s degree at HIT too.
 
 ## I have two intern experiences.
 

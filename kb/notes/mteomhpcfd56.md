@@ -151,7 +151,7 @@
   - =={yellow}前4字节==：`storageCrc`
   - =={yellow}后4字节==：`calcCrc`
 
-一般来说，
+一般来说，诊断模块的ren'wu'b
 
 ---
 

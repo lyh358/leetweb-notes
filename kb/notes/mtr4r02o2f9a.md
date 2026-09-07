@@ -18,7 +18,7 @@
 
 ## On the competition side, I’ve received multiple honors.
 
-## Highlights cover =={yellow}the first prize at the National University IoT Competition==, third prize at the National College Innovation and Entrepreneurship Competition, and provincial silver award in the Internet‑Plus Competition.
+## Highlights cover =={yellow}the first prize at the National University IoT Competition==, =={green}third prize at the National College Innovation and Entrepreneurship Competition==, and provincial silver award in the Internet‑Plus Competition.
 
 ## In research, I have published three EI conference papers as the first author and obtained two patents as the first inventor.
 

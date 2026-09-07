@@ -4,7 +4,7 @@
 
 ## =={yellow}Good== morning/afternoon/=={yellow}evening interviewer.==
 
-## =={yellow}My name is Liu Yuhang==. I'm a 24 years old  =={yellow}master student== at Harbin Institute of Technology, majoring in Information and Communication Engineering.And I also finished my bachelor’s degree at HIT too.
+## =={yellow}My name is Liu Yuhang==. I'm a 24 years old  =={yellow}master student== at =={yellow}Harbin Institute of Technology==, majoring in Information and Communication Engineering.And I also finished my bachelor’s degree at HIT too.
 
 ## I have two intern experiences.
 

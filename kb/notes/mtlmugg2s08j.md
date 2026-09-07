@@ -697,7 +697,7 @@ void list_remove(node_t *del_node)
 
 **常见提问**：中断中调用 FreeRTOSAPI 为什么要用带 FromISR 的函数？直接普通 API 会怎么样？ ✅口述回答：
 
-> FreeRTOS 普通 API 函数会操作任务的栈、调度器，内部会触发任务切换，这些操作不能在中断上下文执行。 `xxx_FromISR`是专门给中断服务函数调用的版本，不会直接执行任务切换，只会标记是否需要上下文切换，通过参数`pxHigherPriorityTaskWoken`输出标记。 中断退出前，如果标记为 true，手动置位 PendSV，在离开中断之后再执行任务切换。 如果中断直接调用普通 API，会破坏内核，系统死机。
+> =={green}FreeRTOS 普通 API 函数会操作任务的栈、调度器，内部会触发任务切换，这些操作不能在中断上下文执行。== `xxx_FromISR`=={green}是专门给中断服务函数调用的版本，不会直接执行任务切换，==只会标记是否需要上下文切换，通过参数`pxHigherPriorityTaskWoken`输出标记。 中断退出前，如果标记为 true，手动置位 PendSV，在离开中断之后再执行任务切换。 如果中断直接调用普通 API，会破坏内核，系统死机。
 
 记忆点：普通 API 不能在中断调用；FromISR 版本不直接切换任务，标记标志，靠 PendSV 退出中断后再切换。
 

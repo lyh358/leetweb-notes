@@ -154,6 +154,8 @@
 一般来说，诊断模块的任务表只包含三个统一的对外接口函数（工程标准化）
 ### =={pink}初始化函数 DiagFpgaPara1Init==
 
+### =={pink}非阻塞主状态机任务 DiagFpgaPara1MainTask==
+
 ---
 
 ### =={pink}1. 功能标识==

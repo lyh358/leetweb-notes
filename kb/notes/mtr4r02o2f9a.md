@@ -6,7 +6,9 @@
 
 ## My name is Liu Yuhang. And I'm 24 years old.
 
-## I am a master student at Harbin Institute of Technology, majoring in Information and Communication Engineering.I also finished my bachelor’s degree at HIT.
+## I am a master student at Harbin Institute of Technology, majoring in Information and Communication Engineering.
+
+## I also finished my bachelor’s degree at HIT.
 
 ## I have two intern experiences.
 First, I interned at Huawei. I worked on edge‑AI deployment and optimization for 5G base station scenarios. I deployed and tuned Transformer models on Ascend NPU. I cut inference delay a lot, and kept the model accuracy stable. I got hands‑on experience with CANN, operator optimization and performance profiling.

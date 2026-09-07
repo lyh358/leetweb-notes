@@ -250,7 +250,7 @@ MCAL是=={yellow}最靠近MCU硬件的一层==，提供ADC、DIO、SPI、ETH和F
 ### 独立完成的功能
 
 - **=={yellow}入口电压诊断==**；
-- **Rx Start Signal诊断**；
+- **=={yellow}Rx Start Signal诊断==**；
 - **MCU ADC采样诊断**；
 - Program Parameters CRC；
 - **=={yellow}Flash数据CRC自检==**；

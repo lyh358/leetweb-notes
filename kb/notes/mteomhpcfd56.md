@@ -152,7 +152,9 @@
   - =={yellow}后4字节==：`calcCrc`
 
 一般来说，诊断模块的任务表只包含三个统一的对外接口函数（工程标准化）
-### =={pink}初始化函数 DiagFpgaPara1Init==**=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，**重置缓存**与**状态机**。==
+### =={pink}初始化函数 DiagFpgaPara1Init==
+
+### **=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，**重置缓存**与**状态机**。==
 
 ### =={pink}非阻塞主状态机任务 DiagFpgaPara1MainTask==
 

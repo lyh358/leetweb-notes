@@ -4,11 +4,11 @@
     "company": "东风汽车",
     "role": "智能驾驶",
     "location": "",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://app.mokahr.com/campus-recruitment/dfmc/182169?locale=zh-CN#/candidateHome/applications",
     "created": 1788791005656,
-    "updated": 1788791005656
+    "updated": 1788791008168
   },
   {
     "id": "mtpu0nnkpp0a",

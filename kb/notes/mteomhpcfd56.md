@@ -164,7 +164,9 @@
 
 #### **上电初始化**时：=={green}**每5ms调用一次主函数**==。
 
-=={green}算法层查询：==
+=={green}算法层查询：==CddPeriPara_GetStatus()
+
+=={green}如果参数仍在异步加载，就返回：==
 
 ### =={pink}GetKeyInfo冻结帧快照接口==
 

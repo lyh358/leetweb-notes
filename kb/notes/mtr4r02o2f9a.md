@@ -19,7 +19,7 @@
 ## 
 
 ## I developed firmware for a smart beehive terminal using FreeRTOS and the ESP32 develop kit.
-Other work includes an edge‑AI system for battery life prediction, as well as robot‑oriented distributed communication middleware built upon ROS, Protobuf and gRPC.
+Other work includes an edged‑AI system for battery life prediction, as well as robot‑oriented distributed communication middleware built upon ROS, Protobuf and gRPC.
 
 ## I developed firmware for a smart beehive terminal with FreeRTOS and ESP32 develop kit. And also I have built an edged‑AI system for battery life prediction. I also designed distributed communication middleware for robots based on ROS 、protobuf and gRPC .
 

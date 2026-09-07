@@ -185,6 +185,8 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 ##### =={yellow}第一优先级：注入强制故障==
 
+##### =={yellow}第二优先级：注入强制正常==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

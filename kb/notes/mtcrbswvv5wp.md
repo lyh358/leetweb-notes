@@ -9,7 +9,7 @@
 3. =={green}售后或整车**怎样读取和定位异常**。==
 
 一条诊断链路通常会包含这些模块：
-- **=={yellow}CDD、FPGA或MCAL==**=={yellow}：提供原始硬件数据；==
+- **=={yellow}CDD或MCAL==**=={yellow}：提供原始硬件数据；==
 - **=={yellow}SWC_DIAG==**=={yellow}：判断数据是否异常；==
 - **=={yellow}DEM==**=={yellow}：统一管理故障事件状态；==
 - **=={yellow}DTC==**=={yellow}：给故障分配可以被外部读取的故障码；==

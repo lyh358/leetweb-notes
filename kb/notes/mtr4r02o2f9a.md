@@ -17,7 +17,7 @@
 ## Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects.
 
 ## I developed firmware for a smart beehive terminal with FreeRTOS and ESP32 develop kit. And also I have built an edged‑AI system for battery life prediction.
-I also designed distributed communication middleware for robots.
+I also designed distributed communication middleware for robots .
 
 ## 
 

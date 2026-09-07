@@ -181,6 +181,8 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 #### =={yellow}2. CRC_RUN：执行核心判定==
 
+判定分成三层优先级。
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

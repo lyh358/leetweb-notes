@@ -99,6 +99,15 @@
 - =={yellow}周期执行时调用哪个函数==？
 - =={yellow}出现故障时从哪里获取关键数据==？
 
+##### =={green}谁使用==
+
+主要由=={yellow}**调度框架使用**==：
+
+- `DiagSelftestInit()`：调用上电自检类诊断的Init函数；
+- `DiagSelftestTask()`：调用上电自检主任务；
+- `DiagPeriodTask()`：调用周期诊断主任务；
+- 故障记录模块：调用 `GetKeyInfo()` 获取冻结帧或关键数据
+
 ---
 
 ### =={pink}1. 功能标识==

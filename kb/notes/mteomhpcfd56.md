@@ -44,7 +44,7 @@
 
 =={yellow}每次5 ms诊断任务运行时，框架会查表==
 
-#### =={pink}g_eventTableCfg==
+#### =={pink}g_eventTableCfg==故障事件配置表
 
 一行代表一个**可以向DEM上报的故障事件**。
 

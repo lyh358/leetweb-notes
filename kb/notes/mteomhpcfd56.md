@@ -44,6 +44,8 @@
 
 =={yellow}每次5 ms诊断任务运行时，框架会查表==
 
+#### =={pink}g_eventTableCfg==
+
 ---
 
 ### =={pink}1. 功能标识==

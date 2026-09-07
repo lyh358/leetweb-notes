@@ -598,7 +598,7 @@ void list_remove(node_t *del_node)
 
 ## Cortex‑M 内核部分（4）
 
-### 1. VTOR 向量表偏移寄存器
+### =={pink}1. VTOR 向量表偏移寄存器==
 
 **常见提问**：VTOR 寄存器作用？什么时候要配置 VTOR？ ✅口述回答：
 

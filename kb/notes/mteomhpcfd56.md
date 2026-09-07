@@ -254,7 +254,6 @@ DIAG_FPGAPARA1_DONE
 **特殊设计：**
 **=={yellow}判定优先级==**：故障注入FAIL > 故障注入PASS > 原生CRC一致性比对
 **=={yellow}容错规则==**：CRC读取失败填充哨兵值时，强制无故障，规避误报
-
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 =={yellow}如果DEM需要记录关键数据，就**调用**==：

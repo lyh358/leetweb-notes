@@ -156,7 +156,9 @@
 
 ### **=={yellow}作用==**=={yellow}：上电自检框架启动时仅调用一次，**重置缓存**与**状态机**。==
 
-### =={pink}非阻塞主状态机任务 DiagFpgaPara1MainTask==由`DiagSelftestTask`=={yellow}每**5ms周期调度**，**三状态流转**==逻辑：
+### =={pink}非阻塞主状态机任务 DiagFpgaPara1MainTask==
+
+### 由`DiagSelftestTask`=={yellow}每**5ms周期调度**，**三状态流转**==逻辑：
 
 ### =={pink}GetKeyInfo冻结帧快照接口==
 

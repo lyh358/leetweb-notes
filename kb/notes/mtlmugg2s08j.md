@@ -90,7 +90,7 @@ uint8_t ringbuf_count(ringbuf_t *rb)
 
 ---
 
-## **2. 实现 memmove（处理内存重叠拷贝）⭐⭐⭐⭐⭐**
+## **=={pink}2. 实现 memmove（处理内存重叠拷贝）⭐⭐⭐⭐⭐==**
 
 ### 🗣口述思路
 

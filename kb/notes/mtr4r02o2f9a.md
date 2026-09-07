@@ -24,4 +24,6 @@
 
 ## I'm here applying for the position of embedded software development engineering . I enjoy solving real‑world engineering problems.  I am good at team work and willing to learn new things quickly.
 
+That’s all about me. Thank you.
+
 ##

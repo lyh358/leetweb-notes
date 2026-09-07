@@ -183,6 +183,8 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 判定分成三层优先级。
 
+##### =={yellow}第一优先级：注入强制故障==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

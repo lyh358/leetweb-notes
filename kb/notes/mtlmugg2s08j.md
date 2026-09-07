@@ -89,7 +89,7 @@ uint8_t ringbuf_count(ringbuf_t *rb)
 > `memmove`功能：把 src 的 n 个字节拷贝到 dest，**重点支持内存区域重叠**，这是和`memcpy`最大区别。
 
 1. =={yellow}**先判空指针**，如果 dest 或者 src 为 NULL，直接返回 dest。==
-2. 把 dest、src 强制转换成`char* / const char*`，按字节进行处理。
+2. =={yellow}把 dest、src 强制转换成==`char* / const char*`，按字节进行处理。
 3. 分两种拷贝方向：
 
 - 如果`dest <= src`：目标地址在源前面或者重合，**从前向后拷贝**，不会覆盖还没读取的源数据。

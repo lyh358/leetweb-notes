@@ -24,6 +24,7 @@
 - `0x1E.csv`：本=={yellow}诊断项的===={yellow}专项明细表==，专属注入阈值、FHTI时长、故障码映射
 - `diag_configAutoGen.py`=={yellow}自动脚本==，修改CSV后执行`update_diag_config.bat`=={yellow}生成==`diag_cfg.c`=={yellow}**三张核心配置表**：==
 
+**=={yellow}维护CSV → 运行生成脚本 → 得到diag_cfg.c三张配置表 → 编译进固件 →== `DiagInit`=={yellow}初始化加载==**
 ---
 
 ### =={pink}1. 功能标识==

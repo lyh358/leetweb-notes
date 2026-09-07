@@ -693,7 +693,7 @@ void list_remove(node_t *del_node)
 
 ---
 
-### 4. 中断里为什么要用 xxx_FromISR 版本 API
+### =={pink}4. 中断里为什么要用 xxx_FromISR 版本 API==
 
 **常见提问**：中断中调用 FreeRTOSAPI 为什么要用带 FromISR 的函数？直接普通 API 会怎么样？ ✅口述回答：
 

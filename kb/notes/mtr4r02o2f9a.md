@@ -10,7 +10,7 @@
 
 ## Then, I interned at Huawei Company. I was responsible for =={yellow}edged‑AI model deployment== and =={yellow}performance optimization.==
 
-## First I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects.
+## First, I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects.
 
 ## I developed firmware for a smart beehive terminal using FreeRTOS and the ESP32 develop kit. Other work includes an edged‑AI system for battery life prediction, as well as distributed communication middleware for robots built upon ROS, Protobuf and gRPC.
 

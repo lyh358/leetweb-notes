@@ -544,7 +544,7 @@ void list_remove(node_t *del_node)
 > 
 > 取消填充之后结构体内存占用变小，但会带来**非对齐访问**风险。部分Cortex‑M芯片遇到非对齐访问会直接触发HardFault硬件异常，程序死机，这是最主要隐患。
 
-记忆要点：对齐为CPU访问效率；`#pragma pack(1)` / `__attribute__((packed))`取消填充；会产生非对齐访问HardFault风险。
+记忆要点：=={yellow}对齐为CPU访问效率；==`#pragma pack(1)` =={yellow}/== `__attribute__((packed))`=={yellow}取消填充==；会产生非对齐访问HardFault风险。
 
 ---
 

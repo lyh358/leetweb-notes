@@ -257,6 +257,33 @@ DIAG_FPGAPARA1_DONE
 
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
+=={yellow}如果DEM需要记录关键数据，就**调用**==：
+
+```scss
+DiagFpgaPara1GetKeyInfo()
+```
+
+=={yellow}**算法层输出8字节**：==
+
+```kotlin
+Byte 0～3：storageCrc
+Byte 4～7：calcCrc
+```
+
+=={yellow}这样产线或售后通过UDS读取冻结帧时，可以看到：==
+
+```undefined
+期望CRC是多少
+实际计算CRC是多少
+```
+
+=={green}从而**判断**是否存在：==
+
+- **=={yellow}Flash参数被篡改==**=={yellow}；==
+- =={yellow}Flash==**=={yellow}位翻转==**=={yellow}；==
+- =={yellow}参数==**=={yellow}加载过程损坏==**=={yellow}；==
+- 参数文件与当前软件版本不匹配。
+
 ---
 
 ### =={pink}1. 功能标识==

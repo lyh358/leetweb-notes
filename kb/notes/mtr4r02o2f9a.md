@@ -12,9 +12,9 @@
 
 ## I have two intern experiences.
 
-## First, I interned at Huawei. I worked on edge‑AI deployment and optimization for 5G base station cases.
+## First, I interned at Huawei. I was responsible for edge‑AI model deployment and performance optimization.
 
-## First, I interned at Huawei. I was responsible for edge‑AI model deployment and performance optimization.Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects. I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
+## Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects. I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
 My main skills are C and C++. I also know Python, Shell. I have experience on RTOS, Linux embedded and edge AI inference.
 I am applying for embedded software development position. I enjoy solving real‑world engineering problems. I am a careful team player and willing to learn new things quickly.
 That’s all about me. Thank you.

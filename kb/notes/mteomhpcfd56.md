@@ -151,10 +151,9 @@
   - =={yellow}前4字节==：`storageCrc`
   - =={yellow}后4字节==：`calcCrc`
 
-一般来说，诊断模块的任务表只包含三个统一
-### =={pink}初始化函数 DiagFpgaPara1Init==
+一般来说，诊断模块的任务表只包含三个统一的对外接口函数（工程标准化）
 
-的对外接口函数（工程标准化）
+### =={pink}初始化函数 DiagFpgaPara1Init==
 
 ---
 

@@ -548,7 +548,7 @@ void list_remove(node_t *del_node)
 
 ---
 
-### 2. 有符号数和无符号数隐式转换
+### =={pink}2. 有符号数和无符号数隐式转换==
 
 **面试官常见问法** 1）有符号int和unsigned无符号数一起运算会发生什么？ 2）`if(-1 > sizeof(int))`这个判断为什么结果是true？
 

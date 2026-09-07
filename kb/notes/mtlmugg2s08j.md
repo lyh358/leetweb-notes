@@ -494,7 +494,7 @@ void list_remove(node_t *del_node)
 
 ## 1.`uint8_t` / `uint16_t` / `uint32_t`
 
-=={yellow}头文件：==`#include <stdint.h>`，这是 C99 标准引入的=={yellow}固定宽度整数类型==。
+=={yellow}头文件：==`#include <stdint.h>`，这是 C99 标准引入的=={yellow}**固定宽度整数类型**==。
 
 | 类型 | 含义 | 大小 | 范围 |
 | --- | --- | --- | --- |

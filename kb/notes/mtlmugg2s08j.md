@@ -504,7 +504,7 @@ void list_remove(node_t *del_node)
 
 `u` = unsigned 无符号；数字代表比特位数；`_t`代表 type（类型）。
 
-### 关键问题：为什么嵌入式优先用这套，不直接用 `int`、`short`、`long`？
+### =={yellow}关键问题：为什么嵌入式优先用这套，不直接用== `int`、`short`、`long`？
 
 #### 1️⃣ `int` 的字节宽度**是不标准的，平台会变**
 

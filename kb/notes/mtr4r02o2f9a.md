@@ -17,7 +17,9 @@
 ## Then I interned at Hesai Technology as an embedded software engineer. I took part in automotive LiDAR MCU firmware development for mass‑production projects.Besides internships, I finished several personal projects. I built embedded firmware based on FreeRTOS, and also worked on robot communication with ROS and Protobuf. I am familiar with common buses like CAN, UART and I2C.
 My main skills are C and C++. I also know Python, Shell. I have experience on RTOS, Linux embedded and edge AI inference.
 
-## 
+## I have won many competition awards, such as the first prize at the National University IoT Competition, third prize at the National College Innovation and Entrepreneurship Competition, and provincial silver award in the Internet‑Plus Competition.
+In research, I have published three EI conference papers as the first author and obtained two patents as the first inventor.
+Besides, I have plenty of student‑work experience. I worked as class monitor in both my undergraduate and postgraduate years. I also served as minister of the Culture and Sports Department in the graduate student union.
 
 ## 
 

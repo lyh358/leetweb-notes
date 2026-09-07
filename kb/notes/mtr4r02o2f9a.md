@@ -20,7 +20,7 @@
 
 ## Highlights cover =={yellow}the first prize at the National University IoT Competition==, =={green}third prize at the National College Innovation and Entrepreneurship Competition==, and =={pink}provincial silver award in the Internet‑Plus Competition.==
 
-## In research, I have published =={yellow}three EI conference papers== as the first author and obtained two patents as the first inventor.
+## In research, I have published =={yellow}three EI conference papers== as the first author and obtained =={yellow}two patents== as the first inventor.
 
 ## Besides, I have plenty of student‑work experience. I worked as class monitor in both my undergraduate and postgraduate years. I also served as minister of the Culture and Sports Department in the student union.
 

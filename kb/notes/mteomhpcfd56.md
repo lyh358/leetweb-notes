@@ -132,7 +132,7 @@
 - `CddPeriPara_GetParaCrcCal()`：获取加载实时CRC
 
 **算法层：**
-**算法层位于SWC_diag**
+**算法层位于SWC_diag模块下面的一个子模块**
 
 ---
 

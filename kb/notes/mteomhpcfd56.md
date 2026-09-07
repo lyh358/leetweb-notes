@@ -222,6 +222,35 @@ CddPeriPara_GetParaCrcCal(..., &calcCrc);
 
 > =={green}**CRC读取失败**并不会被当成CRC不一致故障，而是**屏蔽本次故障上报**，避免**底层接口异常**被**误判成参数损坏**。==
 
+### =={pink}2.5 DEM上报与完成==
+
+=={yellow}得到== `errFlag`=={yellow}后，算法调用==：
+
+```scss
+DiagSendResultToDem(
+    EVTID_FPGA_PARA1_FAULT,
+    errFlag
+);
+```
+
+**=={yellow}算法层只提供原始Pass/Fail==**，=={yellow}后续由诊断框架负责==：
+
+- Fail/Pass**防抖**；
+- **故障等级处理**；
+- **DEM**事件**状态更新**；
+- **DTC记录**与清除；
+- **冻结帧保存**。
+
+=={green}本功能**防抖为1**，因此**一次有效的不一致就可以确认故障**。==
+
+=={yellow}上报完成后，状态机进入：==
+
+```undefined
+DIAG_FPGAPARA1_DONE
+```
+
+=={yellow}此后不再重复校验==
+
 ### =={pink}GetKeyInfo冻结帧快照接口==
 
 ---

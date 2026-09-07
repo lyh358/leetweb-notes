@@ -2,7 +2,7 @@
 
 ---
 
-激光雷达的Flash中不仅存放MCU程序，还保存了**FPGA Bitstream**
+激光雷达的Flash中不仅存放MCU程序，还保存了**FPGA Bitstream、**
 
 ---
 

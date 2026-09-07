@@ -27,7 +27,7 @@ Besides, I have plenty of student‑work experience. I worked as class monitor i
 
 ## 
 
-## I'm here applying for the position of embedded software development engineering . I enjoy solving real‑world engineering problems. I am a careful team player and willing to learn new things quickly.
+## I'm here applying for the position of embedded software development engineering . I enjoy solving real‑world engineering problems.  I am a careful team player and willing to learn new things quickly.
 That’s all about me. Thank you.
 
 ## 中文对照（方便理解含义）

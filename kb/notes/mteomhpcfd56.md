@@ -131,6 +131,8 @@
 - `CddPeriPara_GetParaCrcGet()`：获取Flash原始CRC
 - `CddPeriPara_GetParaCrcCal()`：获取加载实时CRC
 
+算法层
+
 ---
 
 ### =={pink}1. 功能标识==

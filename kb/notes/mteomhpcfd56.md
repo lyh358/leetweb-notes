@@ -156,6 +156,8 @@
 
 ### =={pink}非阻塞主状态机任务 DiagFpgaPara1MainTask==
 
+### =={pink}KeyInfo冻结帧快照接口==
+
 ---
 
 ### =={pink}1. 功能标识==

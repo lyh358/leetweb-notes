@@ -26,19 +26,4 @@ Besides, I have plenty of student‑work experience. I worked as class monitor i
 ## I'm here applying for the position of embedded software development engineering . I enjoy solving real‑world engineering problems.  I am good at team work and willing to learn new things quickly.
 That’s all about me. Thank you.
 
-## 中文对照（方便理解含义）
-
-上午 / 下午好，我叫刘宇航，24 岁。
-我是哈尔滨工业大学信息与通信工程专业硕士，本科也就读于此。
-
-我有两段重要实习经历。
-第一段在华为，做 5G 基站场景下的端侧 AI 部署与优化。我在昇腾 NPU 上部署调优 Transformer 模型，大幅降低推理时延，同时保证模型精度。我实际使用过 CANN、算子优化与性能分析工具。
-
-之后我在禾赛科技担任嵌入式软件工程师，参与车载激光雷达 MCU 项目。我基于 AUTOSAR 和功能安全标准使用 C 语言做固件开发，参与真实车企量产项目，掌握 MCU 调试、故障诊断和完整软件版本发布流程。
-
-除实习外，我完成不少项目：基于 FreeRTOS 开发固件，也做过 ROS+Protobuf 机器人通信相关开发，熟悉 CAN、UART、I2C 等常用总线。
-
-我主要掌握 C/C++，也会 Python、Shell；有 RTOS、Linux 嵌入式、端侧 AI 推理相关经验。
-
-我应聘嵌入式软件开发岗位。我喜欢解决真实工程问题，做事严谨，善于团队协作，能快速学习新技术。
-我的介绍到此，谢谢。
+##

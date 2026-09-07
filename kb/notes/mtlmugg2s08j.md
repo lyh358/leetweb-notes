@@ -498,7 +498,7 @@ void list_remove(node_t *del_node)
 
 | 类型 | 含义 | 大小 | 范围 |
 | --- | --- | --- | --- |
-| `uint8_t` | unsigned int 8 bits | 1 字节 (8bit) | 0 ~ 255 |
+| `uint8_t` | unsigned int 8 bits | **1 字节 (8bit)** | 0 ~ 255 |
 | `uint16_t` | unsigned int 16 bits | 2 字节 (16bit) | 0 ~ 65535 |
 | `uint32_t` | unsigned int 32 bits | 4 字节 (32bit) | 0 ~ 4294967295 |
 

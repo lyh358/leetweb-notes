@@ -133,6 +133,23 @@
 
 **算法层：**
 **算法层位于SWC_diag模块下面的一个子模块**
+#### =={green}输入==
+
+算法层**从CDD获取三个信息**：
+
+1. =={yellow}参数是否加载完成；==
+2. =={yellow}Flash参数**头部保存的CRC**== `storageCrc`=={yellow}；==
+3. =={yellow}参数加载过程**中实时计算的CRC**== `calcCrc`=={yellow}。==
+
+#### =={green}输出==
+
+**算法层最终产生**：
+
+- =={yellow}**CRC诊断Pass或Fail**；==
+- =={yellow}**DEM事件**== `EVTID_FPGA_PARA1_FAULT`；
+- =={yellow}**8字节故障快照**==：
+  - =={yellow}前4字节==：`storageCrc`
+  - =={yellow}后4字节==：`calcCrc`
 
 ---
 

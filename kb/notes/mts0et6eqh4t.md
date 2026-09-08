@@ -735,3 +735,26 @@ x → Mul(0.5·x) ────────────────────�
 
 - **=={yellow}ND格式==**：**普通**的连续**张量格式**，便于Softmax等=={yellow}**Vector操作**==处理；
 - **=={yellow}NZ格式==**：按照**固定小块重新排列**的**分形格式**，更=={yellow}**适合Cube**==高效执行矩阵乘。
+
+## =={pink}优化前的Attention计算链：九个Kernel==
+
+ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格式转换仍然保持独立。
+
+完整执行链路如下：
+
+> Q：ND ─→ =={yellow}**Kernel 1：TransData**==，=={yellow}**ND→NZ**== ─┐
+> K：ND ─→ =={yellow}**Kernel 2**：TransData==，ND→NZ ──┼→ =={pink}**Kernel 4：QKᵀ+Scale**==
+> V：ND ─→ =={yellow}**Kernel 3：TransData==，ND→NZ ─┘           ↓
+>                                                                                                      Score_NZ
+>                                                                                                              ↓
+>                                                                                            =={yellow}**Kernel 5：TransData，NZ→ND**==
+>                                                                                                              ↓
+>                                                                                            =={pink}**Kernel 6：Softmax**==
+>                                                                                                              ↓
+>                                                                                            =={yellow}**Kernel 7：TransData，ND→NZ**==
+>                                                                                                              ↓
+>                                                                                            =={pink}**Kernel 8：Weight×V**==
+>                                                                                                              ↓
+>                                                                                            =={yellow}**Kernel 9：TransData，NZ→ND**==
+>                                                                                                              ↓
+>                                                                                                       最终输出

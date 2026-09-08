@@ -229,7 +229,7 @@ AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估
 
 进一步评估了：
 
-- GELU的Tanh近似替换为Erf近似；
+- **GELU的Tanh近似替换为Erf近似**；
 - FP16自动混合精度；
 - 手工FP16和Mixlist；
 - INT8量化方案。

@@ -795,7 +795,7 @@ Cube计算Score
 → Softmax Kernel重新从GM读取
 ```
 
-=={yellow}kernel 6 Softmax完成后==，注意力权重又要=={yellow}写回GM==，=={yellow}再==由第二次MatMul=={yellow}重新读取==：
+=={yellow}kernel 6 Softmax完成后==，注意力权重又要=={yellow}写回GM==，=={yellow}再==由第二次MatMul=={yellow}重新读取：
 
 ```sql
 Vector完成Softmax

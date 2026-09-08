@@ -242,6 +242,6 @@ AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估
 - **Ascend C设备端Kernel；**
 - **ONNX自定义节点与子图替换；**
 - QK**转置**、Softmax和Value加权**计算融合**；
-- **多核Head并行**、Ping-Pong双缓冲及片上数据复用方案
+- **多核Head并行**、**Ping-Pong双缓冲**及片上数据复用方案
 
 ---

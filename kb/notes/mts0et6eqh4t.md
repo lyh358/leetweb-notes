@@ -795,10 +795,6 @@ Cube计算Score
 → Softmax Kernel重新从GM读取
 ```
 
-```sql
-
-```
-
 =={yellow}这使中间结果在不同Kernel之间反复搬运，而不是一直保留在高速片上存储中。==
 
 #### =={pink}问题三：Cube和Vector之间频繁转换格式==

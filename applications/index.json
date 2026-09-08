@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtsxujjvhhgz",
+    "company": "中国电信四川公司（四川公共信息产业有限责任公司）",
+    "role": "软件系统架构师",
+    "location": "成都",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://job.chinatelecom.com.cn/",
+    "created": 1788888203131,
+    "updated": 1788888203131
+  },
+  {
     "id": "mtsxsk44r2uu",
     "company": "中国电信四川公司（成都分公司）",
     "role": "云网技术工程师",

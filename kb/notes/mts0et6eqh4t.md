@@ -801,18 +801,6 @@ Cube计算Score
 
 =={yellow}矩阵乘更适合NZ格式，Softmax更适合ND格式==，因此链路中形成：
 
-```sql
-Cube使用NZ
-    ↓
-TransData：NZ→ND
-    ↓
-Vector执行Softmax
-    ↓
-TransData：ND→NZ
-    ↓
-Cube执行第二次MatMul
-```
-
 这些TransData没有改变Attention的计算结果，但增加了数据读取、重新排列、写入和Kernel调度。
 
 #### 问题四：计算与搬运没有形成连续流水

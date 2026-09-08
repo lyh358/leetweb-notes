@@ -710,6 +710,15 @@ x → Mul(0.5·x) ────────────────────�
 
 # PART8——FusedAttention自定义算子探索
 
+#### =={green}Host和Device是什么==
+
+在昇腾推理环境中，可以把=={yellow}系统分为Host和Device两侧。==
+
+| 部分 | 含义 | 主要职责 |
+| --- | --- | --- |
+| **=={green}Host==** | 运行Linux的=={yellow}**CPU侧**== | 加载OM、准备输入、申请内存、发起推理并获取结果 |
+| **=={green}Device==** | Ascend 310P3 =={yellow}**NPU侧**== | 执行模型中的矩阵乘、Softmax和数据搬运等操作 |
+
 整体关系可以简化为：
 
 > =={green}Host CPU==

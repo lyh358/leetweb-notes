@@ -855,3 +855,19 @@ Cube执行第二次MatMul
 | **=={yellow}4.多核Head并行==** | **根据Head划分AI Core**，每个Core独立处理一个Head | 避免多个Head串行执行 |
 | **=={yellow}5.Tiling与双缓冲==** | **将K维切成两个Chunk**，使用**Ping-Pong Buffer交替搬运和计算** | 重叠MTE搬运与Cube计算 |
 | **=={yellow}6.格式转换内联==** | 输入格式与Cube计算格式匹配，**在搬运和Kernel内部完成转置**及输出整理 | 减少独立TransData和Transpose Kernel |
+
+## 实施链路
+
+```markdown
+第一步：识别原始Attention子图
+        ↓
+第二步：替换为FusedAttention自定义节点
+        ↓
+第三步：Host侧完成算子注册、Shape推导和Tiling
+        ↓
+第四步：Device侧实现Cube、Vector和MTE协同Kernel
+        ↓
+第五步：通过多核、片上复用和Ping-Pong优化数据流
+        ↓
+第六步：重新编译OM并进行精度与性能验证
+```

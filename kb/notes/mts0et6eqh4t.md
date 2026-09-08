@@ -135,7 +135,7 @@ AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估
 - batch=4，中间张量内存基本翻 4 倍，极易触发内存超限、频繁 DDR 搬运，反而变慢，甚至跑不起来。
 车载 SOC、手机 NPU 片上 SRAM 非常宝贵，大 batch 压力巨大。
 
-## 4. 模型 & 算子优化是面向 batch‑1 做的
+### =={pink}4. 模型 & 算子优化是面向 batch‑1 做的==
 
 端侧工具链（TFLite、ONNX Runtime、SNPE、TensorRT‑LLM、车载 SOC 工具链）：
 

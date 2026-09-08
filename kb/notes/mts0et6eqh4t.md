@@ -801,7 +801,7 @@ Cube计算Score
 
 =={yellow}这使中间结果在不同Kernel之间反复搬运，而不是一直保留在高速片上存储中。==
 
-#### =={pink}问题三：Cube和Vector之间频繁转换格==
+#### =={pink}问题三：Cube和Vector之间频繁转换格式==
 
 =={yellow}矩阵乘更适合NZ格式，Softmax更适合ND格式==，因此链路中形成：
 

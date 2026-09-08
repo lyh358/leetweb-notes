@@ -795,17 +795,13 @@ Cube计算Score
 → Softmax Kernel重新从GM读取
 ```
 
-=={yellow}kernel 6 Softmax完成后==，注意力权重又要=={yellow}写回GM==，=={yellow}再==由第二次MatMul=={yellow}重新读取：
-
 ```sql
-Vector完成Softmax
-→ Weight写回GM
-→ Cube重新从GM读取
+
 ```
 
 =={yellow}这使中间结果在不同Kernel之间反复搬运，而不是一直保留在高速片上存储中。==
 
-#### =={pink}问题三：Cube和Vector之间频繁转换格式==
+#### =={pink}问题三：Cube和Vector之间频繁转换格==
 
 =={yellow}矩阵乘更适合NZ格式，Softmax更适合ND格式==，因此链路中形成：
 

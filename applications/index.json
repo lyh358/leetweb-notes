@@ -4,11 +4,11 @@
     "company": "中国电信浙江（省人工智能中心）",
     "role": "通信网络工程师",
     "location": "杭州",
-    "applied": false,
+    "applied": true,
     "stage": "准备投递",
     "website": "https://job.chinatelecom.com.cn/",
     "created": 1788888005211,
-    "updated": 1788888005211
+    "updated": 1788888008231
   },
   {
     "id": "mtsxosdjnhi7",

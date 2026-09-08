@@ -221,7 +221,7 @@ AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估
 
 - **静态Shape固化**；
 - **常量折叠**；
-- **冗余S**hape、Gather、Unsqueeze节点消除；
+- **冗余S**hape、Gather、Unsqueeze**节点消除**；
 - 从模型输出反向进行死代码删除；
 - 重新执行ATC编译和算子融合。
 

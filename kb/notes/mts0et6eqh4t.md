@@ -263,6 +263,6 @@ AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估
 >    ↓
 > =={yellow}**有效方案保留**，**无收益方案回退**==
 
-PART3——s
+PART3——qu'na'liu'c
 
 ---

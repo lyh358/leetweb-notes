@@ -836,9 +836,3 @@ Cube执行第二次MatMul
 ```
 
 对于小矩阵Attention，真正的Cube计算时间很短，无法掩盖这些搬运和调度开销。
-
-## =={pink}最终瓶颈判断==
-
-优化前Attention的主要矛盾不是计算公式太复杂，也不是Cube执行矩阵乘不够快，而是：
-
-> =={yellow}**多个Kernel**将Attention链路切得**过碎**，使**中间结果反复写回GM**，并在Cube和Vector之间产生**多次格式转换**与**kernel调度**。==

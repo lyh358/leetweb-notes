@@ -2,7 +2,7 @@
 
 面向的是 **=={yellow}5G基站物理层AI信道矩阵估计==**=={yellow}。==
 
-**无线信号**从**手机**传到**基站**时，会受到**各种影响**。基站需要根据SRS（Sounding Reference Signal，探测参考信号）、DMRS（Demodulation Reference Signal，解调参考信号）等参考信号，估计当前无线信道的状态，也就是信道矩阵 (H)。
+**无线信号**从**手机**传到**基站**时，会受到**各种影响**。**基站**需要根据SRS（Sounding Reference Signal，探测参考信号）、DMRS（Demodulation Reference Signal，解调参考信号）等参考信号，估计当前无线信道的状态，也就是信道矩阵 (H)。
 
 =={yellow}信道估计结果会直接用于==：
 

@@ -504,3 +504,14 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 同时还有太多**Cube和Vector频繁切换导致**的**中间张量的GM和片内缓存搬移**，以及**transData开销**。=={yellow}（**NPU执行分析**）==
 
 # PART5——计算图优化=={pink}（中间张量推导+迭代常量替代+反向DCE）==
+
+### =={pink}冗余节点的来源==
+
+=={green}PyTorch 导出 ONNX 时，默认按==**=={green}通用情况==**=={green}处理==——**假设 shape 可能是动态**的。=={yellow}**因此会自动插入**==：
+
+> **=={green}Shape → Gather → Unsqueeze==**
+> =={green}（====={green}**={green}取张量维度值 → 取某个具体维度 → 扩维拼接到目标 shape**=={yellow}=={green}）==
+
+=={green}这条链路在==**=={green}动态 shape==** =={green}下是必要的（运行时才能知道维度值）==。=={green}但在我们的部署场景中，ATC 编译要求固定== `input_shape="input:1,4,32,32,1"`=={green}，shape 永远不会变，所以这些运行时推导节点==**=={green}永远不会产生不同于编译时的值==**=={yellow}，纯粹**《浪费调度开销》**。==
+
+=={yellow}更严重的是，冗余节点==**=={yellow}《打断了 ATC 算子融合的模式匹配》==**——比如 `Conv→Unsqueeze→Shape→...→Add` =={green}中间夹着冗余节点**，ATC 识别不出**== `Conv+Add` =={green}**融合模式**，**只能将模型拆成 10+ 个子图**，子图间有大量**《调度开销**和 **GM↔L1 数据搬运》**。==

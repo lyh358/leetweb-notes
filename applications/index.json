@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtsxsk44r2uu",
+    "company": "中国电信四川公司（成都分公司）",
+    "role": "云网技术工程师",
+    "location": "成都",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://job.chinatelecom.com.cn/",
+    "created": 1788888110548,
+    "updated": 1788888110548
+  },
+  {
     "id": "mtsxqau3987q",
     "company": "中国电信浙江公司（省人工智能中心）",
     "role": "通信网络工程师",

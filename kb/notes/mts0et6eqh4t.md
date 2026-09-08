@@ -1,4 +1,4 @@
-# PARt
+# PART1
 
 # 为什么端侧推理 batch_size 大多 = 1
 

@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtsxwwukauqz",
+    "company": "中国电信湖南公司（长沙分公司本部）",
+    "role": "研发工程师",
+    "location": "长沙",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://job.chinatelecom.com.cn/",
+    "created": 1788888313676,
+    "updated": 1788888313676
+  },
+  {
     "id": "mtsxujjvhhgz",
     "company": "中国电信四川公司（四川公共信息产业有限责任公司）",
     "role": "软件系统架构师",

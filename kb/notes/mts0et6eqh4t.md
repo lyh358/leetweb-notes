@@ -842,3 +842,5 @@ Cube执行第二次MatMul
 优化前Attention的主要矛盾不是计算公式太复杂，也不是Cube执行矩阵乘不够快，而是：
 
 > =={yellow}**多个Kernel**将Attention链路切得**过碎**，使**中间结果反复写回GM**，并在Cube和Vector之间产生**多次格式转换**与**kernel调度**。==
+
+# =={pink}FusedAttention的实施方法概设==

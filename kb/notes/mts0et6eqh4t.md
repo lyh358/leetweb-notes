@@ -437,6 +437,17 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 =={green}msprof 是**CANN提供**的 **RT‑Thread 采样式性能剖析器**，靠**定时器中断采样 PC** + **栈回溯**实现。==
 
+重点关注：
+
+- 算子执行顺序；
+- 各Kernel的执行时间；
+- Kernel调用是否过于细碎；
+- Conv、MatMul等Cube算子；
+- Softmax、GELU和逐元素运算等Vector算子；
+- TransData格式转换；
+- AI Core执行情况；
+- 数据搬运和计算之间是否存在等待
+
 =={green}msprof用于回答**两个问题**：==
 
 1. =={yellow}时间主要花在**计算**、**数据搬运**还是**调度**上？==

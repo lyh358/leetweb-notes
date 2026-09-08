@@ -768,3 +768,79 @@ Kernel 8：Weight × V
 ```
 
 =={green}其余大部分Kernel都在**处理数据格式和数据流转**。==
+
+## =={pink}4. 优化前为什么性能不理想==
+
+#### =={yellow}问题一：Kernel数量较多==
+
+整个Attention子图=={green}包含九个Kernel。即使每个Kernel的计算量不大==，也需要分别经历：
+
+```undefined
+Kernel调度
+→ 流水线启动
+→ 数据读取
+→ 执行计算
+→ 同步结束
+```
+
+SPF属于小Shape、batch_size为1的轻量模型，矩阵乘本身执行得很快，因此=={green}**Kernel启动和调度开销**==会显得更加突出。
+
+#### =={pink}问题二：中间结果反复访问GM==
+
+=={yellow}Kernel 4完成==`QKᵀ+Scale`=={yellow}后==，Score不能直接交给Softmax使用，而是需要=={yellow}写回GM==。
+
+```sql
+Cube计算Score
+→ Score写回GM
+→ Softmax Kernel重新从GM读取
+```
+
+=={yellow}kernel 6 Softmax完成后==，注意力权重又要=={yellow}写回GM==，=={yellow}再==由第二次MatMul=={yellow}重新读取==：
+
+```sql
+Vector完成Softmax
+→ Weight写回GM
+→ Cube重新从GM读取
+```
+
+=={yellow}这使中间结果在不同Kernel之间反复搬运，而不是一直保留在高速片上存储中。==
+
+#### =={pink}问题三：Cube和Vector之间频繁转换格式==
+
+=={yellow}矩阵乘更适合NZ格式，Softmax更适合ND格式==，因此链路中形成：
+
+```sql
+Cube使用NZ
+    ↓
+TransData：NZ→ND
+    ↓
+Vector执行Softmax
+    ↓
+TransData：ND→NZ
+    ↓
+Cube执行第二次MatMul
+```
+
+这些TransData没有改变Attention的计算结果，但增加了数据读取、重新排列、写入和Kernel调度。
+
+#### 问题四：计算与搬运没有形成连续流水
+
+优化前的多个Kernel彼此独立。前一个Kernel结束后，中间结果通常需要写回GM，下一个Kernel才能继续处理。
+
+因此执行过程更接近：
+
+```undefined
+搬运 → 计算 → 写回
+搬运 → 计算 → 写回
+搬运 → 计算 → 写回
+```
+
+而不是：
+
+```undefined
+数据搬入一次
+→ 片上连续完成多个操作
+→ 最终结果写回一次
+```
+
+对于小矩阵Attention，真正的Cube计算时间很短，无法掩盖这些搬运和调度开销。

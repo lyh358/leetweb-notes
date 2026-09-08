@@ -409,6 +409,6 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 =={green}设备子图==：ATC将完整模型拆分后，**交给device(NPU)执行的一段计算图**。
 
-## =={pink}性能分析工具==
+## =={pink}性能分析工具（Netron、ATC、msprof、ACL推理程序）==
 
 ---

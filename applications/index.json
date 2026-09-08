@@ -4,11 +4,11 @@
     "company": "中国电信湖南公司（长沙分公司本部）",
     "role": "研发工程师",
     "location": "长沙",
-    "applied": false,
+    "applied": true,
     "stage": "准备投递",
     "website": "https://job.chinatelecom.com.cn/",
     "created": 1788888313676,
-    "updated": 1788888313676
+    "updated": 1788888316774
   },
   {
     "id": "mtsxujjvhhgz",

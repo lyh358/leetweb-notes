@@ -1,5 +1,15 @@
 # PART1——业务背景
 
+面向的是 **=={yellow}5G基站物理层AI信道矩阵估计==**=={yellow}。==
+
+=={green}无线信号从手机传到基站==时，=={green}会受到==建筑物反射、遮挡、多径和噪声等=={green}各种==影=={green}响。=={green}基站需要根据SRS（=={yellow}Sounding Reference Signal，==**=={green}探测参考信号==**=={green}）、DMRS（===={green}Demodulation Reference Signal，==**=={green}解调参考信号==**=={yellow}）等参考信号，**估计当前无线信道的状态**，也就是**信道矩阵 (H)**。==
+
+=={yellow}信道估计结果会直接用于==：
+
+- =={yellow}**上行数据解调**==；
+- =={yellow}**下行预编码**；==
+- =={yellow}**多用户MIMO干扰抑制**；==
+
 # 为什么端侧推理 batch_size 大多 = 1
 
 > batch_size=1：每次只处理**1 个样本**（1 张图、1 帧、1 条语音），也叫单帧推理。

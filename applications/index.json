@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtsv8jenql2t",
+    "company": "中国电信人工智能研究院",
+    "role": "通信网络研究员",
+    "location": "上海",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://job.chinatelecom.com.cn/",
+    "created": 1788883817279,
+    "updated": 1788883817279
+  },
+  {
     "id": "mtsh7h8kdfsh",
     "company": "中电科55所（南京电子器件研究所）",
     "role": "软件工程师",

@@ -495,4 +495,6 @@ CPU与NPU的结果只能说明模型部署后的加速效果，=={green}真正�
 
 太多**=={yellow}Cube和Vector频繁切换导致==**的**=={yellow}中间张量的GM和片内缓存搬移==**，以及**=={yellow}transData开销==**。
 
+性能分析总结
+
 ---

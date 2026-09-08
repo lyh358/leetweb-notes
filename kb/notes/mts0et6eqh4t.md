@@ -360,4 +360,10 @@ SPF_27B_10RB是用于5G基站L1信道估计的Transformer模型。
 >            ↓
 >       =={green}**得到本Transformer层输出**（16维）==
 
+=={green}Q、K、V分别表示：==
+
+- **=={pink}Q，Query，查询==**=={pink}：当前位置想寻找什么；==
+- **=={pink}K，Key，键==**=={pink}：其他位置具有什么特征；==
+- **=={pink}V，Value，值==**=={pink}：其他位置真正携带的信息。==
+
 ---

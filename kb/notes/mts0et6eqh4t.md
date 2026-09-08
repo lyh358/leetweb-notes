@@ -238,4 +238,10 @@ AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估
 
 ### =={yellow}第四阶段：自定义Kernel优化探索==
 
+- Host侧Tiling；
+- Ascend C设备端Kernel；
+- ONNX自定义节点与子图替换；
+- QK转置、Softmax和Value加权计算融合；
+- 多核Head并行、Ping-Pong双缓冲及片上数据复用方案
+
 ---

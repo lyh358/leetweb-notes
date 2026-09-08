@@ -758,3 +758,13 @@ ATC已经能够把第一次MatMul和Scale融合，但Softmax及其前后的格�
 >                                                                                            =={yellow}**Kernel 9：TransData，NZ→ND**==
 >                                                                                                              ↓
 >                                                                                                       最终输出
+
+=={green}真正完成Attention数学计算的主要是==：
+
+```undefined
+Kernel 4：QKᵀ + Scale
+Kernel 6：Softmax
+Kernel 8：Weight × V
+```
+
+=={green}其余大部分Kernel都在**处理数据格式和数据流转**。==

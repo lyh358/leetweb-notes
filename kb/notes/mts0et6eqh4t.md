@@ -131,7 +131,7 @@ AdapterNet主要处理TDD下行场景中的DMRS相关信息，为最终信道估
 
 =={yellow}端侧 NPU / 算力：==
 
-- 内存（SRAM/DRAM）很小；batch 越大，输入 feature map、中间张量占用内存**近似线性上涨**。
+- =={yellow}内存（SRAM/DRAM）很小；batch 越大==，输入 feature map、中间张量占用内存**近似线性上涨**。
 - batch=4，中间张量内存基本翻 4 倍，极易触发内存超限、频繁 DDR 搬运，反而变慢，甚至跑不起来。
 车载 SOC、手机 NPU 片上 SRAM 非常宝贵，大 batch 压力巨大。
 

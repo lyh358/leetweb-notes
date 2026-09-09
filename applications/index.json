@@ -1,5 +1,16 @@
 [
   {
+    "id": "mttt3dudxb3c",
+    "company": "中信科烽火通信研究院",
+    "role": "嵌入式软件工程师",
+    "location": "成都",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://www.fiberhome.com",
+    "created": 1788940683733,
+    "updated": 1788940683733
+  },
+  {
     "id": "mtts2puwahxi",
     "company": "船舶722所（武汉船舶通信研究所）",
     "role": "嵌入式软件工程师",

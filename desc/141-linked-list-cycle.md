@@ -38,7 +38,7 @@ public:
 
         while(slow!=fast)
         {
-            if(fast==nullptr || fast->next==nullptr)   //
+            if(fast==nullptr || fast->next==nullptr)   //注意点
             {
                 return false;
             }

@@ -92,11 +92,11 @@
     "company": "中国兵器工业第二十八所",
     "role": "电子信息工程师",
     "location": "北京",
-    "applied": false,
+    "applied": true,
     "stage": "准备投递",
     "website": "https://norincogroupzhaopin.zhiye.com",
     "created": 1789040212602,
-    "updated": 1789040212602
+    "updated": 1789040774549
   },
   {
     "id": "mtvgbc9m440p",

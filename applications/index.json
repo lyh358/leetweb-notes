@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtvgcmt6fk61",
+    "company": "中国兵器工业第二十八所",
+    "role": "电子信息工程师",
+    "location": "北京",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://norincogroupzhaopin.zhiye.com",
+    "created": 1789040212602,
+    "updated": 1789040212602
+  },
+  {
     "id": "mtvgbc9m440p",
     "company": "北方光电股份有限公司",
     "role": "嵌入式软件工程师",

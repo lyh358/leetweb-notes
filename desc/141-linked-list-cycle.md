@@ -38,7 +38,7 @@ public:
 
         while(slow!=fast)
         {
-            if(fast==nullptr || fast->next==nullptr)   //注意点：两个都是在fast的基础s
+            if(fast==nullptr || fast->next==nullptr)   //注意点：两个都是在fast的基础上判断，f'z
             {
                 return false;
             }

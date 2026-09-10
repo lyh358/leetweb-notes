@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtvghf9uw77w",
+    "company": "中国兵器工业集团有限公司",
+    "role": "电子设计（嵌入式软件）",
+    "location": "无锡",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://norincogroupzhaopin.zhiye.com",
+    "created": 1789040436114,
+    "updated": 1789040436114
+  },
+  {
     "id": "mtvggafum65a",
     "company": "兵器工业北京北方长无人机科技有限公司",
     "role": "嵌入式软件设计岗",

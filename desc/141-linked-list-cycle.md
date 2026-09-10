@@ -33,7 +33,7 @@ public:
         {
             return false;
         }
-        ListNode* fast=head->next;  //为了防止单节点
+        ListNode* fast=head->next;  //为了防止单节点，s'y
         ListNode* slow=head;
 
         while(slow!=fast)

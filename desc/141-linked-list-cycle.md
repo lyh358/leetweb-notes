@@ -33,7 +33,7 @@ public:
         {
             return false;
         }
-        ListNode* fast=head->next;
+        ListNode* fast=head->next;  //
         ListNode* slow=head;
 
         while(slow!=fast)

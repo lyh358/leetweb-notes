@@ -38,7 +38,7 @@ public:
 
         while(slow!=fast)
         {
-            if(fast==nullptr || fast->next==nullptr)   //注意点：两个都是在fast的基础上判断，f'z
+            if(fast==nullptr || fast->next==nullptr)   //注意点：两个都是在fast的基础上判断，fang'z
             {
                 return false;
             }

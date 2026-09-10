@@ -136,11 +136,11 @@
     "company": "兵器工业重庆长安望江工业集团有限公司",
     "role": "软件开发工程师-研发岗等",
     "location": "重庆",
-    "applied": false,
-    "stage": "准备投递",
+    "applied": true,
+    "stage": "简历筛选",
     "website": "https://norincogroupzhaopin.zhiye.com",
     "created": 1789039995506,
-    "updated": 1789039995506
+    "updated": 1789040794958
   },
   {
     "id": "mtvg6e013s8b",

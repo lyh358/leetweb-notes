@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtvl32wtt1wx",
+    "company": "中国移动智数事业部",
+    "role": "",
+    "location": "",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "",
+    "created": 1789048164989,
+    "updated": 1789048164989
+  },
+  {
     "id": "mtvgtc0b5nmj",
     "company": "工信部电子第五研究所（中国赛宝实验室）",
     "role": "嵌入式开发工程师",

@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtvg6e013s8b",
+    "company": "兵器工业201所（中国北方车辆研究所）",
+    "role": "软件工程研究-科研岗等",
+    "location": "北京",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://norincogroupzhaopin.zhiye.com",
+    "created": 1789039921249,
+    "updated": 1789039921249
+  },
+  {
     "id": "mtv87ol8htbu",
     "company": "兵器工业206所（西安电子工程研究所）",
     "role": "嵌入式软件设计师（机/车载雷达中心控制及数据处理技术）",
@@ -753,10 +764,10 @@
     "role": "芯片软件工程师",
     "location": "",
     "applied": true,
-    "stage": "已结束",
+    "stage": "一面",
     "website": "https://campus-talent.alibaba.com/personal/applications",
     "created": 1788196414377,
-    "updated": 1789032133087
+    "updated": 1788521113637
   },
   {
     "id": "mthhkjxkiw3b",

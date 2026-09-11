@@ -6,7 +6,7 @@
 
 # 一个哈希map，key为int，value为刚才的list的迭代器
 
-还有一个int型r'l
+还有一个int型容量ca
 
 # 三个成员函数：
 

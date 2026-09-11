@@ -3,7 +3,7 @@
 # 两个核心数据结构：
 
 ## 一个=={yellow}双向链表list==，里面存的=={green}元素是pair<int,int>==
-一个=={yellow}哈希map==，key为int，value为刚才的list的迭代器
+一个=={yellow}哈希map==，=={green}key为int，value为刚才的list的迭代器==
 还有一个=={yellow}int型容量==capacity
 
 # 三个成员函数：

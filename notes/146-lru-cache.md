@@ -7,4 +7,4 @@
 # 一个哈希map，key为int，value为刚才的list的迭代器
 
 三个成员函数：
-类to
+类同名构造函数

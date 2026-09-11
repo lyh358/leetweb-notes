@@ -2,4 +2,4 @@
 
 # 一个双向链表list，里面存的元素是pair<int,int>
 
-一个哈希map，cun
+一个哈希map，key为int

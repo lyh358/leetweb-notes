@@ -8,6 +8,6 @@
 
 # 三个成员函数：
 
-类同名构造函数LRUCache(int capacity)
+## 类同名构造函数LRUCache(int capacity)
 get获取值
 put存入值

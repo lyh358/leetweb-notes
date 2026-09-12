@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtxxlp30sedq",
+    "company": "优必选（机器人）",
+    "role": "嵌入式开发工程师(J18697)",
+    "location": "深圳",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://ubtrobot.zhiye.com/campus",
+    "created": 1789190121276,
+    "updated": 1789190121276
+  },
+  {
     "id": "mtxsvvejxuex",
     "company": "长安汽车",
     "role": "长安科技-智驾模型部署与性能优化(J28525)",

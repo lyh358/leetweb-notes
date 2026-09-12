@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtyj6snd6p6i",
+    "company": "中船第八研究院",
+    "role": "人工智能研发工程师",
+    "location": "南京",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://cssc.zhiye.com",
+    "created": 1789226377609,
+    "updated": 1789226377609
+  },
+  {
     "id": "mtyisl0m00al",
     "company": "中船719所（武汉第二船舶设计研究所）",
     "role": "科研设计岗-信息与通信工程",

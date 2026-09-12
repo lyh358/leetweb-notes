@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtyiqx4eh04f",
+    "company": "中船701所",
+    "role": "信息与通信工程",
+    "location": "武汉",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://cssc.zhaopin.com",
+    "created": 1789225636910,
+    "updated": 1789225636910
+  },
+  {
     "id": "mtyiq2i7pz5z",
     "company": "大连船舶重工集团有限公司",
     "role": "研发设计岗",

@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtyexh4cmw4q",
+    "company": "中船707所",
+    "role": "技术岗(J11863)",
+    "location": "天津|九江",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://cssc.zhiye.com",
+    "created": 1789219224300,
+    "updated": 1789219224300
+  },
+  {
     "id": "mtyewiv9zsbk",
     "company": "中船713所",
     "role": "软件研发工程师(J12031)",

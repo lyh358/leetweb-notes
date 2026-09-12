@@ -26,11 +26,11 @@
     "company": "大连船舶重工集团有限公司",
     "role": "研发设计岗",
     "location": "大连",
-    "applied": false,
+    "applied": true,
     "stage": "准备投递",
     "website": "https://cssc.zhaopin.com",
     "created": 1789225597231,
-    "updated": 1789225597231
+    "updated": 1789225781033
   },
   {
     "id": "mtyipa1b0vve",

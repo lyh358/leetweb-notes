@@ -15,11 +15,11 @@
     "company": "中船701所",
     "role": "信息与通信工程",
     "location": "武汉",
-    "applied": false,
+    "applied": true,
     "stage": "准备投递",
     "website": "https://cssc.zhaopin.com",
     "created": 1789225636910,
-    "updated": 1789225636910
+    "updated": 1789225773170
   },
   {
     "id": "mtyiq2i7pz5z",

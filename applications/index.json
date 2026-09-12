@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtyku0o9p60h",
+    "company": "中船725所（洛阳船舶材料研究所）",
+    "role": "软件开发工程师（北京）",
+    "location": "北京",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://cssc.zhaopin.com",
+    "created": 1789229140713,
+    "updated": 1789229140713
+  },
+  {
     "id": "mtykt5yntc1x",
     "company": "中船717所（华中光电技术研究所）",
     "role": "嵌入式软件研发",

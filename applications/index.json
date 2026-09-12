@@ -1,5 +1,16 @@
 [
   {
+    "id": "mtykr1mfjgec",
+    "company": "705所（西安精密机械研究所）",
+    "role": "嵌入式软件技术研发（705昆明）",
+    "location": "昆明",
+    "applied": false,
+    "stage": "准备投递",
+    "website": "https://cssc.zhaopin.com",
+    "created": 1789229001975,
+    "updated": 1789229001975
+  },
+  {
     "id": "mtykq4lrodyp",
     "company": "中船703所（哈尔滨船舶锅炉涡轮机研究所）",
     "role": "软件开发工程师",

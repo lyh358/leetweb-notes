@@ -11,3 +11,38 @@
 > 空间：\(O(k)\)，堆最多存 k 个节点。
 
 ---
+
+## 伪代码【优先队列版本】
+
+```
+// 链表节点定义
+ListNode {
+    int val
+    ListNode next
+}
+
+function mergeKLists(lists):
+    // 小根堆：存ListNode*，按val从小到大
+    minHeap = 优先队列(比较规则：a.val < b.val)
+    
+    // 先把所有非空链表头入堆
+    for each head in lists:
+        if head != null:
+            minHeap.push(head)
+    
+    // 虚拟头结点，方便构建结果链表
+    dummy = ListNode(0)
+    cur = dummy
+    
+    while 堆不为空:
+        // 取出最小值节点
+        topNode = minHeap.pop()
+        cur.next = topNode
+        cur = cur.next
+        
+        // 该链表还有后续节点，继续入堆
+        if topNode.next != null:
+            minHeap.push(topNode.next)
+    
+    return dummy.next
+```

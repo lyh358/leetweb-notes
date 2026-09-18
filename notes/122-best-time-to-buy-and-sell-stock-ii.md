@@ -17,6 +17,6 @@ class Solution {public:    int maxProfit(vector<int>& prices) {
 
 ---
 
-```
-class Solution {public:    int maxProfit(vector<int>& prices) {        int maxSell = 0;        int minBuy = INT_MAX;        for(auto price:prices)        {            minBuy = min(minBuy,price);            maxSell = max(maxSell,price - minBuy);        }        return maxSell;    }};
+```cpp
+
 ```

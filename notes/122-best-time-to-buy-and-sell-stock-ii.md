@@ -1,6 +1,6 @@
 ```cpp
-class Solution {public:    int maxProfit(vector<int>& prices) {
-        int max_sell=0;                //处理一下边界条件
+股票IIclass Solution {public:    int maxProfit(vector<int>& prices) {
+        int max_sell=0;         //处理一下边界条件
         if(prices.size()<2)  return 0;
         //简单的贪婪：只要今天卖出有收益，那就卖一次
         for(int i = 1;i<prices.size();i++)
@@ -12,13 +12,7 @@ class Solution {public:    int maxProfit(vector<int>& prices) {
         }
         return max_sell;
     }
-};
-```
-
----
-
-```cpp
-class Solution {
+};买卖股票Iclass Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int maxSell = 0;

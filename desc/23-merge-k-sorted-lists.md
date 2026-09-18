@@ -49,8 +49,8 @@ public:
 
         return dummy.next;
     }
-};一个坑
+};
 ```
 
-普通内置类型：priority_queue<int,vector<int>,greater<int>> 直接小根堆 ✔
+一个坑普通内置类型：priority_queue<int,vector<int>,greater<int>> 直接小根堆 ✔
 自定义结构体 / 指针：greater 不能直接拿来用，要自己定义比较规则 ✔

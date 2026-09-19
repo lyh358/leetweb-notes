@@ -1,5 +1,28 @@
-# 
+# 数组法
 
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        ListNode* cur = head;
+        vector<int> ans;
+
+        while(cur!=nullptr)
+        {
+            ans.push_back(cur->val);
+            cur=cur->next;
+        }
+        sort(ans.begin(),ans.end());
+
+        ListNode* dummy = new ListNode(0);
+        cur=dummy;
+        for(auto num:ans)
+        {
+            cur->next = new ListNode(num);
+            cur=cur->next;
+        }
+        return dummy->next;
+    }
+};
 # 面试解法：归并排序
 
 ```rust

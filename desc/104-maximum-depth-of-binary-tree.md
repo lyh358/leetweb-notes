@@ -1,3 +1,6 @@
+
+
+```
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
@@ -9,3 +12,4 @@ public:
         return max(maxL,maxR) + 1;
     }
 };
+```

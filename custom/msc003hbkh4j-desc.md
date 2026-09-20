@@ -7,7 +7,7 @@ void quickSort(int arr[], int l, int r) {
     int i = l;
     // 分区：把 <= pivot 的放左边
     for (int j = l; j < r; j++) {
-        if (arr[j] <= pivot) {
+        if (arr[j] <= baseline) {
             swap(arr[i], arr[j]);
             i++;
         }

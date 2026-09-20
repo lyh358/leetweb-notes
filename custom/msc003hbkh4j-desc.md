@@ -12,7 +12,7 @@ void quickSort(int arr[], int l, int r) {
             i++;
         }
     }
-    swap(arr[i], arr[r]); // pivot放到分割点
+    swap(arr[i], arr[r]); // baseline放到分割点
     // 递归左右两部分
     quickSort(arr, l, i - 1);
     quickSort(arr, i + 1, r);

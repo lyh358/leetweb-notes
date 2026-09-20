@@ -5,7 +5,7 @@ void quickSort(int arr[], int l, int r) {
 
     int baseline = arr[r]; // 选最右元素作为基准
     int i = l;
-    // 分区：把 <=  的放左边
+    // 分区：把 <= baseline 的放左边
     for (int j = l; j < r; j++) {
         if (arr[j] <= baseline) {
             swap(arr[i], arr[j]);

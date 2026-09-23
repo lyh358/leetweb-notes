@@ -73,7 +73,7 @@
 - 优点：比Transformer小，时延可控。
 - 风险：长程依赖弱；高动态下误差会累积，需要滑动窗口+置信度/滤波。
 
-### C. 大规模MIMO/空间相关强：2D空间CNN、注意力、Transformer、GNN
+### =={green}C. 大规模MIMO/空间相关强：2D空间CNN、注意力、Transformer、GNN==
 
 - 适用：Massive MIMO、TDD大规模天线、空频联合强相关；高速场景还要注意多普勒维。
 - 结构：把天线-子载波看成2D/3D张量；先用局部CNN提特征，再用少量Transformer层建模长程空频依赖。你简历中用Transformer是合理的，因为Attention能学习“哪些天线/子载波/导频符号彼此相关”，但端侧必须做静态Shape、Head并行、算子融合。
